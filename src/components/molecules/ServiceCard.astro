@@ -1,13 +1,13 @@
 ---
 import Icon from '../atoms/Icon.astro';
-interface Props { number: string; title: string; description: string; items: string[]; tech: string; }
-const { number, title, description, items, tech } = Astro.props;
+interface Props { number: string; title: string; description: string; items: string[]; tech: string; icon?: string; }
+const { number, title, description, items, tech, icon = 'layers' } = Astro.props;
 ---
 <article class="service-card" data-reveal="up">
   <div class="service-card__accent"></div>
   <div class="service-card__top">
-    <span class="service-card__number">{number}</span>
-    <span class="service-card__mark">+</span>
+    <span class="service-card__icon"><Icon name={icon as any} size={20} /></span>
+    <span class="service-card__number">STEP {number}</span>
   </div>
   <h3>{title}</h3>
   <p>{description}</p>

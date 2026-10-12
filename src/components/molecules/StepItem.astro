@@ -1,14 +1,14 @@
 ---
-interface Props { number: string; title: string; description: string; isLast?: boolean }
-const { number, title, description, isLast = false } = Astro.props;
+import Icon from '../atoms/Icon.astro';
+interface Props { number: string; title: string; description: string; icon?: string; outcome?: string }
+const { number, title, description, icon = 'layers', outcome } = Astro.props;
 ---
-<div class="step" data-reveal="left">
-  <div class="step__body">
-    <div class="step__marker">
-      <span class="step__number">{number}</span>
-      {!isLast && <span class="step__connector"></span>}
-    </div>
-    <h3>{title}</h3>
-    <p>{description}</p>
-  </div>
-</div>
+<article class="step" data-reveal="up">
+  <header class="step__top">
+    <span class="step__icon"><Icon name={icon as any} size={22} /></span>
+    <span class="step__ghost" aria-hidden="true">{number}</span>
+  </header>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  {outcome && <span class="step__outcome"><Icon name="check" size={13} />{outcome}</span>}
+</article>
