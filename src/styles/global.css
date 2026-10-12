@@ -55,12 +55,12 @@ body{background:var(--paper);font-family:Inter,system-ui,-apple-system,"Segoe UI
 .header-inner{height:74px;gap:20px}
 .wordmark{gap:12px;transition:transform .4s var(--ease)}
 .wordmark:hover{transform:translateY(-1px)}
-.wordmark__mark{width:50px;height:50px;border-radius:16px;background:#111a2d;display:grid;place-items:center;box-shadow:0 8px 18px -5px rgba(17,26,45,.35);position:relative;overflow:hidden;flex-shrink:0;transition:box-shadow .4s var(--ease),transform .5s var(--ease)}
+.wordmark__mark{width:34px;height:34px;border-radius:0;background:transparent;display:grid;place-items:center;box-shadow:none;position:relative;overflow:hidden;flex-shrink:0;transition:transform .5s var(--ease)}
 .wordmark__mark:after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
 .wordmark:hover .wordmark__mark{transform:rotate(-6deg) scale(1.06);box-shadow:0 10px 22px -4px rgba(17,26,45,.45)}
 .wordmark:hover .wordmark__mark:after{transform:translateX(120%)}
 .wordmark__text{display:flex;line-height:1;white-space:nowrap}
-.wordmark__name{font-weight:700;font-size:24px;letter-spacing:-.04em;color:#111a2d}
+.wordmark__name{font-weight:700;font-size:18px;letter-spacing:-.04em;color:#111a2d}
 .wordmark__name strong{color:#12b9df;font-weight:700}
 .wordmark:hover .wordmark__name{color:#111a2d}
 .wordmark__platforms{display:flex;align-items:center;gap:6px;margin-left:8px}
@@ -89,8 +89,8 @@ body{background:var(--paper);font-family:Inter,system-ui,-apple-system,"Segoe UI
 .mobile-nav a:hover,.mobile-nav a:active{background:rgba(70,123,241,.08);color:#16234d}
 .mobile-nav .btn{margin-top:10px;justify-content:center}
 @media(max-width:1040px){.desktop-nav{display:none}.header-action{display:none}.menu-toggle{display:grid}}
-@media(max-width:560px){.wordmark__platforms{display:none}.wordmark__name{font-size:20px}}
-@media(max-width:420px){.header-inner{height:66px}.wordmark__name{font-size:18px}.wordmark__mark{width:42px;height:42px;border-radius:13px}.wordmark__mark svg{transform:scale(.85)}}
+@media(max-width:560px){.wordmark__platforms{display:none}.wordmark__name{font-size:17px}}
+@media(max-width:420px){.header-inner{height:66px}.wordmark__name{font-size:16px}.wordmark__mark{width:30px;height:30px}.wordmark__mark svg{transform:scale(.85)}}
 
 
 .hero-illustration img{filter:drop-shadow(0 24px 30px rgba(38,74,170,.18));transition:transform .7s var(--ease),filter .7s var(--ease)}.hero-illustration:hover img{transform:translateY(-10px) scale(1.025);filter:drop-shadow(0 32px 38px rgba(38,74,170,.26)) saturate(1.08)}
