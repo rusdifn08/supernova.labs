@@ -1,0 +1,16 @@
+---
+import Icon from '../atoms/Icon.astro';
+interface Props { label: string; title: string; description: string; features: string[]; href: string; dark?: boolean }
+const { label, title, description, features, href, dark = false } = Astro.props;
+---
+<article class={`engagement-card${dark ? ' engagement-card--dark' : ''}`} data-reveal="up">
+  <span class="card-label">{label}</span>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <ul class="engagement-card__features">
+    {features.map((f) => <li><Icon name="check" size={14} />{f}</li>)}
+  </ul>
+  <a class="engagement-card__cta" href={href} target="_blank" rel="noopener noreferrer">
+    <span>Mulai diskusi</span><Icon name="arrow" size={16} />
+  </a>
+</article>

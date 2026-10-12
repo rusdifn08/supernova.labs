@@ -1,0 +1,8 @@
+---
+interface Props { variant?: 'stack' | 'services' | 'method' | 'principles' | 'engagement' | 'faq' | 'stats' | 'contact' }
+const { variant = 'stack' } = Astro.props;
+const assets = { stack: 'foundation.svg', services: 'services.svg', method: 'method.svg', principles: 'principles.svg', engagement: 'engagement.svg', faq: 'faq.svg', stats: 'stats.svg', contact: 'contact.svg' };
+---
+<div class={`section-art section-art--${variant}`} data-reveal="scale">
+  <img src={`/illustrations/${assets[variant]}`} alt="" width="560" height="360" loading="lazy" decoding="async" />
+</div>

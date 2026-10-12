@@ -1,0 +1,38 @@
+---
+import { contact } from '../../config/contact';
+import { navigation } from '../../config/navigation';
+import { site } from '../../config/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="wordmark wordmark--footer" href="/"><span>SUPERNOVA</span><small>LABS / STUDIO</small></a>
+        <p>{site.description}</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col__title">Navigasi</span>
+          {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+        <div class="footer-col">
+          <span class="footer-col__title">Layanan</span>
+          <a href="#layanan">Web Ecosystems</a>
+          <a href="#layanan">Mobile Products</a>
+          <a href="#layanan">Desktop Systems</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col__title">Kontak</span>
+          <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer">{contact.displayPhone}</a>
+          <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <span>Jakarta, Indonesia</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {year} {site.name}. All rights reserved.</span>
+      <span>Engineering digital systems for meaningful scale.</span>
+    </div>
+  </div>
+</footer>

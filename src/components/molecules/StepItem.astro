@@ -1,0 +1,14 @@
+---
+interface Props { number: string; title: string; description: string; isLast?: boolean }
+const { number, title, description, isLast = false } = Astro.props;
+---
+<div class="step" data-reveal="left">
+  <div class="step__body">
+    <div class="step__marker">
+      <span class="step__number">{number}</span>
+      {!isLast && <span class="step__connector"></span>}
+    </div>
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</div>

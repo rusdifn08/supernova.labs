@@ -1,0 +1,10 @@
+---
+import Icon from '../atoms/Icon.astro';
+interface Props { value: number; suffix?: string; label: string; icon: string }
+const { value, suffix = '', label, icon } = Astro.props;
+---
+<div class="stat-card" data-reveal="scale">
+  <span class="stat-card__icon"><Icon name={icon as any} size={22} /></span>
+  <span class="stat-card__value" data-counter={value} data-suffix={suffix}>0{suffix}</span>
+  <span class="stat-card__label">{label}</span>
+</div>

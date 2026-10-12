@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  href: string;
+  variant?: 'primary' | 'outline' | 'dark' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  icon?: 'arrow' | 'whatsapp';
+  target?: string;
+}
+const { href, variant = 'primary', size = 'md', icon, target = '_blank' } = Astro.props;
+---
+<a class={`btn btn--${variant} btn--${size}`} href={href} target={target} rel="noopener noreferrer">
+  <span class="btn__label"><slot /></span>
+  {icon && <span class="btn__icon"><Icon name={icon} size={18} /></span>}
+</a>

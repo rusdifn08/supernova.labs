@@ -1,0 +1,18 @@
+---
+import SectionHeading from '../molecules/SectionHeading.astro';
+import ServiceCard from '../molecules/ServiceCard.astro';
+import SectionArt from '../atoms/SectionArt.astro';
+const services = [
+  { number: '01', title: 'Website', description: 'Website modern yang memperkuat brand, menjelaskan value, dan mengubah pengunjung menjadi pelanggan.', items: ['Company profile & landing page', 'Web app dan dashboard SaaS', 'E-commerce dan portal pelanggan'], tech: 'Astro · React · Node.js' },
+  { number: '02', title: 'Mobile Apps', description: 'Aplikasi iOS dan Android yang nyaman digunakan, stabil, dan terhubung dengan sistem bisnis Anda.', items: ['Aplikasi customer & membership', 'Order, delivery, dan field operation', 'Integrasi payment dan notifikasi'], tech: 'Flutter · React Native · PostgreSQL' },
+  { number: '03', title: 'Desktop Apps', description: 'Aplikasi desktop untuk operasional yang membutuhkan performa, keamanan, dan akses data yang konsisten.', items: ['POS dan inventory offline-first', 'Aplikasi internal perusahaan', 'Tools produktivitas dan automation'], tech: 'Tauri · Electron · Go' }
+];
+---
+<section class="section section--blue" id="layanan">
+  <div class="container">
+    <div class="section-intro"><SectionHeading eyebrow="02 / Core services" title="Every platform. One technology partner." description="Mulai dari website yang menjual, aplikasi mobile yang dekat dengan pelanggan, sampai desktop app untuk operasional—kami mengerjakan semuanya dalam satu alur yang terintegrasi." /><SectionArt variant="services" /></div>
+    <div class="services-grid" data-stagger>
+      {services.map((service) => <ServiceCard {...service} />)}
+    </div>
+  </div>
+</section>

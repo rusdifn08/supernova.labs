@@ -1,0 +1,16 @@
+---
+import SectionHeading from '../molecules/SectionHeading.astro';
+import EngagementCard from '../molecules/EngagementCard.astro';
+import SectionArt from '../atoms/SectionArt.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
+const wa = getWhatsAppUrl();
+---
+<section class="section" id="model">
+  <div class="container">
+    <div class="section-intro"><SectionHeading eyebrow="05 / Engagement" title="A working model that follows your business rhythm." description="Fleksibilitas tanpa kekacauan. Pilih model yang sesuai dengan fase dan kebutuhan tim Anda." /><SectionArt variant="engagement" /></div>
+    <div class="engagement-grid" data-stagger>
+      <EngagementCard label="MODEL A / FIXED SCOPE" title="Project-Based" description="Untuk produk dengan scope yang jelas. Anggaran dan target rilis disepakati sejak awal." features={['Harga tetap', 'Timeline jelas', 'Handover penuh']} href={wa} />
+      <EngagementCard label="MODEL B / CONTINUOUS" title="Dedicated Team" description="Tim engineering bulanan untuk startup yang membutuhkan kapasitas tanpa rekrutmen panjang." features={['Tim bulanan', 'Frontend + Backend + PM', 'Prioritas fleksibel']} href={wa} dark />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+---
+const items = ['ASTRO', 'TYPESCRIPT', 'NODE.JS', 'POSTGRESQL', 'DOCKER', 'GO', 'TAILWIND', 'REDIS', 'AWS', 'FLUTTER', 'TAURI'];
+const doubled = [...items, ...items];
+---
+<div class="marquee">
+  <div class="marquee__track">
+    {doubled.map((item) => <span class="marquee__item">{item}<span class="marquee__dot"></span></span>)}
+  </div>
+</div>

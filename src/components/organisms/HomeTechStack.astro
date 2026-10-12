@@ -1,0 +1,26 @@
+---
+import SectionHeading from '../molecules/SectionHeading.astro';
+import TechItem from '../molecules/TechItem.astro';
+import SectionArt from '../atoms/SectionArt.astro';
+const techGroups = [
+  [{name:'React',cat:'UI'},{name:'Astro',cat:'Meta'},{name:'TypeScript',cat:'Lang'},{name:'Tailwind',cat:'CSS'}],
+  [{name:'Node.js',cat:'Runtime'},{name:'Go',cat:'Lang'},{name:'PostgreSQL',cat:'DB'},{name:'Redis',cat:'Cache'}],
+  [{name:'Docker',cat:'Container'},{name:'AWS',cat:'Cloud'},{name:'Cloudflare',cat:'Edge'},{name:'GitHub',cat:'CI/CD'}]
+];
+---
+<section class="section" id="stack">
+  <div class="container">
+    <div class="section-intro"><SectionHeading eyebrow="01 / Foundation" title="Technology is never decoration." description="Kami memilih stack berdasarkan konteks produk, kebutuhan tim, dan biaya jangka panjang—bukan tren sesaat." /><SectionArt variant="stack" /></div>
+    <div class="tech-blocks" data-stagger>
+      {techGroups.map((group, i) => (
+        <div class="tech-block">
+          <span class="tech-block__label">{['FRONTEND','BACKEND','DELIVERY'][i]}</span>
+          <div class="tech-block__items">
+            {group.map((t) => <TechItem name={t.name} category={t.cat} />)}
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="tech-footnote" data-reveal="up">Standar teknologi yang sama digunakan oleh perusahaan Fortune 500 untuk sistem mission-critical.</p>
+  </div>
+</section>

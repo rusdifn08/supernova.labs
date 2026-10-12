@@ -1,0 +1,5 @@
+---
+interface Props { label: string; tone?: 'blue' | 'light' | 'dark'; }
+const { label, tone = 'blue' } = Astro.props;
+---
+<span class={`badge badge--${tone}`}>{label}</span>

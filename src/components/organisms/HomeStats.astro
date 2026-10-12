@@ -1,0 +1,15 @@
+---
+import StatCard from '../molecules/StatCard.astro';
+import SectionArt from '../atoms/SectionArt.astro';
+---
+<section class="section section--stats">
+  <div class="container">
+    <div class="stats-intro"><p class="eyebrow"><span class="eyebrow__line"></span>Signal / Performance</p><SectionArt variant="stats" /></div>
+    <div class="stats-grid" data-stagger>
+      <StatCard value={100} suffix="%" label="Lighthouse target score" icon="bolt" />
+      <StatCard value={3} label="Platform: Web, Mobile, Desktop" icon="layers" />
+      <StatCard value={15} suffix="m" label="Maximum WhatsApp response" icon="clock" />
+      <StatCard value={5} label="Structured methodology stages" icon="target" />
+    </div>
+  </div>
+</section>

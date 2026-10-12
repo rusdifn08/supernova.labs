@@ -1,0 +1,20 @@
+---
+import SectionHeading from '../molecules/SectionHeading.astro';
+import StepItem from '../molecules/StepItem.astro';
+import SectionArt from '../atoms/SectionArt.astro';
+const steps = [
+  ['01', 'Requirement Engineering', 'Kami membedah alur bisnis, skema data, dan risiko sebelum satu baris kode ditulis. Output: system flow & database schema.'],
+  ['02', 'Fidelity Prototyping', 'Anda menguji rancangan interaktif di Figma sebelum development dimulai. Tidak ada kejutan visual di akhir proyek.'],
+  ['03', 'Sprint Development', 'Siklus mingguan dengan akses staging environment real-time. Anda memantau progres, bukan menunggu kabar.'],
+  ['04', 'Penetration & QA', 'Pengujian beban, audit keamanan, dan kompatibilitas lintas perangkat sebelum produk menyentuh pengguna nyata.'],
+  ['05', 'Handover & Training', 'Source code mutlak, dokumentasi API, dan pelatihan staf Anda. Tim Anda memahami sistem yang dibangun.']
+];
+---
+<section class="section" id="metodologi">
+  <div class="container">
+    <div class="section-intro"><SectionHeading eyebrow="03 / Method" title="Clean upfront. Fast behind the scenes." description="Proses transparan mengurangi kejutan, mengunci arah, dan membuat setiap rupiah development punya alasan." /><SectionArt variant="method" /></div>
+    <div class="steps" data-stagger>
+      {steps.map(([number, title, description], i) => <StepItem number={number} title={title} description={description} isLast={i === steps.length - 1} />)}
+    </div>
+  </div>
+</section>

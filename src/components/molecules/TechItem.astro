@@ -1,0 +1,8 @@
+---
+interface Props { name: string; category: string }
+const { name, category } = Astro.props;
+---
+<div class="tech-item" data-reveal="scale">
+  <span class="tech-item__name">{name}</span>
+  <span class="tech-item__cat">{category}</span>
+</div>

@@ -1,0 +1,29 @@
+---
+import Button from '../atoms/Button.astro';
+import Icon from '../atoms/Icon.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
+const wa = getWhatsAppUrl();
+---
+<section class="hero section-grid">
+  <div class="hero-blob" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow" data-reveal="up"><span class="status-dot"></span> All-in-one digital studio</p>
+      <h1 data-reveal="up">Build <em>Apps for Business.</em></h1>
+      <p class="hero-lead" data-reveal="up">Satu tim untuk membuat Website, Mobile Apps, dan Desktop Apps yang cepat, aman, dan dirancang untuk kebutuhan bisnis Anda.</p>
+      <div class="hero-actions" data-reveal="up">
+        <Button href={wa} size="lg" icon="arrow">Start your project</Button>
+        <a class="text-link" href="#layanan">Explore our services <Icon name="arrow" size={16} /></a>
+      </div>
+      <div class="trust-line" data-reveal="up">
+        <span><Icon name="globe" size={14} /> Berbasis di Indonesia</span>
+        <span><Icon name="clock" size={14} /> Respons &lt; 15 menit</span>
+      </div>
+    </div>
+    <div class="hero-illustration" data-reveal="scale">
+      <img src="/illustrations/supernova-hero.svg" alt="Tim Supernova Labs membangun produk digital" width="720" height="600" />
+      <span class="illustration-tag illustration-tag--top">BUILD / 001</span>
+      <span class="illustration-tag illustration-tag--bottom">WEB · MOBILE · DESKTOP</span>
+    </div>
+  </div>
+</section>

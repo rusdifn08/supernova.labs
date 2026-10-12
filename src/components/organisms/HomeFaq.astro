@@ -1,0 +1,21 @@
+---
+import SectionHeading from '../molecules/SectionHeading.astro';
+import FaqItem from '../molecules/FaqItem.astro';
+const faqs = [
+  ['Apakah kami perlu memiliki spesifikasi teknis sebelum menghubungi?', 'Tidak. Tugas kami justru menerjemahkan ide bisnis Anda menjadi spesifikasi teknis. Bawa masalah dan tujuan Anda—sisanya kami urus dalam sesi requirement engineering.'],
+  ['Berapa lama proses development typically?', 'MVP umumnya 4–8 minggu tergantung kompleksitas. Setelah requirement engineering, kami memberikan estimasi timeline yang detail dan terikat.'],
+  ['Apakah source code diserahkan sepenuhnya?', 'Ya. Source code, dokumentasi API, dan akses repository diserahkan tanpa biaya tambahan. Tidak ada vendor lock-in.'],
+  ['Bagaimana jika kami butuh maintenance setelah rilis?', 'Kami menawarkan model dedicated team untuk ongoing support, atau Anda dapat mengelola sendiri berkat dokumentasi dan pelatihan yang diserahkan.'],
+  ['Teknologi apa yang digunakan dan bisakah kami request stack tertentu?', 'Kami menggunakan stack enterprise modern (Astro, TypeScript, Node.js, Go, PostgreSQL, Flutter, Tauri). Permintaan stack spesifik dapat didiskusikan selama konsultasi.']
+];
+---
+<section class="section section--paper" id="faq">
+  <div class="container faq-layout">
+    <div class="faq-sidebar">
+      <SectionHeading eyebrow="06 / FAQ" title="Frequently asked questions." description="Jawaban langsung untuk kekhawatiran yang umum dari klien B2B sebelum memulai proyek." />
+    </div>
+    <div class="faq-list" data-stagger>
+      {faqs.map(([q, a]) => <FaqItem question={q} answer={a} />)}
+    </div>
+  </div>
+</section>
