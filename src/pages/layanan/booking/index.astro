@@ -188,153 +188,200 @@ import '../../../styles/app-software.css';
     </div>
 
     <!-- ====================================================================== -->
-    <!-- 2. FULL SAAS APPLICATION DASHBOARD (UNLOCKED AFTER AUTHENTICATION)      -->
+    <!-- 2. FULL SAAS APPLICATION WORKSPACE (SIDEBAR & ANTI-MAINSTREAM CARDS)  -->
     <!-- ====================================================================== -->
-    <div id="appDashboard" class="app-dashboard-wrapper is-hidden">
-      <!-- Dedicated SaaS App Top Header -->
-      <header class="app-header">
-        <div class="app-header-left">
-          <div class="app-header-brand">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <div id="appDashboard" class="app-workspace is-hidden">
+      <!-- 1. LEFT VERTICAL SIDEBAR DOCK (MATCHING IMAGE 2) -->
+      <aside class="app-sidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-brand-mark" title="Supernova Booking OS">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.3">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Vertical Icon Nav with Floating Tooltips -->
+        <nav class="sidebar-nav">
+          <button type="button" class="sidebar-nav-item is-active" data-tab="schedule" title="Kalender & Slot Matrix">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
               <line x1="16" y1="2" x2="16" y2="6"></line>
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            <span>Supernova Booking OS</span>
-          </div>
-
-          <div class="header-divider-v"></div>
-
-          <!-- DYNAMIC UNIQUE TENANT CODE (KODE UNIK AKUN) -->
-          <div class="tenant-unique-badge" title="Kode Unik Identitas Akun Bisnis Anda">
-            <span class="badge-dot"></span>
-            <span class="tenant-label">KODE BISNIS:</span>
-            <strong class="tenant-code-val" id="headerTenantCode">#SNV-8942-BKG</strong>
-          </div>
-
-          <!-- Direct Link to Customer Booking Page (Tanpa Login) -->
-          <a href="/layanan/booking/supernova" target="_blank" rel="noopener" class="header-public-link-pill" id="headerPublicLinkPill" title="Buka Halaman Pemesanan Pelanggan Tanpa Login (Sesuai Slug Bisnis)">
-            <span>🌐 /layanan/booking/</span><strong id="headerSlugText">supernova</strong>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          </a>
-
-          <div class="header-biz-info">
-            <span id="headerBizName">Garuda Sport Arena</span>
-            <span class="biz-city" id="headerBizCity">(Jakarta Selatan)</span>
-          </div>
-        </div>
-
-        <div class="app-header-right">
-          <span class="db-live-tag">
-            <span class="badge-dot"></span>
-            <span>Neon Cloud DB Live</span>
-          </span>
-
-          <button type="button" class="btn-header-cta" id="btnHeaderAddBooking">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-            <span>+ Reservasi Cepat</span>
+            <span class="nav-tooltip">Slot Matrix</span>
           </button>
 
-          <button type="button" class="btn-header-logout" id="btnHeaderShareLink" title="Salin link publik untuk disebarkan ke WhatsApp atau Bio Instagram">
-            <span>📋 Salin Link</span>
+          <button type="button" class="sidebar-nav-item" data-tab="reservations" title="Database Reservasi Realtime">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span class="nav-tooltip">Reservasi</span>
           </button>
 
-          <button type="button" class="btn-header-logout" id="btnHeaderLogout">
-            <span>Keluar</span>
+          <button type="button" class="sidebar-nav-item" data-tab="new-booking" title="Form Walk-In Booking">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span class="nav-tooltip">Walk-In</span>
           </button>
 
-          <a href="/" class="btn-header-logout" style="text-decoration: none;" title="Kembali ke portal landing page">
-            <span>← Web Utama</span>
-          </a>
-        </div>
-      </header>
+          <button type="button" class="sidebar-nav-item" data-tab="facilities" title="Sarana & Fasilitas">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span class="nav-tooltip">Sarana</span>
+          </button>
 
-      <!-- App Sub-Navigation Tabs Bar -->
-      <nav class="app-subnav-bar">
-        <div class="app-nav-tabs">
-          <button type="button" class="app-tab-btn is-active" data-tab="schedule">
-            <span>📅 Kalender &amp; Slot Matrix</span>
+          <button type="button" class="sidebar-nav-item" data-tab="public-portal" title="Portal Booking Publik Pelanggan">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span class="nav-tooltip">Portal Publik</span>
           </button>
-          <button type="button" class="app-tab-btn" data-tab="reservations">
-            <span>📋 Database Reservasi</span>
+
+          <button type="button" class="sidebar-nav-item" data-tab="reports" title="Laporan & Buku Kas">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span class="nav-tooltip">Laporan</span>
           </button>
-          <button type="button" class="app-tab-btn" data-tab="new-booking">
-            <span>➕ Form Walk-In Booking</span>
-          </button>
-          <button type="button" class="app-tab-btn" data-tab="facilities">
-            <span>🏟️ Sarana &amp; Fasilitas</span>
-          </button>
-          <button type="button" class="app-tab-btn" data-tab="public-portal">
-            <span>🌐 Portal Booking Publik</span>
-          </button>
-          <button type="button" class="app-tab-btn" data-tab="reports">
-            <span>📊 Laporan &amp; Buku Kas</span>
+        </nav>
+
+        <!-- Sidebar Bottom: Avatar / Logout -->
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-avatar-btn" id="btnSidebarAvatar" title="Profil Akun & Keluar">
+            <span class="avatar-circle">RH</span>
           </button>
         </div>
+      </aside>
 
-        <div class="app-subnav-actions">
-          <button type="button" class="btn-app-primary" style="padding: 6px 12px; font-size: 12.5px;" id="btnSyncDb">
-            <span>🔄 Sinkron Database</span>
-          </button>
-          <button type="button" class="btn-instant-pill" style="padding: 6px 12px; font-size: 12.5px;" id="btnExportCsvTop">
-            <span>⬇ Unduh CSV</span>
-          </button>
-        </div>
-      </nav>
-
-      <!-- Main Operational Canvas -->
-      <main class="app-main-canvas">
-        <!-- Live Metric Cards Grid -->
-        <div class="app-metrics-grid">
-          <div class="app-metric-card">
-            <div class="metric-card-top">
-              <div class="metric-header-left">
-                <div class="metric-icon-box metric-icon--blue">📅</div>
-                <span class="m-label">Total Reservasi</span>
+      <!-- 2. MAIN BODY AREA (LIGHT & PROFESSIONAL) -->
+      <div class="app-main-body">
+        <!-- Integrated Light Top Shelf Header (Matching Image 2) -->
+        <header class="app-top-shelf">
+          <div class="shelf-left">
+            <div class="shelf-welcome">
+              <h1 class="welcome-title">
+                <span>Selamat Datang, </span><span id="headerBizName">Garuda Sport Arena</span>
+              </h1>
+              <div class="welcome-meta">
+                <span id="currentDateLabel">Rabu, 21 Oktober 2026</span>
+                <span class="meta-dot">·</span>
+                <span class="meta-code-pill" title="Kode Unik Akun Bisnis">KODE: <strong id="headerTenantCode">#SNV-8942-BKG</strong></span>
+                <span class="meta-dot">·</span>
+                <span class="meta-city" id="headerBizCity">Jakarta Selatan</span>
               </div>
-              <span class="m-badge m-badge--blue" id="mBadgeStatus">Realtime</span>
             </div>
-            <span class="m-value" id="mTotalCount">3</span>
-            <span class="m-sub">Sesi aktif terdaftar di cloud DB</span>
           </div>
 
-          <div class="app-metric-card">
-            <div class="metric-card-top">
-              <div class="metric-header-left">
-                <div class="metric-icon-box metric-icon--green">💵</div>
-                <span class="m-label">Estimasi Omset</span>
-              </div>
-              <span class="m-badge m-badge--green">Terkonfirmasi</span>
-            </div>
-            <span class="m-value m-value--blue" id="mTotalRevenue">Rp 790.000</span>
-            <span class="m-sub">Nilai kontrak sewa keseluruhan</span>
+          <div class="shelf-right">
+            <!-- Direct Customer Booking Link Pill -->
+            <a href="/layanan/booking/supernova" target="_blank" rel="noopener" class="top-slug-link" id="headerPublicLinkPill" title="Buka Halaman Pemesanan Pelanggan (Tanpa Login)">
+              <span>🌐 /layanan/booking/</span><strong id="headerSlugText">supernova</strong>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+
+            <button type="button" class="btn-shelf-action" id="btnHeaderShareLink" title="Salin Link Booking Pelanggan">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Salin Link</span>
+            </button>
+
+            <button type="button" class="btn-shelf-primary" id="btnHeaderAddBooking">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>+ Reservasi Cepat</span>
+            </button>
+
+            <button type="button" class="btn-shelf-ghost" id="btnHeaderLogout" title="Keluar dari akun bisnis">
+              Keluar
+            </button>
+
+            <a href="/" class="btn-shelf-ghost" style="text-decoration: none;" title="Kembali ke landing page">
+              ← Web Utama
+            </a>
+          </div>
+        </header>
+
+        <!-- Main Content Canvas -->
+        <main class="app-canvas-container">
+          <!-- Category Filter Pills (Like Image 2) -->
+          <div class="shelf-category-pills">
+            <button type="button" class="cat-pill is-active" data-cat="all">Semua Sarana</button>
+            <button type="button" class="cat-pill" data-cat="futsal">⚽ Lapangan Futsal FIFA</button>
+            <button type="button" class="cat-pill" data-cat="badminton">🏸 Badminton Karpet BWF</button>
+            <button type="button" class="cat-pill" data-cat="studio">📸 Studio Foto VIP</button>
+            <button type="button" class="cat-pill" data-cat="barber">✂️ Kursi Barber Master</button>
+            <button type="button" class="cat-pill" data-cat="gaming">🎮 VIP Gaming Lounge</button>
           </div>
 
-          <div class="app-metric-card">
-            <div class="metric-card-top">
-              <div class="metric-header-left">
-                <div class="metric-icon-box metric-icon--purple">🛡️</div>
-                <span class="m-label">Down Payment (DP)</span>
+          <!-- 4 ANTI-MAINSTREAM STAT CARDS (EXACT COMPOSITION AS IMAGE 2) -->
+          <section class="anti-cards-grid">
+            <!-- CARD 1: HERO VIBRANT BLUE CARD (Sales Today Style) -->
+            <div class="anti-card anti-card--hero">
+              <div class="anti-card-top">
+                <span class="anti-card-title">Omset Reservasi Hari Ini</span>
+                <div class="anti-hero-badge">
+                  <span>↑ +18.4%</span>
+                </div>
               </div>
-              <span class="m-badge m-badge--green">Terverifikasi</span>
+              <div class="anti-card-value" id="mTotalRevenue">Rp 1.450.000</div>
+              <div class="anti-card-sub">Nilai transaksi jadwal aktif terkonfirmasi</div>
+              <div class="anti-card-watermark">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </div>
             </div>
-            <span class="m-value m-value--green" id="mTotalDp">Rp 385.000</span>
-            <span class="m-sub">Dana uang muka masuk kas</span>
-          </div>
 
-          <div class="app-metric-card">
-            <div class="metric-card-top">
-              <div class="metric-header-left">
-                <div class="metric-icon-box metric-icon--amber">📈</div>
-                <span class="m-label">Utilisasi Sarana</span>
+            <!-- CARD 2: WHITE MINIMALIST ORDERS CARD -->
+            <div class="anti-card">
+              <div class="anti-card-top">
+                <span class="anti-card-title">Total Reservasi</span>
+                <div class="anti-pill-badge anti-pill-badge--green">
+                  <span>+4.7%</span>
+                </div>
               </div>
-              <span class="m-badge m-badge--blue" id="mOccupancyBadge">Okupansi</span>
+              <div class="anti-card-value" id="mTotalCount">8</div>
+              <div class="anti-card-sub">Sesi aktif tersinkron cloud database</div>
             </div>
-            <span class="m-value" id="mOccupancy">65%</span>
-            <span class="m-sub">Rasio slot jam terisi hari ini</span>
-          </div>
-        </div>
+
+            <!-- CARD 3: WHITE MINIMALIST DOWN PAYMENT CARD -->
+            <div class="anti-card">
+              <div class="anti-card-top">
+                <span class="anti-card-title">Down Payment (DP)</span>
+                <div class="anti-pill-badge anti-pill-badge--blue">
+                  <span>Terverifikasi</span>
+                </div>
+              </div>
+              <div class="anti-card-value" id="mTotalDp">Rp 725.000</div>
+              <div class="anti-card-sub">Dana uang muka masuk kas venue</div>
+            </div>
+
+            <!-- CARD 4: WHITE MINIMALIST OCCUPANCY CARD -->
+            <div class="anti-card">
+              <div class="anti-card-top">
+                <span class="anti-card-title">Okupansi Sarana</span>
+                <div class="anti-pill-badge anti-pill-badge--purple">
+                  <span id="mOccupancyBadge">Optimal</span>
+                </div>
+              </div>
+              <div class="anti-card-value" id="mOccupancy">72%</div>
+              <div class="anti-card-sub">Rasio slot waktu terisi hari ini</div>
+            </div>
+          </section>
 
         <!-- ================================================================ -->
         <!-- TAB 1: KALENDER & SLOT WAKTU                                     -->
@@ -702,6 +749,7 @@ import '../../../styles/app-software.css';
         </div>
       </main>
     </div>
+  </div>
 
     <!-- CLIENT SCRIPT -->
     <script>
@@ -1523,8 +1571,8 @@ import '../../../styles/app-software.css';
         addFacDrawer?.classList.add('is-hidden');
       });
 
-      // 16. Tab Navigation
-      const appTabs = document.querySelectorAll('.app-tab-btn');
+      // 16. Sidebar & Tab Navigation
+      const appTabs = document.querySelectorAll('.sidebar-nav-item, .app-tab-btn');
       appTabs.forEach((tab) => {
         tab.addEventListener('click', () => {
           appTabs.forEach((t) => t.classList.remove('is-active'));
@@ -1540,6 +1588,32 @@ import '../../../styles/app-software.css';
           if (target === 'public-portal') document.getElementById('tabContentPublicPortal')?.classList.remove('is-hidden');
           if (target === 'reports') document.getElementById('tabContentReports')?.classList.remove('is-hidden');
         });
+      });
+
+      // Category Pills Filter (Matching Image 2)
+      document.querySelectorAll('.cat-pill').forEach((pill) => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.cat-pill').forEach((p) => p.classList.remove('is-active'));
+          pill.classList.add('is-active');
+          const cat = pill.getAttribute('data-cat') || 'all';
+          if (matrixFacilitySelect) {
+            if (cat === 'all') {
+              matrixFacilitySelect.selectedIndex = 0;
+            } else {
+              const opts = Array.from(matrixFacilitySelect.options);
+              const found = opts.find((opt) => opt.text.toLowerCase().includes(cat));
+              if (found) matrixFacilitySelect.value = found.value;
+            }
+            renderSlotMatrix();
+          }
+        });
+      });
+
+      // Sidebar Avatar Quick Logout
+      document.getElementById('btnSidebarAvatar')?.addEventListener('click', () => {
+        if (confirm('Apakah Anda ingin keluar dari akun bisnis ini?')) {
+          btnHeaderLogout?.click();
+        }
       });
 
       // Action buttons
