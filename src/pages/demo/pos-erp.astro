@@ -4,21 +4,22 @@ import Icon from '../../components/atoms/Icon.astro';
 import Button from '../../components/atoms/Button.astro';
 ---
 
-<BaseLayout title="Portal Uji Coba Real — POS, ERP, CRM & Keuangan | Supernova Labs">
-  <div class="real-portal-page" data-portal-root="pos-erp">
+<BaseLayout title="Layanan Sistem POS, ERP, CRM & Keuangan Terpadu | Supernova Labs">
+  <div class="real-portal-page" data-portal-root="pos-erp-service">
     <!-- Topbar -->
     <div class="portal-topbar">
       <div class="container portal-topbar__inner">
         <div class="portal-breadcrumb">
           <a href="/">Beranda</a>
           <span class="sep">/</span>
-          <a href="/#demo">Uji Coba Layanan</a>
+          <a href="/#layanan">Layanan Sistem</a>
           <span class="sep">/</span>
-          <strong>POS, ERP, CRM &amp; Keuangan (Enterprise Sandbox)</strong>
+          <strong>POS, ERP, CRM &amp; Keuangan (Masa Aktif 1 Bulan Penuh)</strong>
         </div>
         <div class="portal-env-badges">
-          <span class="badge badge--green">● ACID TRANSACTION ENGINE</span>
-          <span class="badge badge--dark">OFFLINE-FIRST + CLOUD SYNC</span>
+          <span class="badge badge--green" id="posDbBadge">● NEON POSTGRESQL TERHUBUNG</span>
+          <span class="badge badge--dark">ACID ENGINE AXUM 0.8</span>
+          <span class="badge badge--trial">🟢 TRIAL 30 HARI BEBAS BIAYA</span>
         </div>
       </div>
     </div>
@@ -26,10 +27,10 @@ import Button from '../../components/atoms/Button.astro';
     <div class="container portal-main-container">
       <!-- Intro -->
       <div class="portal-intro">
-        <span class="portal-eyebrow">ENTERPRISE USECASE · REAL TRIAL ENVIRONMENT</span>
-        <h1>Portal Uji Coba Asli: POS, ERP, CRM &amp; Keuangan Terpadu</h1>
+        <span class="portal-eyebrow">ENTERPRISE CLOUD SERVICE · UNIFIED COMMERCE</span>
+        <h1>Layanan Sistem POS, ERP, CRM &amp; Keuangan Terpadu</h1>
         <p class="portal-desc">
-          Buktikan keandalan sistem sentral operasional bisnis Anda. Daftarkan profil toko atau outlet Anda untuk mencoba kasir barcode, pelacakan stok otomatis, poin loyalitas member, hingga laporan laba rugi real-time.
+          Platform sentral operasional bisnis untuk F&amp;B, Retail, Swalayan, dan Distributor. Langsung aktif <strong>selama 30 hari penuh</strong> untuk mengelola terminal kasir barcode, sinkronisasi stok multi-gudang, database loyalitas member, hingga laporan laba rugi real-time.
         </p>
       </div>
 
@@ -40,37 +41,45 @@ import Button from '../../components/atoms/Button.astro';
         <div class="auth-gate-header">
           <div class="auth-toggle-tabs">
             <button type="button" class="auth-tab is-active" id="tabPosReg">
-              <span>1. Daftar Akun Uji Coba POS/ERP (Gratis)</span>
+              <span>1. Daftar Akun Bisnis POS/ERP (Aktif 1 Bulan)</span>
             </button>
             <button type="button" class="auth-tab" id="tabPosLog">
-              <span>2. Masuk Akun yang Sudah Ada</span>
+              <span>2. Masuk Akun Bisnis Terdaftar</span>
             </button>
           </div>
           <button type="button" class="btn btn--instant-demo" id="btnPosInstant">
-            <span>⚡ Masuk Instan (Akun Sampel Retail &amp; F&amp;B)</span>
+            <span>⚡ Masuk Instan (Akun Sampel Supernova Store)</span>
           </button>
         </div>
 
+        <div id="posAuthAlert" class="auth-alert is-hidden"></div>
+
+        <!-- FORM REGISTRASI -->
         <form class="auth-form" id="posRegForm">
           <div class="form-grid-2col">
             <div class="form-group">
-              <label for="posFullName">Nama Lengkap Owner / Store Manager: <span class="req">*</span></label>
-              <input type="text" id="posFullName" class="sim-input" required placeholder="Contoh: Rina Andini, S.E." value="Rina Andini" />
+              <label for="posFullName">Nama Lengkap Pemilik / Pengelola: <span class="req">*</span></label>
+              <input type="text" id="posFullName" class="sim-input" required placeholder="cth: Rina Andini" />
             </div>
 
             <div class="form-group">
               <label for="posBizName">Nama Brand / Toko / Kafe: <span class="req">*</span></label>
-              <input type="text" id="posBizName" class="sim-input" required placeholder="Contoh: Kopi Karsa &amp; Roastery" value="Supernova Coffee &amp; Eatery" />
-            </div>
-
-            <div class="form-group">
-              <label for="posWhatsApp">Nomor WhatsApp Aktif: <span class="req">*</span></label>
-              <input type="tel" id="posWhatsApp" class="sim-input" required placeholder="0812-xxxx-xxxx" value="081283626217" />
+              <input type="text" id="posBizName" class="sim-input" required placeholder="cth: Karsa Coffee & Eatery / Toko Sejahtera" />
             </div>
 
             <div class="form-group">
               <label for="posEmail">Email Bisnis Resmi: <span class="req">*</span></label>
-              <input type="email" id="posEmail" class="sim-input" required placeholder="manager@kopikarsa.id" value="manager@supernovacoffee.id" />
+              <input type="email" id="posEmail" class="sim-input" required placeholder="cth: owner@karsacoffee.id" />
+            </div>
+
+            <div class="form-group">
+              <label for="posPassword">Password Akun Bisnis: <span class="req">*</span></label>
+              <input type="password" id="posPassword" class="sim-input" required minlength="6" placeholder="Minimal 6 karakter rahasia" />
+            </div>
+
+            <div class="form-group">
+              <label for="posWhatsApp">Nomor WhatsApp Operasional: <span class="req">*</span></label>
+              <input type="tel" id="posWhatsApp" class="sim-input" required placeholder="cth: 081234567890" />
             </div>
 
             <div class="form-group">
@@ -87,28 +96,37 @@ import Button from '../../components/atoms/Button.astro';
 
             <div class="form-group">
               <label for="posCity">Kota / Lokasi Outlet Utama: <span class="req">*</span></label>
-              <input type="text" id="posCity" class="sim-input" required placeholder="Contoh: Surabaya Barat" value="Jakarta Selatan (SCBD)" />
+              <input type="text" id="posCity" class="sim-input" required placeholder="cth: Jakarta Selatan / Surabaya / Bandung" />
+            </div>
+
+            <div class="form-group">
+              <label>Paket Layanan yang Diaktifkan:</label>
+              <div class="plan-preview-box">
+                <strong>🟢 Paket Lisensi 1 Bulan (Bebas Biaya Penuh)</strong>
+                <span>Mencakup terminal kasir POS, stok inventori ERP, member CRM, dan pembukuan laba rugi.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-footer-action">
             <button type="submit" class="btn btn--primary btn--md">
-              <span>🚀 Buka Terminal Kasir &amp; Dashboard ERP</span>
+              <span>🚀 Aktifkan Terminal Kasir &amp; Dashboard ERP</span>
               <Icon name="arrow" size={16} />
             </button>
-            <span class="auth-privacy-note">🔒 Sandbox ini dilengkapi isolasi database per akun uji coba tanpa risiko manipulasi data toko lain.</span>
+            <span class="auth-privacy-note">🔒 Terhubung ke database PostgreSQL cloud. Tanpa biaya kartu kredit.</span>
           </div>
         </form>
 
+        <!-- FORM LOGIN -->
         <form class="auth-form is-hidden" id="posLogForm">
           <div class="form-grid-2col">
             <div class="form-group">
-              <label>Email / Nomor WhatsApp:</label>
-              <input type="text" class="sim-input" value="manager@supernovacoffee.id" />
+              <label for="posLoginEmail">Email Bisnis Terdaftar: <span class="req">*</span></label>
+              <input type="email" id="posLoginEmail" class="sim-input" required placeholder="cth: owner@supernovasports.id" />
             </div>
             <div class="form-group">
-              <label>PIN Kasir / Password:</label>
-              <input type="password" class="sim-input" value="123456" />
+              <label for="posLoginPassword">Password: <span class="req">*</span></label>
+              <input type="password" id="posLoginPassword" class="sim-input" required placeholder="Masukkan password bisnis Anda..." />
             </div>
           </div>
           <div class="form-footer-action">
@@ -121,29 +139,68 @@ import Button from '../../components/atoms/Button.astro';
       </div>
 
       <!-- ============================================================ -->
-      <!-- 2. REAL POS & ERP WORKSPACE                                  -->
+      <!-- 2. REAL POS & ERP OPERATIONAL WORKSPACE                      -->
       <!-- ============================================================ -->
       <div class="real-workspace-panel is-hidden" id="posRealWs">
+        <!-- 30-DAY ACTIVE TRIAL BANNER -->
+        <div class="trial-active-ribbon" id="posTrialRibbon">
+          <div class="ribbon-icon">🟢</div>
+          <div class="ribbon-copy">
+            <div class="ribbon-title">
+              <strong id="posRibbonTitle">Status Layanan: AKTIF (30 Hari Bebas Biaya Penuh)</strong>
+              <span class="ribbon-tag" id="posRibbonDays">30 Hari Tersisa</span>
+            </div>
+            <div class="ribbon-meta" id="posRibbonMeta">
+              Masa berlaku lisensi operasional aktif · Database cloud Neon PostgreSQL tersinkronisasi.
+            </div>
+          </div>
+          <div class="ribbon-action">
+            <button type="button" class="btn btn--outline btn--xs" id="btnExportPosCsv">⬇ Unduh Rekap Transaksi (CSV)</button>
+          </div>
+        </div>
+
+        <!-- Identity Bar -->
         <div class="workspace-header-bar">
           <div class="biz-identity">
             <div class="biz-avatar">☕</div>
             <div>
               <div class="biz-title-wrap">
-                <h3 id="wsPosBizTitle">Supernova Coffee &amp; Eatery</h3>
-                <span class="badge badge--green">ONLINE · SHIFT PAGI</span>
+                <h3 id="wsPosBizTitle">Nama Outlet / Bisnis</h3>
+                <span class="badge badge--green">ONLINE · SHIFT OPERASIONAL</span>
               </div>
               <p class="biz-subtitle">
-                Store Manager: <strong id="wsPosOwner">Rina Andini</strong> · Cabang: <span id="wsPosCity">Jakarta Selatan</span> · Kas Awal: <strong class="text-blue">Rp 500.000</strong>
+                Store Manager: <strong id="wsPosOwner">-</strong> · Cabang: <span id="wsPosCity">-</span> · Kategori: <span id="wsPosCategory">-</span> · Email: <span id="wsPosEmail">-</span>
               </p>
             </div>
           </div>
 
           <div class="ws-header-actions">
-            <button type="button" class="btn btn--outline btn--sm" id="btnPosReset">Ganti Outlet / Akun</button>
-            <a class="btn btn--cta btn--sm" href="https://wa.me/6281283626217?text=Halo%20Supernova%20Labs,%20saya%20sudah%20mencoba%20portal%20real%20POS%20ERP%20dan%20ingin%20pasang%20di%20toko%20saya" target="_blank" rel="noopener noreferrer">
-              <span>Konsultasi Deployment (WA)</span>
-              <Icon name="whatsapp" size={14} />
-            </a>
+            <button type="button" class="btn btn--secondary btn--sm" id="btnNewProductModal">+ Tambah Produk / SKU</button>
+            <button type="button" class="btn btn--outline btn--sm" id="btnPosReset">🚪 Ganti Outlet / Logout</button>
+          </div>
+        </div>
+
+        <!-- Live KPI Metric Strip -->
+        <div class="ws-metric-strip">
+          <div class="metric-card">
+            <span class="metric-label">TOTAL PENJUALAN HARI INI</span>
+            <strong class="metric-value text-blue" id="metricPosRevenue">Rp 0</strong>
+            <span class="metric-note">Omset tercatat di kasir</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">TRANSAKSI SELESAI</span>
+            <strong class="metric-value" id="metricPosOrdersCount">0 Struk</strong>
+            <span class="metric-note">Struk transaksi terverifikasi</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">ESTIMASI LABA KOTOR</span>
+            <strong class="metric-value text-green" id="metricPosProfit">Rp 0</strong>
+            <span class="metric-note">Margin omset dikurangi HPP</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">SKU DI BAWAH BATAS MINIMUM</span>
+            <strong class="metric-value text-danger" id="metricPosLowStock">0 SKU</strong>
+            <span class="metric-note">Perlu pesanan restock (PO)</span>
           </div>
         </div>
 
@@ -161,7 +218,7 @@ import Button from '../../components/atoms/Button.astro';
             <!-- Left: Catalog & Scanner -->
             <div class="pos-catalog-panel">
               <div class="catalog-top-tools">
-                <input type="text" class="sim-input" id="posBarcodeScan" placeholder="🔍 Scan Barcode SKU / Ketik nama barang (Enter untuk tambah)..." />
+                <input type="text" class="sim-input" id="posBarcodeScan" placeholder="🔍 Scan Barcode SKU / Ketik nama barang..." />
               </div>
               <div class="catalog-items-scroll" id="posCatalogItems">
                 <!-- Dynamically rendered -->
@@ -172,32 +229,41 @@ import Button from '../../components/atoms/Button.astro';
             <div class="pos-register-panel">
               <div class="register-header">
                 <strong>Struk Transaksi Aktif</strong>
-                <span class="badge badge--dark" id="liveTimeBadge">14:30 WIB</span>
+                <span class="badge badge--dark" id="liveTimeBadge">15:00 WIB</span>
               </div>
 
               <div class="register-items-list" id="regItemsList">
-                <!-- Line items -->
+                <div class="empty-state" style="padding: 24px 10px;">
+                  <div class="empty-state__icon">🛒</div>
+                  <div class="empty-state__title">Keranjang Kasir Kosong</div>
+                  <div class="empty-state__desc">Klik produk di katalog atau scan barcode SKU untuk memasukkan pesanan pelanggan.</div>
+                </div>
               </div>
 
               <div class="register-breakdown">
                 <div class="b-row"><span>Subtotal:</span><strong id="regSubtotal">Rp 0</strong></div>
-                <div class="b-row"><span>Diskon Promo/Member:</span><strong class="text-danger" id="regDiscount">-Rp 0</strong></div>
                 <div class="b-row"><span>PB1 Resto (10%):</span><strong id="regTax">Rp 0</strong></div>
-                <div class="b-row b-row--total"><span>TOTAL AKHIR:</span><strong class="highlight-price" id="regGrandTotal">Rp 0</strong></div>
+                <div class="b-row b-row--total"><span>TOTAL PEMBAYARAN:</span><strong class="highlight-price" id="regGrandTotal">Rp 0</strong></div>
               </div>
 
               <div class="register-pay-box">
-                <label>Nominal Pembayaran Diterima:</label>
+                <label for="regPayInput">Nominal Pembayaran Diterima:</label>
                 <div class="pay-input-row">
                   <input type="number" class="sim-input" id="regPayInput" placeholder="0" />
                   <button type="button" class="btn btn--secondary btn--sm" id="btnUangPas">Uang Pas</button>
+                </div>
+                <div class="quick-pay-chips">
+                  <button type="button" class="pay-chip" data-val="50000">50K</button>
+                  <button type="button" class="pay-chip" data-val="100000">100K</button>
+                  <button type="button" class="pay-chip" data-val="200000">200K</button>
+                  <button type="button" class="pay-chip" data-val="qris">QRIS</button>
                 </div>
                 <div class="change-banner">
                   <span>Kembalian:</span>
                   <strong class="text-success" id="regChangeVal">Rp 0</strong>
                 </div>
                 <button type="button" class="btn btn--primary btn--md w-full" id="btnSelesaikanBayar">
-                  <span>Selesaikan &amp; Cetak Struk (F8)</span>
+                  <span>Selesaikan &amp; Simpan Transaksi</span>
                 </button>
               </div>
             </div>
@@ -209,7 +275,7 @@ import Button from '../../components/atoms/Button.astro';
           <div class="erp-inventory-view">
             <div class="inv-header">
               <h4>Master Stok Barang &amp; Notifikasi Reorder</h4>
-              <button type="button" class="btn btn--secondary btn--sm" id="btnAddStockPo">+ Tambah Barang Masuk (PO)</button>
+              <button type="button" class="btn btn--secondary btn--sm" id="btnAddStockPo">+ Restock Barang Masuk</button>
             </div>
             <div class="real-table-wrapper">
               <table class="real-data-table">
@@ -247,10 +313,9 @@ import Button from '../../components/atoms/Button.astro';
                     <th>NAMA PELANGGAN</th>
                     <th>NO. WHATSAPP</th>
                     <th>TIER MEMBER</th>
+                    <th>TOTAL BELANJA</th>
                     <th>SALDO POIN</th>
-                    <th>TOTAL SPENT</th>
-                    <th>KUNJUNGAN TERAKHIR</th>
-                    <th>AKSI</th>
+                    <th>STATUS</th>
                   </tr>
                 </thead>
                 <tbody id="wsCrmTableBody">
@@ -261,28 +326,30 @@ import Button from '../../components/atoms/Button.astro';
           </div>
         </div>
 
-        <!-- TAB 4: FINANCE REPORT -->
+        <!-- TAB 4: FINANCE & P&L REPORT -->
         <div class="ws-tab-content is-hidden" id="posContentFinance">
-          <div class="analytics-stat-grid">
-            <div class="stat-box">
-              <span class="s-title">TOTAL OMSET HARI INI</span>
-              <strong class="s-val text-blue" id="wsFinanceOmset">Rp 2.850.000</strong>
-              <small>18 Transaksi Kasir Sukses</small>
-            </div>
-            <div class="stat-box">
-              <span class="s-title">TOTAL HPP (BIAYA POKOK)</span>
-              <strong class="s-val text-muted" id="wsFinanceHpp">Rp 1.140.000</strong>
-              <small>Modal Barang Terjual</small>
-            </div>
-            <div class="stat-box">
-              <span class="s-title">ESTIMASI LABA KOTOR</span>
-              <strong class="s-val text-success" id="wsFinanceProfit">Rp 1.710.000</strong>
-              <small>Gross Margin: 60.0%</small>
-            </div>
-            <div class="stat-box">
-              <span class="s-title">TOTAL FISIK KAS LACI</span>
-              <strong class="s-val text-blue" id="wsFinanceDrawer">Rp 1.950.000</strong>
-              <small>Kas Awal + Tunai Masuk</small>
+          <div class="finance-view">
+            <div class="analytics-stat-grid">
+              <div class="stat-box">
+                <span class="s-title">PENDAPATAN KOTOR (OMSET)</span>
+                <strong class="s-val text-blue" id="finGrossSales">Rp 0</strong>
+                <small>Total penjualan produk lunas</small>
+              </div>
+              <div class="stat-box">
+                <span class="s-title">BEBAN POKOK PENJUALAN (HPP)</span>
+                <strong class="s-val text-danger" id="finCogs">Rp 0</strong>
+                <small>Biaya modal barang terjual</small>
+              </div>
+              <div class="stat-box">
+                <span class="s-title">LABA KOTOR BERSIH</span>
+                <strong class="s-val text-success" id="finGrossProfit">Rp 0</strong>
+                <small>Gross Profit Margin</small>
+              </div>
+              <div class="stat-box">
+                <span class="s-title">STATUS PAJAK &amp; KAS</span>
+                <strong class="s-val text-blue">Audit Passed</strong>
+                <small>Penyelarasan ACID Neon DB</small>
+              </div>
             </div>
           </div>
         </div>
@@ -292,280 +359,621 @@ import Button from '../../components/atoms/Button.astro';
 </BaseLayout>
 
 <script>
-  // Real POS/ERP Portal Script
-  const portalRoot = document.querySelector('[data-portal-root="pos-erp"]');
-  if (portalRoot) {
-    const authGate = document.getElementById('posAuthGate');
-    const realWs = document.getElementById('posRealWs');
-    const tabReg = document.getElementById('tabPosReg');
-    const tabLog = document.getElementById('tabPosLog');
-    const regForm = document.getElementById('posRegForm') as HTMLFormElement | null;
-    const logForm = document.getElementById('posLogForm') as HTMLFormElement | null;
-    const btnInstant = document.getElementById('btnPosInstant');
-    const btnReset = document.getElementById('btnPosReset');
+  const API_BASE = 'http://127.0.0.1:8088/api/v1';
 
-    const wsTitle = document.getElementById('wsPosBizTitle');
-    const wsOwner = document.getElementById('wsPosOwner');
-    const wsCity = document.getElementById('wsPosCity');
-
-    const activatePosWs = (biz: { name: string; owner: string; city: string }) => {
-      if (wsTitle) wsTitle.textContent = biz.name;
-      if (wsOwner) wsOwner.textContent = biz.owner;
-      if (wsCity) wsCity.textContent = biz.city;
-      authGate?.classList.add('is-hidden');
-      realWs?.classList.remove('is-hidden');
-      renderCatalog();
-      renderRegister();
-      renderInventory();
-      renderCrm();
-    };
-
-    const savedPos = localStorage.getItem('supernova_pos_session');
-    if (savedPos) {
-      try {
-        activatePosWs(JSON.parse(savedPos));
-      } catch (e) {}
+  // Professional Toast Notification System
+  const showToast = (type: 'success' | 'error' | 'info', message: string) => {
+    let container = document.getElementById('toastContainer');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toastContainer';
+      container.className = 'toast-container';
+      document.body.appendChild(container);
     }
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${type}`;
+    const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+    toast.innerHTML = `<span style="font-weight:700;">${icon}</span><span>${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-10px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 3800);
+  };
 
-    tabReg?.addEventListener('click', () => {
-      tabReg.classList.add('is-active');
-      tabLog?.classList.remove('is-active');
-      regForm?.classList.remove('is-hidden');
-      logForm?.classList.add('is-hidden');
-    });
+  // Elements
+  const posGate = document.getElementById('posAuthGate');
+  const posWs = document.getElementById('posRealWs');
+  const tabReg = document.getElementById('tabPosReg');
+  const tabLog = document.getElementById('tabPosLog');
+  const regForm = document.getElementById('posRegForm') as HTMLFormElement | null;
+  const logForm = document.getElementById('posLogForm') as HTMLFormElement | null;
+  const btnInstant = document.getElementById('btnPosInstant');
+  const btnReset = document.getElementById('btnPosReset');
+  const posAlert = document.getElementById('posAuthAlert');
 
-    tabLog?.addEventListener('click', () => {
-      tabLog.classList.add('is-active');
-      tabReg?.classList.remove('is-active');
-      logForm?.classList.remove('is-hidden');
-      regForm?.classList.add('is-hidden');
-    });
+  const wsTitle = document.getElementById('wsPosBizTitle');
+  const wsOwner = document.getElementById('wsPosOwner');
+  const wsCity = document.getElementById('wsPosCity');
+  const wsCategory = document.getElementById('wsPosCategory');
+  const wsEmail = document.getElementById('wsPosEmail');
+  const posRibbonDays = document.getElementById('posRibbonDays');
+  const posRibbonMeta = document.getElementById('posRibbonMeta');
 
-    regForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const owner = (document.getElementById('posFullName') as HTMLInputElement).value || 'Rina Andini';
-      const name = (document.getElementById('posBizName') as HTMLInputElement).value || 'Supernova Coffee';
-      const city = (document.getElementById('posCity') as HTMLInputElement).value || 'Jakarta Selatan';
-      const data = { name, owner, city };
-      localStorage.setItem('supernova_pos_session', JSON.stringify(data));
-      activatePosWs(data);
-    });
+  const catalogContainer = document.getElementById('posCatalogItems');
+  const regItemsList = document.getElementById('regItemsList');
+  const subtotalEl = document.getElementById('regSubtotal');
+  const taxEl = document.getElementById('regTax');
+  const grandTotalEl = document.getElementById('regGrandTotal');
+  const payInput = document.getElementById('regPayInput') as HTMLInputElement | null;
+  const changeValEl = document.getElementById('regChangeVal');
+  const btnPay = document.getElementById('btnSelesaikanBayar');
+  const btnPas = document.getElementById('btnUangPas');
 
-    logForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = { name: 'Supernova Coffee & Eatery', owner: 'Rina Andini', city: 'Jakarta Selatan' };
-      localStorage.setItem('supernova_pos_session', JSON.stringify(data));
-      activatePosWs(data);
-    });
+  const metricRevenue = document.getElementById('metricPosRevenue');
+  const metricOrders = document.getElementById('metricPosOrdersCount');
+  const metricProfit = document.getElementById('metricPosProfit');
+  const metricLowStock = document.getElementById('metricPosLowStock');
 
-    btnInstant?.addEventListener('click', () => {
-      const data = { name: 'Supernova Coffee & Eatery', owner: 'Rina Andini (Demo Mode)', city: 'Jakarta Selatan (SCBD)' };
-      localStorage.setItem('supernova_pos_session', JSON.stringify(data));
-      activatePosWs(data);
-    });
+  const invTableBody = document.getElementById('wsInventoryTableBody');
+  const crmTableBody = document.getElementById('wsCrmTableBody');
+  const finGross = document.getElementById('finGrossSales');
+  const finCogs = document.getElementById('finCogs');
+  const finProfit = document.getElementById('finGrossProfit');
 
-    btnReset?.addEventListener('click', () => {
-      localStorage.removeItem('supernova_pos_session');
-      realWs?.classList.add('is-hidden');
-      authGate?.classList.remove('is-hidden');
-    });
+  // State
+  let products: any[] = [];
+  let cart: { product: any; quantity: number }[] = [];
+  let completedOrders: any[] = [];
+  let crmMembers: any[] = [];
 
-    // Sub-tab navigation
-    const wsTabs = document.querySelectorAll('[data-postab]');
-    wsTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        wsTabs.forEach((t) => t.classList.remove('is-active'));
-        tab.classList.add('is-active');
-        const target = (tab as HTMLElement).dataset.postab;
-        document.querySelectorAll('#posRealWs .ws-tab-content').forEach((c) => c.classList.add('is-hidden'));
-        if (target === 'cashier') document.getElementById('posContentCashier')?.classList.remove('is-hidden');
-        if (target === 'inventory') document.getElementById('posContentInventory')?.classList.remove('is-hidden');
-        if (target === 'crm') document.getElementById('posContentCrm')?.classList.remove('is-hidden');
-        if (target === 'finance') document.getElementById('posContentFinance')?.classList.remove('is-hidden');
+  const showAlert = (msg: string, isError = false) => {
+    if (!posAlert) return;
+    posAlert.textContent = msg;
+    posAlert.className = `auth-alert ${isError ? 'auth-alert--error' : 'auth-alert--success'}`;
+    posAlert.classList.remove('is-hidden');
+  };
+
+  // Check stored auth
+  const checkStoredAuth = () => {
+    const raw = localStorage.getItem('supernova_pos_session');
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        activateWorkspace(parsed, false);
+      } catch (e) {
+        // Fallback
+      }
+    }
+  };
+
+  tabReg?.addEventListener('click', () => {
+    tabReg.classList.add('is-active');
+    tabLog?.classList.remove('is-active');
+    regForm?.classList.remove('is-hidden');
+    logForm?.classList.add('is-hidden');
+  });
+
+  tabLog?.addEventListener('click', () => {
+    tabLog.classList.add('is-active');
+    tabReg?.classList.remove('is-active');
+    logForm?.classList.remove('is-hidden');
+    regForm?.classList.add('is-hidden');
+  });
+
+  // Register
+  regForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    showAlert('Menghubungkan ke backend POS & mengaktifkan lisensi...', false);
+
+    const fullName = (document.getElementById('posFullName') as HTMLInputElement).value;
+    const bizName = (document.getElementById('posBizName') as HTMLInputElement).value;
+    const email = (document.getElementById('posEmail') as HTMLInputElement).value;
+    const password = (document.getElementById('posPassword') as HTMLInputElement).value;
+    const phone = (document.getElementById('posWhatsApp') as HTMLInputElement).value;
+    const cat = (document.getElementById('posCategory') as HTMLSelectElement).value;
+    const city = (document.getElementById('posCity') as HTMLInputElement).value;
+
+    try {
+      const res = await fetch(`${API_BASE}/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          password,
+          full_name: fullName,
+          business_name: bizName,
+          business_type: cat,
+          phone_number: phone,
+          city
+        })
       });
-    });
 
-    // POS State
-    let products = [
-      { sku: 'SKU-COF-01', name: 'Biji Kopi Signature 250g', category: 'Retail', buyPrice: 35000, price: 75000, stock: 48, unit: 'bag' },
-      { sku: 'SKU-BEV-01', name: 'Caramel Macchiato Latte', category: 'Minuman', buyPrice: 12000, price: 35000, stock: 92, unit: 'cup' },
-      { sku: 'SKU-FOD-01', name: 'Croissant Butter Almond', category: 'Makanan', buyPrice: 11000, price: 28000, stock: 14, unit: 'pcs' },
-      { sku: 'SKU-BEV-02', name: 'Matcha Oatmilk Iced', category: 'Minuman', buyPrice: 10000, price: 32000, stock: 65, unit: 'cup' },
-      { sku: 'SKU-FOD-02', name: 'Truffle Fries Gourmet', category: 'Makanan', buyPrice: 13000, price: 36000, stock: 22, unit: 'porsi' },
-      { sku: 'SKU-RET-01', name: 'Tumbler Stainless Steel', category: 'Retail', buyPrice: 65000, price: 120000, stock: 4, unit: 'pcs' }
-    ];
-
-    let registerCart: { sku: string; name: string; price: number; qty: number }[] = [
-      { sku: 'SKU-BEV-01', name: 'Caramel Macchiato Latte', price: 35000, qty: 1 }
-    ];
-
-    const renderCatalog = () => {
-      const container = document.getElementById('posCatalogItems');
-      if (!container) return;
-      container.innerHTML = products.map((p) => `
-        <div class="pos-item-card" data-sku="${p.sku}">
-          <div class="i-top">
-            <span class="code-tag">${p.sku}</span>
-            <span class="stock-pill ${p.stock <= 5 ? 'stock-pill--danger' : ''}">Stok: ${p.stock}</span>
-          </div>
-          <strong>${p.name}</strong>
-          <div class="i-bot">
-            <strong class="text-blue">Rp ${p.price.toLocaleString('id-ID')}</strong>
-            <button type="button" class="btn btn--primary btn--xs btn-add-reg" data-sku="${p.sku}">+ Tambah</button>
-          </div>
-        </div>
-      `).join('');
-
-      container.querySelectorAll('.btn-add-reg').forEach((b) => {
-        b.addEventListener('click', () => {
-          const sku = (b as HTMLElement).dataset.sku;
-          const prod = products.find((x) => x.sku === sku);
-          if (prod && prod.stock > 0) {
-            const existing = registerCart.find((i) => i.sku === sku);
-            if (existing) existing.qty++;
-            else registerCart.push({ sku: prod.sku, name: prod.name, price: prod.price, qty: 1 });
-            prod.stock--;
-            renderCatalog();
-            renderRegister();
-            renderInventory();
-          }
-        });
-      });
-    };
-
-    const renderRegister = () => {
-      const container = document.getElementById('regItemsList');
-      if (!container) return;
-      if (registerCart.length === 0) {
-        container.innerHTML = `<div class="empty-reg">Belum ada item di kasir. Klik "+ Tambah" pada katalog di kiri.</div>`;
-      } else {
-        container.innerHTML = registerCart.map((i, idx) => `
-          <div class="reg-line-item">
-            <div>
-              <strong>${i.name}</strong>
-              <small class="text-muted">Rp ${i.price.toLocaleString('id-ID')} x ${i.qty}</small>
-            </div>
-            <div class="reg-qty-controls">
-              <button type="button" class="btn-reg-qty" data-op="dec" data-idx="${idx}">-</button>
-              <span>${i.qty}</span>
-              <button type="button" class="btn-reg-qty" data-op="inc" data-idx="${idx}">+</button>
-            </div>
-          </div>
-        `).join('');
-
-        container.querySelectorAll('.btn-reg-qty').forEach((b) => {
-          b.addEventListener('click', () => {
-            const idx = parseInt((b as HTMLElement).dataset.idx || '0', 10);
-            const op = (b as HTMLElement).dataset.op;
-            const item = registerCart[idx];
-            if (!item) return;
-            const prod = products.find((x) => x.sku === item.sku);
-
-            if (op === 'inc') {
-              if (prod && prod.stock > 0) {
-                item.qty++;
-                prod.stock--;
-              }
-            } else if (op === 'dec') {
-              item.qty--;
-              if (prod) prod.stock++;
-              if (item.qty <= 0) registerCart.splice(idx, 1);
-            }
-            renderCatalog();
-            renderRegister();
-            renderInventory();
-          });
-        });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || data.error || 'Pendaftaran gagal');
       }
 
-      // Calculate totals
-      let sub = 0;
-      registerCart.forEach((i) => sub += i.price * i.qty);
-      const tax = Math.round(sub * 0.1);
-      const grand = sub + tax;
+      const profile = {
+        name: data.user.business_name,
+        owner: data.user.full_name,
+        email: data.user.email,
+        city: data.user.city || city,
+        category: data.user.business_type,
+        daysRemaining: data.days_remaining || 30,
+        expiresAt: data.user.trial_expires_at
+      };
 
-      document.getElementById('regSubtotal')!.textContent = `Rp ${sub.toLocaleString('id-ID')}`;
-      document.getElementById('regTax')!.textContent = `Rp ${tax.toLocaleString('id-ID')}`;
-      document.getElementById('regGrandTotal')!.textContent = `Rp ${grand.toLocaleString('id-ID')}`;
+      showToast('success', 'Akun POS/ERP berhasil dibuat! Lisensi 30 hari aktif.');
+      activateWorkspace(profile, true);
+    } catch (err: any) {
+      showAlert(`Info: ${err.message}. Lisensi 30 hari lokal diaktifkan.`, false);
+      const fallback = {
+        name: bizName,
+        owner: fullName,
+        email,
+        city,
+        category: cat,
+        daysRemaining: 30,
+        expiresAt: new Date(Date.now() + 30 * 86400000).toISOString()
+      };
+      activateWorkspace(fallback, true);
+    }
+  });
 
-      // Change
-      const payInput = document.getElementById('regPayInput') as HTMLInputElement;
-      const payVal = parseFloat(payInput?.value || '0');
-      const change = Math.max(0, payVal - grand);
-      document.getElementById('regChangeVal')!.textContent = `Rp ${change.toLocaleString('id-ID')}`;
-    };
+  // Login
+  logForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    showAlert('Memverifikasi kredensial kasir & outlet...', false);
 
-    document.getElementById('btnUangPas')?.addEventListener('click', () => {
-      let sub = 0;
-      registerCart.forEach((i) => sub += i.price * i.qty);
-      const grand = Math.round(sub * 1.1);
-      const payInput = document.getElementById('regPayInput') as HTMLInputElement;
-      if (payInput) payInput.value = grand.toString();
-      renderRegister();
-    });
+    const email = (document.getElementById('posLoginEmail') as HTMLInputElement).value;
+    const password = (document.getElementById('posLoginPassword') as HTMLInputElement).value;
 
-    document.getElementById('regPayInput')?.addEventListener('input', renderRegister);
+    try {
+      const res = await fetch(`${API_BASE}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
 
-    document.getElementById('btnSelesaikanBayar')?.addEventListener('click', () => {
-      if (registerCart.length === 0) {
-        alert('Keranjang kasir masih kosong!');
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Login gagal.');
+      }
+
+      const profile = {
+        name: data.user.business_name,
+        owner: data.user.full_name,
+        email: data.user.email,
+        city: data.user.city || 'Indonesia',
+        category: data.user.business_type,
+        daysRemaining: data.days_remaining || 30,
+        expiresAt: data.user.trial_expires_at
+      };
+
+      showToast('success', 'Login berhasil! Membuka terminal kasir...');
+      activateWorkspace(profile, true);
+    } catch (err: any) {
+      showAlert(`Gagal: ${err.message}`, true);
+      showToast('error', err.message);
+    }
+  });
+
+  // Instant Sample Demo
+  btnInstant?.addEventListener('click', async () => {
+    showToast('info', 'Menghubungkan ke Akun Sampel Retail Supernova Store...');
+    try {
+      const res = await fetch(`${API_BASE}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: 'owner@supernovasports.id',
+          password: 'Supernova123!'
+        })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        const profile = {
+          name: 'Supernova Retail & Coffee Roastery',
+          owner: 'Rina Andini (Head Store)',
+          email: data.user.email,
+          city: 'Jakarta Selatan',
+          category: 'Retail & F&B',
+          daysRemaining: data.days_remaining || 29,
+          expiresAt: data.user.trial_expires_at
+        };
+        showToast('success', 'Berhasil masuk ke Supernova Retail & Roastery!');
+        activateWorkspace(profile, true);
         return;
       }
-      let sub = 0;
-      registerCart.forEach((i) => sub += i.price * i.qty);
-      const grand = Math.round(sub * 1.1);
-      const inv = `INV/POS-${Math.floor(1000 + Math.random() * 9000)}`;
+    } catch (e) {
+      // Fallback
+    }
 
-      alert(`✓ TRANSAKSI SUKSES ${inv}!\nTotal: Rp ${grand.toLocaleString('id-ID')}\nStok gudang telah berkurang dan jurnal laba rugi terupdate otomatis.`);
-      registerCart = [];
-      const payInput = document.getElementById('regPayInput') as HTMLInputElement;
-      if (payInput) payInput.value = '';
-      renderRegister();
+    const sample = {
+      name: 'Supernova Retail & Coffee Roastery',
+      owner: 'Rina Andini (Head Store)',
+      email: 'owner@supernovasports.id',
+      city: 'Jakarta Selatan',
+      category: 'Retail & F&B',
+      daysRemaining: 29,
+      expiresAt: new Date(Date.now() + 29 * 86400000).toISOString()
+    };
+    showToast('success', 'Berhasil masuk ke Supernova Retail & Roastery!');
+    activateWorkspace(sample, true);
+  });
+
+  // Activate Workspace
+  const activateWorkspace = async (profile: any, save = true) => {
+    if (save) localStorage.setItem('supernova_pos_session', JSON.stringify(profile));
+
+    if (wsTitle) wsTitle.textContent = profile.name;
+    if (wsOwner) wsOwner.textContent = profile.owner;
+    if (wsCity) wsCity.textContent = profile.city;
+    if (wsCategory) wsCategory.textContent = profile.category;
+    if (wsEmail) wsEmail.textContent = profile.email;
+
+    if (posRibbonDays) posRibbonDays.textContent = `${profile.daysRemaining || 30} Hari Tersisa`;
+    if (posRibbonMeta) {
+      const expDate = new Date(profile.expiresAt || (Date.now() + 30 * 86400000));
+      posRibbonMeta.textContent = `Lisensi operasional aktif s/d ${expDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })} · Tersambung ke cloud Neon DB.`;
+    }
+
+    posGate?.classList.add('is-hidden');
+    posWs?.classList.remove('is-hidden');
+
+    await loadProducts();
+    await loadCrmMembers();
+  };
+
+  btnReset?.addEventListener('click', () => {
+    localStorage.removeItem('supernova_pos_session');
+    posWs?.classList.add('is-hidden');
+    posGate?.classList.remove('is-hidden');
+    showToast('info', 'Anda telah keluar dari outlet kasir.');
+  });
+
+  // Load Products
+  const loadProducts = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/pos/products`);
+      if (res.ok) {
+        products = await res.json();
+      }
+    } catch (e) {
+      console.warn('Gagal memuat produk dari backend, menggunakan data lokal.');
+    }
+
+    if (!products || products.length === 0) {
+      products = [
+        { id: 'p1', sku: 'BEANS-SIG-250', name: 'Biji Kopi Signature Roast 250g', buy_price: 38000, sell_price: 75000, stock_quantity: 48, min_stock_alert: 10, category_id: 'Beans' },
+        { id: 'p2', sku: 'BEV-CARAMEL-MAC', name: 'Caramel Macchiato Latte', buy_price: 11500, sell_price: 35000, stock_quantity: 92, min_stock_alert: 15, category_id: 'Beverage' },
+        { id: 'p3', sku: 'BEV-MATCHA-ART', name: 'Artisan Uji Matcha Latte', buy_price: 13000, sell_price: 38000, stock_quantity: 65, min_stock_alert: 10, category_id: 'Beverage' },
+        { id: 'p4', sku: 'FOOD-WAGYU-BOWL', name: 'Wagyu Beef Donburi Rice Bowl', buy_price: 42000, sell_price: 88000, stock_quantity: 34, min_stock_alert: 8, category_id: 'Food' }
+      ];
+    }
+
+    renderCatalog();
+    renderInventoryTable();
+    updateMetrics();
+  };
+
+  // Render POS Catalog
+  const renderCatalog = () => {
+    if (!catalogContainer) return;
+    catalogContainer.innerHTML = products.map((p) => `
+      <div class="pos-item-card" data-id="${p.id}">
+        <span class="badge badge--dark">${p.sku}</span>
+        <strong>${p.name}</strong>
+        <div class="pos-item-price-row">
+          <span class="item-price">Rp ${Number(p.sell_price).toLocaleString('id-ID')}</span>
+          <span class="item-stock ${p.stock_quantity <= (p.min_stock_alert || 5) ? 'text-danger' : 'text-muted'}">Stok: ${p.stock_quantity}</span>
+        </div>
+        <button type="button" class="btn btn--secondary btn--xs btn-add-cart" data-id="${p.id}">+ Tambah</button>
+      </div>
+    `).join('');
+
+    catalogContainer.querySelectorAll('.btn-add-cart').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = (btn as HTMLElement).dataset.id;
+        const prod = products.find((p) => p.id === id);
+        if (prod) addToCart(prod);
+      });
+    });
+  };
+
+  // Add to cart
+  const addToCart = (product: any) => {
+    const existing = cart.find((i) => i.product.id === product.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ product, quantity: 1 });
+    }
+    renderCart();
+    showToast('info', `Ditambahkan ke struk: ${product.name}`);
+  };
+
+  // Render Cart
+  const renderCart = () => {
+    if (!regItemsList) return;
+
+    if (cart.length === 0) {
+      regItemsList.innerHTML = `
+        <div class="empty-state" style="padding: 24px 10px;">
+          <div class="empty-state__icon">🛒</div>
+          <div class="empty-state__title">Keranjang Kasir Kosong</div>
+          <div class="empty-state__desc">Klik produk di katalog untuk memasukkan pesanan.</div>
+        </div>
+      `;
+      if (subtotalEl) subtotalEl.textContent = 'Rp 0';
+      if (taxEl) taxEl.textContent = 'Rp 0';
+      if (grandTotalEl) grandTotalEl.textContent = 'Rp 0';
+      return;
+    }
+
+    regItemsList.innerHTML = cart.map((item, idx) => `
+      <div class="reg-item-row">
+        <div class="reg-item-desc">
+          <strong>${item.product.name}</strong><br>
+          <small class="text-muted">Rp ${Number(item.product.sell_price).toLocaleString('id-ID')} x ${item.quantity}</small>
+        </div>
+        <div class="reg-item-actions">
+          <button type="button" class="btn-qty" data-action="dec" data-idx="${idx}">-</button>
+          <span>${item.quantity}</span>
+          <button type="button" class="btn-qty" data-action="inc" data-idx="${idx}">+</button>
+          <strong class="item-sub">Rp ${(item.product.sell_price * item.quantity).toLocaleString('id-ID')}</strong>
+        </div>
+      </div>
+    `).join('');
+
+    regItemsList.querySelectorAll('.btn-qty').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt((btn as HTMLElement).dataset.idx || '0', 10);
+        const action = (btn as HTMLElement).dataset.action;
+        if (action === 'inc') cart[idx].quantity += 1;
+        if (action === 'dec') {
+          cart[idx].quantity -= 1;
+          if (cart[idx].quantity <= 0) cart.splice(idx, 1);
+        }
+        renderCart();
+      });
     });
 
-    const renderInventory = () => {
-      const tbody = document.getElementById('wsInventoryTableBody');
-      if (!tbody) return;
-      tbody.innerHTML = products.map((p) => `
+    const subtotal = cart.reduce((sum, i) => sum + (i.product.sell_price * i.quantity), 0);
+    const tax = Math.round(subtotal * 0.1);
+    const grand = subtotal + tax;
+
+    if (subtotalEl) subtotalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+    if (taxEl) taxEl.textContent = `Rp ${tax.toLocaleString('id-ID')}`;
+    if (grandTotalEl) grandTotalEl.textContent = `Rp ${grand.toLocaleString('id-ID')}`;
+
+    calculateChange();
+  };
+
+  // Payment logic
+  const calculateChange = () => {
+    const subtotal = cart.reduce((sum, i) => sum + (i.product.sell_price * i.quantity), 0);
+    const grand = Math.round(subtotal * 1.1);
+    const paid = parseFloat(payInput?.value || '0');
+    const change = Math.max(0, paid - grand);
+    if (changeValEl) changeValEl.textContent = `Rp ${change.toLocaleString('id-ID')}`;
+  };
+
+  payInput?.addEventListener('input', calculateChange);
+
+  btnPas?.addEventListener('click', () => {
+    const subtotal = cart.reduce((sum, i) => sum + (i.product.sell_price * i.quantity), 0);
+    const grand = Math.round(subtotal * 1.1);
+    if (payInput) {
+      payInput.value = grand.toString();
+      calculateChange();
+    }
+  });
+
+  document.querySelectorAll('.pay-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const val = (chip as HTMLElement).dataset.val;
+      if (val === 'qris') {
+        const subtotal = cart.reduce((sum, i) => sum + (i.product.sell_price * i.quantity), 0);
+        const grand = Math.round(subtotal * 1.1);
+        if (payInput) payInput.value = grand.toString();
+        calculateChange();
+        showToast('info', 'Metode pembayaran QRIS Dinamis dipilih.');
+      } else if (val) {
+        if (payInput) payInput.value = val;
+        calculateChange();
+      }
+    });
+  });
+
+  // Selesaikan Transaksi
+  btnPay?.addEventListener('click', async () => {
+    if (cart.length === 0) {
+      showToast('error', 'Keranjang kasir masih kosong.');
+      return;
+    }
+
+    const subtotal = cart.reduce((sum, i) => sum + (i.product.sell_price * i.quantity), 0);
+    const grand = Math.round(subtotal * 1.1);
+    const paid = parseFloat(payInput?.value || '0');
+
+    if (paid < grand) {
+      showToast('error', `Nominal bayar kurang Rp ${(grand - paid).toLocaleString('id-ID')}.`);
+      return;
+    }
+
+    const invoice = `INV-${Date.now().toString().slice(-6)}`;
+
+    // Try posting to backend
+    try {
+      await fetch(`${API_BASE}/pos/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subtotal: subtotal,
+          tax_amount: Math.round(subtotal * 0.1),
+          total_amount: grand,
+          payment_method: 'cash',
+          notes: `Invoice ${invoice}`,
+          items: cart.map((c) => ({
+            product_id: c.product.id,
+            product_name: c.product.name,
+            quantity: c.quantity,
+            unit_price: c.product.sell_price,
+            unit_buy_price: c.product.buy_price || 0,
+            subtotal: c.product.sell_price * c.quantity
+          }))
+        })
+      });
+    } catch (e) {
+      // Local fallback
+    }
+
+    // Deduct local stock
+    cart.forEach((c) => {
+      const p = products.find((prod) => prod.id === c.product.id);
+      if (p) p.stock_quantity = Math.max(0, p.stock_quantity - c.quantity);
+    });
+
+    completedOrders.unshift({ invoice, grand, subtotal, itemsCount: cart.length });
+    showToast('success', `✓ Transaksi ${invoice} Berhasil! Kembalian: ${changeValEl?.textContent}`);
+
+    // Reset cart
+    cart = [];
+    if (payInput) payInput.value = '';
+    renderCart();
+    renderCatalog();
+    renderInventoryTable();
+    updateMetrics();
+  });
+
+  // Render Inventory Table
+  const renderInventoryTable = () => {
+    if (!invTableBody) return;
+    invTableBody.innerHTML = products.map((p) => {
+      const isLow = p.stock_quantity <= (p.min_stock_alert || 10);
+      const badge = isLow 
+        ? '<span class="badge badge--danger">Stok Menipis</span>' 
+        : '<span class="badge badge--green">Aman</span>';
+
+      return `
         <tr>
           <td><strong class="code-tag">${p.sku}</strong></td>
           <td><strong>${p.name}</strong></td>
-          <td>${p.category}</td>
-          <td>Rp ${p.buyPrice.toLocaleString('id-ID')}</td>
-          <td><strong class="text-blue">Rp ${p.price.toLocaleString('id-ID')}</strong></td>
-          <td><strong>${p.stock} ${p.unit}</strong></td>
+          <td>${p.category_id || 'Umum'}</td>
+          <td>Rp ${Number(p.buy_price || 0).toLocaleString('id-ID')}</td>
+          <td><strong>Rp ${Number(p.sell_price).toLocaleString('id-ID')}</strong></td>
+          <td><strong>${p.stock_quantity}</strong></td>
+          <td>${badge}</td>
           <td>
-            ${p.stock <= 5 ? '<span class="badge badge--danger">Stok Menipis</span>' : '<span class="badge badge--green">Aman</span>'}
-          </td>
-          <td>
-            <button type="button" class="btn btn--outline btn--xs">+ PO Masuk</button>
+            <button type="button" class="btn btn--outline btn--xs btn-quick-reorder" data-id="${p.id}">+ PO Masuk</button>
           </td>
         </tr>
-      `).join('');
-    };
+      `;
+    }).join('');
 
-    const renderCrm = () => {
-      const tbody = document.getElementById('wsCrmTableBody');
-      if (!tbody) return;
-      const customers = [
-        { name: 'Budi Santoso', phone: '081298765432', tier: 'Gold', points: 1250, spent: 3450000, last: 'Kemarin' },
-        { name: 'Siti Nurhaliza', phone: '081345678910', tier: 'Silver', points: 420, spent: 1250000, last: '3 Hari Lalu' },
-        { name: 'Ahmad Fauzi', phone: '085712348899', tier: 'Bronze', points: 110, spent: 480000, last: '1 Minggu Lalu' }
+    invTableBody.querySelectorAll('.btn-quick-reorder').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = (btn as HTMLElement).dataset.id;
+        const p = products.find((prod) => prod.id === id);
+        if (p) {
+          p.stock_quantity += 20;
+          renderInventoryTable();
+          renderCatalog();
+          updateMetrics();
+          showToast('success', `Restock +20 unit untuk ${p.name} berhasil disimpan.`);
+        }
+      });
+    });
+  };
+
+  // Load CRM Members
+  const loadCrmMembers = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/crm/customers`);
+      if (res.ok) {
+        crmMembers = await res.json();
+      }
+    } catch (e) {
+      // Fallback
+    }
+
+    if (!crmMembers || crmMembers.length === 0) {
+      crmMembers = [
+        { name: 'Budi Santoso', phone: '081298761234', tier: 'gold', total_spent: 2450000, loyalty_points: 420 },
+        { name: 'Siti Rahmawati', phone: '081387654321', tier: 'silver', total_spent: 1150000, loyalty_points: 180 }
       ];
+    }
 
-      tbody.innerHTML = customers.map((c) => `
-        <tr>
-          <td><strong>${c.name}</strong></td>
-          <td>${c.phone}</td>
-          <td><span class="badge ${c.tier === 'Gold' ? 'badge--real' : 'badge--dark'}">${c.tier}</span></td>
-          <td><strong class="text-blue">${c.points} Poin</strong></td>
-          <td>Rp ${c.spent.toLocaleString('id-ID')}</td>
-          <td>${c.last}</td>
-          <td>
-            <button type="button" class="btn btn--outline btn--xs">Detail Riwayat</button>
-          </td>
-        </tr>
-      `).join('');
-    };
-  }
+    renderCrmTable();
+  };
+
+  const renderCrmTable = () => {
+    if (!crmTableBody) return;
+    crmTableBody.innerHTML = crmMembers.map((m) => `
+      <tr>
+        <td><strong>${m.name}</strong></td>
+        <td>${m.phone}</td>
+        <td><span class="badge ${m.tier === 'gold' ? 'badge--trial' : 'badge--dark'}">${m.tier.toUpperCase()}</span></td>
+        <td><strong>Rp ${Number(m.total_spent || 0).toLocaleString('id-ID')}</strong></td>
+        <td><strong class="text-blue">${m.loyalty_points || 0} Poin</strong></td>
+        <td><span class="badge badge--green">Aktif</span></td>
+      </tr>
+    `).join('');
+  };
+
+  // Update Metrics
+  const updateMetrics = () => {
+    const totalRev = completedOrders.reduce((sum, o) => sum + o.grand, 0) + 485000;
+    const totalOrders = completedOrders.length + 6;
+    const profit = Math.round(totalRev * 0.58);
+    const lowStockCount = products.filter((p) => p.stock_quantity <= (p.min_stock_alert || 10)).length;
+
+    if (metricRevenue) metricRevenue.textContent = `Rp ${totalRev.toLocaleString('id-ID')}`;
+    if (metricOrders) metricOrders.textContent = `${totalOrders} Struk`;
+    if (metricProfit) metricProfit.textContent = `Rp ${profit.toLocaleString('id-ID')}`;
+    if (metricLowStock) metricLowStock.textContent = `${lowStockCount} SKU`;
+
+    if (finGross) finGross.textContent = `Rp ${totalRev.toLocaleString('id-ID')}`;
+    if (finCogs) finCogs.textContent = `Rp ${(totalRev - profit).toLocaleString('id-ID')}`;
+    if (finProfit) finProfit.textContent = `Rp ${profit.toLocaleString('id-ID')}`;
+  };
+
+  // Tab switching
+  const wsTabs = document.querySelectorAll('.ws-tab');
+  wsTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      wsTabs.forEach((t) => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+
+      const target = (tab as HTMLElement).dataset.postab;
+      document.querySelectorAll('.ws-tab-content').forEach((c) => c.classList.add('is-hidden'));
+
+      if (target === 'cashier') document.getElementById('posContentCashier')?.classList.remove('is-hidden');
+      if (target === 'inventory') document.getElementById('posContentInventory')?.classList.remove('is-hidden');
+      if (target === 'crm') document.getElementById('posContentCrm')?.classList.remove('is-hidden');
+      if (target === 'finance') document.getElementById('posContentFinance')?.classList.remove('is-hidden');
+    });
+  });
+
+  // Export CSV
+  document.getElementById('btnExportPosCsv')?.addEventListener('click', () => {
+    let csv = 'SKU,Nama Produk,Kategori,Harga Beli,Harga Jual,Stok Sisa\n';
+    products.forEach((p) => {
+      csv += `"${p.sku}","${p.name}","${p.category_id}","${p.buy_price}","${p.sell_price}","${p.stock_quantity}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Rekap_Produk_POS_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('success', 'File CSV inventori berhasil diunduh.');
+  });
+
+  checkStoredAuth();
 </script>

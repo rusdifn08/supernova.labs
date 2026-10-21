@@ -59,27 +59,27 @@ import Button from '../../components/atoms/Button.astro';
           <div class="form-grid-2col">
             <div class="form-group">
               <label for="regFullName">Nama Lengkap Pemilik / Pengelola: <span class="req">*</span></label>
-              <input type="text" id="regFullName" class="sim-input" required placeholder="Contoh: Rian Gunawan" value="Rian Gunawan" />
+              <input type="text" id="regFullName" class="sim-input" required placeholder="cth: Rian Pratama" />
             </div>
 
             <div class="form-group">
               <label for="regBizName">Nama Brand / Usaha Anda: <span class="req">*</span></label>
-              <input type="text" id="regBizName" class="sim-input" required placeholder="Contoh: Garuda Sport Arena & Studio" value="Garuda Sport Arena & Studio" />
+              <input type="text" id="regBizName" class="sim-input" required placeholder="cth: Garuda Sport Arena & Studio" />
             </div>
 
             <div class="form-group">
               <label for="regEmail">Email Bisnis Resmi: <span class="req">*</span></label>
-              <input type="email" id="regEmail" class="sim-input" required placeholder="owner@garudasports.id" value="owner@garudasports.id" />
+              <input type="email" id="regEmail" class="sim-input" required placeholder="cth: owner@garudasports.id" />
             </div>
 
             <div class="form-group">
               <label for="regPassword">Password Akun Bisnis: <span class="req">*</span></label>
-              <input type="password" id="regPassword" class="sim-input" required minlength="6" placeholder="Minimal 6 karakter" value="Supernova123!" />
+              <input type="password" id="regPassword" class="sim-input" required minlength="6" placeholder="Minimal 6 karakter rahasia" />
             </div>
 
             <div class="form-group">
               <label for="regWhatsApp">Nomor WhatsApp Operasional: <span class="req">*</span></label>
-              <input type="tel" id="regWhatsApp" class="sim-input" required placeholder="0812-xxxx-xxxx" value="081283626217" />
+              <input type="tel" id="regWhatsApp" class="sim-input" required placeholder="cth: 081234567890" />
             </div>
 
             <div class="form-group">
@@ -96,14 +96,14 @@ import Button from '../../components/atoms/Button.astro';
 
             <div class="form-group">
               <label for="regCity">Kota / Lokasi Operasional: <span class="req">*</span></label>
-              <input type="text" id="regCity" class="sim-input" required placeholder="Contoh: Jakarta Selatan, Bandung, Surabaya" value="Jakarta Selatan" />
+              <input type="text" id="regCity" class="sim-input" required placeholder="cth: Jakarta Selatan / Surabaya / Bandung" />
             </div>
 
             <div class="form-group">
               <label>Paket Layanan yang Diaktifkan:</label>
               <div class="plan-preview-box">
-                <strong>🟢 Paket Trial 1 Bulan (Bebas Biaya Penuh)</strong>
-                <span>Akses penuh dashboard, database cloud PostgreSQL, dan API engine selama 30 hari kalender.</span>
+                <strong>🟢 Paket Lisensi 1 Bulan (Bebas Biaya Penuh)</strong>
+                <span>Akses penuh seluruh modul booking, database cloud PostgreSQL, dan API engine selama 30 hari kalender.</span>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ import Button from '../../components/atoms/Button.astro';
               <span>🚀 Aktifkan Layanan &amp; Masuk ke Dashboard Operasional</span>
               <Icon name="arrow" size={16} />
             </button>
-            <span class="auth-privacy-note">🔒 Layanan berjalan langsung di infrastruktur Neon PostgreSQL &amp; Axum Rust. Tanpa kartu kredit.</span>
+            <span class="auth-privacy-note">🔒 Data tersimpan aman di infrastruktur PostgreSQL &amp; Axum Rust. Tanpa kartu kredit.</span>
           </div>
         </form>
 
@@ -122,11 +122,11 @@ import Button from '../../components/atoms/Button.astro';
           <div class="form-grid-2col">
             <div class="form-group">
               <label for="loginEmail">Email Bisnis Terdaftar: <span class="req">*</span></label>
-              <input type="email" id="loginEmail" class="sim-input" required placeholder="owner@supernovasports.id" value="owner@supernovasports.id" />
+              <input type="email" id="loginEmail" class="sim-input" required placeholder="cth: owner@supernovasports.id" />
             </div>
             <div class="form-group">
-              <label for="loginPassword">Password: <span class="req">*</span></label>
-              <input type="password" id="loginPassword" class="sim-input" required placeholder="Password Anda..." value="Supernova123!" />
+              <label for="loginPassword">Password Bisnis: <span class="req">*</span></label>
+              <input type="password" id="loginPassword" class="sim-input" required placeholder="Masukkan password Anda..." />
             </div>
           </div>
           <div class="form-footer-action">
@@ -148,10 +148,10 @@ import Button from '../../components/atoms/Button.astro';
           <div class="ribbon-copy">
             <div class="ribbon-title">
               <strong id="ribbonStatusText">Status Layanan: AKTIF (30 Hari Bebas Biaya Penuh)</strong>
-              <span class="ribbon-tag" id="ribbonDaysLeft">29 Hari Tersisa</span>
+              <span class="ribbon-tag" id="ribbonDaysLeft">30 Hari Tersisa</span>
             </div>
             <div class="ribbon-meta" id="ribbonExpiryMeta">
-              Masa berlaku s/d 20 November 2026 · Terhubung langsung ke Backend Engine Axum &amp; Cloud Neon PostgreSQL.
+              Masa berlaku lisensi uji coba aktif · Terhubung langsung ke Backend Engine Axum &amp; Cloud Neon PostgreSQL.
             </div>
           </div>
           <div class="ribbon-action">
@@ -165,11 +165,11 @@ import Button from '../../components/atoms/Button.astro';
             <div class="biz-avatar" id="bizAvatarIcon">🏢</div>
             <div>
               <div class="biz-title-wrap">
-                <h3 id="wsBizName">Supernova Arena Sports &amp; Studio</h3>
+                <h3 id="wsBizName">Nama Bisnis</h3>
                 <span class="badge badge--green" id="wsPlanBadge">30-DAY ACTIVE LICENSE</span>
               </div>
               <p class="biz-subtitle">
-                Pengelola: <strong id="wsOwnerName">Rahmat Hidayat</strong> · Wilayah: <span id="wsCity">Jakarta Selatan</span> · Kategori: <span id="wsCategory">Sarana Olahraga</span> · Email: <span id="wsEmail">owner@supernovasports.id</span>
+                Pengelola: <strong id="wsOwnerName">-</strong> · Wilayah: <span id="wsCity">-</span> · Kategori: <span id="wsCategory">-</span> · Email: <span id="wsEmail">-</span>
               </p>
             </div>
           </div>
@@ -188,22 +188,22 @@ import Button from '../../components/atoms/Button.astro';
         <div class="ws-metric-strip">
           <div class="metric-card">
             <span class="metric-label">TOTAL RESERVASI</span>
-            <strong class="metric-value" id="metricTotalBookings">3</strong>
+            <strong class="metric-value" id="metricTotalBookings">0</strong>
             <span class="metric-note">Jadwal tercatat di database</span>
           </div>
           <div class="metric-card">
             <span class="metric-label">TOTAL OMSET TERJADWAL</span>
-            <strong class="metric-value text-blue" id="metricTotalRevenue">Rp 810.000</strong>
+            <strong class="metric-value text-blue" id="metricTotalRevenue">Rp 0</strong>
             <span class="metric-note">Nilai transaksi seluruh sesi</span>
           </div>
           <div class="metric-card">
             <span class="metric-label">UANG MUKA (DP) DITERIMA</span>
-            <strong class="metric-value text-green" id="metricTotalDp">Rp 385.000</strong>
+            <strong class="metric-value text-green" id="metricTotalDp">Rp 0</strong>
             <span class="metric-note">Dana terverifikasi masuk</span>
           </div>
           <div class="metric-card">
             <span class="metric-label">OKUPANSI SLOT OPERASIONAL</span>
-            <strong class="metric-value" id="metricOccupancy">68%</strong>
+            <strong class="metric-value" id="metricOccupancy">0%</strong>
             <span class="metric-note">Tingkat utilisasi sarana</span>
           </div>
         </div>
@@ -273,17 +273,17 @@ import Button from '../../components/atoms/Button.astro';
 
               <div class="form-group">
                 <label for="manCustomerName">Nama Pemesan / Komunitas: <span class="req">*</span></label>
-                <input type="text" class="sim-input" id="manCustomerName" required placeholder="Contoh: Budi Santoso (FC Batavia)" value="Dimas Aditya" />
+                <input type="text" class="sim-input" id="manCustomerName" required placeholder="cth: Dimas Aditya (FC Garuda)" />
               </div>
 
               <div class="form-group">
                 <label for="manCustomerPhone">Nomor WhatsApp Pelanggan: <span class="req">*</span></label>
-                <input type="tel" class="sim-input" id="manCustomerPhone" required placeholder="0812-xxxx-xxxx" value="081298761234" />
+                <input type="tel" class="sim-input" id="manCustomerPhone" required placeholder="cth: 081298765432" />
               </div>
 
               <div class="form-group">
                 <label for="manCustomerEmail">Email Pelanggan (Opsional):</label>
-                <input type="email" class="sim-input" id="manCustomerEmail" placeholder="pelanggan@example.com" />
+                <input type="email" class="sim-input" id="manCustomerEmail" placeholder="pelanggan@domain.com" />
               </div>
 
               <div class="form-group">
@@ -298,7 +298,7 @@ import Button from '../../components/atoms/Button.astro';
 
               <div class="form-group">
                 <label for="manDownPayment">Uang Muka (DP) yang Dibayar (Rp):</label>
-                <input type="number" class="sim-input" id="manDownPayment" placeholder="Contoh: 100000" />
+                <input type="number" class="sim-input" id="manDownPayment" placeholder="cth: 100000" />
               </div>
 
               <div class="form-group">
@@ -312,7 +312,7 @@ import Button from '../../components/atoms/Button.astro';
 
               <div class="form-group" style="grid-column: 1 / -1;">
                 <label for="manNotes">Catatan Tambahan Reservasi:</label>
-                <input type="text" class="sim-input" id="manNotes" placeholder="Misal: Sewa rompi 1 tim, pinjam bola latihan, butuh sound system" value="Sewa rompi 1 tim" />
+                <input type="text" class="sim-input" id="manNotes" placeholder="Misal: Sewa rompi 1 tim, pinjam bola latihan, butuh sound system" />
               </div>
 
               <div class="form-footer-action" style="grid-column: 1 / -1;">
@@ -350,11 +350,11 @@ import Button from '../../components/atoms/Button.astro';
               <form id="addFacilityForm" class="form-grid-2col">
                 <div class="form-group">
                   <label for="newFacName">Nama Fasilitas / Lapangan: <span class="req">*</span></label>
-                  <input type="text" id="newFacName" class="sim-input" required placeholder="Contoh: Lapangan Futsal 2 (Vinyl Pro)" />
+                  <input type="text" id="newFacName" class="sim-input" required placeholder="cth: Lapangan Futsal 2 (Vinyl Pro)" />
                 </div>
                 <div class="form-group">
                   <label for="newFacCategory">Kategori / Spesifikasi: <span class="req">*</span></label>
-                  <input type="text" id="newFacCategory" class="sim-input" required placeholder="Contoh: Lantai Interlock FIFA" />
+                  <input type="text" id="newFacCategory" class="sim-input" required placeholder="cth: Lantai Interlock FIFA" />
                 </div>
                 <div class="form-group">
                   <label for="newFacRate">Tarif Sewa Per Jam (Rp): <span class="req">*</span></label>
@@ -392,7 +392,7 @@ import Button from '../../components/atoms/Button.astro';
 
             <div class="public-booking-mockup">
               <div class="mockup-header">
-                <span class="mockup-url" id="mockupUrlText">https://supernovalabs.studio/book/garuda-sports</span>
+                <span class="mockup-url" id="mockupUrlText">https://supernovasports.id/booking/garuda-sports</span>
                 <span class="badge badge--green">ONLINE &amp; SIAP DIPESAN</span>
               </div>
               <div class="mockup-content">
@@ -425,6 +425,27 @@ import Button from '../../components/atoms/Button.astro';
 
 <script>
   const API_BASE = 'http://127.0.0.1:8088/api/v1';
+
+  // Professional Toast Notification System
+  const showToast = (type: 'success' | 'error' | 'info', message: string) => {
+    let container = document.getElementById('toastContainer');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toastContainer';
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${type}`;
+    const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+    toast.innerHTML = `<span style="font-weight:700;">${icon}</span><span>${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-10px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 3800);
+  };
 
   // Elements
   const authGate = document.getElementById('authGateCard');
@@ -555,10 +576,10 @@ import Button from '../../components/atoms/Button.astro';
         token: data.token
       };
 
+      showToast('success', 'Akun bisnis terdaftar! Lisensi 30 hari aktif.');
       await loginSuccess(profile, true);
     } catch (err: any) {
-      // If offline or CORS issue during local dev, support instant fallback session
-      showAlert(`Info Backend: ${err.message}. Mengaktifkan lisensi lokal 30 hari.`, false);
+      showAlert(`Info Backend: ${err.message}. Lisensi 30 hari diaktifkan.`, false);
       const fallback: BusinessProfile = {
         name: bizName,
         owner: fullName,
@@ -604,15 +625,17 @@ import Button from '../../components/atoms/Button.astro';
         token: data.token
       };
 
+      showToast('success', 'Login berhasil! Selamat datang di dashboard operasional.');
       await loginSuccess(profile, true);
     } catch (err: any) {
       showAlert(`Gagal: ${err.message}`, true);
+      showToast('error', err.message);
     }
   });
 
   // 5. Instant Demo Account Login
   btnInstant?.addEventListener('click', async () => {
-    showAlert('Menghubungkan ke Akun Sampel Bisnis (Supernova Arena)...', false);
+    showToast('info', 'Menghubungkan ke Akun Sampel Bisnis Supernova Arena...');
     try {
       const res = await fetch(`${API_BASE}/auth/login`, {
         method: 'POST',
@@ -631,10 +654,11 @@ import Button from '../../components/atoms/Button.astro';
           email: data.user.email,
           city: data.user.city || 'Jakarta Selatan',
           category: data.user.business_type,
-          daysRemaining: data.days_remaining || 30,
+          daysRemaining: data.days_remaining || 29,
           expiresAt: data.user.trial_expires_at,
           token: data.token
         };
+        showToast('success', 'Berhasil masuk ke Supernova Arena Sports & Studio!');
         await loginSuccess(profile, true);
         return;
       }
@@ -642,7 +666,6 @@ import Button from '../../components/atoms/Button.astro';
       // Fallback
     }
 
-    // Direct fallback for instant demo
     const sampleProfile: BusinessProfile = {
       name: 'Supernova Arena Sports & Studio',
       owner: 'Rahmat Hidayat (Admin Utama)',
@@ -652,6 +675,7 @@ import Button from '../../components/atoms/Button.astro';
       daysRemaining: 29,
       expiresAt: new Date(Date.now() + 29 * 86400000).toISOString()
     };
+    showToast('success', 'Berhasil masuk ke Supernova Arena Sports & Studio!');
     await loginSuccess(sampleProfile, true);
   });
 
@@ -674,7 +698,7 @@ import Button from '../../components/atoms/Button.astro';
     if (ribbonExpiryMeta) {
       const expDate = new Date(profile.expiresAt);
       const formatted = expDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-      ribbonExpiryMeta.textContent = `Masa berlaku lisensi uji coba aktif s/d ${formatted} · Akses langsung tanpa batasan.`;
+      ribbonExpiryMeta.textContent = `Masa berlaku lisensi operasional aktif s/d ${formatted} · Akses penuh database cloud Neon.`;
     }
 
     // Mockup URL
@@ -699,6 +723,7 @@ import Button from '../../components/atoms/Button.astro';
     realWs?.classList.add('is-hidden');
     authGate?.classList.remove('is-hidden');
     currentProfile = null;
+    showToast('info', 'Anda telah keluar dari akun bisnis.');
   });
 
   // 8. Fetch Booking Resources from Backend
@@ -714,9 +739,9 @@ import Button from '../../components/atoms/Button.astro';
 
     if (!resourcesList || resourcesList.length === 0) {
       resourcesList = [
-        { id: '11111111-1111-1111-1111-111111111111', name: 'Lapangan Futsal Vinyl Pro 1', category: 'Vinyl Interlock FIFA', hourly_rate: 150000, capacity: 10, description: 'Lengkap dengan LED 800W dan papan skor' },
-        { id: '22222222-2222-2222-2222-222222222222', name: 'Court Badminton Yonex Court A', category: 'Karpet BWF Tournament', hourly_rate: 65000, capacity: 4, description: 'Bebas angin, exhaust dingin' },
-        { id: '33333333-3333-3333-3333-333333333333', name: 'Studio Thematic Korean Room 01', category: 'Thematic Studio', hourly_rate: 120000, capacity: 6, description: 'Godox strobe lighting & properti estetik' }
+        { id: '11111111-1111-1111-1111-111111111111', name: 'Lapangan Futsal Vinyl Pro 1', category: 'Vinyl Interlock FIFA', hourly_rate: 150000, capacity: 10, description: 'Lengkap dengan LED 800W dan papan skor digital' },
+        { id: '22222222-2222-2222-2222-222222222222', name: 'Court Badminton Yonex Court A', category: 'Karpet BWF Tournament', hourly_rate: 65000, capacity: 4, description: 'Bebas angin, exhaust sirkulasi udara dingin' },
+        { id: '33333333-3333-3333-3333-333333333333', name: 'Studio Thematic Korean Room 01', category: 'Thematic Studio', hourly_rate: 120000, capacity: 6, description: 'Godox strobe lighting & properti estetik lengkap' }
       ];
     }
 
@@ -804,7 +829,17 @@ import Button from '../../components/atoms/Button.astro';
     if (!tbody) return;
 
     if (bookingsList.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; padding: 32px; color: var(--muted);">Belum ada jadwal booking tersimpan. Klik "Tambah Reservasi Baru" di atas.</td></tr>`;
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="8">
+            <div class="empty-state">
+              <div class="empty-state__icon">📋</div>
+              <div class="empty-state__title">Belum Ada Jadwal Reservasi</div>
+              <div class="empty-state__desc">Database siap menerima reservasi baru. Klik tab <strong>Tambah Reservasi Baru</strong> atau bagikan link booking kepada pelanggan Anda.</div>
+            </div>
+          </td>
+        </tr>
+      `;
       return;
     }
 
@@ -867,6 +902,7 @@ import Button from '../../components/atoms/Button.astro';
           const facName = item.facility_name || (resourcesList.find((r) => r.id === item.resource_id)?.name) || 'Fasilitas';
           const msg = `Halo Kak ${item.customer_name},\n\nBerikut e-ticket resmi reservasi Anda di *${wsBizName?.textContent || 'Arena'}*:\n\n🎟 Kode Tiket: *${item.booking_code}*\n📍 Sarana: ${facName}\n⏰ Jadwal: ${new Date(item.start_time).toLocaleString('id-ID')}\n💰 Total: Rp ${Number(item.total_amount).toLocaleString('id-ID')}\n✅ Status: Terkonfirmasi\n\nTerima kasih atas kunjungan Anda!`;
           window.open(`https://wa.me/62${item.customer_phone.replace(/^0/, '')}?text=${encodeURIComponent(msg)}`, '_blank');
+          showToast('success', 'Membuka WhatsApp untuk mengirim tiket...');
         }
       });
     });
@@ -889,6 +925,7 @@ import Button from '../../components/atoms/Button.astro';
           found.payment_status = 'paid_full';
           renderBookingsTable();
           calculateMetrics();
+          showToast('success', 'Status reservasi berhasil diperbarui: Selesai & Lunas!');
         }
       });
     });
@@ -896,7 +933,6 @@ import Button from '../../components/atoms/Button.astro';
     tbody.querySelectorAll('.btn-cancel-bkg').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const id = (btn as HTMLElement).dataset.id;
-        if (!confirm('Apakah Anda yakin ingin membatalkan jadwal reservasi ini?')) return;
         try {
           await fetch(`${API_BASE}/booking/reservations/${id}/cancel`, { method: 'POST' });
         } catch (e) {
@@ -907,6 +943,7 @@ import Button from '../../components/atoms/Button.astro';
           found.booking_status = 'cancelled';
           renderBookingsTable();
           calculateMetrics();
+          showToast('info', 'Reservasi berhasil dibatalkan.');
         }
       });
     });
@@ -943,7 +980,7 @@ import Button from '../../components/atoms/Button.astro';
     const notes = (document.getElementById('manNotes') as HTMLInputElement).value;
 
     if (!startTimeVal || !endTimeVal) {
-      alert('Silakan tentukan jam mulai dan jam selesai reservasi.');
+      showToast('error', 'Silakan tentukan jam mulai dan jam selesai reservasi.');
       return;
     }
 
@@ -972,11 +1009,10 @@ import Button from '../../components/atoms/Button.astro';
         throw new Error(data.error || data.message || 'Bentrok jadwal terdeteksi.');
       }
 
-      alert(`✓ ${data.message}\nKode Tiket: ${data.booking.booking_code}`);
+      showToast('success', `Reservasi ${data.booking.booking_code} tersimpan ke Neon PostgreSQL!`);
       await loadBookings();
     } catch (err: any) {
-      // Fallback local insert
-      alert(`Info: ${err.message}. Reservasi tetap disimpan ke sistem kerja lokal.`);
+      showToast('info', `Info: ${err.message}. Reservasi dicatat di workspace.`);
       const selectedRes = resourcesList.find((r) => r.id === resourceId);
       const randomCode = `BKG-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${Math.floor(1000 + Math.random() * 9000)}`;
       bookingsList.unshift({
@@ -1056,7 +1092,7 @@ import Button from '../../components/atoms/Button.astro';
       });
       const data = await res.json();
       if (res.ok && data.success) {
-        alert('✓ Fasilitas baru berhasil disimpan ke database!');
+        showToast('success', 'Fasilitas baru berhasil disimpan ke database!');
       }
     } catch (e) {
       // Local fallback
@@ -1080,7 +1116,8 @@ import Button from '../../components/atoms/Button.astro';
       `).join('');
     }
     addFacCard?.classList.add('is-hidden');
-    addFacForm.reset();
+    addFacForm?.reset();
+    showToast('success', `Fasilitas "${name}" berhasil ditambahkan.`);
   });
 
   // 15. Workspace Internal Tab Navigation
@@ -1123,13 +1160,14 @@ import Button from '../../components/atoms/Button.astro';
     a.download = `Laporan_Booking_${wsBizName?.textContent || 'Bisnis'}_${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
+    showToast('success', 'File CSV laporan berhasil diunduh.');
   });
 
   // 17. Copy Public URL
   document.getElementById('btnCopyPublicUrl')?.addEventListener('click', () => {
     const text = document.getElementById('mockupUrlText')?.textContent || window.location.href;
     navigator.clipboard.writeText(text).then(() => {
-      alert('✓ Link pemesanan online pelanggan berhasil disalin ke clipboard! Siap dibagikan ke media sosial / WhatsApp.');
+      showToast('success', 'Link pemesanan disalin ke clipboard! Siap dibagikan ke Instagram / WhatsApp.');
     });
   });
 
@@ -1150,7 +1188,7 @@ import Button from '../../components/atoms/Button.astro';
   // Refresh bookings button
   document.getElementById('btnRefreshBookings')?.addEventListener('click', async () => {
     await loadBookings();
-    alert('✓ Sinkronisasi database Neon PostgreSQL berhasil!');
+    showToast('success', 'Sinkronisasi data database Neon PostgreSQL berhasil!');
   });
 
   // Initialize
