@@ -15,32 +15,32 @@ export interface NavItem {
 export const navigation: NavItem[] = [
   { label: 'Layanan', href: '/#layanan' },
   {
-    label: 'Uji Coba Layanan',
-    href: '/#demo',
+    label: 'Layanan Sistem',
+    href: '/#layanan',
     children: [
       {
-        title: 'Ordering System Booking',
-        desc: 'Sarana Olahraga, Studio Foto, Barber, Rental PS & Warnet',
-        href: '/demo/booking',
-        badge: 'Real Trial'
+        title: 'Online Booking System',
+        desc: 'Sarana Olahraga, Studio Foto, Barber, Rental PS & Warnet (Aktif 1 Bulan)',
+        href: '/layanan/booking',
+        badge: '30 Hari Aktif'
       },
       {
         title: 'POS, ERP, CRM & Keuangan',
-        desc: 'Kasir, Stok Multi-Gudang, Karyawan & Laba Rugi',
-        href: '/demo/pos-erp',
-        badge: 'Real Trial'
+        desc: 'Kasir, Stok Multi-Gudang, Karyawan & Laba Rugi (Aktif 1 Bulan)',
+        href: '/layanan/pos-erp',
+        badge: '30 Hari Aktif'
       },
       {
         title: 'Ordering In Table (QR Code)',
-        desc: 'Dine-In Resto, Split Bill & Kitchen KDS Realtime',
-        href: '/demo/qr-resto',
-        badge: 'Real Trial'
+        desc: 'Dine-In Resto, Split Bill & Kitchen KDS Realtime (Aktif 1 Bulan)',
+        href: '/layanan/qr-resto',
+        badge: '30 Hari Aktif'
       },
       {
         title: 'Simulasi Cepat (Landing Page)',
         desc: 'Preview kalkulasi & alur interaktif langsung di halaman utama',
         href: '/#demo',
-        badge: 'Sandbox'
+        badge: 'Preview'
       }
     ]
   },
