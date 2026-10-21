@@ -1,18 +1,46 @@
 ---
 import SectionHeading from '../molecules/SectionHeading.astro';
 import FaqItem from '../molecules/FaqItem.astro';
+import SectionArt from '../atoms/SectionArt.astro';
+
 const faqs = [
-  ['Apakah kami perlu memiliki spesifikasi teknis sebelum menghubungi?', 'Tidak. Tugas kami justru menerjemahkan ide bisnis Anda menjadi spesifikasi teknis. Bawa masalah dan tujuan Anda—sisanya kami urus dalam sesi requirement engineering.'],
-  ['Berapa lama proses development typically?', 'MVP umumnya 4–8 minggu tergantung kompleksitas. Setelah requirement engineering, kami memberikan estimasi timeline yang detail dan terikat.'],
-  ['Apakah source code diserahkan sepenuhnya?', 'Ya. Source code, dokumentasi API, dan akses repository diserahkan tanpa biaya tambahan. Tidak ada vendor lock-in.'],
-  ['Bagaimana jika kami butuh maintenance setelah rilis?', 'Kami menawarkan model dedicated team untuk ongoing support, atau Anda dapat mengelola sendiri berkat dokumentasi dan pelatihan yang diserahkan.'],
-  ['Teknologi apa yang digunakan dan bisakah kami request stack tertentu?', 'Kami menggunakan stack enterprise modern (Astro, TypeScript, Node.js, Go, PostgreSQL, Flutter, Tauri). Permintaan stack spesifik dapat didiskusikan selama konsultasi.']
+  [
+    'Apakah kami perlu memiliki dokumen spesifikasi teknis sebelum menghubungi?',
+    'Tidak perlu. Sebagian besar klien kami datang hanya dengan ide bisnis, alur proses manual, atau masalah operasional. Tugas kami dalam sesi Requirement Engineering justru membantu Anda membedah masalah tersebut menjadi diagram alur sistem dan spesifikasi teknis yang teruji.'
+  ],
+  [
+    'Berapa lama estimasi proses development hingga rilis?',
+    'Untuk MVP (Minimum Viable Product), rata-rata durasi berkisar antara 4 hingga 8 minggu tergantung kompleksitas integrasi. Setelah sesi bedah kebutuhan awal, kami memberikan roadmap timeline yang terikat dan transparan.'
+  ],
+  [
+    'Apakah source code dan hak cipta diserahkan 100% kepada kami?',
+    'Ya, mutlak 100%. Seluruh repositori Git, skema database, aset desain Figma, dan dokumentasi API diserahkan penuh kepada Anda tanpa biaya tersembunyi atau royalti. Tidak ada vendor lock-in dalam bentuk apa pun.'
+  ],
+  [
+    'Bagaimana jika kami membutuhkan pemeliharaan (maintenance) setelah rilis?',
+    'Kami menyediakan garansi perbaikan bug pasca-peluncuran selama 30-90 hari gratis. Untuk pemeliharaan berkelanjutan, Anda dapat memilih skema Dedicated Squad bulanan kami atau mengelolanya sendiri dengan panduan dokumentasi lengkap yang kami serahkan.'
+  ],
+  [
+    'Apakah kerahasiaan ide bisnis kami terjamin (NDA)?',
+    'Sangat terjamin. Kami siap menandatangani perjanjian kerahasiaan bersama (Non-Disclosure Agreement / NDA) sebelum Anda membagikan detail proses bisnis maupun ide produk Anda kepada kami.'
+  ],
+  [
+    'Teknologi apa yang digunakan dan bisakah kami request stack tertentu?',
+    'Kami menguasai standar teknologi modern enterprise: Astro, React, Node.js, Go, PostgreSQL, Redis, Docker, Flutter, dan Tauri. Jika tim internal Anda memiliki standar stack khusus (misal: Python, Laravel, atau AWS spesifik), kami dapat menyesuaikannya.'
+  ]
 ];
 ---
-<section class="section section--paper" id="faq">
+<section class="section" id="faq">
   <div class="container faq-layout">
     <div class="faq-sidebar">
-      <SectionHeading eyebrow="06 / FAQ" title="Frequently asked questions." description="Jawaban langsung untuk kekhawatiran yang umum dari klien B2B sebelum memulai proyek." />
+      <SectionHeading
+        eyebrow="07 / Tanya Jawab Teknis"
+        title="Pertanyaan yang Sering Diajukan."
+        description="Jawaban langsung dan jujur untuk kekhawatiran umum dari founder dan IT manager sebelum memulai proyek perangkat lunak."
+      />
+      <div class="faq-art-wrap">
+        <SectionArt variant="faq" />
+      </div>
     </div>
     <div class="faq-list" data-stagger>
       {faqs.map(([q, a]) => <FaqItem question={q} answer={a} />)}

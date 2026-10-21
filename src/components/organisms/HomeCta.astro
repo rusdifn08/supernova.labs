@@ -3,31 +3,70 @@ import Button from '../atoms/Button.astro';
 import Icon from '../atoms/Icon.astro';
 import SectionArt from '../atoms/SectionArt.astro';
 import { getWhatsAppUrl } from '../../lib/whatsapp';
-const wa = getWhatsAppUrl();
+import { contact } from '../../config/contact';
+
+const wa = getWhatsAppUrl('Halo Tim Supernova Labs, saya ingin menjadwalkan konsultasi arsitektur sistem IT untuk bisnis saya.');
 ---
-<section class="final-cta">
+<section class="final-cta" id="kontak">
   <div class="container final-cta__inner">
     <div class="final-cta__grid">
       <div class="final-cta__content" data-reveal="up">
-        <p class="eyebrow eyebrow--light">07 / Start a conversation</p>
-        <h2>Your idea is too valuable for the wrong team.</h2>
-        <p>Mulai dari percakapan yang jujur tentang masalah, peluang, dan sistem yang Anda butuhkan. Konsultasi teknis gratis tanpa komitmen.</p>
-        <Button href={wa} size="lg" icon="whatsapp">Jadwalkan konsultasi via WhatsApp</Button>
+        <p class="eyebrow eyebrow--light">08 / Mulai Percakapan</p>
+        <h2>Ide Bisnis Anda Terlalu Berharga untuk Dikerjakan oleh Tim yang Salah.</h2>
+        <p>
+          Mulai dari konsultasi arsitektur yang jujur dan solutif. Diskusikan alur masalah, peluang skalabilitas, dan estimasi sistem yang Anda butuhkan tanpa biaya dan tanpa komitmen awal.
+        </p>
+
+        <div class="final-cta__actions">
+          <Button href={wa} size="lg" icon="whatsapp" variant="cta">
+            Jadwalkan Konsultasi via WhatsApp
+          </Button>
+          <a class="btn btn--outline-light btn--lg" href="#estimator">
+            Simulasikan Estimasi Proyek
+          </a>
+        </div>
+
         <div class="final-cta__trust">
-          <span><Icon name="check" size={14} /> Tanpa biaya konsultasi</span>
-          <span><Icon name="check" size={14} /> Respons &lt; 15 menit</span>
-          <span><Icon name="check" size={14} /> NDA tersedia</span>
+          <span><Icon name="check" size={15} /> Tanpa Biaya Konsultasi Awal</span>
+          <span><Icon name="check" size={15} /> Respons &lt; 15 Menit</span>
+          <span><Icon name="check" size={15} /> NDA Kerahasiaan Tersedia</span>
         </div>
       </div>
-      <div class="final-cta__visual" data-reveal="left">
-        <SectionArt variant="contact" />
+
+      <div class="final-cta__visual" data-reveal="scale">
+        <div class="cta-art-box">
+          <SectionArt variant="contact" />
+        </div>
         <div class="cta-card">
-          <span class="cta-card__label">KONTAK LANGSUNG</span>
-          <div class="cta-card__row"><Icon name="whatsapp" size={20} /><div><span>WhatsApp</span><strong>0851 7428 9548</strong></div></div>
+          <span class="cta-card__label">SALURAN DISPATCH LANGSUNG</span>
+          
+          <div class="cta-card__row">
+            <span class="cta-card__icon-wrap"><Icon name="whatsapp" size={20} /></span>
+            <div>
+              <span>WHATSAPP OFFICIAL</span>
+              <strong>{contact.displayPhone}</strong>
+            </div>
+          </div>
+
           <div class="cta-card__divider"></div>
-          <div class="cta-card__row"><Icon name="globe" size={20} /><div><span>Lokasi</span><strong>Jakarta, Indonesia</strong></div></div>
+
+          <div class="cta-card__row">
+            <span class="cta-card__icon-wrap"><Icon name="globe" size={20} /></span>
+            <div>
+              <span>LOKASI HEADQUARTERS</span>
+              <strong>Jakarta, Indonesia (Melayani Klien Global)</strong>
+            </div>
+          </div>
+
           <div class="cta-card__divider"></div>
-          <div class="cta-card__row"><Icon name="clock" size={20} /><div><span>Jam operasional</span><strong>Sen–Sab, 09–21 WIB</strong></div></div>
+
+          <div class="cta-card__row">
+            <span class="cta-card__icon-wrap"><Icon name="clock" size={20} /></span>
+            <div>
+              <span>JAM OPERASIONAL DISPATCH</span>
+              <strong>Senin – Sabtu, 08.00 – 21.00 WIB</strong>
+            </div>
+          </div>
         </div>
       </div>
     </div>

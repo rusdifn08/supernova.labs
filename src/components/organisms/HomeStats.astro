@@ -2,14 +2,43 @@
 import StatCard from '../molecules/StatCard.astro';
 import SectionArt from '../atoms/SectionArt.astro';
 ---
-<section class="section section--stats">
+<section class="section section--stats" id="stats">
   <div class="container">
-    <div class="stats-intro"><p class="eyebrow"><span class="eyebrow__line"></span>Signal / Performance</p><SectionArt variant="stats" /></div>
+    <div class="stats-header" data-reveal="up">
+      <div class="stats-title-block">
+        <p class="eyebrow"><span class="eyebrow__line"></span>STANDAR TEKNIS &amp; METRIK UTAMA</p>
+        <h2 class="stats-heading">Bukan Janji Kosong. Terukur di Setiap Baris Kode.</h2>
+      </div>
+      <div class="stats-art-wrap">
+        <SectionArt variant="stats" />
+      </div>
+    </div>
+
     <div class="stats-grid" data-stagger>
-      <StatCard value={100} suffix="%" label="Lighthouse target score" icon="bolt" />
-      <StatCard value={3} label="Platform: Web, Mobile, Desktop" icon="layers" />
-      <StatCard value={15} suffix="m" label="Maximum WhatsApp response" icon="clock" />
-      <StatCard value={3} label="Structured methodology stages" icon="target" />
+      <StatCard
+        value={100}
+        suffix="/100"
+        label="Standar Lighthouse Performance & SEO"
+        icon="bolt"
+      />
+      <StatCard
+        value={3}
+        suffix=" Platform"
+        label="Satu Ekosistem: Web, Mobile & Desktop"
+        icon="layers"
+      />
+      <StatCard
+        value={15}
+        suffix=" Menit"
+        label="Rata-rata Waktu Respons Konsultasi WA"
+        icon="clock"
+      />
+      <StatCard
+        value={100}
+        suffix="%"
+        label="Penyerahan Hak Milik Source Code & IP"
+        icon="shield"
+      />
     </div>
   </div>
 </section>

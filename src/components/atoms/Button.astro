@@ -2,14 +2,27 @@
 import Icon from './Icon.astro';
 interface Props {
   href: string;
-  variant?: 'primary' | 'outline' | 'dark' | 'ghost';
+  variant?: 'primary' | 'outline' | 'dark' | 'ghost' | 'cta';
   size?: 'sm' | 'md' | 'lg';
   icon?: 'arrow' | 'whatsapp';
   target?: string;
+  rel?: string;
 }
-const { href, variant = 'primary', size = 'md', icon, target = '_blank' } = Astro.props;
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  icon,
+  target = href.startsWith('http') ? '_blank' : undefined,
+  rel = href.startsWith('http') ? 'noopener noreferrer' : undefined
+} = Astro.props;
 ---
-<a class={`btn btn--${variant} btn--${size}`} href={href} target={target} rel="noopener noreferrer">
+<a
+  class={`btn btn--${variant} btn--${size}`}
+  href={href}
+  target={target}
+  rel={rel}
+>
   <span class="btn__label"><slot /></span>
   {icon && <span class="btn__icon"><Icon name={icon} size={18} /></span>}
 </a>

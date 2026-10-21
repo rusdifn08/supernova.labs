@@ -3,14 +3,49 @@ import SectionHeading from '../molecules/SectionHeading.astro';
 import EngagementCard from '../molecules/EngagementCard.astro';
 import SectionArt from '../atoms/SectionArt.astro';
 import { getWhatsAppUrl } from '../../lib/whatsapp';
-const wa = getWhatsAppUrl();
+
+const waProject = getWhatsAppUrl('Halo Tim Supernova Labs, saya tertarik dengan skema Model A: Project-Based (Fixed Scope) untuk proyek saya.');
+const waDedicated = getWhatsAppUrl('Halo Tim Supernova Labs, saya tertarik dengan skema Model B: Dedicated Team (Engineering Squad) untuk tim saya.');
 ---
-<section class="section" id="model">
+<section class="section section--paper" id="model">
   <div class="container">
-    <div class="section-intro"><SectionHeading eyebrow="05 / Engagement" title="A working model that follows your business rhythm." description="Fleksibilitas tanpa kekacauan. Pilih model yang sesuai dengan fase dan kebutuhan tim Anda." /><SectionArt variant="engagement" /></div>
+    <div class="section-intro">
+      <SectionHeading
+        eyebrow="06 / Model Kerjasama"
+        title="Fleksibilitas Kerjasama yang Menyesuaikan Ritme Bisnis Anda."
+        description="Pilih skema yang paling sesuai dengan kesiapan spesifikasi dan tahapan pertumbuhan perusahaan Anda. Tanpa biaya tersembunyi."
+      />
+      <SectionArt variant="engagement" />
+    </div>
+
     <div class="engagement-grid" data-stagger>
-      <EngagementCard label="MODEL A / FIXED SCOPE" title="Project-Based" description="Untuk produk dengan scope yang jelas. Anggaran dan target rilis disepakati sejak awal." features={['Harga tetap', 'Timeline jelas', 'Handover penuh']} href={wa} />
-      <EngagementCard label="MODEL B / CONTINUOUS" title="Dedicated Team" description="Tim engineering bulanan untuk startup yang membutuhkan kapasitas tanpa rekrutmen panjang." features={['Tim bulanan', 'Frontend + Backend + PM', 'Prioritas fleksibel']} href={wa} dark />
+      <EngagementCard
+        label="MODEL A / FIXED SCOPE"
+        title="Project-Based (Fixed)"
+        description="Cocok untuk pembangunan produk dengan ruang lingkup yang jelas. Anggaran, milestone rilis, dan hasil akhir disepakati mengikat sejak awal."
+        features={[
+          'Estimasi biaya tetap & transparan dari awal',
+          'Timeline peluncuran jelas dan terikat kontrak',
+          'Akses staging environment mingguan',
+          'Penyerahan 100% hak milik source code',
+          'Garansi perbaikan bug pasca-peluncuran'
+        ]}
+        href={waProject}
+      />
+      <EngagementCard
+        label="MODEL B / CONTINUOUS CAPACITY"
+        title="Dedicated Engineering Squad"
+        description="Tim pengembang komprehensif bulanan untuk startup dan enterprise yang membutuhkan akselerasi produk tanpa pusing proses rekrutmen panjang."
+        features={[
+          'Full-squad: Frontend, Backend, UI/UX, dan PM',
+          'Siklus sprint dua mingguan dengan prioritas fleksibel',
+          'Integrasi langsung ke Slack/Discord tim internal Anda',
+          'Standup harian & laporan kecepatan terukur',
+          'Bisa scale-up atau scale-down kapasitas sesuai kebutuhan'
+        ]}
+        href={waDedicated}
+        dark
+      />
     </div>
   </div>
 </section>

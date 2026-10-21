@@ -1,1 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-labelledby="t d"><title id="t">Technology foundation illustration</title><desc id="d">Engineer reviewing a layered software architecture on a large screen.</desc><defs><linearGradient id="g" x1="60" y1="40" x2="480" y2="320"><stop stop-color="#12b9df"/><stop offset="1" stop-color="#806df0"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="16" stdDeviation="15" flood-color="#345ad0" flood-opacity=".2"/></filter></defs><circle cx="405" cy="130" r="108" fill="#dce8ff"/><path d="M36 314h486" stroke="#b8c9e8"/><g filter="url(#s)"><rect x="260" y="48" width="220" height="160" rx="12" fill="#fff" stroke="#cbd9f4" stroke-width="4"/><rect x="280" y="70" width="180" height="112" rx="6" fill="#142044"/><path d="M298 98h72M298 119h120M298 140h90" stroke="#8aaeff" stroke-width="9" stroke-linecap="round"/><circle cx="428" cy="99" r="8" fill="#12b9df"/><path d="M330 208h80l20 28H310z" fill="#b7c9ee"/><path d="M292 250h155" stroke="#536fae" stroke-width="8" stroke-linecap="round"/><path d="M78 206c0-28 21-49 48-49s48 21 48 49l-13 61H91z" fill="url(#g)"/><circle cx="126" cy="125" r="32" fill="#f2bd99"/><path d="M96 122q30-53 61 0-29 10-61 0Z" fill="#152340"/><path d="m92 222-39 60m91-60 42 60" stroke="#17294f" stroke-width="16" stroke-linecap="round"/><path d="M48 282h28m78 0h30" stroke="#12b9df" stroke-width="10" stroke-linecap="round"/><path d="m212 90 12 27 28 12-28 12-12 28-12-28-28-12 28-12z" fill="#12b9df"/><path d="M205 276h34v34h-34zM246 276h34v34h-34zM287 276h34v34h-34z" fill="#fff" stroke="#8aaeff" stroke-width="3"/><path d="M111 113q7-8 15 0m14 0q7-8 15 0" stroke="#7b493e" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M122 130q8 6 16 0" stroke="#b96e69" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M88 211q38 18 76 0" stroke="#fff" stroke-width="4" opacity=".45"/><path d="M287 83h34m-34 22h62" stroke="#fff" stroke-width="3" opacity=".45"/><circle cx="319" cy="118" r="4" fill="#12b9df"/><path d="M335 259h58" stroke="#12b9df" stroke-width="4" opacity=".55"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-labelledby="foundationTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="foundationTitle">Enterprise Architecture &amp; Technology Foundation</title>
+  <defs>
+    <linearGradient id="fdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <filter id="fdShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Technical Grid Background -->
+  <g opacity="0.35" stroke="#cbd5e1" stroke-width="0.8">
+    <line x1="20" y1="60" x2="540" y2="60" stroke-dasharray="3 4"/>
+    <line x1="20" y1="160" x2="540" y2="160" stroke-dasharray="3 4"/>
+    <line x1="20" y1="260" x2="540" y2="260" stroke-dasharray="3 4"/>
+    <line x1="140" y1="20" x2="140" y2="340" stroke-dasharray="3 4"/>
+    <line x1="280" y1="20" x2="280" y2="340" stroke-dasharray="3 4"/>
+    <line x1="420" y1="20" x2="420" y2="340" stroke-dasharray="3 4"/>
+  </g>
+
+  <!-- Layer 1: Edge & Gateway (Top) -->
+  <g transform="translate(60, 30)" filter="url(#fdShadow)">
+    <rect width="440" height="66" rx="12" fill="#ffffff" stroke="#93c5fd" stroke-width="1.6"/>
+    <rect x="0" y="0" width="440" height="22" rx="12" fill="#0f172a"/>
+    <rect x="0" y="10" width="440" height="12" fill="#0f172a"/>
+    <text x="14" y="15" font-family="ui-monospace, monospace" font-size="8.5" font-weight="bold" fill="#38bdf8">LAYER 01 : EDGE GATEWAY &amp; CDN</text>
+    <text x="360" y="15" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">Cloudflare · SSL/TLS</text>
+    
+    <g transform="translate(18, 32)">
+      <rect width="90" height="24" rx="5" fill="#f0f9ff" stroke="#bae6fd"/>
+      <text x="8" y="16" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#0369a1">Edge Routing</text>
+      
+      <rect x="105" width="90" height="24" rx="5" fill="#f0f9ff" stroke="#bae6fd"/>
+      <text x="113" y="16" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#0369a1">WAF &amp; Anti-DDoS</text>
+
+      <rect x="210" width="95" height="24" rx="5" fill="#f0f9ff" stroke="#bae6fd"/>
+      <text x="218" y="16" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#0369a1">Rate Limiting</text>
+
+      <rect x="320" width="84" height="24" rx="5" fill="#ecfdf5" stroke="#a7f3d0"/>
+      <text x="328" y="16" font-family="ui-monospace, monospace" font-size="8.5" font-weight="bold" fill="#059669">0ms Static Cache</text>
+    </g>
+  </g>
+
+  <!-- Connectors -->
+  <line x1="280" y1="96" x2="280" y2="135" stroke="#2563eb" stroke-width="2" stroke-dasharray="4 3"/>
+
+  <!-- Layer 2: Microservices & Core Logic (Middle) -->
+  <g transform="translate(60, 135)" filter="url(#fdShadow)">
+    <rect width="440" height="88" rx="12" fill="#0f172a" stroke="#2563eb" stroke-width="1.8"/>
+    <text x="16" y="24" font-family="ui-monospace, monospace" font-size="8.5" font-weight="bold" fill="#60a5fa">LAYER 02 : HIGH-CONCURRENCY BACKEND CLUSTER</text>
+    
+    <g transform="translate(16, 36)">
+      <rect width="125" height="38" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="10" y="17" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#f8fafc">Go Microservices</text>
+      <text x="10" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">Low Memory · High QPS</text>
+
+      <rect x="140" width="125" height="38" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="150" y="17" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#f8fafc">Node.js / Bun</text>
+      <text x="150" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">REST &amp; GraphQL API</text>
+
+      <rect x="280" width="128" height="38" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="290" y="17" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#f8fafc">Docker &amp; CI/CD</text>
+      <text x="290" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">Automated Deploy</text>
+    </g>
+  </g>
+
+  <!-- Connectors -->
+  <line x1="280" y1="223" x2="280" y2="260" stroke="#2563eb" stroke-width="2" stroke-dasharray="4 3"/>
+
+  <!-- Layer 3: Persistence & Caching (Bottom) -->
+  <g transform="translate(60, 260)" filter="url(#fdShadow)">
+    <rect width="440" height="74" rx="12" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.6"/>
+    <rect x="0" y="0" width="440" height="20" rx="12" fill="#1e1b4b"/>
+    <rect x="0" y="10" width="440" height="10" fill="#1e1b4b"/>
+    <text x="14" y="14" font-family="ui-monospace, monospace" font-size="8" font-weight="bold" fill="#a5b4fc">LAYER 03 : RELIABLE STORAGE &amp; IN-MEMORY CACHE</text>
+
+    <g transform="translate(18, 28)">
+      <rect width="195" height="34" rx="6" fill="#f5f3ff" stroke="#ddd6fe"/>
+      <text x="10" y="16" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#5b21b6">PostgreSQL Cluster</text>
+      <text x="10" y="27" font-family="ui-monospace, monospace" font-size="7.5" fill="#6b7280">ACID Transactions · Read Replicas</text>
+
+      <rect x="210" width="195" height="34" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+      <text x="220" y="16" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#1e40af">Redis In-Memory</text>
+      <text x="220" y="27" font-family="ui-monospace, monospace" font-size="7.5" fill="#6b7280">Pub/Sub · Session State · Cache</text>
+    </g>
+  </g>
+</svg>

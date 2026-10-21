@@ -2,16 +2,41 @@
 import SectionHeading from '../molecules/SectionHeading.astro';
 import PrincipleCard from '../molecules/PrincipleCard.astro';
 import SectionArt from '../atoms/SectionArt.astro';
+
 const principles = [
-  { icon: 'layers', title: 'Solid Architecture', description: 'Setiap keputusan teknis dipertimbangkan untuk skalabilitas 5 tahun ke depan, bukan demo minggu depan.' },
-  { icon: 'code', title: 'Clean Code', description: 'Kode yang dapat dibaca, diuji, dan dirawat oleh siapa pun di tim Anda—tanpa tribal knowledge.' },
-  { icon: 'shield', title: 'Security First', description: 'Audit keamanan dan praktik hardening diterapkan sejak fase development, bukan setelahnya.' },
-  { icon: 'bolt', title: 'Native Performance', description: 'Lighthouse 100 bukan target akhir—ia adalah standar minimum yang kami pegang.' }
+  {
+    icon: 'layers',
+    title: 'Solid Architecture',
+    description: 'Setiap keputusan teknis dan skema data dirancang untuk skalabilitas 5 tahun ke depan, bukan sekadar demo cepat minggu depan.'
+  },
+  {
+    icon: 'code',
+    title: 'Clean Code & Strict Typing',
+    description: 'Kode yang rapi, terstruktur, dan memiliki dokumentasi jelas sehingga mudah dirawat oleh tim internal Anda di masa mendatang.'
+  },
+  {
+    icon: 'shield',
+    title: 'Security-First by Design',
+    description: 'Audit kerentanan OWASP, enkripsi data, dan proteksi API diterapkan sejak sprint pertama, bukan sebagai tambalan di akhir.'
+  },
+  {
+    icon: 'bolt',
+    title: 'Sub-Second Performance',
+    description: 'Skor Lighthouse 100 dan efisiensi memori bukan sekadar bonus kosmetik, melainkan standar baku kami di semua platform.'
+  }
 ];
 ---
-<section class="section section--paper" id="prinsip">
+<section class="section" id="prinsip">
   <div class="container">
-    <div class="section-intro"><SectionHeading eyebrow="04 / Principles" title="Principles we never compromise." description="Kepercayaan B2B tidak dibangun dari janji, tetapi dari konsistensi dalam detail teknis." /><SectionArt variant="principles" /></div>
+    <div class="section-intro">
+      <SectionHeading
+        eyebrow="05 / Prinsip Engineering"
+        title="Standar Teknis yang Tidak Pernah Kami Kompromikan."
+        description="Kepercayaan B2B dan founder tidak dibangun dari janji manis presentasi, melainkan dari konsistensi kami dalam setiap baris kode dan keamanan data Anda."
+      />
+      <SectionArt variant="principles" />
+    </div>
+
     <div class="principles-grid" data-stagger>
       {principles.map((p) => <PrincipleCard {...p} />)}
     </div>

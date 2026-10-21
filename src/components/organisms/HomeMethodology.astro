@@ -2,17 +2,66 @@
 import SectionHeading from '../molecules/SectionHeading.astro';
 import StepItem from '../molecules/StepItem.astro';
 import SectionArt from '../atoms/SectionArt.astro';
+
 const steps = [
-  ['01', 'Discover & Design', 'Requirement engineering, system flow, dan prototype Figma terkunci sebelum satu baris kode ditulis.', 'target', 'Blueprint & Prototype'],
-  ['02', 'Build in Sprints', 'Siklus mingguan dengan akses staging environment real-time. Anda memantau progres, bukan menunggu kabar.', 'terminal', 'Weekly Release'],
-  ['03', 'Secure & Handover', 'Uji beban, audit keamanan, lalu serah terima source code, dokumentasi API, dan training tim Anda.', 'shield', 'Source & API Docs']
+  [
+    '01',
+    'Requirement Engineering',
+    'Kami membedah alur proses bisnis, kebutuhan data, dan rancangan skema basis data sebelum satu baris kode pun ditulis.',
+    'target',
+    'System Flow & DB Schema'
+  ],
+  [
+    '02',
+    'Fidelity Prototyping',
+    'Serah terima desain Figma interaktif pixel-perfect. Anda melihat dan menyetujui UX sistem secara nyata sebelum pembangunan dimulai.',
+    'layers',
+    'Interactive Figma Prototype'
+  ],
+  [
+    '03',
+    'Weekly Sprint Development',
+    'Pembangunan dengan siklus mingguan. Anda mendapatkan akses ke staging environment untuk memantau progres real-time setiap saat.',
+    'terminal',
+    'Live Staging Releases'
+  ],
+  [
+    '04',
+    'Penetration & QA Testing',
+    'Pengujian beban (stress testing), audit keamanan OWASP, dan verifikasi lintas platform untuk memastikan sistem zero-bug.',
+    'shield',
+    'Zero-Vulnerability Report'
+  ],
+  [
+    '05',
+    'Handover & Full Training',
+    'Penyerahan repositori source code 100%, dokumentasi teknis API lengkap, dan sesi pelatihan operasional untuk staf Anda.',
+    'code',
+    'Full IP & Training Video'
+  ]
 ];
 ---
-<section class="section" id="metodologi">
+<section class="section section--paper" id="metodologi">
   <div class="container">
-    <div class="section-intro"><SectionHeading eyebrow="03 / Method" title="Clean upfront. Fast behind the scenes." description="Proses transparan mengurangi kejutan, mengunci arah, dan membuat setiap rupiah development punya alasan." /><SectionArt variant="method" /></div>
-    <div class="steps" data-stagger>
-      {steps.map(([number, title, description, icon, outcome]) => <StepItem number={number} title={title} description={description} icon={icon} outcome={outcome} />)}
+    <div class="section-intro">
+      <SectionHeading
+        eyebrow="04 / Metodologi Rekayasa"
+        title="Disiplin di Awal. Cepat dan Terukur di Balik Layar."
+        description="Proses transparan yang menghilangkan asumsi bias, mengunci ruang lingkup, dan memastikan setiap rupiah investasi teknologi Anda memberikan hasil bisnis nyata."
+      />
+      <SectionArt variant="method" />
+    </div>
+
+    <div class="steps steps--5col" data-stagger>
+      {steps.map(([number, title, description, icon, outcome]) => (
+        <StepItem
+          number={number}
+          title={title}
+          description={description}
+          icon={icon}
+          outcome={outcome}
+        />
+      ))}
     </div>
   </div>
 </section>

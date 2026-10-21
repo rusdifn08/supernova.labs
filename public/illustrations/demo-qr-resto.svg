@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 380" role="img" aria-labelledby="qrTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="qrTitle">Ordering in Table with QR Code Resto System</title>
+  <defs>
+    <linearGradient id="qrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="qrShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Technical Frame -->
+  <rect x="20" y="20" width="540" height="340" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6" filter="url(#qrShadow)"/>
+  <rect x="20" y="20" width="540" height="30" rx="16" fill="#0f172a"/>
+  <rect x="20" y="36" width="540" height="14" fill="#0f172a"/>
+  <circle cx="38" cy="35" r="4" fill="#ef4444"/>
+  <circle cx="50" cy="35" r="4" fill="#f59e0b"/>
+  <circle cx="62" cy="35" r="4" fill="#10b981"/>
+  <text x="78" y="39" font-family="ui-monospace, monospace" font-size="9" font-weight="bold" fill="#38bdf8">RESTO // DINE-IN-QR-TABLE-ORDERING-SYSTEM</text>
+  <text x="440" y="39" font-family="ui-monospace, monospace" font-size="8.5" fill="#10b981">LIVE ORDERS</text>
+
+  <!-- Left: Physical Table with QR Code Acrylic Stand -->
+  <g transform="translate(40, 68)">
+    <rect width="180" height="270" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+    <rect width="180" height="26" rx="12" fill="#065f46"/>
+    <rect y="12" width="180" height="14" fill="#065f46"/>
+    <text x="12" y="17" font-family="ui-monospace, monospace" font-size="8.5" font-weight="bold" fill="#a7f3d0">MEJA 08 (VIP ROOM)</text>
+
+    <!-- Acrylic Stand Simulation -->
+    <g transform="translate(20, 42)">
+      <!-- Stand Base -->
+      <path d="M 30 140 L 110 140 L 125 155 L 15 155 Z" fill="#cbd5e1"/>
+      <!-- Acrylic Plate -->
+      <rect x="25" y="15" width="90" height="125" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+      <rect x="35" y="22" width="70" height="14" rx="4" fill="#0f172a"/>
+      <text x="70" y="32" text-anchor="middle" font-family="system-ui, sans-serif" font-size="6.5" font-weight="bold" fill="#ffffff">SCAN &amp; PESAN</text>
+
+      <!-- QR Code Matrix Graphic -->
+      <g transform="translate(40, 42)">
+        <rect width="60" height="60" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="1"/>
+        <!-- QR Finder Patterns -->
+        <rect x="5" y="5" width="16" height="16" fill="#0f172a"/>
+        <rect x="7" y="7" width="12" height="12" fill="#ffffff"/>
+        <rect x="9" y="9" width="8" height="8" fill="#0f172a"/>
+
+        <rect x="39" y="5" width="16" height="16" fill="#0f172a"/>
+        <rect x="41" y="7" width="12" height="12" fill="#ffffff"/>
+        <rect x="43" y="9" width="8" height="8" fill="#0f172a"/>
+
+        <rect x="5" y="39" width="16" height="16" fill="#0f172a"/>
+        <rect x="7" y="41" width="12" height="12" fill="#ffffff"/>
+        <rect x="9" y="43" width="8" height="8" fill="#0f172a"/>
+
+        <!-- Little QR Data dots -->
+        <rect x="26" y="8" width="8" height="8" fill="#0f172a"/>
+        <rect x="26" y="22" width="8" height="16" fill="#0f172a"/>
+        <rect x="39" y="26" width="12" height="8" fill="#0f172a"/>
+        <rect x="26" y="44" width="16" height="8" fill="#0f172a"/>
+        <circle cx="30" cy="30" r="3" fill="#10b981"/>
+      </g>
+
+      <text x="70" y="118" text-anchor="middle" font-family="ui-monospace, monospace" font-size="6.5" font-weight="bold" fill="#059669">MEJA #08</text>
+      <text x="70" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="5.5" fill="#64748b">Tanpa Download App</text>
+    </g>
+
+    <!-- Call Waiter button -->
+    <rect x="18" y="224" width="144" height="26" rx="6" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="90" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8.5" font-weight="bold" fill="#047857">🔔 Panggil Waiter / Minta Bill</text>
+  </g>
+
+  <!-- Middle: Customer Mobile View -->
+  <g transform="translate(235, 68)">
+    <rect width="160" height="270" rx="16" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="4" y="4" width="152" height="262" rx="14" fill="#ffffff"/>
+    
+    <!-- Mobile Notch -->
+    <rect x="55" y="8" width="50" height="8" rx="4" fill="#0f172a"/>
+
+    <!-- Mobile Header -->
+    <g transform="translate(10, 22)">
+      <text x="0" y="10" font-family="system-ui, sans-serif" font-size="8.5" font-weight="bold" fill="#0f172a">Dine-In Menu (Meja 08)</text>
+      <text x="0" y="18" font-family="ui-monospace, monospace" font-size="6.5" fill="#64748b">Kategori: Makanan Utama</text>
+
+      <!-- Menu Items -->
+      <g transform="translate(0, 24)">
+        <rect width="132" height="42" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="6" y="6" width="30" height="30" rx="4" fill="#fed7aa"/>
+        <text x="42" y="16" font-family="system-ui, sans-serif" font-size="8.5" font-weight="bold" fill="#0f172a">Wagyu Donburi</text>
+        <text x="42" y="26" font-family="ui-monospace, monospace" font-size="6.5" fill="#64748b">Tingkat: Medium Well</text>
+        <text x="42" y="35" font-family="system-ui, sans-serif" font-size="7.5" font-weight="bold" fill="#059669">Rp 88.000</text>
+        <rect x="108" y="24" width="18" height="14" rx="3" fill="#10b981"/>
+        <text x="117" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#ffffff">+</text>
+
+        <g transform="translate(0, 48)">
+          <rect width="132" height="42" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+          <rect x="6" y="6" width="30" height="30" rx="4" fill="#bbf7d0"/>
+          <text x="42" y="16" font-family="system-ui, sans-serif" font-size="8.5" font-weight="bold" fill="#0f172a">Iced Peach Tea</text>
+          <text x="42" y="26" font-family="ui-monospace, monospace" font-size="6.5" fill="#64748b">Less Sugar · Regular</text>
+          <text x="42" y="35" font-family="system-ui, sans-serif" font-size="7.5" font-weight="bold" fill="#059669">Rp 28.000</text>
+          <rect x="108" y="24" width="18" height="14" rx="3" fill="#10b981"/>
+          <text x="117" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#ffffff">+</text>
+        </g>
+
+        <!-- Cart Bar -->
+        <g transform="translate(0, 102)">
+          <rect width="132" height="34" rx="8" fill="#047857"/>
+          <text x="10" y="15" font-family="system-ui, sans-serif" font-size="7.5" font-weight="bold" fill="#ffffff">2 Items (Rp 116.000)</text>
+          <text x="10" y="25" font-family="ui-monospace, monospace" font-size="6.5" fill="#a7f3d0">Bayar Langsung / Kasir</text>
+          <rect x="85" y="8" width="38" height="18" rx="4" fill="#ffffff"/>
+          <text x="104" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7.5" font-weight="bold" fill="#047857">PESAN &gt;</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: Kitchen Display System (KDS) & Order Status -->
+  <g transform="translate(410, 68)">
+    <rect width="130" height="270" rx="12" fill="#0f172a" stroke="#334155"/>
+    <text x="12" y="20" font-family="ui-monospace, monospace" font-size="8" font-weight="bold" fill="#38bdf8">KITCHEN KDS</text>
+    
+    <!-- Order Ticket 1 -->
+    <g transform="translate(10, 32)">
+      <rect width="110" height="88" rx="6" fill="#1e293b" stroke="#334155"/>
+      <rect width="110" height="18" rx="6" fill="#b91c1c"/>
+      <rect y="10" width="110" height="8" fill="#b91c1c"/>
+      <text x="8" y="13" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#ffffff">MEJA 08 · #ORD-104</text>
+      
+      <text x="8" y="32" font-family="system-ui, sans-serif" font-size="8" fill="#f8fafc">1x Wagyu Donburi</text>
+      <text x="8" y="44" font-family="system-ui, sans-serif" font-size="7" fill="#fca5a5">*Catatan: Medium Well</text>
+      <text x="8" y="56" font-family="system-ui, sans-serif" font-size="8" fill="#f8fafc">1x Iced Peach Tea</text>
+      
+      <rect x="8" y="66" width="94" height="14" rx="3" fill="#10b981"/>
+      <text x="55" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="6.5" font-weight="bold" fill="#ffffff">SELESAI DIMASAK ✓</text>
+    </g>
+
+    <!-- Order Ticket 2 -->
+    <g transform="translate(10, 130)">
+      <rect width="110" height="80" rx="6" fill="#1e293b" stroke="#334155"/>
+      <rect width="110" height="18" rx="6" fill="#d97706"/>
+      <rect y="10" width="110" height="8" fill="#d97706"/>
+      <text x="8" y="13" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#ffffff">MEJA 03 · #ORD-103</text>
+      
+      <text x="8" y="32" font-family="system-ui, sans-serif" font-size="8" fill="#f8fafc">2x Chicken Katsu Curry</text>
+      <text x="8" y="46" font-family="system-ui, sans-serif" font-size="8" fill="#f8fafc">2x Matcha Latte</text>
+      
+      <rect x="8" y="58" width="94" height="14" rx="3" fill="#3b82f6"/>
+      <text x="55" y="68" text-anchor="middle" font-family="ui-monospace, monospace" font-size="6.5" font-weight="bold" fill="#ffffff">SEDANG MEMASAK...</text>
+    </g>
+
+    <!-- Total Active -->
+    <g transform="translate(10, 220)">
+      <rect width="110" height="34" rx="6" fill="#090d16" stroke="#1e293b"/>
+      <text x="8" y="14" font-family="ui-monospace, monospace" font-size="6.5" fill="#94a3b8">AVG PREPARE TIME :</text>
+      <text x="8" y="26" font-family="system-ui, sans-serif" font-size="8.5" font-weight="bold" fill="#10b981">8.5 Menit (Cepat)</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 380" role="img" aria-labelledby="bookingTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="bookingTitle">Universal Booking &amp; Reservation Engine</title>
+  <defs>
+    <linearGradient id="bkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="bkShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Technical Blueprint Frame -->
+  <rect x="20" y="20" width="540" height="340" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6" filter="url(#bkShadow)"/>
+  <rect x="20" y="20" width="540" height="30" rx="16" fill="#0f172a"/>
+  <rect x="20" y="36" width="540" height="14" fill="#0f172a"/>
+  <circle cx="38" cy="35" r="4" fill="#ef4444"/>
+  <circle cx="50" cy="35" r="4" fill="#f59e0b"/>
+  <circle cx="62" cy="35" r="4" fill="#10b981"/>
+  <text x="78" y="39" font-family="ui-monospace, monospace" font-size="9" font-weight="bold" fill="#38bdf8">SYSTEM // BOOKING-RESERVATION-ENGINE-V2</text>
+  <text x="440" y="39" font-family="ui-monospace, monospace" font-size="8.5" fill="#94a3b8">INDONESIA-WIDE</text>
+
+  <!-- Left: Service Types Grid -->
+  <g transform="translate(40, 68)">
+    <text x="0" y="14" font-family="ui-monospace, monospace" font-size="9" font-weight="bold" fill="#64748b">SUPPORTED BUSINESS TYPES</text>
+    
+    <g transform="translate(0, 24)">
+      <!-- Futsal / Badminton -->
+      <rect width="150" height="36" rx="8" fill="#f0f9ff" stroke="#bae6fd"/>
+      <circle cx="18" cy="18" r="8" fill="#dbeafe"/>
+      <text x="32" y="16" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#0369a1">Sarana Olahraga</text>
+      <text x="32" y="28" font-family="ui-monospace, monospace" font-size="7.5" fill="#0284c7">Futsal, Badminton, Mini Soccer</text>
+
+      <!-- Studio Photo -->
+      <g transform="translate(0, 44)">
+        <rect width="150" height="36" rx="8" fill="#faf5ff" stroke="#e9d5ff"/>
+        <circle cx="18" cy="18" r="8" fill="#f3e8ff"/>
+        <text x="32" y="16" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#6b21a8">Studio Photo</text>
+        <text x="32" y="28" font-family="ui-monospace, monospace" font-size="7.5" fill="#7c3aed">Self-Photo &amp; Thematic Room</text>
+      </g>
+
+      <!-- Barbershop / Salon -->
+      <g transform="translate(0, 88)">
+        <rect width="150" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="18" cy="18" r="8" fill="#e2e8f0"/>
+        <text x="32" y="16" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#334155">Barbershop &amp; Salon</text>
+        <text x="32" y="28" font-family="ui-monospace, monospace" font-size="7.5" fill="#64748b">Kursi &amp; Kapster Selection</text>
+      </g>
+
+      <!-- Rental PS & Gaming Warnet -->
+      <g transform="translate(0, 132)">
+        <rect width="150" height="36" rx="8" fill="#ecfeff" stroke="#a5f3fc"/>
+        <circle cx="18" cy="18" r="8" fill="#cffafe"/>
+        <text x="32" y="16" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#0e7490">Rental PS &amp; Warnet</text>
+        <text x="32" y="28" font-family="ui-monospace, monospace" font-size="7.5" fill="#0891b2">Console &amp; Billing Billing PC</text>
+      </g>
+
+      <!-- Jasa Lainnya -->
+      <g transform="translate(0, 176)">
+        <rect width="150" height="36" rx="8" fill="#ecfdf5" stroke="#a7f3d0"/>
+        <circle cx="18" cy="18" r="8" fill="#d1fae5"/>
+        <text x="32" y="16" font-family="system-ui, sans-serif" font-size="9.5" font-weight="bold" fill="#065f46">Layanan Jasa Custom</text>
+        <text x="32" y="28" font-family="ui-monospace, monospace" font-size="7.5" fill="#059669">Klinik, Bimbingan &amp; Jasa</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="210" y1="70" x2="210" y2="330" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+
+  <!-- Right: Real-time Schedule & Slot Engine -->
+  <g transform="translate(230, 68)">
+    <text x="0" y="14" font-family="ui-monospace, monospace" font-size="9" font-weight="bold" fill="#64748b">INTERACTIVE TIMELINE &amp; SLOT RESERVATION</text>
+
+    <!-- Schedule Bar Component -->
+    <g transform="translate(0, 24)">
+      <rect width="310" height="66" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="14" y="20" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">Lapangan A (Vinyl Pro) · Hari Ini</text>
+      <text x="14" y="34" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748b">Pilih Jam &amp; Durasi Booking:</text>
+
+      <g transform="translate(14, 40)">
+        <rect width="42" height="18" rx="4" fill="#e2e8f0"/>
+        <text x="21" y="12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">15:00</text>
+
+        <rect x="48" width="42" height="18" rx="4" fill="#e2e8f0"/>
+        <text x="69" y="12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">16:00</text>
+
+        <rect x="96" width="48" height="18" rx="4" fill="#2563eb"/>
+        <text x="120" y="12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#ffffff">17:00 ✓</text>
+
+        <rect x="150" width="48" height="18" rx="4" fill="#2563eb"/>
+        <text x="174" y="12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#ffffff">18:00 ✓</text>
+
+        <rect x="204" width="42" height="18" rx="4" fill="#10b981"/>
+        <text x="225" y="12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" fill="#ffffff">19:00</text>
+
+        <rect x="252" width="42" height="18" rx="4" fill="#10b981"/>
+        <text x="273" y="12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" fill="#ffffff">20:00</text>
+      </g>
+    </g>
+
+    <!-- Booking Confirmation Card Simulation -->
+    <g transform="translate(0, 102)">
+      <rect width="310" height="126" rx="10" fill="#0f172a" stroke="#2563eb" stroke-width="1.5"/>
+      <circle cx="20" cy="22" r="8" fill="#10b981" opacity="0.2"/>
+      <circle cx="20" cy="22" r="4" fill="#10b981"/>
+      <text x="36" y="26" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Booking Sukses &amp; Terverifikasi</text>
+      <rect x="235" y="14" width="60" height="16" rx="8" fill="#2563eb"/>
+      <text x="265" y="25" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#ffffff">AUTO DP</text>
+
+      <g transform="translate(16, 42)">
+        <text x="0" y="12" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">CUSTOMER :</text>
+        <text x="75" y="12" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#f8fafc">Rizky Pratama (0812-9876-xxxx)</text>
+
+        <text x="0" y="26" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">RESOURCES :</text>
+        <text x="75" y="26" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#38bdf8">Studio 02 (Thematic Aesthetic)</text>
+
+        <text x="0" y="40" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">DURASI :</text>
+        <text x="75" y="40" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#f8fafc">2 Jam (17:00 - 19:00 WIB)</text>
+
+        <text x="0" y="54" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">WHATSAPP :</text>
+        <text x="75" y="54" font-family="ui-monospace, monospace" font-size="8.5" fill="#10b981">✓ Tiket &amp; Pengingat Terkirim Otomatis</text>
+      </g>
+
+      <rect x="16" y="102" width="278" height="1" fill="#1e293b"/>
+    </g>
+  </g>
+</svg>

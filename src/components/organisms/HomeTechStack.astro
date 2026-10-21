@@ -2,25 +2,73 @@
 import SectionHeading from '../molecules/SectionHeading.astro';
 import TechItem from '../molecules/TechItem.astro';
 import SectionArt from '../atoms/SectionArt.astro';
-const techGroups = [
-  [{name:'React',cat:'UI'},{name:'Astro',cat:'Meta'},{name:'TypeScript',cat:'Lang'},{name:'Tailwind',cat:'CSS'}],
-  [{name:'Node.js',cat:'Runtime'},{name:'Go',cat:'Lang'},{name:'PostgreSQL',cat:'DB'},{name:'Redis',cat:'Cache'}],
-  [{name:'Docker',cat:'Container'},{name:'AWS',cat:'Cloud'},{name:'Cloudflare',cat:'Edge'},{name:'GitHub',cat:'CI/CD'}]
+
+const techCategories = [
+  {
+    title: 'FRONTEND & META-FRAMEWORK',
+    items: [
+      { name: 'React 19', cat: 'UI Engine' },
+      { name: 'Astro 5.x', cat: 'Zero-JS SSR' },
+      { name: 'TypeScript', cat: 'Strict Typing' },
+      { name: 'Tailwind CSS', cat: 'Design System' }
+    ]
+  },
+  {
+    title: 'MOBILE & DESKTOP RUNTIME',
+    items: [
+      { name: 'Flutter & Dart', cat: 'Mobile Native' },
+      { name: 'React Native', cat: 'Hybrid Mobile' },
+      { name: 'Tauri (Rust)', cat: 'Ultralight Desktop' },
+      { name: 'Electron', cat: 'Desktop Enterprise' }
+    ]
+  },
+  {
+    title: 'BACKEND & DATA CLUSTER',
+    items: [
+      { name: 'Node.js / Bun', cat: 'API Server' },
+      { name: 'Go (Golang)', cat: 'High Concurrency' },
+      { name: 'PostgreSQL', cat: 'ACID Relational' },
+      { name: 'Redis', cat: 'Cache & Pub/Sub' }
+    ]
+  },
+  {
+    title: 'CLOUD, EDGE & CI/CD',
+    items: [
+      { name: 'Docker', cat: 'Container' },
+      { name: 'Cloudflare', cat: 'Edge & WAF' },
+      { name: 'AWS & GCP', cat: 'Cloud Infra' },
+      { name: 'GitHub Actions', cat: 'Automated CI/CD' }
+    ]
+  }
 ];
 ---
 <section class="section" id="stack">
   <div class="container">
-    <div class="section-intro"><SectionHeading eyebrow="01 / Foundation" title="Technology is never decoration." description="Kami memilih stack berdasarkan konteks produk, kebutuhan tim, dan biaya jangka panjang—bukan tren sesaat." /><SectionArt variant="stack" /></div>
-    <div class="tech-blocks" data-stagger>
-      {techGroups.map((group, i) => (
+    <div class="section-intro">
+      <SectionHeading
+        eyebrow="03 / Fondasi Arsitektur"
+        title="Teknologi Bukan Sekadar Hiasan. Kami Memilih untuk Ketahanan."
+        description="Kami menolak tren sesaat. Setiap stack dipilih berdasarkan konteks beban bisnis, kemudahan perawatan jangka panjang, dan efisiensi biaya infrastruktur Anda."
+      />
+      <SectionArt variant="stack" />
+    </div>
+
+    <div class="tech-blocks tech-blocks--4col" data-stagger>
+      {techCategories.map((group) => (
         <div class="tech-block">
-          <span class="tech-block__label">{['FRONTEND','BACKEND','DELIVERY'][i]}</span>
+          <span class="tech-block__label">{group.title}</span>
           <div class="tech-block__items">
-            {group.map((t) => <TechItem name={t.name} category={t.cat} />)}
+            {group.items.map((t) => <TechItem name={t.name} category={t.cat} />)}
           </div>
         </div>
       ))}
     </div>
-    <p class="tech-footnote" data-reveal="up">Standar teknologi yang sama digunakan oleh perusahaan Fortune 500 untuk sistem mission-critical.</p>
+
+    <div class="tech-bottom-banner" data-reveal="up">
+      <span class="tech-banner-badge">STANDARD Fortune 500</span>
+      <p class="tech-banner-text">
+        Arsitektur yang sama digunakan oleh institusi keuangan dan perusahaan teknologi global untuk sistem mission-critical berkecepatan tinggi tanpa downtime.
+      </p>
+    </div>
   </div>
 </section>

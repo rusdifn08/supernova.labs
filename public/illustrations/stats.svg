@@ -1,1 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" role="img" aria-labelledby="t d"><title id="t">Performance metrics illustration</title><desc id="d">A dashboard with rising performance metrics and a product engineer.</desc><defs><linearGradient id="g" x1="80" y1="30" x2="480" y2="190"><stop stop-color="#12b9df"/><stop offset="1" stop-color="#806df0"/></linearGradient></defs><path d="M30 190h500" stroke="#b8c9e8"/><rect x="150" y="30" width="320" height="142" rx="12" fill="#fff" stroke="#cbd9f4" stroke-width="4"/><path d="M178 68h90M178 92h62" stroke="#8aaeff" stroke-width="8" stroke-linecap="round"/><path d="m182 143 50-34 42 19 55-59 52 27 50-50" stroke="url(#g)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="381" cy="69" r="8" fill="#12b9df"/><path d="M84 121c0-22 17-40 38-40s38 18 38 40l-9 51H93z" fill="url(#g)"/><circle cx="122" cy="57" r="25" fill="#f2bd99"/><path d="M98 55q24-42 49 0Z" fill="#172744"/><path d="m98 168-27 25m69-25 28 25" stroke="#172744" stroke-width="13" stroke-linecap="round"/><path d="M66 194h25m49 0h27" stroke="#12b9df" stroke-width="9" stroke-linecap="round"/><path d="M104 104q5-7 11 0m11 0q5-7 11 0" stroke="#7b493e" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M111 118q7 5 14 0" stroke="#b96e69" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M91 146q30 16 60 0" stroke="#fff" stroke-width="4" opacity=".45"/><path d="M193 52h50m-50 14h32" stroke="#4778f5" stroke-width="4" opacity=".55"/><circle cx="426" cy="91" r="5" fill="#806df0"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" role="img" aria-labelledby="statsTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="statsTitle">Supernova Engineering Telemetry &amp; Metrics</title>
+  <defs>
+    <linearGradient id="chartLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="stShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Technical Frame Background -->
+  <rect x="20" y="20" width="520" height="180" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#stShadow)"/>
+  <rect x="20" y="20" width="520" height="26" rx="14" fill="#0f172a"/>
+  <rect x="20" y="32" width="520" height="14" fill="#0f172a"/>
+  <circle cx="36" cy="33" r="3.5" fill="#ef4444"/>
+  <circle cx="48" cy="33" r="3.5" fill="#f59e0b"/>
+  <circle cx="60" cy="33" r="3.5" fill="#10b981"/>
+  <text x="76" y="36" font-family="ui-monospace, monospace" font-size="8.5" fill="#94a3b8">telemetry://supernova.monitoring/production-vitals</text>
+
+  <!-- Inner Metrics -->
+  <g transform="translate(40, 60)">
+    <!-- Metric 1: Lighthouse Score 100 -->
+    <g transform="translate(0, 5)">
+      <circle cx="35" cy="40" r="28" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+      <text x="35" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#059669">100</text>
+      <text x="35" y="82" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#065f46">LIGHTHOUSE</text>
+    </g>
+
+    <!-- Metric 2: Latency Chart -->
+    <g transform="translate(90, 0)">
+      <rect width="260" height="90" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="12" y="18" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">API P99 LATENCY (AVG: 24ms)</text>
+      
+      <!-- Chart Grid Lines -->
+      <line x1="12" y1="35" x2="248" y2="35" stroke="#e2e8f0" stroke-dasharray="2 3"/>
+      <line x1="12" y1="55" x2="248" y2="55" stroke="#e2e8f0" stroke-dasharray="2 3"/>
+      <line x1="12" y1="75" x2="248" y2="75" stroke="#e2e8f0" stroke-dasharray="2 3"/>
+
+      <!-- Smooth Line Path -->
+      <polyline points="18,72 50,65 90,48 130,52 170,38 210,42 245,30" fill="none" stroke="url(#chartLineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="245" cy="30" r="4" fill="#10b981"/>
+    </g>
+
+    <!-- Metric 3: Live Stats Column -->
+    <g transform="translate(370, 0)">
+      <rect width="110" height="40" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+      <text x="10" y="16" font-family="ui-monospace, monospace" font-size="7.5" fill="#1d4ed8">UPTIME SLA</text>
+      <text x="10" y="32" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e3a8a">99.98%</text>
+
+      <rect y="48" width="110" height="40" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+      <text x="10" y="64" font-family="ui-monospace, monospace" font-size="7.5" fill="#6b21a8">HANDOVER</text>
+      <text x="10" y="80" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#4c1d95">100% IP</text>
+    </g>
+  </g>
+</svg>

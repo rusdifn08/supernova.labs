@@ -1,1 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-labelledby="t d"><title id="t">Start a conversation</title><desc id="d">A friendly digital consultant holding a conversation card beside contact signals.</desc><defs><linearGradient id="g" x1="70" y1="30" x2="470" y2="330"><stop stop-color="#12b9df"/><stop offset="1" stop-color="#806df0"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="15" stdDeviation="14" flood-color="#07183f" flood-opacity=".28"/></filter></defs><circle cx="310" cy="170" r="145" fill="#254ca8" opacity=".35"/><path d="M32 318h496" stroke="#8eaff0"/><g filter="url(#s)"><rect x="278" y="57" width="190" height="116" rx="14" fill="#fff"/><path d="M307 91h96M307 119h131" stroke="#8aaeff" stroke-width="9" stroke-linecap="round"/><circle cx="430" cy="91" r="8" fill="#12b9df"/><path d="M112 188c0-28 21-50 48-50s48 22 48 50l-10 70h-76z" fill="url(#g)"/><circle cx="160" cy="111" r="30" fill="#f3c09d"/><path d="M131 109q28-51 59 0-30 8-59 0Z" fill="#101c3a"/><path d="m130 252-40 51m82-51 39 51" stroke="#101c3a" stroke-width="16" stroke-linecap="round"/><path d="M87 303h31m39 0h31" stroke="#12b9df" stroke-width="10" stroke-linecap="round"/><path d="M210 202h71" stroke="#fff" stroke-width="7" stroke-dasharray="10 10"/><circle cx="234" cy="202" r="13" fill="#12b9df"/><circle cx="267" cy="202" r="13" fill="#806df0"/><path d="m424 221 10 22 23 10-23 10-10 23-10-23-23-10 23-10z" fill="#12b9df"/></g><path d="M142 99q5-7 11 0m11 0q5-7 11 0" stroke="#7b493e" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M149 114q7 5 14 0" stroke="#b96e69" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M120 171q34 17 68 0" stroke="#fff" stroke-width="4" opacity=".42"/><path d="M307 80h62m-62 15h82" stroke="#4778f5" stroke-width="4" opacity=".55"/><circle cx="399" cy="129" r="5" fill="#806df0"/><path d="M77 275h51m-31 14h34" stroke="#fff" stroke-width="4" opacity=".7"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-labelledby="contactTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="contactTitle">Direct Consultation with Lead Architect</title>
+  <defs>
+    <filter id="ctShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Technical Background Coordinate Frame -->
+  <rect x="30" y="30" width="500" height="300" rx="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" filter="url(#ctShadow)"/>
+  
+  <!-- Header Bar -->
+  <rect x="30" y="30" width="500" height="34" rx="16" fill="rgba(15, 23, 42, 0.95)"/>
+  <rect x="30" y="50" width="500" height="14" fill="rgba(15, 23, 42, 0.95)"/>
+  <circle cx="50" cy="47" r="4" fill="#22c55e"/>
+  <text x="64" y="51" font-family="ui-monospace, monospace" font-size="9" font-weight="bold" fill="#38bdf8">DIRECT ARCHITECT DISPATCH CHANNEL</text>
+  <text x="400" y="51" font-family="ui-monospace, monospace" font-size="8.5" fill="#94a3b8">STATUS: ONLINE</text>
+
+  <!-- Content Elements -->
+  <g transform="translate(60, 85)">
+    <!-- Chat Message Simulation 1 -->
+    <rect width="320" height="48" rx="10" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255, 255, 255, 0.12)"/>
+    <text x="14" y="20" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Klien Founder / IT Manager:</text>
+    <text x="14" y="36" font-family="system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#ffffff">"Kami butuh sistem Web + Mobile POS untuk 20 cabang."</text>
+
+    <!-- Response Message Simulation 2 -->
+    <g transform="translate(120, 60)">
+      <rect width="320" height="58" rx="10" fill="#2563eb" stroke="#3b82f6"/>
+      <text x="14" y="20" font-family="system-ui, sans-serif" font-size="9" fill="#bfdbfe">Supernova Lead Architect (Respons &lt; 15 min):</text>
+      <text x="14" y="36" font-family="system-ui, sans-serif" font-size="10.5" font-weight="bold" fill="#ffffff">"Siap! Kami rancang arsitektur offline-first SQLite</text>
+      <text x="14" y="50" font-family="system-ui, sans-serif" font-size="10" fill="#ffffff">dengan sinkronisasi PostgreSQL cloud. Jadwalkan call?"</text>
+    </g>
+
+    <!-- Badges Row -->
+    <g transform="translate(0, 145)">
+      <rect width="135" height="42" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)"/>
+      <circle cx="20" cy="21" r="7" fill="#22c55e" opacity="0.2"/>
+      <circle cx="20" cy="21" r="3.5" fill="#22c55e"/>
+      <text x="34" y="18" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#ffffff">SLA Cepat</text>
+      <text x="34" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">&lt; 15 Menit Respons</text>
+
+      <rect x="150" width="135" height="42" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)"/>
+      <circle cx="170" cy="21" r="7" fill="#38bdf8" opacity="0.2"/>
+      <path d="M 166 21 L 169 24 L 174 18" stroke="#38bdf8" stroke-width="1.6" fill="none"/>
+      <text x="184" y="18" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#ffffff">Mutual NDA</text>
+      <text x="184" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">Kerahasiaan Dijamin</text>
+
+      <rect x="300" width="140" height="42" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)"/>
+      <circle cx="320" cy="21" r="7" fill="#a855f7" opacity="0.2"/>
+      <path d="M 316 21 L 324 21 M 320 17 L 320 25" stroke="#a855f7" stroke-width="1.6"/>
+      <text x="334" y="18" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#ffffff">Free Technical Call</text>
+      <text x="334" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">Tanpa Komitmen Awal</text>
+    </g>
+  </g>
+</svg>

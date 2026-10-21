@@ -2,28 +2,80 @@
 import Button from '../atoms/Button.astro';
 import Icon from '../atoms/Icon.astro';
 import { getWhatsAppUrl } from '../../lib/whatsapp';
-const wa = getWhatsAppUrl();
+const wa = getWhatsAppUrl('Halo Tim Supernova Labs, saya tertarik konsultasi arsitektur sistem IT untuk bisnis saya.');
 ---
-<section class="hero section-grid">
+<section class="hero section-grid" id="beranda">
   <div class="hero-blob" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow" data-reveal="up"><span class="status-dot"></span> All-in-One Multiplatform Apps Digital</p>
-      <h1 data-reveal="up">Build <em>Apps for Business.</em></h1>
-      <p class="hero-lead" data-reveal="up">Satu tim untuk membuat Website, Mobile Apps, dan Desktop Apps yang cepat, aman, dan dirancang untuk kebutuhan bisnis Anda.</p>
-      <div class="hero-actions" data-reveal="up">
-        <Button href={wa} size="lg" icon="arrow">Start your project</Button>
-        <a class="text-link" href="#layanan">Explore our services <Icon name="arrow" size={16} /></a>
+      <div class="hero-badge-wrap" data-reveal="up">
+        <span class="status-badge">
+          <span class="status-dot"></span>
+          <span>ENTERPRISE ALL-IN-ONE IT SOLUTION</span>
+        </span>
       </div>
+
+      <h1 data-reveal="up">
+        Kami Membangun <em>Infrastruktur Digital</em> untuk Skala Bisnis Nyata.
+      </h1>
+
+      <p class="hero-lead" data-reveal="up">
+        Satu partner rekayasa perangkat lunak untuk <strong>Website Enterprise</strong>, <strong>Mobile Apps (iOS &amp; Android)</strong>, dan <strong>Desktop System</strong> performa tinggi. Arsitektur kokoh, clean code, dan 100% penyerahan source code tanpa vendor lock-in.
+      </p>
+
+      <div class="hero-actions" data-reveal="up">
+        <Button href={wa} size="lg" icon="whatsapp" variant="cta">Konsultasi Teknis Gratis</Button>
+        <a class="btn btn--outline btn--lg" href="#estimator">
+          <span>Simulasi Estimasi Proyek</span>
+          <span class="btn__icon"><Icon name="arrow" size={16} /></span>
+        </a>
+      </div>
+
       <div class="trust-line" data-reveal="up">
-        <span><Icon name="globe" size={14} /> Berbasis di Indonesia</span>
-        <span><Icon name="clock" size={14} /> Respons &lt; 15 menit</span>
+        <span><Icon name="globe" size={15} /> Berbasis di Indonesia (Remote-ready Global)</span>
+        <span><Icon name="clock" size={15} /> Respons &lt; 15 Menit</span>
+        <span><Icon name="shield" size={15} /> 100% IP &amp; Source Code Milik Anda</span>
       </div>
     </div>
-    <div class="hero-illustration" data-reveal="scale">
-      <img src="/illustrations/supernova-hero.svg" alt="Tim Supernova Labs membangun produk digital" width="720" height="600" />
-      <span class="illustration-tag illustration-tag--top">BUILD / 001</span>
-      <span class="illustration-tag illustration-tag--bottom">WEB · MOBILE · DESKTOP</span>
+
+    <div class="hero-illustration-wrapper" data-reveal="scale">
+      <div class="hero-illustration-card">
+        <div class="hero-card-header">
+          <div class="card-traffic-lights">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+          </div>
+          <span class="card-header-title">topology://supernova.core/multiplatform-sync</span>
+          <span class="card-status-badge">LIVE TOPOLOGY</span>
+        </div>
+        <div class="hero-svg-container">
+          <img
+            src="/illustrations/supernova-hero.svg"
+            alt="Arsitektur Multiplatform Supernova Labs Studio: Web, Mobile, dan Desktop terintegrasi"
+            width="800"
+            height="620"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-card-footer">
+          <div class="card-spec-item">
+            <span class="spec-label">PLATFORM</span>
+            <span class="spec-value">Web · Mobile · Desktop</span>
+          </div>
+          <div class="card-spec-divider"></div>
+          <div class="card-spec-item">
+            <span class="spec-label">SECURITY</span>
+            <span class="spec-value">OWASP Hardened</span>
+          </div>
+          <div class="card-spec-divider"></div>
+          <div class="card-spec-item">
+            <span class="spec-label">PERFORMANCE</span>
+            <span class="spec-value">Lighthouse 100</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

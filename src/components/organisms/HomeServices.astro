@@ -1,26 +1,73 @@
 ---
 import SectionHeading from '../molecules/SectionHeading.astro';
 import ServiceCard from '../molecules/ServiceCard.astro';
+import SectionArt from '../atoms/SectionArt.astro';
 import Icon from '../atoms/Icon.astro';
+
 const services = [
-  { number: '01', icon: 'globe', title: 'Website', description: 'Website cepat & SEO-ready yang mengubah pengunjung jadi pelanggan.', items: ['Company profile & landing page', 'Web app dan dashboard SaaS', 'E-commerce dan portal pelanggan'], tech: 'Astro · React · Node.js' },
-  { number: '02', icon: 'mobile', title: 'Mobile Apps', description: 'Aplikasi iOS & Android yang stabil dan terhubung ke sistem bisnis.', items: ['Aplikasi customer & membership', 'Order, delivery, dan field operation', 'Integrasi payment dan notifikasi'], tech: 'Flutter · React Native · PostgreSQL' },
-  { number: '03', icon: 'desktop', title: 'Desktop Apps', description: 'Aplikasi desktop berperforma tinggi untuk operasional harian.', items: ['POS dan inventory offline-first', 'Aplikasi internal perusahaan', 'Tools produktivitas dan automation'], tech: 'Tauri · Electron · Go' }
+  {
+    number: '01',
+    icon: 'globe',
+    title: 'Enterprise Web Ecosystems',
+    description: 'Bukan sekadar website brosur murah. Kami membangun web apps interaktif, dashboard SaaS, portal B2B, dan landing page ultra-cepat.',
+    items: [
+      'Portal SaaS & Custom Admin Dashboard',
+      'E-Commerce & Membership System',
+      'Progressive Web Apps (PWA) & SSR Speed',
+      'Audit SEO Teknis & Lighthouse 100/100'
+    ],
+    tech: 'Astro · React · Next.js · Node.js · Cloudflare'
+  },
+  {
+    number: '02',
+    icon: 'mobile',
+    title: 'Native & Hybrid Mobile Apps',
+    description: 'Aplikasi iOS dan Android yang mulus dengan arsitektur bersih, terhubung secara real-time ke backend cloud Anda.',
+    items: [
+      'Customer Loyalty & Membership Apps',
+      'Kurir, Logistik & Field Operation Tracker',
+      'Integrasi Payment Gateway & Push Notification',
+      'Sinkronisasi Data Real-Time WebSockets'
+    ],
+    tech: 'Flutter · React Native · Swift · PostgreSQL'
+  },
+  {
+    number: '03',
+    icon: 'desktop',
+    title: 'Mission-Critical Desktop Apps',
+    description: 'Aplikasi komputer berperforma tinggi untuk operasional bisnis harian yang anti-lelet dan tahan tanpa koneksi internet.',
+    items: [
+      'Sistem Kasir (POS) Offline-First',
+      'Manajemen Gudang & Inventory Enterprise',
+      'Integrasi Hardware (Barcode, Thermal Printer)',
+      'Aplikasi Internal & Automasi Windows/Mac/Linux'
+    ],
+    tech: 'Tauri (Rust) · Electron · Golang · SQLite'
+  }
 ];
 ---
 <section class="section section--blue" id="layanan">
   <div class="container">
-    <div class="section-intro"><SectionHeading eyebrow="02 / Core services" title="Every platform. One technology partner." description="Website, mobile, dan desktop — dikerjakan satu tim dalam alur yang terintegrasi." /></div>
+    <div class="section-intro">
+      <SectionHeading
+        eyebrow="02 / Layanan Utama"
+        title="Tiga Platform Utama. Satu Mitra Teknologi Terpercaya."
+        description="Website, aplikasi mobile, dan sistem desktop—semua dirancang oleh satu tim insinyur senior dalam satu arsitektur terintegrasi yang hemat biaya jangka panjang."
+      />
+      <SectionArt variant="services" />
+    </div>
+
     <div class="services-grid" data-stagger>
       {services.map((service) => <ServiceCard {...service} />)}
     </div>
+
     <div class="services-trust" data-reveal="up">
-      <span class="services-trust__lead">Termasuk standar</span>
+      <span class="services-trust__lead">Standar Mutlak Setiap Proyek:</span>
       <ul class="services-trust__list">
-        <li><Icon name="target" size={14} /> Estimasi transparan</li>
-        <li><Icon name="bolt" size={14} /> Sprint mingguan</li>
-        <li><Icon name="code" size={14} /> Source code Anda</li>
-        <li><Icon name="shield" size={14} /> Garansi pasca-launch</li>
+        <li><Icon name="target" size={15} /> Estimasi Waktu &amp; Biaya Terikat</li>
+        <li><Icon name="bolt" size={15} /> Siklus Sprint Mingguan + Staging Preview</li>
+        <li><Icon name="code" size={15} /> 100% Hak Milik Repositori &amp; Source Code</li>
+        <li><Icon name="shield" size={15} /> Garansi Bug &amp; Pendampingan Pasca-Launch</li>
       </ul>
     </div>
   </div>

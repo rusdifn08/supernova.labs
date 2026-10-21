@@ -1,0 +1,40 @@
+---
+import Icon from '../atoms/Icon.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
+const wa = getWhatsAppUrl('Halo Tim Supernova Labs, saya ingin konsultasi cepat mengenai pembuatan aplikasi untuk bisnis saya.');
+---
+<div class="floating-widgets" aria-label="Aksi Cepat">
+  <!-- Back to Top Button -->
+  <button
+    type="button"
+    class="back-to-top"
+    id="backToTop"
+    aria-label="Kembali ke atas halaman"
+    title="Kembali ke atas"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- WhatsApp Quick Floating Pill -->
+  <a
+    href={wa}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="wa-floating-btn"
+    aria-label="Chat WhatsApp dengan Tim Arsitek Supernova Labs"
+  >
+    <span class="wa-status-indicator">
+      <span class="wa-status-dot"></span>
+      <span class="wa-status-ping"></span>
+    </span>
+    <span class="wa-icon-wrap">
+      <Icon name="whatsapp" size={20} />
+    </span>
+    <span class="wa-text-wrap">
+      <span class="wa-title">Konsultasi Cepat</span>
+      <span class="wa-sub">Online • Balas &lt; 15 mnt</span>
+    </span>
+  </a>
+</div>

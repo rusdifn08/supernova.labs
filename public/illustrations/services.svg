@@ -1,1 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-labelledby="t d"><title id="t">Digital services illustration</title><desc id="d">Product designer working between web, mobile and desktop product interfaces.</desc><defs><linearGradient id="g" x1="90" y1="40" x2="470" y2="320"><stop stop-color="#12b9df"/><stop offset="1" stop-color="#806df0"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#192f79" flood-opacity=".2"/></filter></defs><circle cx="280" cy="174" r="145" fill="#e4efff"/><path d="M35 318h490" stroke="#b8c9e8"/><g filter="url(#s)"><rect x="40" y="72" width="180" height="116" rx="10" fill="#142044"/><rect x="53" y="85" width="154" height="84" rx="5" fill="#fff"/><path d="M70 105h75M70 124h112M70 145h58" stroke="#4778f5" stroke-width="8" stroke-linecap="round"/><path d="M96 188h70l22 28H74z" fill="#91a9dc"/><rect x="377" y="56" width="88" height="176" rx="15" fill="#142044" transform="rotate(12 377 56)"/><rect x="389" y="70" width="64" height="135" rx="8" fill="#fff" transform="rotate(12 389 70)"/><rect x="399" y="91" width="42" height="44" rx="5" fill="#12b9df" transform="rotate(12 399 91)"/><path d="m405 155 37 8m-33 12 33 7" stroke="#8ba9ee" stroke-width="6" stroke-linecap="round" transform="rotate(12 405 155)"/><path d="M243 151c0-24 18-43 41-43s41 19 41 43l-10 71h-62z" fill="url(#g)"/><circle cx="284" cy="92" r="29" fill="#f3c09d"/><path d="M257 90q27-49 55 0-28 8-55 0Z" fill="#162541"/><path d="m254 204-38 63m78-63 37 63" stroke="#162541" stroke-width="15" stroke-linecap="round"/><path d="M210 269h28m54 0h29" stroke="#12b9df" stroke-width="10" stroke-linecap="round"/><circle cx="284" cy="270" r="30" fill="#fff" stroke="#12b9df" stroke-width="4"/><path d="M270 270h28M284 256v28" stroke="#806df0" stroke-width="6" stroke-linecap="round"/><path d="M270 82q7-8 14 0m14 0q7-8 14 0" stroke="#7b493e" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M278 99q8 6 16 0" stroke="#b96e69" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M243 164q41 19 82 0" stroke="#fff" stroke-width="4" opacity=".45"/><path d="M76 162h36m-36 12h64" stroke="#12b9df" stroke-width="4" opacity=".6"/><circle cx="420" cy="180" r="5" fill="#806df0"/><path d="M418 66h21m-21 12h30" stroke="#fff" stroke-width="3" opacity=".6"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-labelledby="servicesTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="servicesTitle">Unified Web Mobile Desktop Services Ecosystem</title>
+  <defs>
+    <linearGradient id="srvPillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="srvShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Technical Background Grid -->
+  <g opacity="0.3" stroke="#94a3b8" stroke-width="0.8">
+    <circle cx="280" cy="180" r="140" fill="none" stroke="#3b82f6" stroke-dasharray="4 6"/>
+    <circle cx="280" cy="180" r="70" fill="none" stroke="#06b6d4" stroke-dasharray="4 4"/>
+  </g>
+
+  <!-- Central Sync Hub -->
+  <circle cx="280" cy="180" r="32" fill="#0f172a" stroke="#38bdf8" stroke-width="2" filter="url(#srvShadow)"/>
+  <circle cx="280" cy="180" r="12" fill="#2563eb" opacity="0.4"/>
+  <circle cx="280" cy="180" r="6" fill="#38bdf8"/>
+
+  <!-- Orbital Connection Lines -->
+  <path d="M 120 100 Q 200 120 280 180" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 440 100 Q 360 120 280 180" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 280 290 L 280 180" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- 1. Web Portal Node (Top Left) -->
+  <g transform="translate(30, 40)" filter="url(#srvShadow)">
+    <rect width="180" height="110" rx="12" fill="#ffffff" stroke="#93c5fd" stroke-width="1.6"/>
+    <rect width="180" height="22" rx="12" fill="#0f172a"/>
+    <rect y="10" width="180" height="12" fill="#0f172a"/>
+    <circle cx="12" cy="11" r="3" fill="#ef4444"/>
+    <circle cx="20" cy="11" r="3" fill="#f59e0b"/>
+    <circle cx="28" cy="11" r="3" fill="#10b981"/>
+    <text x="40" y="14" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">web.supernova.app</text>
+    
+    <g transform="translate(12, 32)">
+      <rect width="70" height="16" rx="4" fill="#eff6ff"/>
+      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#1d4ed8">WEB ECOSYSTEM</text>
+      <rect y="22" width="156" height="4" rx="2" fill="#e2e8f0"/>
+      <rect y="30" width="120" height="4" rx="2" fill="#bae6fd"/>
+      <rect y="38" width="90" height="4" rx="2" fill="#e2e8f0"/>
+      
+      <rect y="50" width="156" height="18" rx="4" fill="#f0f9ff" stroke="#bae6fd"/>
+      <text x="8" y="62" font-family="ui-monospace, monospace" font-size="7.5" fill="#0284c7">SSR · SaaS · PWA · Edge</text>
+    </g>
+  </g>
+
+  <!-- 2. Desktop System Node (Top Right) -->
+  <g transform="translate(350, 40)" filter="url(#srvShadow)">
+    <rect width="180" height="110" rx="12" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.6"/>
+    <rect width="180" height="22" rx="12" fill="#0f172a"/>
+    <rect y="10" width="180" height="12" fill="#0f172a"/>
+    <circle cx="12" cy="11" r="3" fill="#ef4444"/>
+    <circle cx="20" cy="11" r="3" fill="#f59e0b"/>
+    <circle cx="28" cy="11" r="3" fill="#10b981"/>
+    <text x="40" y="14" font-family="ui-monospace, monospace" font-size="7.5" fill="#c4b5fd">tauri.system.local</text>
+    
+    <g transform="translate(12, 32)">
+      <rect width="80" height="16" rx="4" fill="#faf5ff"/>
+      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#6b21a8">DESKTOP SYSTEM</text>
+      <rect y="22" width="156" height="4" rx="2" fill="#e2e8f0"/>
+      <rect y="30" width="110" height="4" rx="2" fill="#ddd6fe"/>
+      <rect y="38" width="140" height="4" rx="2" fill="#e2e8f0"/>
+
+      <rect y="50" width="156" height="18" rx="4" fill="#faf5ff" stroke="#ddd6fe"/>
+      <text x="8" y="62" font-family="ui-monospace, monospace" font-size="7.5" fill="#7c3aed">POS · Internal ERP · Offline</text>
+    </g>
+  </g>
+
+  <!-- 3. Mobile Product Node (Bottom Center) -->
+  <g transform="translate(190, 220)" filter="url(#srvShadow)">
+    <rect width="180" height="120" rx="16" fill="#ffffff" stroke="#67e8f9" stroke-width="1.6"/>
+    <rect x="0" y="0" width="180" height="18" rx="16" fill="#0f172a"/>
+    <rect x="0" y="10" width="180" height="8" fill="#0f172a"/>
+    <circle cx="90" cy="9" r="2.5" fill="#38bdf8"/>
+
+    <g transform="translate(12, 26)">
+      <rect width="80" height="16" rx="4" fill="#ecfeff"/>
+      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#0e7490">MOBILE APPS</text>
+      
+      <rect y="22" width="156" height="34" rx="6" fill="#0f172a"/>
+      <circle cx="16" cy="39" r="6" fill="#06b6d4"/>
+      <text x="30" y="36" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#ffffff">iOS &amp; Android Native</text>
+      <text x="30" y="47" font-family="ui-monospace, monospace" font-size="6.5" fill="#94a3b8">Flutter · React Native</text>
+
+      <rect y="64" width="156" height="18" rx="4" fill="#ecfeff" stroke="#a5f3fc"/>
+      <text x="8" y="76" font-family="ui-monospace, monospace" font-size="7.5" fill="#0891b2">Zero Fragmentation</text>
+    </g>
+  </g>
+
+</svg>

@@ -1,9 +1,28 @@
 ---
-const items = ['ASTRO', 'TYPESCRIPT', 'NODE.JS', 'POSTGRESQL', 'DOCKER', 'GO', 'TAILWIND', 'REDIS', 'AWS', 'FLUTTER', 'TAURI'];
+const items = [
+  { name: 'ASTRO 5.0', type: 'Zero-JS Meta' },
+  { name: 'TYPESCRIPT', type: 'Strict Typing' },
+  { name: 'REACT 19', type: 'UI Architecture' },
+  { name: 'NODE.JS & BUN', type: 'API Runtime' },
+  { name: 'GOLANG', type: 'High Concurrency' },
+  { name: 'POSTGRESQL', type: 'ACID Database' },
+  { name: 'REDIS', type: 'In-Memory Cache' },
+  { name: 'DOCKER', type: 'Containerization' },
+  { name: 'FLUTTER & DART', type: 'Mobile Native' },
+  { name: 'TAURI & RUST', type: 'Desktop System' },
+  { name: 'CLOUDFLARE', type: 'Edge Network' },
+  { name: 'AWS CLOUD', type: 'Cloud Infrastructure' }
+];
 const doubled = [...items, ...items];
 ---
-<div class="marquee">
+<div class="marquee" aria-label="Ekosistem Teknologi yang Dikuasai" role="region">
   <div class="marquee__track">
-    {doubled.map((item) => <span class="marquee__item">{item}<span class="marquee__dot"></span></span>)}
+    {doubled.map((item) => (
+      <span class="marquee__item">
+        <span class="marquee__name">{item.name}</span>
+        <span class="marquee__badge">{item.type}</span>
+        <span class="marquee__dot" aria-hidden="true"></span>
+      </span>
+    ))}
   </div>
 </div>

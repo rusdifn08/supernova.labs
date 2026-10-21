@@ -1,11 +1,259 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" role="img" aria-labelledby="title desc" shape-rendering="geometricPrecision">
-<title id="title">Supernova digital product studio</title><desc id="desc">An isometric illustration of a dashboard, mobile product and a team building software.</desc>
-<defs><linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4778f5"/><stop offset="1" stop-color="#08b9e9"/></linearGradient><linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7867ef"/><stop offset="1" stop-color="#b28bf5"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#3157c9" flood-opacity=".18"/></filter></defs>
-<g filter="url(#shadow)"><path d="M111 405 414 234l223 128-306 177z" fill="#d8e3fa"/><path d="m111 405 220 132v21L111 426z" fill="#bcccf0"/><path d="m331 537 306-175v20L331 558z" fill="#a9bce8"/>
-<path d="M160 376 416 230l173 99-258 148z" fill="#fff" stroke="#d6e2fa" stroke-width="4"/><path d="m203 360 202-115 112 64-202 116z" fill="url(#screen)"/><path d="m208 387 112-64v50l-112 64z" fill="#eef3ff"/><path d="m335 314 159-91 65 37-160 92z" fill="#e7efff"/>
-<rect x="370" y="264" width="148" height="92" rx="7" transform="skewY(-29)" fill="#142044"/><path d="m385 294 70-39" stroke="#08b9e9" stroke-width="7"/><path d="m385 311 96-54" stroke="#fff" stroke-opacity=".65" stroke-width="5"/><path d="m385 328 47-26" stroke="#7867ef" stroke-width="5"/>
-<path d="m238 446 53-30 37 21-53 30z" fill="#08b9e9"/><path d="m310 404 40-23 28 16-40 23z" fill="#7867ef"/>
-<rect x="493" y="148" width="117" height="207" rx="18" fill="#142044" transform="rotate(7 493 148)"/><rect x="503" y="162" width="96" height="178" rx="12" fill="#f4f7ff" transform="rotate(7 503 162)"/><rect x="518" y="187" width="68" height="45" rx="6" fill="url(#screen)" transform="rotate(7 518 187)"/><path d="m523 257 47 6m-43 14 53 7m-49 13 34 5" stroke="#b6c9f2" stroke-width="7" stroke-linecap="round" transform="rotate(7 523 257)"/><circle cx="551" cy="324" r="5" fill="#08b9e9"/>
-<circle cx="170" cy="160" r="46" fill="#fff"/><path d="M170 132v56m-28-28h56" stroke="#08b9e9" stroke-width="9"/><path d="M166 207h-8l-30 75h75l-30-75z" fill="#dce7fc"/><path d="m133 282-35 51m71-51 35 51" stroke="#3157c9" stroke-width="10" stroke-linecap="round"/><circle cx="130" cy="116" r="18" fill="#ffc9a7"/><path d="M108 112q22-45 45 0" fill="#142044"/><path d="M112 139h37l20 55h-75z" fill="url(#purple)"/>
-<circle cx="610" cy="410" r="18" fill="#ffc9a7"/><path d="M588 406q24-45 47-3" fill="#142044"/><path d="M586 430h44l22 72h-86z" fill="#08b9e9"/><path d="m596 500-17 52m39-52 20 52" stroke="#142044" stroke-width="11" stroke-linecap="round"/><path d="M560 446h-42l-25 21" stroke="#142044" stroke-width="9" stroke-linecap="round"/><rect x="477" y="456" width="54" height="36" rx="4" fill="#fff" transform="rotate(-12 477 456)"/>
-<path d="m151 90 12-25 12 25 25 12-25 12-12 25-12-25-25-12z" fill="#08b9e9" opacity=".9"/><path d="m637 98 8-17 8 17 17 8-17 8-8 17-8-17-17-8z" fill="#7867ef"/><path d="M253 174h111" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".8"/><circle cx="251" cy="174" r="8" fill="#08b9e9"/><circle cx="365" cy="174" r="8" fill="#7867ef"/><path d="M246 202h82" stroke="#142044" stroke-width="5" stroke-linecap="round" opacity=".55"/><path d="m420 391 18-36 18 36 36 18-36 18-18 36-18-36-36-18z" fill="#fff" stroke="#08b9e9" stroke-width="4"/><path d="M84 420h90M84 437h61" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/><path d="M119 110q5-7 11 0m12 0q5-7 11 0" stroke="#7b493e" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M126 124q7 5 14 0" stroke="#b96e69" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M94 159q35 18 71 0" stroke="#fff" stroke-width="4" opacity=".35"/><path d="M588 400q5-7 11 0m12 0q5-7 11 0" stroke="#7b493e" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M596 414q7 5 14 0" stroke="#b96e69" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M534 460h35m-35 12h25" stroke="#4778f5" stroke-width="4" stroke-linecap="round" opacity=".7"/><circle cx="470" cy="105" r="7" fill="#08b9e9"/><path d="M476 105h52" stroke="#fff" stroke-width="4" stroke-dasharray="7 8" opacity=".7"/><path d="M70 480h90m-76 14h51" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".65"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" role="img" aria-labelledby="heroTitle heroDesc" preserveAspectRatio="xMidYMid meet">
+  <title id="heroTitle">Supernova Multiplatform Architecture Blueprint</title>
+  <desc id="heroDesc">Architectural blueprint of unified Web, Mobile, and Desktop systems connected to an enterprise cloud engine.</desc>
+  <defs>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="50%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Technical Background Grid -->
+  <g opacity="0.45" stroke="#cbd5e1" stroke-width="0.8">
+    <line x1="40" y1="40" x2="760" y2="40" stroke-dasharray="4 6"/>
+    <line x1="40" y1="180" x2="760" y2="180" stroke-dasharray="4 6"/>
+    <line x1="40" y1="320" x2="760" y2="320" stroke-dasharray="4 6"/>
+    <line x1="40" y1="460" x2="760" y2="460" stroke-dasharray="4 6"/>
+    <line x1="40" y1="580" x2="760" y2="580" stroke-dasharray="4 6"/>
+    <line x1="80" y1="20" x2="80" y2="600" stroke-dasharray="4 6"/>
+    <line x1="240" y1="20" x2="240" y2="600" stroke-dasharray="4 6"/>
+    <line x1="400" y1="20" x2="400" y2="600" stroke-dasharray="4 6"/>
+    <line x1="560" y1="20" x2="560" y2="600" stroke-dasharray="4 6"/>
+    <line x1="720" y1="20" x2="720" y2="600" stroke-dasharray="4 6"/>
+  </g>
+
+  <!-- Coordinate Markers -->
+  <g font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8" letter-spacing="1">
+    <text x="45" y="32">ARCH: MULTI-01</text>
+    <text x="690" y="32">SCALE: INF</text>
+    <text x="45" y="598">LATENCY: &lt;45ms</text>
+    <text x="680" y="598">SLA: 99.98%</text>
+  </g>
+
+  <!-- Background Ambient Glows -->
+  <circle cx="400" cy="240" r="180" fill="#3b82f6" opacity="0.08" filter="url(#softGlow)"/>
+  <circle cx="620" cy="380" r="140" fill="#8b5cf6" opacity="0.07" filter="url(#softGlow)"/>
+  <circle cx="180" cy="360" r="140" fill="#06b6d4" opacity="0.07" filter="url(#softGlow)"/>
+
+  <!-- Interconnecting Data Pathways -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center to Top-Left (Web) -->
+    <path d="M 400 240 L 400 130 L 250 130" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.8"/>
+    <!-- Center to Top-Right (Desktop) -->
+    <path d="M 400 240 L 400 130 L 550 130" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.8"/>
+    <!-- Center to Bottom-Center (Mobile) -->
+    <path d="M 400 300 L 400 380" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.8"/>
+    <!-- Cross Sync -->
+    <path d="M 250 190 Q 250 360 330 420" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <path d="M 550 190 Q 550 360 470 420" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  </g>
+
+  <!-- 1. LEFT CARD: WEB PLATFORM SYSTEM -->
+  <g transform="translate(60, 60)" filter="url(#subtleShadow)">
+    <rect width="250" height="170" rx="14" fill="url(#cardBg)" stroke="#bfdbfe" stroke-width="1.8"/>
+    <!-- Browser Top Bar -->
+    <rect width="250" height="28" rx="14" fill="#0f172a"/>
+    <rect x="0" y="14" width="250" height="14" fill="#0f172a"/>
+    <circle cx="16" cy="14" r="4" fill="#ef4444"/>
+    <circle cx="28" cy="14" r="4" fill="#f59e0b"/>
+    <circle cx="40" cy="14" r="4" fill="#10b981"/>
+    <rect x="56" y="8" width="130" height="13" rx="4" fill="#1e293b"/>
+    <text x="64" y="18" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">https://web.app/enterprise</text>
+    <rect x="212" y="8" width="26" height="13" rx="4" fill="#0284c7"/>
+    <text x="216" y="18" font-family="ui-monospace, monospace" font-size="8" font-weight="bold" fill="#ffffff">SSR</text>
+
+    <!-- Browser Body Content -->
+    <g transform="translate(14, 40)">
+      <!-- Metric Pill -->
+      <rect width="80" height="22" rx="6" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1"/>
+      <circle cx="12" cy="11" r="4" fill="#06b6d4"/>
+      <text x="22" y="15" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#0e7490">Lighthouse 100</text>
+
+      <!-- Code Line Graphic -->
+      <g transform="translate(90, 4)">
+        <rect width="130" height="4" rx="2" fill="#e2e8f0"/>
+        <rect y="8" width="95" height="4" rx="2" fill="#bae6fd"/>
+        <rect y="16" width="115" height="4" rx="2" fill="#e2e8f0"/>
+      </g>
+
+      <!-- UI Wireframe Grid -->
+      <rect y="32" width="105" height="48" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+      <rect x="8" y="40" width="34" height="20" rx="4" fill="#2563eb" opacity="0.15"/>
+      <rect x="48" y="42" width="48" height="6" rx="2" fill="#64748b"/>
+      <rect x="48" y="52" width="32" height="4" rx="2" fill="#94a3b8"/>
+
+      <rect x="115" y="32" width="105" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+      <!-- Sparkline chart -->
+      <polyline points="122,70 140,58 158,64 176,46 194,52 210,40" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="210" cy="40" r="3" fill="#0284c7"/>
+
+      <!-- Platform Tag -->
+      <rect y="88" width="220" height="24" rx="6" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1"/>
+      <text x="12" y="104" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#0369a1">WEB ECOSYSTEM</text>
+      <text x="135" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#0284c7">Astro · React · Edge</text>
+    </g>
+  </g>
+
+  <!-- 2. RIGHT CARD: DESKTOP APPS SYSTEM -->
+  <g transform="translate(490, 60)" filter="url(#subtleShadow)">
+    <rect width="250" height="170" rx="14" fill="url(#cardBg)" stroke="#ddd6fe" stroke-width="1.8"/>
+    <!-- Terminal Header -->
+    <rect width="250" height="28" rx="14" fill="#0f172a"/>
+    <rect x="0" y="14" width="250" height="14" fill="#0f172a"/>
+    <circle cx="16" cy="14" r="4" fill="#ef4444"/>
+    <circle cx="28" cy="14" r="4" fill="#f59e0b"/>
+    <circle cx="40" cy="14" r="4" fill="#10b981"/>
+    <text x="56" y="18" font-family="ui-monospace, monospace" font-size="9" fill="#a78bfa">tauri://desktop-runtime:native</text>
+
+    <!-- Terminal & App UI Body -->
+    <g transform="translate(14, 38)">
+      <!-- Status Badge -->
+      <rect width="90" height="20" rx="5" fill="#faf5ff" stroke="#e9d5ff"/>
+      <circle cx="10" cy="10" r="3.5" fill="#a855f7"/>
+      <text x="20" y="14" font-family="system-ui, sans-serif" font-size="8.5" font-weight="bold" fill="#7e22ce">Offline-First POS</text>
+
+      <!-- Mini Datagrid Table -->
+      <g transform="translate(0, 26)">
+        <rect width="220" height="16" rx="4" fill="#f1f5f9"/>
+        <text x="8" y="12" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#475569">THREAD</text>
+        <text x="68" y="12" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#475569">LOCAL DB</text>
+        <text x="140" y="12" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#475569">SYNC STATUS</text>
+
+        <rect y="20" width="220" height="14" rx="2" fill="#ffffff" stroke="#f1f5f9"/>
+        <text x="8" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#0284c7">#01_Core</text>
+        <text x="68" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#475569">SQLite (Encrypted)</text>
+        <text x="140" y="30" font-family="ui-monospace, monospace" font-size="7.5" fill="#10b981">✓ Ready (0ms)</text>
+
+        <rect y="38" width="220" height="14" rx="2" fill="#ffffff" stroke="#f1f5f9"/>
+        <text x="8" y="48" font-family="ui-monospace, monospace" font-size="7.5" fill="#0284c7">#02_Queue</text>
+        <text x="68" y="48" font-family="ui-monospace, monospace" font-size="7.5" fill="#475569">Hardware SDK</text>
+        <text x="140" y="48" font-family="ui-monospace, monospace" font-size="7.5" fill="#10b981">✓ Connected</text>
+      </g>
+
+      <!-- Platform Tag -->
+      <rect y="90" width="220" height="24" rx="6" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+      <text x="12" y="106" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#6b21a8">DESKTOP APPS</text>
+      <text x="135" y="106" font-family="ui-monospace, monospace" font-size="9" fill="#9333ea">Tauri · Rust · Electron</text>
+    </g>
+  </g>
+
+  <!-- 3. CENTER ENGINE: UNIFIED CLOUD API & DATA LAYER -->
+  <g transform="translate(280, 180)" filter="url(#subtleShadow)">
+    <!-- Hex / Stadium Shape Core Box -->
+    <rect width="240" height="124" rx="18" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="4" y="4" width="232" height="116" rx="15" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+    <!-- Pulse Signal Indicator -->
+    <circle cx="28" cy="28" r="8" fill="#22c55e" opacity="0.25"/>
+    <circle cx="28" cy="28" r="4" fill="#22c55e"/>
+    <text x="44" y="32" font-family="ui-monospace, monospace" font-size="9" font-weight="bold" fill="#38bdf8" letter-spacing="1">SUPERNOVA ENGINE</text>
+
+    <!-- Core Specs Grid -->
+    <g transform="translate(20, 48)">
+      <rect width="95" height="30" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="8" y="16" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">API PIPELINE</text>
+      <text x="8" y="26" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#f8fafc">Go / Node.js</text>
+
+      <rect x="105" y="0" width="95" height="30" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="113" y="16" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">DATA CLUSTER</text>
+      <text x="113" y="26" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#f8fafc">Postgres + Redis</text>
+
+      <!-- Telemetry Bar -->
+      <g transform="translate(0, 38)">
+        <rect width="200" height="22" rx="6" fill="#090d16" stroke="#1e293b"/>
+        <text x="8" y="15" font-family="ui-monospace, monospace" font-size="8" fill="#22c55e">● REST &amp; GraphQL</text>
+        <text x="122" y="15" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">E2E TLS v1.3</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 4. BOTTOM CARD: MOBILE ECOSYSTEM (iOS & Android) -->
+  <g transform="translate(260, 360)" filter="url(#subtleShadow)">
+    <!-- Device Frame -->
+    <rect width="280" height="210" rx="24" fill="#0f172a" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="6" y="6" width="268" height="198" rx="20" fill="url(#cardBg)"/>
+
+    <!-- Phone Speaker Notch & Dynamic Island -->
+    <rect x="105" y="12" width="70" height="12" rx="6" fill="#0f172a"/>
+    <circle cx="162" cy="18" r="3" fill="#2563eb"/>
+
+    <!-- Mobile UI Content -->
+    <g transform="translate(20, 34)">
+      <!-- App Header Bar -->
+      <text x="2" y="12" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">Customer Portal</text>
+      <rect x="180" y="2" width="56" height="16" rx="8" fill="#dbeafe"/>
+      <text x="188" y="14" font-family="ui-monospace, monospace" font-size="8" font-weight="bold" fill="#1d4ed8">ACTIVE</text>
+
+      <!-- Account Balance / Card -->
+      <rect y="22" width="240" height="58" rx="10" fill="url(#coreGrad)"/>
+      <text x="14" y="40" font-family="system-ui, sans-serif" font-size="8.5" fill="#bfdbfe">Total Transactions</text>
+      <text x="14" y="62" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Rp 1.482.900.000</text>
+      <circle cx="214" cy="51" r="14" fill="#ffffff" opacity="0.2"/>
+      <path d="M 210 51 L 214 47 L 218 51 M 214 48 L 214 56" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- Action Grid -->
+      <g transform="translate(0, 88)">
+        <rect width="54" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="27" cy="14" r="6" fill="#dbeafe"/>
+        <text x="14" y="28" font-family="system-ui, sans-serif" font-size="7" font-weight="bold" fill="#334155">Orders</text>
+
+        <rect x="62" width="54" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="89" cy="14" r="6" fill="#ecfeff"/>
+        <text x="76" y="28" font-family="system-ui, sans-serif" font-size="7" font-weight="bold" fill="#334155">Tracking</text>
+
+        <rect x="124" width="54" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="151" cy="14" r="6" fill="#fae8ff"/>
+        <text x="139" y="28" font-family="system-ui, sans-serif" font-size="7" font-weight="bold" fill="#334155">Report</text>
+
+        <rect x="186" width="54" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="213" cy="14" r="6" fill="#dcfce7"/>
+        <text x="202" y="28" font-family="system-ui, sans-serif" font-size="7" font-weight="bold" fill="#334155">Payout</text>
+      </g>
+
+      <!-- Platform Subtitle -->
+      <g transform="translate(0, 130)">
+        <rect width="240" height="24" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+        <text x="10" y="16" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#1e40af">NATIVE MOBILE APPS</text>
+        <text x="142" y="16" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">Flutter · React Native</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Accent Floating Feature Badges -->
+  <g transform="translate(48, 300)" filter="url(#subtleShadow)">
+    <rect width="138" height="36" rx="18" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="20" cy="18" r="8" fill="#dbeafe"/>
+    <path d="M 16 18 L 19 21 L 24 15" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="36" y="17" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#0f172a">Zero Lock-in</text>
+    <text x="36" y="27" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">100% IP Handover</text>
+  </g>
+
+  <g transform="translate(614, 300)" filter="url(#subtleShadow)">
+    <rect width="142" height="36" rx="18" fill="#ffffff" stroke="#c084fc" stroke-width="1.5"/>
+    <circle cx="20" cy="18" r="8" fill="#f3e8ff"/>
+    <path d="M 16 18 L 19 21 L 24 15" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="36" y="17" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#0f172a">Security Hardened</text>
+    <text x="36" y="27" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">OWASP Top 10 Ready</text>
+  </g>
+
+</svg>
