@@ -1,0 +1,642 @@
+---
+import '../../../styles/global.css';
+import '../../../styles/animations.css';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'nusantara-bistro' } },
+    { params: { slug: 'supernova-cafe' } },
+    { params: { slug: 'karsa-resto' } },
+    { params: { slug: 'warung-modern' } },
+    { params: { slug: 'bistro-senopati' } },
+    { params: { slug: 'demo' } }
+  ];
+}
+
+const { slug } = Astro.params;
+
+const slugTitles: Record<string, { name: string; tag: string; city: string; wifi: string }> = {
+  'nusantara-bistro': { name: 'Nusantara Grill & Bistro', tag: 'Steakhouse & Casual Dining', city: 'Senopati, Jakarta Selatan', wifi: 'Nusantara_5G | bistro123' },
+  'supernova-cafe': { name: 'Supernova Cafe & Roastery', tag: 'Specialty Coffee & Artisan Pastry', city: 'SCBD, Jakarta Selatan', wifi: 'SupernovaCafe | coffee2026' },
+  'karsa-resto': { name: 'Karsa Indonesian Cuisine', tag: 'Authentic Nusantara Comfort Food', city: 'Bandung', wifi: 'KarsaResto | enakbanget' },
+  'warung-modern': { name: 'Warung Modern & Rice Bowl', tag: 'Fast Casual Indonesian Fusion', city: 'Surabaya', wifi: 'WarungModern | bowllezat' },
+  'bistro-senopati': { name: 'Bistro Senopati VIP Lounge', tag: 'Premium Dining & Cocktails', city: 'Jakarta Selatan', wifi: 'BistroVIP | welcome2026' },
+  'demo': { name: 'Supernova Resto Sample Table', tag: 'Dine-In Self Order Terminal', city: 'Jakarta', wifi: 'DemoGuest | supernova' }
+};
+
+const currentResto = slugTitles[slug] || {
+  name: slug.replace(/-/g, ' ').toUpperCase(),
+  tag: 'Restoran & Dine-In Dining',
+  city: 'Indonesia',
+  wifi: 'Guest_WiFi | resto123'
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="description" content={`Pesan Menu Meja Langsung di ${currentResto.name} via QR Code tanpa antre.`} />
+    <meta name="theme-color" content="#ea580c" />
+    <title>{currentResto.name} — Dine-In Smart Table QR Order</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ea580c'/%3E%3Cpath d='M16 20h32v6H16zm0 10h20v6H16zm0 10h28v6H16z' fill='white'/%3E%3C/svg%3E" />
+  </head>
+  <body class="guest-order-mode" style="background: #f8fafc; color: #0f172a; margin: 0; padding-bottom: 90px; font-family: Inter, system-ui, sans-serif;">
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Resto Top Branding Banner -->
+    <header style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); color: #ffffff; padding: 20px 16px 16px; border-bottom: 3px solid #ea580c;">
+      <div style="max-width: 640px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div>
+            <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.12em; color: #fb923c; text-transform: uppercase;">SMART DINE-IN TABLE ORDER</span>
+            <h1 style="font-size: 20px; font-weight: 900; margin: 2px 0 2px; letter-spacing: -0.02em;">{currentResto.name}</h1>
+            <p style="font-size: 12px; color: #cbd5e1; margin: 0;">{currentResto.tag} · {currentResto.city}</p>
+          </div>
+          <!-- Table Number Pill -->
+          <div style="background: #ea580c; color: #ffffff; padding: 6px 14px; border-radius: 999px; text-align: center; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.4);">
+            <div style="font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">NO. MEJA</div>
+            <strong style="font-size: 17px; font-weight: 900;" id="tableBadgeDisplay">MEJA 08</strong>
+          </div>
+        </div>
+
+        <!-- Info Bar: WiFi & Service Buttons -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 11.5px; color: #94a3b8;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>📶 WiFi:</span>
+            <strong style="color: #ffffff;">{currentResto.wifi}</strong>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button type="button" id="btnGuestCallWaiter" style="background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 5px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 700; cursor: pointer;">
+              🛎️ Panggil Pelayan
+            </button>
+            <button type="button" id="btnGuestReqBill" style="background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 5px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 700; cursor: pointer;">
+              💳 Minta Tagihan
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main style="max-width: 640px; margin: 0 auto; padding: 16px;">
+      <!-- Search Input -->
+      <div style="margin-bottom: 14px;">
+        <input
+          type="search"
+          id="menuSearchInput"
+          placeholder="🔍 Cari menu makanan, steak, minuman, atau dessert..."
+          style="width: 100%; box-sizing: border-box; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 14px; background: #ffffff; outline: none;"
+        />
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 16px; scrollbar-width: none;">
+        <button type="button" class="g-cat-btn is-active" data-cat="all">Semua Menu</button>
+        <button type="button" class="g-cat-btn" data-cat="main">🥩 Main Course</button>
+        <button type="button" class="g-cat-btn" data-cat="snack">🍟 Appetizers</button>
+        <button type="button" class="g-cat-btn" data-cat="beverage">🍹 Minuman</button>
+        <button type="button" class="g-cat-btn" data-cat="dessert">🍰 Desserts</button>
+      </div>
+
+      <!-- Menu Items List -->
+      <div id="guestMenuGrid" style="display: flex; flex-direction: column; gap: 12px;">
+        <!-- Injected by JS -->
+      </div>
+    </main>
+
+    <!-- Floating Sticky Bottom Bar for Table Order Cart -->
+    <div id="floatingCartBar" style="position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #e2e8f0; padding: 12px 16px; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08); z-index: 50;">
+      <div style="max-width: 640px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Pesanan Meja Aktif</div>
+          <div style="font-size: 16px; font-weight: 900; color: #ea580c;" id="cartTotalSummary">0 Menu · Rp 0</div>
+        </div>
+        <button
+          type="button"
+          id="btnOpenOrderModal"
+          style="background: linear-gradient(135deg, #ea580c, #f97316); color: #ffffff; border: none; padding: 12px 20px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);"
+        >
+          <span>Kirim ke Dapur (KDS)</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL: CUSTOMIZE / MODIFIER POPUP -->
+    <div id="modalModifier" class="saas-modal-backdrop is-hidden">
+      <div class="saas-modal-box" style="max-width: 480px; width: 92%;">
+        <div class="saas-modal-header">
+          <div>
+            <h3 id="modItemTitle" style="font-size: 16px; font-weight: 800; margin: 0 0 2px;">Wagyu Ribeye Steak</h3>
+            <span id="modItemPrice" style="font-size: 14px; font-weight: 800; color: #ea580c;">Rp 165.000</span>
+          </div>
+          <button type="button" class="btn-modal-close" id="btnCloseModModal">×</button>
+        </div>
+        <div style="padding: 16px 20px 20px;">
+          <!-- Level Pedas / Kematangan -->
+          <div style="margin-bottom: 14px;">
+            <label style="display: block; font-size: 12px; font-weight: 800; color: #334155; margin-bottom: 6px;">Tingkat Kematangan / Level:</label>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="modOptionsCooking">
+              <button type="button" class="mod-opt-btn is-active" data-val="Medium Rare">Medium Rare</button>
+              <button type="button" class="mod-opt-btn" data-val="Medium">Medium</button>
+              <button type="button" class="mod-opt-btn" data-val="Well Done">Well Done</button>
+            </div>
+          </div>
+
+          <!-- Pilihan Saus / Tambahan -->
+          <div style="margin-bottom: 14px;">
+            <label style="display: block; font-size: 12px; font-weight: 800; color: #334155; margin-bottom: 6px;">Pilihan Saus Chef:</label>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="modOptionsSauce">
+              <button type="button" class="mod-opt-btn is-active" data-val="Blackpepper Sauce">Blackpepper</button>
+              <button type="button" class="mod-opt-btn" data-val="Mushroom Truffle">Mushroom</button>
+              <button type="button" class="mod-opt-btn" data-val="BBQ Smokey">BBQ Smokey</button>
+            </div>
+          </div>
+
+          <!-- Special Notes -->
+          <div style="margin-bottom: 16px;">
+            <label for="modNotesInput" style="display: block; font-size: 12px; font-weight: 800; color: #334155; margin-bottom: 6px;">Catatan Khusus untuk Dapur:</label>
+            <input type="text" id="modNotesInput" placeholder="cth: Saus dipisahkan, jangan pakai bawang, kuah panas..." class="saas-input" />
+          </div>
+
+          <!-- Add Button with Quantity -->
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <button type="button" id="btnModQtyMinus" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #cbd5e1; background: #ffffff; font-weight: 900; font-size: 16px; cursor: pointer;">-</button>
+              <strong id="modQtyDisplay" style="font-size: 16px;">1</strong>
+              <button type="button" id="btnModQtyPlus" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #cbd5e1; background: #ffffff; font-weight: 900; font-size: 16px; cursor: pointer;">+</button>
+            </div>
+            <button type="button" id="btnConfirmAddToCart" style="flex: 1; background: #ea580c; color: #ffffff; border: none; padding: 12px 16px; border-radius: 10px; font-weight: 800; font-size: 14px; cursor: pointer;">
+              + Tambah ke Pesanan Meja
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: REVIEW ORDER & SEND TO KDS -->
+    <div id="modalOrderSummary" class="saas-modal-backdrop is-hidden">
+      <div class="saas-modal-box" style="max-width: 480px; width: 92%;">
+        <div class="saas-modal-header">
+          <h3 style="font-size: 16px; font-weight: 800; margin: 0;">Konfirmasi Pesanan Meja</h3>
+          <button type="button" class="btn-modal-close" id="btnCloseOrderSummary">×</button>
+        </div>
+        <div style="padding: 16px 20px 20px;">
+          <div style="background: #fff7ed; border: 1px solid #ffedd5; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 12px; font-weight: 700; color: #c2410c;">📍 Disajikan Langsung ke:</span>
+            <strong style="color: #ea580c; font-size: 14px;" id="orderSummaryTableNum">MEJA 08</strong>
+          </div>
+
+          <!-- Order items list -->
+          <div id="orderItemsSummaryList" style="max-height: 240px; overflow-y: auto; margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+            <!-- Injected by JS -->
+          </div>
+
+          <!-- Bill Calculation -->
+          <div style="border-top: 1px dashed #cbd5e1; padding-top: 10px; margin-bottom: 16px; font-size: 13px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px; color: #64748b;">
+              <span>Subtotal Makanan &amp; Minuman</span>
+              <strong style="color: #0f172a;" id="sumSubtotal">Rp 0</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px; color: #64748b;">
+              <span>PPN Resto (10%)</span>
+              <span id="sumTax">Rp 0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px; color: #64748b;">
+              <span>Service Charge (5%)</span>
+              <span id="sumService">Rp 0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 900; color: #ea580c; border-top: 1px solid #e2e8f0; padding-top: 8px; margin-top: 6px;">
+              <span>Total Tagihan Meja</span>
+              <span id="sumGrandTotal">Rp 0</span>
+            </div>
+          </div>
+
+          <!-- Payment Option -->
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-size: 12px; font-weight: 800; color: #334155; margin-bottom: 6px;">Metode Pembayaran:</label>
+            <select id="selPaymentMethod" class="saas-select">
+              <option value="kasir" selected>Bayar di Kasir / Waiter saat selesai santap</option>
+              <option value="qris">Bayar Sekarang via QRIS Dinamis</option>
+            </select>
+          </div>
+
+          <button
+            type="button"
+            id="btnSubmitToKdsKitchen"
+            style="width: 100%; background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; border: none; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);"
+          >
+            <span>🚀 Kirim Pesanan ke Layar Dapur (KDS)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  .g-cat-btn {
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #475569;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  .g-cat-btn:hover {
+    background: #f1f5f9;
+  }
+  .g-cat-btn.is-active {
+    background: #ea580c;
+    color: #ffffff;
+    border-color: #ea580c;
+  }
+
+  .mod-opt-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .mod-opt-btn.is-active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+  }
+</style>
+
+<script>
+  // Toast Notification
+  const showToast = (type: 'success' | 'error' | 'info', message: string) => {
+    let container = document.getElementById('toastContainer');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toastContainer';
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${type}`;
+    const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+    toast.innerHTML = `<span style="font-weight:700;">${icon}</span><span>${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-10px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 3800);
+  };
+
+  // Parse Table Number from URL (?table=04)
+  const urlParams = new URLSearchParams(window.location.search);
+  const tableParam = urlParams.get('table') || '08';
+  const tableDisplay = document.getElementById('tableBadgeDisplay');
+  if (tableDisplay) tableDisplay.textContent = `MEJA ${tableParam}`;
+  const sumTable = document.getElementById('orderSummaryTableNum');
+  if (sumTable) sumTable.textContent = `MEJA ${tableParam}`;
+
+  // Menu Data
+  const guestMenuItems = [
+    {
+      id: 'm-1',
+      name: 'Wagyu Ribeye Meltique Steak 200g',
+      cat: 'main',
+      price: 165000,
+      badge: '🔥 Rekomendasi Chef',
+      desc: 'Daging Wagyu Meltique Australia 200g juicy, disajikan dengan baby potato, tumis buncis, dan pilihan saus signature.',
+      hasModifier: true
+    },
+    {
+      id: 'm-2',
+      name: 'Nasi Goreng Sei Sapi Smoked Beef',
+      cat: 'main',
+      price: 58000,
+      badge: '⭐ Paling Laris',
+      desc: 'Nasi goreng bumbu rempah Nusantara dengan irisan sei sapi asap wangi, acar segar, dan kerupuk emping.',
+      hasModifier: true
+    },
+    {
+      id: 'm-3',
+      name: 'Truffle Parmesan Crispy Fries',
+      cat: 'snack',
+      price: 38000,
+      badge: '',
+      desc: 'Kentang goreng renyah disiram minyak truffle aromatik, taburan keju parmesan impor, dan saus tartar.',
+      hasModifier: false
+    },
+    {
+      id: 'm-4',
+      name: 'Crispy Calamari Rings with Garlic Dip',
+      cat: 'snack',
+      price: 45000,
+      badge: '',
+      desc: 'Cumi segar lapis tepung bumbu gurih keemasan dengan cocolan saus bawang putih khas Mediterranean.',
+      hasModifier: false
+    },
+    {
+      id: 'm-5',
+      name: 'Artisan Iced Matcha Oat Latte',
+      cat: 'beverage',
+      price: 34000,
+      badge: '🌿 Vegan Friendly',
+      desc: 'Matcha Uji Kyoto autentik dipadu dengan susu oat creamy dan sentuhan gula aren organik.',
+      hasModifier: true
+    },
+    {
+      id: 'm-6',
+      name: 'Cold Brew Citrus Sparkling Tonic',
+      cat: 'beverage',
+      price: 32000,
+      badge: '⚡ Segar Dingin',
+      desc: 'Kopi seduh dingin 16 jam dicampur perasan jeruk sunkist, daun mint segar, dan soda tonik dingin.',
+      hasModifier: false
+    },
+    {
+      id: 'm-7',
+      name: 'Belgian Molten Chocolate Lava Cake',
+      cat: 'dessert',
+      price: 42000,
+      badge: '🍫 Sweet Treat',
+      desc: 'Cake cokelat Belgia lembut dengan lelehan cokelat hangat di bagian tengah, disajikan bersama satu scoop gelato.',
+      hasModifier: true
+    },
+    {
+      id: 'm-8',
+      name: 'Basque Burnt Cheesecake Slice',
+      cat: 'dessert',
+      price: 38000,
+      badge: '',
+      desc: 'Kue keju panggang gaya Spanyol dengan tekstur creamy lumer di lidah dan saus selai buah berry.',
+      hasModifier: false
+    }
+  ];
+
+  // Cart State
+  interface CartItem {
+    id: string;
+    name: string;
+    price: number;
+    qty: number;
+    modifierText: string;
+  }
+  let tableCart: CartItem[] = [];
+
+  // Active Category & Search
+  let activeCat = 'all';
+  let searchQuery = '';
+
+  // DOM
+  const menuGrid = document.getElementById('guestMenuGrid');
+  const catButtons = document.querySelectorAll('.g-cat-btn');
+  const searchInput = document.getElementById('menuSearchInput') as HTMLInputElement;
+
+  function renderMenu() {
+    if (!menuGrid) return;
+    const filtered = guestMenuItems.filter((item) => {
+      const matchCat = activeCat === 'all' || item.cat === activeCat;
+      const matchSearch = item.name.toLowerCase().includes(searchQuery) || item.desc.toLowerCase().includes(searchQuery);
+      return matchCat && matchSearch;
+    });
+
+    if (filtered.length === 0) {
+      menuGrid.innerHTML = `
+        <div style="padding: 40px 16px; text-align: center; background: #ffffff; border-radius: 14px; border: 1px dashed #cbd5e1;">
+          <div style="font-size: 32px; margin-bottom: 6px;">🍽️</div>
+          <strong style="color: #0f172a; font-size: 15px;">Menu Tidak Ditemukan</strong>
+          <p style="font-size: 12px; color: #64748b; margin: 4px 0 0;">Coba kata kunci pencarian lain atau pilih kategori lain.</p>
+        </div>
+      `;
+      return;
+    }
+
+    menuGrid.innerHTML = filtered.map((item) => `
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div style="flex: 1;">
+          ${item.badge ? `<span style="display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 800; background: #fff7ed; color: #ea580c; margin-bottom: 4px;">${item.badge}</span>` : ''}
+          <h3 style="font-size: 15px; font-weight: 800; color: #0f172a; margin: 0 0 4px;">${item.name}</h3>
+          <p style="font-size: 12px; color: #64748b; margin: 0 0 8px; line-height: 1.4;">${item.desc}</p>
+          <strong style="font-size: 15px; font-weight: 900; color: #ea580c;">Rp ${item.price.toLocaleString('id-ID')}</strong>
+        </div>
+        <div>
+          <button
+            type="button"
+            class="btn-order-dish"
+            data-id="${item.id}"
+            style="background: #ea580c; color: #ffffff; border: none; padding: 8px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 800; cursor: pointer; white-space: nowrap; box-shadow: 0 2px 6px rgba(234,88,12,0.3);"
+          >
+            + Pesan
+          </button>
+        </div>
+      </div>
+    `).join('');
+
+    menuGrid.querySelectorAll('.btn-order-dish').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = (btn as HTMLElement).dataset.id;
+        const item = guestMenuItems.find((i) => i.id === id);
+        if (!item) return;
+
+        if (item.hasModifier) {
+          openModifierModal(item);
+        } else {
+          addToCart(item, 1, 'Standar');
+          showToast('success', `✓ ${item.name} ditambahkan ke pesanan meja.`);
+        }
+      });
+    });
+  }
+
+  // Filter Buttons
+  catButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      catButtons.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      activeCat = (btn as HTMLElement).dataset.cat || 'all';
+      renderMenu();
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    searchQuery = (e.target as HTMLInputElement).value.toLowerCase();
+    renderMenu();
+  });
+
+  // Cart Functions
+  function addToCart(item: any, qty: number, modText: string) {
+    const existing = tableCart.find((c) => c.id === item.id && c.modifierText === modText);
+    if (existing) {
+      existing.qty += qty;
+    } else {
+      tableCart.push({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        qty,
+        modifierText: modText
+      });
+    }
+    updateCartBar();
+  }
+
+  function updateCartBar() {
+    const totalCount = tableCart.reduce((acc, c) => acc + c.qty, 0);
+    const totalAmount = tableCart.reduce((acc, c) => acc + c.price * c.qty, 0);
+    const summaryEl = document.getElementById('cartTotalSummary');
+    if (summaryEl) {
+      summaryEl.textContent = `${totalCount} Menu · Rp ${totalAmount.toLocaleString('id-ID')}`;
+    }
+  }
+
+  // MODIFIER MODAL LOGIC
+  const modalMod = document.getElementById('modalModifier');
+  const btnCloseMod = document.getElementById('btnCloseModModal');
+  const modTitle = document.getElementById('modItemTitle');
+  const modPrice = document.getElementById('modItemPrice');
+  const modQtyDisplay = document.getElementById('modQtyDisplay');
+  const btnQtyMinus = document.getElementById('btnModQtyMinus');
+  const btnQtyPlus = document.getElementById('btnModQtyPlus');
+  const btnConfirmAdd = document.getElementById('btnConfirmAddToCart');
+  const modNotes = document.getElementById('modNotesInput') as HTMLInputElement;
+
+  let currentModItem: any = null;
+  let currentModQty = 1;
+  let selectedCooking = 'Medium Rare';
+  let selectedSauce = 'Blackpepper Sauce';
+
+  function openModifierModal(item: any) {
+    currentModItem = item;
+    currentModQty = 1;
+    if (modTitle) modTitle.textContent = item.name;
+    if (modPrice) modPrice.textContent = `Rp ${item.price.toLocaleString('id-ID')}`;
+    if (modQtyDisplay) modQtyDisplay.textContent = '1';
+    if (modNotes) modNotes.value = '';
+
+    modalMod?.classList.remove('is-hidden');
+  }
+
+  btnCloseMod?.addEventListener('click', () => modalMod?.classList.add('is-hidden'));
+
+  btnQtyMinus?.addEventListener('click', () => {
+    if (currentModQty > 1) {
+      currentModQty--;
+      if (modQtyDisplay) modQtyDisplay.textContent = currentModQty.toString();
+    }
+  });
+
+  btnQtyPlus?.addEventListener('click', () => {
+    currentModQty++;
+    if (modQtyDisplay) modQtyDisplay.textContent = currentModQty.toString();
+  });
+
+  // Toggle modifier option buttons
+  document.querySelectorAll('#modOptionsCooking .mod-opt-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#modOptionsCooking .mod-opt-btn').forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      selectedCooking = (btn as HTMLElement).dataset.val || '';
+    });
+  });
+
+  document.querySelectorAll('#modOptionsSauce .mod-opt-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#modOptionsSauce .mod-opt-btn').forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      selectedSauce = (btn as HTMLElement).dataset.val || '';
+    });
+  });
+
+  btnConfirmAdd?.addEventListener('click', () => {
+    if (!currentModItem) return;
+    const note = modNotes?.value.trim();
+    let modText = `${selectedCooking}, ${selectedSauce}`;
+    if (note) modText += ` (${note})`;
+
+    addToCart(currentModItem, currentModQty, modText);
+    modalMod?.classList.add('is-hidden');
+    showToast('success', `✓ ${currentModQty}x ${currentModItem.name} ditambahkan!`);
+  });
+
+  // ORDER SUMMARY MODAL LOGIC
+  const modalSummary = document.getElementById('modalOrderSummary');
+  const btnCloseSummary = document.getElementById('btnCloseOrderSummary');
+  const btnOpenSummary = document.getElementById('btnOpenOrderModal');
+  const itemsContainer = document.getElementById('orderItemsSummaryList');
+  const sumSub = document.getElementById('sumSubtotal');
+  const sumTax = document.getElementById('sumTax');
+  const sumServ = document.getElementById('sumService');
+  const sumGrand = document.getElementById('sumGrandTotal');
+  const btnSubmitKds = document.getElementById('btnSubmitToKdsKitchen');
+
+  btnOpenSummary?.addEventListener('click', () => {
+    if (tableCart.length === 0) {
+      showToast('error', 'Silakan pilih minimal 1 menu makanan atau minuman terlebih dahulu.');
+      return;
+    }
+
+    if (!itemsContainer) return;
+    itemsContainer.innerHTML = tableCart.map((c, idx) => `
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong style="font-size: 13.5px; color: #0f172a;">${c.qty}x ${c.name}</strong>
+          ${c.modifierText ? `<div style="font-size: 11.5px; color: #ea580c; font-weight: 600;">↳ ${c.modifierText}</div>` : ''}
+          <div style="font-size: 12px; color: #64748b; margin-top: 2px;">Rp ${(c.price * c.qty).toLocaleString('id-ID')}</div>
+        </div>
+        <button type="button" class="btn-remove-cart" data-idx="${idx}" style="background: none; border: none; color: #ef4444; font-size: 16px; cursor: pointer; padding: 4px 8px;">✕</button>
+      </div>
+    `).join('');
+
+    itemsContainer.querySelectorAll('.btn-remove-cart').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt((btn as HTMLElement).dataset.idx || '0', 10);
+        tableCart.splice(idx, 1);
+        updateCartBar();
+        btnOpenSummary.click(); // re-render
+      });
+    });
+
+    const subtotal = tableCart.reduce((acc, c) => acc + c.price * c.qty, 0);
+    const tax = Math.round(subtotal * 0.1);
+    const serv = Math.round(subtotal * 0.05);
+    const grand = subtotal + tax + serv;
+
+    if (sumSub) sumSub.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+    if (sumTax) sumTax.textContent = `Rp ${tax.toLocaleString('id-ID')}`;
+    if (sumServ) sumServ.textContent = `Rp ${serv.toLocaleString('id-ID')}`;
+    if (sumGrand) sumGrand.textContent = `Rp ${grand.toLocaleString('id-ID')}`;
+
+    modalSummary?.classList.remove('is-hidden');
+  });
+
+  btnCloseSummary?.addEventListener('click', () => modalSummary?.classList.add('is-hidden'));
+
+  btnSubmitKds?.addEventListener('click', () => {
+    const orderNum = `ORD-${Date.now().toString().slice(-4)}`;
+    modalSummary?.classList.add('is-hidden');
+    tableCart = [];
+    updateCartBar();
+    showToast('success', `🎉 Pesanan #${orderNum} Meja ${tableParam} BERHASIL DIKIRIM KE DAPUR! Chef segera memasak hidangan Anda.`);
+  });
+
+  // Call Waiter & Request Bill Buttons
+  document.getElementById('btnGuestCallWaiter')?.addEventListener('click', () => {
+    showToast('info', `🛎️ Panggilan terkirim! Waiter sedang menuju ke Meja ${tableParam}.`);
+  });
+
+  document.getElementById('btnGuestReqBill')?.addEventListener('click', () => {
+    showToast('info', `💳 Permintaan tagihan Meja ${tableParam} terkirim ke kasir resto.`);
+  });
+
+  // Initial render
+  renderMenu();
+</script>
