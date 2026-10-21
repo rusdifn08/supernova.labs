@@ -344,7 +344,7 @@ body.app-mode {
   background: #0f172a;
   color: #ffffff;
   padding: 0 28px;
-  height: 68px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -358,7 +358,8 @@ body.app-mode {
 .app-header-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .app-header-brand {
@@ -397,9 +398,11 @@ body.app-mode {
 }
 
 .tenant-label {
-  font: 700 9.5px ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
   color: #94a3b8;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .tenant-code-val {
@@ -408,10 +411,27 @@ body.app-mode {
   letter-spacing: 0.05em;
 }
 
-.app-header-center {
-  display: flex;
+/* Header Live Public Customer Page Pill */
+.header-public-link-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.header-public-link-pill:hover {
+  background: rgba(37, 99, 235, 0.3);
+  color: #ffffff;
+  border-color: #3b82f6;
+  transform: translateY(-1px);
 }
 
 .header-biz-info {
@@ -419,7 +439,7 @@ body.app-mode {
   align-items: center;
   gap: 8px;
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 700;
   color: #e2e8f0;
 }
 
@@ -550,12 +570,20 @@ body.app-mode {
 .app-metric-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 18px 20px;
+  border-radius: 14px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
 }
 
 .metric-card-top {
@@ -564,27 +592,53 @@ body.app-mode {
   align-items: center;
 }
 
+.metric-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metric-icon-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+}
+
+.metric-icon--blue { background: #eff6ff; color: #2563eb; }
+.metric-icon--green { background: #ecfdf5; color: #059669; }
+.metric-icon--purple { background: #faf5ff; color: #9333ea; }
+.metric-icon--amber { background: #fffbeb; color: #d97706; }
+
 .m-label {
-  font: 700 11px ui-monospace, Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 700;
   color: #64748b;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
+  font-family: inherit;
 }
 
 .m-badge {
-  font: 600 10.5px ui-monospace, monospace;
-  padding: 2px 7px;
-  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: normal;
 }
 
 .m-badge--green {
   background: #ecfdf5;
   color: #059669;
+  border: 1px solid #a7f3d0;
 }
 
 .m-badge--blue {
   background: #eff6ff;
   color: #2563eb;
+  border: 1px solid #bfdbfe;
 }
 
 .m-value {
@@ -592,6 +646,8 @@ body.app-mode {
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 4px 0 2px;
 }
 
 .m-value--blue {
@@ -603,142 +659,124 @@ body.app-mode {
 }
 
 .m-sub {
-  font-size: 12px;
-  color: #94a3b8;
+  font-size: 12.5px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-/* Content Panels */
-.app-panel-card {
+/* Quick Date Chips inside Dashboard */
+.dash-date-chips {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dash-date-pill {
+  border: 1px solid #cbd5e1;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.panel-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
+.dash-date-pill:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
 }
 
-.panel-card-title h3 {
-  font-size: 17px;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 4px;
-}
-
-.panel-card-title p {
-  font-size: 13px;
-  color: #64748b;
-  margin: 0;
-}
-
-/* Toolbar Filters */
-.app-table-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.toolbar-left,
-.toolbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* High-Density Data Table */
-.app-table-container {
-  overflow-x: auto;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-}
-
-.app-data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  text-align: left;
-}
-
-.app-data-table th {
-  background: #f8fafc;
-  padding: 12px 14px;
-  font: 700 11px ui-monospace, Consolas, monospace;
-  color: #64748b;
-  border-bottom: 1px solid #e2e8f0;
-  letter-spacing: 0.04em;
-}
-
-.app-data-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid #f1f5f9;
-  color: #1e293b;
-  vertical-align: middle;
-}
-
-.app-data-table tr:hover td {
-  background: #f8fafc;
-}
-
-.code-pill {
-  font: 700 11.5px ui-monospace, Consolas, monospace;
-  background: #eff6ff;
-  color: #2563eb;
-  padding: 3px 7px;
-  border-radius: 5px;
-  border: 1px solid #dbeafe;
+.dash-date-pill.is-active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
 }
 
 /* Slot Matrix View */
 .slot-matrix-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 10px;
-  margin-top: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .slot-matrix-cell {
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 12px 10px;
+  border-radius: 12px;
+  padding: 14px 12px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 86px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .slot-matrix-cell.is-available:hover {
   border-color: #2563eb;
   background: #eff6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+}
+
+.slot-matrix-cell.is-available:hover .slot-status-text {
+  color: #2563eb;
+  font-weight: 700;
 }
 
 .slot-matrix-cell.is-booked {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-  color: #64748b;
-  cursor: not-allowed;
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+  cursor: pointer;
+}
+
+.slot-matrix-cell.is-booked:hover {
+  background: #fee2e2;
+  border-color: #f87171;
 }
 
 .slot-time {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
+  color: #0f172a;
+  display: block;
+}
+
+.slot-matrix-cell.is-booked .slot-time {
+  color: #991b1b;
+}
+
+.slot-price-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 2px 0;
   display: block;
 }
 
 .slot-status-text {
   font-size: 11px;
-  margin-top: 3px;
-  display: block;
+  font-weight: 600;
+  margin-top: 4px;
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.slot-matrix-cell.is-booked .slot-status-text {
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 10.5px;
 }
 
 /* Facilities Cards */

@@ -1,0 +1,836 @@
+---
+import '../../../styles/global.css';
+import '../../../styles/animations.css';
+import '../../../styles/public-booking.css';
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'supernova' } },
+    { params: { slug: 'garuda-sport' } },
+    { params: { slug: 'champion-arena' } },
+    { params: { slug: 'supernova-arena' } },
+    { params: { slug: 'barber-king' } },
+    { params: { slug: 'pixel-studio' } },
+    { params: { slug: 'cyber-gaming' } },
+    { params: { slug: 'demo' } },
+    { params: { slug: 'booking-online' } },
+  ];
+}
+
+const { slug } = Astro.params;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={`Reservasi & Booking Slot Online Langsung — ${slug.toUpperCase()} Powered by Supernova OS`} />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Booking Slot Online — {slug.toUpperCase()} | Supernova Booking</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Cpath d='M16 16h32v8H24v8h24v16H16z' fill='white'/%3E%3C/svg%3E" />
+  </head>
+  <body class="public-booking-mode">
+    <div id="toastContainer" class="toast-container"></div>
+
+    <div class="pub-container">
+      <!-- Top Branding Bar -->
+      <header class="pub-top-bar">
+        <a href="/" class="pub-brand">
+          <div class="pub-brand-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.3">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div>
+            <div class="pub-brand-name">Supernova Booking</div>
+            <span class="pub-brand-sub">PORTAL RESERVASI RESMI</span>
+          </div>
+        </a>
+
+        <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20tanya%20jadwal%20booking" target="_blank" rel="noopener" class="pub-contact-wa" id="btnHeaderWa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.531 1.764.789 2.796.79h.005c3.18 0 5.767-2.587 5.768-5.766.001-3.181-2.586-5.767-5.773-5.767zm0 10.428h-.004c-.88 0-1.74-.237-2.489-.684l-.178-.106-1.849.485.494-1.802-.116-.185c-.49-.78-.749-1.688-.748-2.618.001-2.68 2.181-4.861 4.864-4.861 2.682 0 4.863 2.18 4.862 4.861-.001 2.681-2.181 4.861-4.862 4.861z"/>
+          </svg>
+          <span>Chat Bantuan WhatsApp</span>
+        </a>
+      </header>
+
+      <!-- Venue Showcase Card -->
+      <section class="pub-venue-card">
+        <div class="pub-venue-header">
+          <div class="pub-venue-info">
+            <h1 id="venueTitle">
+              <span>Supernova Arena &amp; Sports Studio</span>
+              <span class="pub-verified-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span>Mitra Terverifikasi</span>
+              </span>
+            </h1>
+            <div class="pub-venue-meta">
+              <span class="pub-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span id="venueAddress">Jl. Boulevard Raya Kav. 12, Jakarta Selatan</span>
+              </span>
+              <span class="pub-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Buka Setiap Hari: 08:00 - 23:00 WIB</span>
+              </span>
+              <span class="pub-meta-item">
+                <span style="color: #f59e0b;">★★★★★</span>
+                <strong>4.9</strong>
+                <span style="color: #64748b;">(480+ Ulasan Puas)</span>
+              </span>
+            </div>
+            <div class="pub-venue-badges">
+              <span class="pub-feature-tag">⚡ Konfirmasi Instan</span>
+              <span class="pub-feature-tag">🛡️ Anti Bentrok Jadwal</span>
+              <span class="pub-feature-tag">📱 E-Ticket Otomatis WhatsApp</span>
+              <span class="pub-feature-tag">💳 Support QRIS &amp; Transfer</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Booking Flow (2 Columns) -->
+      <div class="pub-booking-layout">
+        <!-- Left: Steps 1, 2, 3, 4 -->
+        <div class="pub-steps-col">
+          <!-- STEP 1: PILIH FASILITAS -->
+          <div class="pub-step-box">
+            <h2 class="pub-step-title">
+              <span class="pub-step-num">1</span>
+              <span>Pilih Sarana / Fasilitas yang Ingin Disewa</span>
+            </h2>
+            <div class="pub-facility-grid" id="pubFacilityGrid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- STEP 2: PILIH TANGGAL -->
+          <div class="pub-step-box">
+            <h2 class="pub-step-title">
+              <span class="pub-step-num">2</span>
+              <span>Pilih Tanggal Reservasi</span>
+            </h2>
+            <div class="pub-date-chips-wrap" id="pubDateChips">
+              <!-- Rendered dynamically (Today, Tomorrow, +5 days) -->
+            </div>
+            <div class="pub-custom-date-row">
+              <span>Atau pilih tanggal spesifik:</span>
+              <input type="date" id="pubCustomDateInput" class="pub-input" style="width: auto; padding: 6px 12px; font-size: 13px;" />
+            </div>
+          </div>
+
+          <!-- STEP 3: PILIH JAM & SLOT -->
+          <div class="pub-step-box">
+            <h2 class="pub-step-title">
+              <span class="pub-step-num">3</span>
+              <span>Pilih Jam &amp; Slot Sesi yang Tersedia</span>
+            </h2>
+            <p style="font-size: 13px; color: #64748b; margin: -6px 0 16px;">
+              Slot berwarna biru/putih siap di-booking. Slot abu-abu telah terisi oleh pemesan lain.
+            </p>
+            <div class="pub-slots-grid" id="pubSlotsGrid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- STEP 4: DATA PEMESAN -->
+          <div class="pub-step-box">
+            <h2 class="pub-step-title">
+              <span class="pub-step-num">4</span>
+              <span>Data Diri Pemesan (Untuk E-Ticket WhatsApp)</span>
+            </h2>
+            <form id="pubCustomerForm">
+              <div class="pub-form-row">
+                <div class="pub-input-group">
+                  <label for="custName">Nama Lengkap / Nama Tim <span style="color: #ef4444;">*</span></label>
+                  <input type="text" id="custName" class="pub-input" required placeholder="cth: Dimas Pratama (FC Garuda)" />
+                </div>
+                <div class="pub-input-group">
+                  <label for="custPhone">Nomor WhatsApp Aktif <span style="color: #ef4444;">*</span></label>
+                  <input type="tel" id="custPhone" class="pub-input" required placeholder="cth: 081234567890" />
+                </div>
+              </div>
+              <div class="pub-form-row">
+                <div class="pub-input-group">
+                  <label for="custEmail">Email (Opsional)</label>
+                  <input type="email" id="custEmail" class="pub-input" placeholder="pemesan@gmail.com" />
+                </div>
+                <div class="pub-input-group">
+                  <label for="custNotes">Permintaan Khusus / Catatan</label>
+                  <input type="text" id="custNotes" class="pub-input" placeholder="cth: Sewa rompi 2 tim, bola latihan" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Sticky Order Summary & Checkout -->
+        <aside class="pub-summary-sticky">
+          <div class="pub-summary-title">
+            <span>Rincian Reservasi</span>
+            <span style="font-size: 12px; font-weight: 600; color: #059669; background: #ecfdf5; padding: 2px 8px; border-radius: 999px;">
+              Anti-Bentrok Live
+            </span>
+          </div>
+
+          <div class="pub-summary-item">
+            <span>Venue:</span>
+            <strong id="sumVenue">Supernova Arena</strong>
+          </div>
+          <div class="pub-summary-item">
+            <span>Sarana:</span>
+            <strong id="sumFacility">- Pilih Sarana -</strong>
+          </div>
+          <div class="pub-summary-item">
+            <span>Tanggal:</span>
+            <strong id="sumDate">- Pilih Tanggal -</strong>
+          </div>
+          <div class="pub-summary-item">
+            <span>Slot Waktu:</span>
+            <strong id="sumSlot">- Pilih Slot -</strong>
+          </div>
+          <div class="pub-summary-item">
+            <span>Durasi:</span>
+            <strong id="sumDuration">2 Jam</strong>
+          </div>
+
+          <div class="pub-summary-divider"></div>
+
+          <!-- Opsi DP vs Bayar Penuh -->
+          <div style="font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 6px;">Skema Pembayaran:</div>
+          <div class="pub-pay-switcher">
+            <button type="button" class="pub-switch-btn is-active" id="btnPayDp" data-mode="dp">
+              Bayar DP 50%
+            </button>
+            <button type="button" class="pub-switch-btn" id="btnPayFull" data-mode="full">
+              Bayar Penuh (100%)
+            </button>
+          </div>
+
+          <!-- Payment Channel -->
+          <div style="font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 6px;">Metode Pembayaran:</div>
+          <div class="pub-channels-grid">
+            <button type="button" class="pub-channel-btn is-active" data-channel="qris">
+              📱 QRIS Instan
+            </button>
+            <button type="button" class="pub-channel-btn" data-channel="transfer">
+              🏦 Transfer Bank
+            </button>
+            <button type="button" class="pub-channel-btn" data-channel="cash">
+              💵 Bayar di Lokasi
+            </button>
+          </div>
+
+          <!-- Total Calculation -->
+          <div class="pub-total-box">
+            <div class="pub-total-row">
+              <span class="pub-total-label" id="labelTotalPay">Total DP (50%):</span>
+              <span class="pub-total-price" id="valTotalPay">Rp 0</span>
+            </div>
+            <div class="pub-total-sub" id="valTotalFullDetail">
+              Total tarif sewa: Rp 0 · Sisa pelunasan di lokasi: Rp 0
+            </div>
+          </div>
+
+          <button type="button" class="pub-btn-confirm" id="btnConfirmBooking">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Konfirmasi &amp; Amankan Slot Ini</span>
+          </button>
+
+          <div class="pub-security-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Jaminan Slot Terkunci Tanpa Bentrok Jadwal</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Digital E-Ticket Success Modal -->
+    <div id="eTicketModal" class="pub-modal-backdrop is-hidden">
+      <div class="pub-ticket-card">
+        <div class="pub-ticket-top">
+          <div class="pub-ticket-check">✓</div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 800;">Reservasi Berhasil Terkonfirmasi!</h3>
+          <div class="pub-ticket-code" id="ticketCode">SNV-BKG-88392</div>
+          <div style="font-size: 12px; opacity: 0.8; margin-top: 4px;">Tiket resmi terdaftar di database cloud Neon</div>
+        </div>
+
+        <div class="pub-ticket-body">
+          <table class="pub-ticket-table">
+            <tr>
+              <td>Nama Pemesan:</td>
+              <td id="tCustName">Budi Santoso</td>
+            </tr>
+            <tr>
+              <td>Fasilitas:</td>
+              <td id="tFacility">Lapangan Futsal Vinyl 1</td>
+            </tr>
+            <tr>
+              <td>Jadwal:</td>
+              <td id="tSchedule">Rabu, 21 Okt 2026 (19:00 - 21:00)</td>
+            </tr>
+            <tr>
+              <td>Status Pembayaran:</td>
+              <td style="color: #059669;" id="tPaymentStatus">DP 50% LUNAS (QRIS)</td>
+            </tr>
+            <tr>
+              <td>Sisa Pelunasan di Lokasi:</td>
+              <td id="tBalanceDue">Rp 90.000</td>
+            </tr>
+          </table>
+
+          <div class="pub-ticket-qr-wrap">
+            <svg width="120" height="120" viewBox="0 0 100 100" fill="none" style="margin: 0 auto; display: block;">
+              <rect width="100" height="100" fill="#ffffff" rx="6"/>
+              <!-- Stylized Barcode / QR Matrix -->
+              <rect x="10" y="10" width="24" height="24" fill="#0f172a" rx="3"/>
+              <rect x="14" y="14" width="16" height="16" fill="#ffffff" rx="2"/>
+              <rect x="18" y="18" width="8" height="8" fill="#0f172a"/>
+
+              <rect x="66" y="10" width="24" height="24" fill="#0f172a" rx="3"/>
+              <rect x="70" y="14" width="16" height="16" fill="#ffffff" rx="2"/>
+              <rect x="74" y="18" width="8" height="8" fill="#0f172a"/>
+
+              <rect x="10" y="66" width="24" height="24" fill="#0f172a" rx="3"/>
+              <rect x="14" y="70" width="16" height="16" fill="#ffffff" rx="2"/>
+              <rect x="18" y="74" width="8" height="8" fill="#0f172a"/>
+
+              <!-- Dots -->
+              <rect x="42" y="14" width="6" height="6" fill="#2563eb"/>
+              <rect x="52" y="24" width="6" height="6" fill="#0f172a"/>
+              <rect x="42" y="34" width="6" height="6" fill="#0f172a"/>
+              <rect x="52" y="44" width="6" height="6" fill="#2563eb"/>
+              <rect x="42" y="54" width="6" height="6" fill="#0f172a"/>
+              <rect x="66" y="54" width="6" height="6" fill="#0f172a"/>
+              <rect x="76" y="44" width="6" height="6" fill="#2563eb"/>
+              <rect x="42" y="74" width="6" height="6" fill="#0f172a"/>
+              <rect x="52" y="84" width="6" height="6" fill="#0f172a"/>
+              <rect x="76" y="74" width="6" height="6" fill="#0f172a"/>
+            </svg>
+            <div style="font-size: 11px; color: #64748b; margin-top: 6px; font-weight: 600;">
+              Tunjukkan QR Code ini di meja resepsionis saat check-in
+            </div>
+          </div>
+
+          <a href="#" target="_blank" rel="noopener" class="pub-btn-wa-ticket" id="btnSendWaTicket">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.531 1.764.789 2.796.79h.005c3.18 0 5.767-2.587 5.768-5.766.001-3.181-2.586-5.767-5.773-5.767zm0 10.428h-.004c-.88 0-1.74-.237-2.489-.684l-.178-.106-1.849.485.494-1.802-.116-.185c-.49-.78-.749-1.688-.748-2.618.001-2.68 2.181-4.861 4.864-4.861 2.682 0 4.863 2.18 4.862 4.861-.001 2.681-2.181 4.861-4.862 4.861z"/>
+            </svg>
+            <span>Buka E-Ticket di WhatsApp Saya</span>
+          </a>
+
+          <button type="button" class="pub-btn-close-ticket" id="btnCloseTicket">
+            Selesai &amp; Buat Booking Lain
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client Script -->
+    <script>
+      const API_BASE = 'http://127.0.0.1:8088/api/v1';
+
+      // Parse slug from URL
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const urlSlug = pathParts[pathParts.length - 1] || 'supernova';
+
+      // Format slug into clean business title
+      const formatBizTitle = (slug: string) => {
+        if (!slug || slug === 'supernova') return 'Supernova Arena & Sports Studio';
+        if (slug === 'garuda-sport') return 'Garuda Sport Arena & Studio';
+        if (slug === 'champion-arena') return 'Champion Arena Sport Center';
+        if (slug === 'barber-king') return 'Barber King Executive Studio';
+        if (slug === 'pixel-studio') return 'Pixel Creative Photo Studio';
+        if (slug === 'cyber-gaming') return 'Cyber Gaming & Esports Lounge';
+        return slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ') + ' Venue';
+      };
+
+      // Toast helper
+      const showToast = (type: 'success' | 'error' | 'info', message: string) => {
+        let container = document.getElementById('toastContainer');
+        if (!container) {
+          container = document.createElement('div');
+          container.id = 'toastContainer';
+          container.className = 'toast-container';
+          document.body.appendChild(container);
+        }
+        const toast = document.createElement('div');
+        toast.className = `toast toast--${type}`;
+        const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+        toast.innerHTML = `<span style="font-weight:700;">${icon}</span><span>${message}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(-10px)';
+          setTimeout(() => toast.remove(), 300);
+        }, 3600);
+      };
+
+      // Facility Definitions
+      const defaultFacilities = [
+        {
+          id: 'fac-1',
+          name: 'Lapangan Badminton Vinyl Pro 01',
+          icon: '🏸',
+          category: 'Karpet Standar BWF',
+          rate: 90000,
+          capacity: 4,
+          specs: 'Lantai vinyl tebal 5mm, pencahayaan LED 800W, AC dingin'
+        },
+        {
+          id: 'fac-2',
+          name: 'Lapangan Futsal Interlock FIFA',
+          icon: '⚽',
+          category: 'Interlock Mat Anti-Slip',
+          rate: 160000,
+          capacity: 12,
+          specs: 'Papan skor digital, jaring keliling, gawang standar nasional'
+        },
+        {
+          id: 'fac-3',
+          name: 'Studio Foto Tematik VIP',
+          icon: '📸',
+          category: 'Lighting Godox Pro & Props',
+          rate: 120000,
+          capacity: 8,
+          specs: 'Ruang ganti privat, AC, 4 pilihan backdrop estetik'
+        },
+        {
+          id: 'fac-4',
+          name: 'VIP Gaming Pod PC Esports',
+          icon: '🎮',
+          category: 'RTX 4080 & 240Hz OLED',
+          rate: 45000,
+          capacity: 1,
+          specs: 'Kursi gaming ergonomis, headset noise-canceling, snack bar'
+        },
+        {
+          id: 'fac-5',
+          name: 'Kursi Barber Executive 01',
+          icon: '✂️',
+          category: 'Haircut & Beard Spa',
+          rate: 75000,
+          capacity: 1,
+          specs: 'Towel hangat, hair tonic premium, free coffee/tea'
+        }
+      ];
+
+      // Time slots 08:00 - 23:00
+      const timeSlots = [
+        { id: 's1', start: '08:00', end: '10:00', label: '08:00 - 10:00 (Pagi)' },
+        { id: 's2', start: '10:00', end: '12:00', label: '10:00 - 12:00 (Siang)' },
+        { id: 's3', start: '13:00', end: '15:00', label: '13:00 - 15:00 (Siang)' },
+        { id: 's4', start: '15:00', end: '17:00', label: '15:00 - 17:00 (Sore)' },
+        { id: 's5', start: '17:00', end: '19:00', label: '17:00 - 19:00 (Malam)' },
+        { id: 's6', start: '19:00', end: '21:00', label: '19:00 - 21:00 (Malam)' },
+        { id: 's7', start: '21:00', end: '23:00', label: '21:00 - 23:00 (Malam)' }
+      ];
+
+      // Booking State
+      let selectedFacility = defaultFacilities[0];
+      let selectedDate = new Date().toISOString().split('T')[0];
+      let selectedSlot: any = null;
+      let paymentMode: 'dp' | 'full' = 'dp';
+      let paymentChannel: 'qris' | 'transfer' | 'cash' = 'qris';
+
+      // Load Existing Bookings from shared storage or backend
+      const getStoredBookings = (): any[] => {
+        try {
+          const raw = localStorage.getItem('supernova_booking_db');
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return [
+          {
+            booking_code: 'SNV-BKG-9921',
+            resource_name: 'Lapangan Badminton Vinyl Pro 01',
+            date: new Date().toISOString().split('T')[0],
+            slot_id: 's3',
+            customer_name: 'Dimas Aditya',
+            customer_phone: '081298765432'
+          }
+        ];
+      };
+
+      const saveBookingToDb = (newBooking: any) => {
+        const list = getStoredBookings();
+        list.unshift(newBooking);
+        localStorage.setItem('supernova_booking_db', JSON.stringify(list));
+      };
+
+      // Format currency
+      const formatRupiah = (val: number) => {
+        return 'Rp ' + Math.round(val).toLocaleString('id-ID');
+      };
+
+      // Initialize Page
+      const initPage = () => {
+        // Set venue title from slug
+        const bizTitle = formatBizTitle(urlSlug);
+        const venueTitleEl = document.getElementById('venueTitle');
+        if (venueTitleEl) {
+          venueTitleEl.innerHTML = `
+            <span>${bizTitle}</span>
+            <span class="pub-verified-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span>Mitra Terverifikasi</span>
+            </span>
+          `;
+        }
+
+        const sumVenue = document.getElementById('sumVenue');
+        if (sumVenue) sumVenue.textContent = bizTitle;
+
+        renderFacilities();
+        renderDateChips();
+        renderSlots();
+        updateSummary();
+        attachEventListeners();
+      };
+
+      // Render Facilities
+      const renderFacilities = () => {
+        const container = document.getElementById('pubFacilityGrid');
+        if (!container) return;
+
+        container.innerHTML = defaultFacilities.map(fac => {
+          const isSel = fac.id === selectedFacility.id;
+          return `
+            <div class="pub-facility-card ${isSel ? 'is-selected' : ''}" data-id="${fac.id}">
+              <div class="pub-fac-top">
+                <span class="pub-fac-icon">${fac.icon}</span>
+                <span class="pub-fac-radio"></span>
+              </div>
+              <div>
+                <h4 class="pub-fac-name">${fac.name}</h4>
+                <p class="pub-fac-spec">${fac.specs}</p>
+              </div>
+              <div class="pub-fac-price">
+                ${formatRupiah(fac.rate)} <span>/ 2 Jam</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        container.querySelectorAll('.pub-facility-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const facId = card.getAttribute('data-id');
+            const found = defaultFacilities.find(f => f.id === facId);
+            if (found) {
+              selectedFacility = found;
+              renderFacilities();
+              renderSlots();
+              updateSummary();
+            }
+          });
+        });
+      };
+
+      // Render Date Chips (Today + Next 5 days)
+      const renderDateChips = () => {
+        const container = document.getElementById('pubDateChips');
+        if (!container) return;
+
+        const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+
+        const chipsHtml: string[] = [];
+        const today = new Date();
+
+        for (let i = 0; i < 6; i++) {
+          const d = new Date(today);
+          d.setDate(today.getDate() + i);
+          const dateStr = d.toISOString().split('T')[0];
+          const isAct = dateStr === selectedDate;
+          const dayName = i === 0 ? 'Hari Ini' : i === 1 ? 'Besok' : dayNames[d.getDay()];
+          const numLabel = `${d.getDate()} ${monthNames[d.getMonth()]}`;
+
+          chipsHtml.push(`
+            <div class="pub-date-chip ${isAct ? 'is-active' : ''}" data-date="${dateStr}">
+              <span class="pub-date-day">${dayName}</span>
+              <span class="pub-date-num">${numLabel}</span>
+            </div>
+          `);
+        }
+
+        container.innerHTML = chipsHtml.join('');
+
+        container.querySelectorAll('.pub-date-chip').forEach(chip => {
+          chip.addEventListener('click', () => {
+            const d = chip.getAttribute('data-date');
+            if (d) {
+              selectedDate = d;
+              const dateInput = document.getElementById('pubCustomDateInput') as HTMLInputElement | null;
+              if (dateInput) dateInput.value = d;
+              renderDateChips();
+              renderSlots();
+              updateSummary();
+            }
+          });
+        });
+
+        const customDateInput = document.getElementById('pubCustomDateInput') as HTMLInputElement | null;
+        if (customDateInput) {
+          customDateInput.value = selectedDate;
+          customDateInput.min = today.toISOString().split('T')[0];
+          customDateInput.addEventListener('change', () => {
+            if (customDateInput.value) {
+              selectedDate = customDateInput.value;
+              renderDateChips();
+              renderSlots();
+              updateSummary();
+            }
+          });
+        }
+      };
+
+      // Render Slots with Live Conflict Detection
+      const renderSlots = () => {
+        const container = document.getElementById('pubSlotsGrid');
+        if (!container) return;
+
+        const existingBookings = getStoredBookings();
+
+        container.innerHTML = timeSlots.map(slot => {
+          // Check collision
+          const isBooked = existingBookings.some(b => 
+            b.date === selectedDate && 
+            (b.resource_id === selectedFacility.id || b.resource_name === selectedFacility.name) && 
+            (b.slot_id === slot.id || (b.start_time && b.start_time.includes(slot.start)))
+          );
+
+          const isSelected = selectedSlot && selectedSlot.id === slot.id;
+
+          if (isBooked) {
+            return `
+              <div class="pub-slot-btn is-booked" title="Slot ini sudah dipesan orang lain">
+                <span class="pub-slot-time">${slot.start} - ${slot.end}</span>
+                <span class="pub-slot-status">Terisi</span>
+              </div>
+            `;
+          }
+
+          return `
+            <div class="pub-slot-btn ${isSelected ? 'is-selected' : ''}" data-slot-id="${slot.id}">
+              <span class="pub-slot-time">${slot.start} - ${slot.end}</span>
+              <span class="pub-slot-status">${isSelected ? '✓ Dipilih' : 'Tersedia'}</span>
+            </div>
+          `;
+        }).join('');
+
+        container.querySelectorAll('.pub-slot-btn:not(.is-booked)').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const slotId = btn.getAttribute('data-slot-id');
+            selectedSlot = timeSlots.find(s => s.id === slotId) || null;
+            renderSlots();
+            updateSummary();
+          });
+        });
+      };
+
+      // Update Sticky Summary Box
+      const updateSummary = () => {
+        const sumFacility = document.getElementById('sumFacility');
+        const sumDate = document.getElementById('sumDate');
+        const sumSlot = document.getElementById('sumSlot');
+        const valTotalPay = document.getElementById('valTotalPay');
+        const labelTotalPay = document.getElementById('labelTotalPay');
+        const valTotalFullDetail = document.getElementById('valTotalFullDetail');
+
+        if (sumFacility) sumFacility.textContent = selectedFacility.name;
+        if (sumDate) sumDate.textContent = selectedDate;
+        if (sumSlot) sumSlot.textContent = selectedSlot ? `${selectedSlot.start} - ${selectedSlot.end} WIB` : 'Pilih slot jam';
+
+        const totalRate = selectedFacility.rate;
+        const dpRate = Math.round(totalRate * 0.5);
+        const amountToPay = paymentMode === 'dp' ? dpRate : totalRate;
+        const balanceDue = paymentMode === 'dp' ? (totalRate - dpRate) : 0;
+
+        if (valTotalPay) valTotalPay.textContent = formatRupiah(amountToPay);
+        if (labelTotalPay) labelTotalPay.textContent = paymentMode === 'dp' ? 'Total Bayar DP (50%):' : 'Total Bayar Penuh:';
+
+        if (valTotalFullDetail) {
+          valTotalFullDetail.textContent = `Total biaya sesi: ${formatRupiah(totalRate)} · Sisa pelunasan di lokasi: ${formatRupiah(balanceDue)}`;
+        }
+      };
+
+      // Attach Event Listeners
+      const attachEventListeners = () => {
+        // Payment Mode Switcher
+        const btnPayDp = document.getElementById('btnPayDp');
+        const btnPayFull = document.getElementById('btnPayFull');
+
+        btnPayDp?.addEventListener('click', () => {
+          paymentMode = 'dp';
+          btnPayDp.classList.add('is-active');
+          btnPayFull?.classList.remove('is-active');
+          updateSummary();
+        });
+
+        btnPayFull?.addEventListener('click', () => {
+          paymentMode = 'full';
+          btnPayFull.classList.add('is-active');
+          btnPayDp?.classList.remove('is-active');
+          updateSummary();
+        });
+
+        // Payment Channel Buttons
+        document.querySelectorAll('.pub-channel-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.pub-channel-btn').forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+            paymentChannel = (btn.getAttribute('data-channel') as any) || 'qris';
+          });
+        });
+
+        // Confirm Booking Submission
+        const btnConfirm = document.getElementById('btnConfirmBooking');
+        btnConfirm?.addEventListener('click', async () => {
+          const custNameInput = document.getElementById('custName') as HTMLInputElement | null;
+          const custPhoneInput = document.getElementById('custPhone') as HTMLInputElement | null;
+          const custEmailInput = document.getElementById('custEmail') as HTMLInputElement | null;
+          const custNotesInput = document.getElementById('custNotes') as HTMLInputElement | null;
+
+          const custName = custNameInput?.value.trim();
+          const custPhone = custPhoneInput?.value.trim();
+          const custEmail = custEmailInput?.value.trim();
+          const custNotes = custNotesInput?.value.trim();
+
+          if (!selectedSlot) {
+            showToast('error', 'Silakan pilih slot jam terlebih dahulu.');
+            document.getElementById('pubSlotsGrid')?.scrollIntoView({ behavior: 'smooth' });
+            return;
+          }
+
+          if (!custName) {
+            showToast('error', 'Mohon isi Nama Lengkap Pemesan.');
+            custNameInput?.focus();
+            return;
+          }
+
+          if (!custPhone || custPhone.length < 8) {
+            showToast('error', 'Mohon isi Nomor WhatsApp aktif untuk pengiriman E-Ticket.');
+            custPhoneInput?.focus();
+            return;
+          }
+
+          // Generate Unique Ticket Code
+          const randomHex = Math.floor(1000 + Math.random() * 9000);
+          const ticketCode = `SNV-BKG-${new Date().getFullYear()}${String(new Date().getMonth()+1).padStart(2,'0')}${String(new Date().getDate()).padStart(2,'0')}-${randomHex}`;
+
+          const totalRate = selectedFacility.rate;
+          const dpRate = Math.round(totalRate * 0.5);
+          const amountPaid = paymentMode === 'dp' ? dpRate : totalRate;
+          const balanceDue = paymentMode === 'dp' ? (totalRate - dpRate) : 0;
+
+          const newBooking = {
+            id: 'bkg-' + Date.now(),
+            booking_code: ticketCode,
+            tenant_slug: urlSlug,
+            customer_name: custName,
+            customer_phone: custPhone,
+            customer_email: custEmail || '',
+            resource_id: selectedFacility.id,
+            resource_name: selectedFacility.name,
+            date: selectedDate,
+            slot_id: selectedSlot.id,
+            start_time: `${selectedDate}T${selectedSlot.start}:00Z`,
+            end_time: `${selectedDate}T${selectedSlot.end}:00Z`,
+            duration_hours: 2,
+            total_amount: totalRate,
+            down_payment: amountPaid,
+            balance_due: balanceDue,
+            booking_status: 'confirmed',
+            payment_status: paymentMode === 'dp' ? 'down_payment_paid' : 'fully_paid',
+            payment_method: paymentChannel,
+            notes: custNotes || ''
+          };
+
+          // Save to shared localStorage database
+          saveBookingToDb(newBooking);
+
+          // Try sync to Rust Backend in background if available
+          try {
+            fetch(`${API_BASE}/booking/create`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                resource_id: '00000000-0000-0000-0000-000000000001',
+                customer_name: custName,
+                customer_phone: custPhone,
+                customer_email: custEmail || 'customer@supernova.id',
+                start_time: newBooking.start_time,
+                end_time: newBooking.end_time,
+                down_payment: amountPaid,
+                payment_method: paymentChannel,
+                notes: custNotes || 'Self-booking via Public Customer Portal'
+              })
+            }).catch(() => {});
+          } catch(e) {}
+
+          // Show E-Ticket Modal
+          showETicketModal(newBooking);
+        });
+
+        // Close ticket modal
+        document.getElementById('btnCloseTicket')?.addEventListener('click', () => {
+          document.getElementById('eTicketModal')?.classList.add('is-hidden');
+          selectedSlot = null;
+          renderSlots();
+          updateSummary();
+          showToast('success', 'Reservasi Anda telah aktif! Sampai jumpa di venue.');
+        });
+      };
+
+      // Show E-Ticket Modal
+      const showETicketModal = (booking: any) => {
+        const modal = document.getElementById('eTicketModal');
+        const tCode = document.getElementById('ticketCode');
+        const tCustName = document.getElementById('tCustName');
+        const tFacility = document.getElementById('tFacility');
+        const tSchedule = document.getElementById('tSchedule');
+        const tPaymentStatus = document.getElementById('tPaymentStatus');
+        const tBalanceDue = document.getElementById('tBalanceDue');
+        const btnSendWaTicket = document.getElementById('btnSendWaTicket') as HTMLAnchorElement | null;
+
+        if (tCode) tCode.textContent = booking.booking_code;
+        if (tCustName) tCustName.textContent = booking.customer_name;
+        if (tFacility) tFacility.textContent = booking.resource_name;
+        if (tSchedule) tSchedule.textContent = `${booking.date} (${selectedSlot ? selectedSlot.start + ' - ' + selectedSlot.end : ''} WIB)`;
+        if (tPaymentStatus) {
+          tPaymentStatus.textContent = booking.payment_status === 'fully_paid' ? 'LUNAS 100%' : `DP 50% DIBAYAR (${booking.payment_method.toUpperCase()})`;
+        }
+        if (tBalanceDue) tBalanceDue.textContent = formatRupiah(booking.balance_due);
+
+        // WhatsApp dispatch link
+        if (btnSendWaTicket) {
+          const waMsg = encodeURIComponent(
+            `*TIKET RESERVASI RESMI SUPERNOVA BOOKING*\n\n` +
+            `Kode Tiket: *${booking.booking_code}*\n` +
+            `Venue: ${formatBizTitle(urlSlug)}\n` +
+            `Pemesan: ${booking.customer_name}\n` +
+            `Sarana: ${booking.resource_name}\n` +
+            `Jadwal: ${booking.date} (${selectedSlot ? selectedSlot.start + ' - ' + selectedSlot.end : ''} WIB)\n` +
+            `Status: ${booking.payment_status === 'fully_paid' ? 'Lunas 100%' : 'DP 50% Terbayar'}\n` +
+            `Sisa di Kasir: ${formatRupiah(booking.balance_due)}\n\n` +
+            `_Tunjukkan pesan ini di meja resepsionis saat kedatangan._`
+          );
+          const cleanPhone = booking.customer_phone.replace(/^0/, '62').replace(/[^0-9]/g, '');
+          btnSendWaTicket.href = `https://wa.me/${cleanPhone}?text=${waMsg}`;
+        }
+
+        modal?.classList.remove('is-hidden');
+      };
+
+      // Boot
+      document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+  </body>
+</html>
