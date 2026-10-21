@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Supernova Design Tokens — single source of truth.
+   Palette is preserved from the original brand; everything else is semantic.
+   Do not hard-code colors/spacing in components: reference these variables.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand palette (unchanged) ---- */
+  --paper: #f8fafc;
+  --surface: #ffffff;
+  --ink: #0a1120;
+  --ink-2: #1e293b;
+  --muted: #475569;
+  --muted-2: #94a3b8;
+  --blue: #1e40af;
+  --bright: #2563eb;
+  --bright-hover: #1d4ed8;
+  --cyan: #06b6d4;
+  --purple: #7c3aed;
+  --blue-light: #eff6ff;
+  --line: #e2e8f0;
+  --line-2: #cbd5e1;
+
+  /* Accent used by the restaurant product */
+  --orange: #ea580c;
+  --orange-hover: #c2410c;
+  --orange-light: #fff7ed;
+
+  /* WhatsApp — only for buttons/links that open WhatsApp */
+  --wa: #25d366;
+  --wa-hover: #1ebd5b;
+  --wa-dark: #128c7e;
+
+  /* Status */
+  --success: #059669;
+  --success-bg: #ecfdf5;
+  --warning: #d97706;
+  --warning-bg: #fffbeb;
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --info: var(--bright);
+  --info-bg: var(--blue-light);
+
+  /* ---- Semantic aliases ---- */
+  --color-bg: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-muted: #f1f5f9;
+  --color-text: var(--ink);
+  --color-text-secondary: var(--muted);
+  --color-text-tertiary: var(--muted-2);
+  --color-border: var(--line);
+  --color-border-strong: var(--line-2);
+  --color-accent: var(--bright);
+  --color-accent-hover: var(--bright-hover);
+  --color-accent-soft: var(--blue-light);
+  --color-focus: rgba(37, 99, 235, 0.35);
+
+  /* ---- Typography ---- */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  --text-xs: 0.75rem;   /* 12 */
+  --text-sm: 0.8125rem; /* 13 */
+  --text-base: 0.875rem;/* 14 */
+  --text-md: 1rem;      /* 16 */
+  --text-lg: 1.125rem;  /* 18 */
+  --text-xl: 1.375rem;  /* 22 */
+  --text-2xl: 1.75rem;  /* 28 */
+  --text-3xl: 2.25rem;  /* 36 */
+  --text-display: clamp(2.25rem, 4vw + 1rem, 3.5rem);
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---- Spacing (4px grid) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ---- Radii ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ---- Elevation (subtle; no glow) ---- */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 30px -10px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 20px 45px -15px rgba(15, 23, 42, 0.14);
+  --shadow-focus: 0 0 0 3px var(--color-focus);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.15s;
+  --dur: 0.25s;
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --sidebar-width: 76px;
+  --topbar-height: 64px;
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0s;
+    --dur: 0s;
+  }
+}
