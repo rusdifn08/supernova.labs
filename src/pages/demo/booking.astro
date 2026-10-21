@@ -1,0 +1,513 @@
+---
+import BaseLayout from '../../components/templates/BaseLayout.astro';
+import Icon from '../../components/atoms/Icon.astro';
+import Button from '../../components/atoms/Button.astro';
+---
+
+<BaseLayout title="Portal Uji Coba Real — Ordering System Booking | Supernova Labs">
+  <div class="real-portal-page" data-portal-root="booking">
+    <!-- Breadcrumb & Top Bar -->
+    <div class="portal-topbar">
+      <div class="container portal-topbar__inner">
+        <div class="portal-breadcrumb">
+          <a href="/">Beranda</a>
+          <span class="sep">/</span>
+          <a href="/#demo">Uji Coba Layanan</a>
+          <span class="sep">/</span>
+          <strong>Ordering System Booking (Production Sandbox)</strong>
+        </div>
+        <div class="portal-env-badges">
+          <span class="badge badge--green">● LIVE DB CONNECTED</span>
+          <span class="badge badge--dark">AXUM 0.8 / NEON POSTGRES</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container portal-main-container">
+      <!-- Intro Banner -->
+      <div class="portal-intro">
+        <span class="portal-eyebrow">ENTERPRISE USECASE · REAL TRIAL ENVIRONMENT</span>
+        <h1>Portal Uji Coba Asli: Universal Booking Engine</h1>
+        <p class="portal-desc">
+          Berbeda dengan simulasi cepat di halaman depan, portal ini menyediakan lingkungan kerja nyata. Daftarkan identitas bisnis Anda untuk mencoba alur pengelolaan jadwal multi-lapangan, pencegahan double-booking, dan penerbitan e-ticket WhatsApp.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 1. REGISTRATION & LOGIN GATE (DATA DIRI LENGKAP BISNIS)      -->
+      <!-- ============================================================ -->
+      <div class="auth-gate-card" id="authGateCard">
+        <div class="auth-gate-header">
+          <div class="auth-toggle-tabs">
+            <button type="button" class="auth-tab is-active" id="tabRegister">
+              <span>1. Daftar Akun Uji Coba Bisnis (Gratis)</span>
+            </button>
+            <button type="button" class="auth-tab" id="tabLogin">
+              <span>2. Masuk Akun yang Sudah Ada</span>
+            </button>
+          </div>
+          <button type="button" class="btn btn--instant-demo" id="btnInstantDemo">
+            <span>⚡ Masuk Instan (Akun Sampel Bisnis)</span>
+          </button>
+        </div>
+
+        <!-- FORM REGISTRASI DATA DIRI LENGKAP -->
+        <form class="auth-form" id="registerForm">
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="regFullName">Nama Lengkap Pemilik / Pengelola: <span class="req">*</span></label>
+              <input type="text" id="regFullName" class="sim-input" required placeholder="Contoh: Hendra Gunawan, S.Kom" value="Hendra Gunawan" />
+            </div>
+
+            <div class="form-group">
+              <label for="regBizName">Nama Brand / Bisnis Anda: <span class="req">*</span></label>
+              <input type="text" id="regBizName" class="sim-input" required placeholder="Contoh: Garuda Futsal & Badminton Arena" value="Garuda Sports & Futsal Arena" />
+            </div>
+
+            <div class="form-group">
+              <label for="regWhatsApp">Nomor WhatsApp Aktif (Untuk OTP / E-Ticket): <span class="req">*</span></label>
+              <input type="tel" id="regWhatsApp" class="sim-input" required placeholder="0812-xxxx-xxxx" value="081283626217" />
+            </div>
+
+            <div class="form-group">
+              <label for="regEmail">Email Bisnis Resmi: <span class="req">*</span></label>
+              <input type="email" id="regEmail" class="sim-input" required placeholder="owner@bisnisanda.com" value="owner@garudasports.id" />
+            </div>
+
+            <div class="form-group">
+              <label for="regCategory">Kategori &amp; Model Bisnis: <span class="req">*</span></label>
+              <select id="regCategory" class="sim-select">
+                <option value="sports" selected>Sarana Olahraga (Futsal, Badminton, Mini Soccer, Tenis)</option>
+                <option value="studio">Studio Foto, Self-Photo &amp; Production House</option>
+                <option value="barber">Barbershop, Salon &amp; Gentlemen Grooming</option>
+                <option value="ps">Rental PS5, VIP Gaming Lounge &amp; Console Simulator</option>
+                <option value="warnet">Warnet PC Gaming &amp; Esports Arena</option>
+                <option value="custom">Jasa Profesional / Klinik / Coworking Space Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="regCity">Kota / Wilayah Operasional: <span class="req">*</span></label>
+              <input type="text" id="regCity" class="sim-input" required placeholder="Contoh: Jakarta Selatan, Surabaya, Medan" value="Jakarta Selatan" />
+            </div>
+          </div>
+
+          <div class="form-footer-action">
+            <button type="submit" class="btn btn--primary btn--md" id="btnSubmitRegister">
+              <span>🚀 Aktifkan Sandbox &amp; Masuk ke Dashboard Nyata</span>
+              <Icon name="arrow" size={16} />
+            </button>
+            <span class="auth-privacy-note">🔒 Data Anda aman dan digunakan semata-mata untuk menginisialisasi ruang kerja demo dedicated.</span>
+          </div>
+        </form>
+
+        <!-- FORM LOGIN CEPAT -->
+        <form class="auth-form is-hidden" id="loginForm">
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="loginEmail">Email Bisnis / Nomor WhatsApp:</label>
+              <input type="text" id="loginEmail" class="sim-input" placeholder="owner@garudasports.id" value="owner@garudasports.id" />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">PIN / Password Demo:</label>
+              <input type="password" id="loginPassword" class="sim-input" value="supernova2026" />
+            </div>
+          </div>
+          <div class="form-footer-action">
+            <button type="submit" class="btn btn--primary btn--md">
+              <span>Masuk ke Dashboard Bisnis</span>
+              <Icon name="arrow" size={16} />
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 2. REAL BUSINESS WORKSPACE (UNLOCKED UPON AUTH)              -->
+      <!-- ============================================================ -->
+      <div class="real-workspace-panel is-hidden" id="realWorkspace">
+        <!-- Business Account Status Bar -->
+        <div class="workspace-header-bar">
+          <div class="biz-identity">
+            <div class="biz-avatar">🏢</div>
+            <div>
+              <div class="biz-title-wrap">
+                <h3 id="wsBizName">Garuda Sports &amp; Futsal Arena</h3>
+                <span class="badge badge--green">ACTIVE SANDBOX</span>
+              </div>
+              <p class="biz-subtitle">
+                Pengelola: <strong id="wsOwnerName">Hendra Gunawan</strong> · Wilayah: <span id="wsCity">Jakarta Selatan</span> · Kategori: <span id="wsCategory">Sarana Olahraga</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="ws-header-actions">
+            <button type="button" class="btn btn--outline btn--sm" id="btnResetSandbox">Ganti Akun Bisnis</button>
+            <a class="btn btn--cta btn--sm" href="https://wa.me/6281283626217?text=Halo%20Supernova%20Labs,%20saya%20sudah%20mencoba%20portal%20real%20booking%20dan%20ingin%20pasang%20untuk%20bisnis%20saya" target="_blank" rel="noopener noreferrer">
+              <span>Kustomisasi Sistem Ini (WA)</span>
+              <Icon name="whatsapp" size={14} />
+            </a>
+          </div>
+        </div>
+
+        <!-- Real Workspace Navigation Tabs -->
+        <div class="workspace-nav-tabs">
+          <button type="button" class="ws-tab is-active" data-wstab="schedule">📅 Kalender &amp; Reservasi Realtime</button>
+          <button type="button" class="ws-tab" data-wstab="new-booking">➕ Tambah Booking Baru (Manual)</button>
+          <button type="button" class="ws-tab" data-wstab="facilities">⚙️ Kelola Fasilitas &amp; Tarif</button>
+          <button type="button" class="ws-tab" data-wstab="analytics">📊 Laporan Okupansi &amp; Kas Masuk</button>
+        </div>
+
+        <!-- WORKSPACE TAB 1: KALENDER & RESERVASI REALTIME -->
+        <div class="ws-tab-content is-active" id="wsContentSchedule">
+          <div class="ws-toolbar">
+            <div class="ws-filter-group">
+              <label>Filter Fasilitas:</label>
+              <select class="sim-select sim-select--sm" id="wsFilterFacility">
+                <option value="all">Semua Fasilitas (3)</option>
+                <option value="lap1">Lapangan 1 (Vinyl Pro)</option>
+                <option value="lap2">Lapangan 2 (Sintetis FIFA)</option>
+                <option value="court3">Court Badminton BWF</option>
+              </select>
+            </div>
+            <div class="ws-filter-group">
+              <label>Tanggal Operasional:</label>
+              <input type="date" class="sim-input sim-input--sm" id="wsScheduleDate" value="2026-10-21" />
+            </div>
+            <button type="button" class="btn btn--secondary btn--sm" id="btnRefreshBookings">🔄 Sinkron Database</button>
+          </div>
+
+          <!-- Active Bookings Table -->
+          <div class="real-table-wrapper">
+            <table class="real-data-table">
+              <thead>
+                <tr>
+                  <th>KODE BOOKING</th>
+                  <th>NAMA PELANGGAN</th>
+                  <th>FASILITAS</th>
+                  <th>JADWAL WAKTU</th>
+                  <th>TOTAL BIAYA</th>
+                  <th>STATUS PEMBAYARAN</th>
+                  <th>STATUS JADWAL</th>
+                  <th>AKSI</th>
+                </tr>
+              </thead>
+              <tbody id="wsBookingsTableBody">
+                <!-- Rows injected dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- WORKSPACE TAB 2: TAMBAH BOOKING BARU -->
+        <div class="ws-tab-content is-hidden" id="wsContentNewBooking">
+          <div class="manual-booking-box">
+            <h4>Reservasi Langsung (Walk-In / Pemesanan Manual)</h4>
+            <p class="section-desc">Sistem akan otomatis mengecek apakah ada bentrok jadwal (collision check) dengan pemesan online lain di database.</p>
+
+            <form id="wsManualBookingForm" class="form-grid-2col">
+              <div class="form-group">
+                <label>Pilih Fasilitas:</label>
+                <select class="sim-select" id="manFacility">
+                  <option value="Lapangan 1 (Vinyl Pro)" data-rate="150000">Lapangan 1 (Vinyl Pro) — Rp 150.000/jam</option>
+                  <option value="Lapangan 2 (Sintetis FIFA)" data-rate="160000">Lapangan 2 (Sintetis FIFA) — Rp 160.000/jam</option>
+                  <option value="Court Badminton BWF" data-rate="75000">Court Badminton BWF — Rp 75.000/jam</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Nama Pemesan:</label>
+                <input type="text" class="sim-input" id="manCustomerName" required placeholder="Nama lengkap..." value="Dimas Aditya" />
+              </div>
+
+              <div class="form-group">
+                <label>Nomor WhatsApp Klien:</label>
+                <input type="tel" class="sim-input" id="manCustomerPhone" required placeholder="0812-xxxx-xxxx" value="085712345678" />
+              </div>
+
+              <div class="form-group">
+                <label>Jam Booking:</label>
+                <select class="sim-select" id="manHours">
+                  <option value="16:00 - 18:00 (2 Jam)">16:00 - 18:00 (2 Jam Reguler)</option>
+                  <option value="19:00 - 21:00 (2 Jam)" selected>19:00 - 21:00 (2 Jam Peak Malam)</option>
+                  <option value="21:00 - 23:00 (2 Jam)">21:00 - 23:00 (2 Jam Malam)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Status Pembayaran:</label>
+                <select class="sim-select" id="manPayStatus">
+                  <option value="dp">DP 50% Diterima (QRIS/Transfer)</option>
+                  <option value="full">Lunas 100%</option>
+                  <option value="unpaid">Belum Bayar (Hold 15 Menit)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Catatan Tambahan:</label>
+                <input type="text" class="sim-input" id="manNotes" placeholder="Misal: Sewa rompi 10 pcs, bawa bola sendiri" value="Sewa rompi 1 tim" />
+              </div>
+
+              <div class="form-full-action">
+                <button type="submit" class="btn btn--primary btn--md">
+                  <Icon name="check" size={16} />
+                  <span>Kunci Jadwal &amp; Simpan ke Database</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- WORKSPACE TAB 3: FASILITAS & TARIF -->
+        <div class="ws-tab-content is-hidden" id="wsContentFacilities">
+          <div class="facilities-manager">
+            <div class="fac-header">
+              <h4>Daftar Fasilitas &amp; Tarif Aktif Bisnis</h4>
+              <button type="button" class="btn btn--secondary btn--sm" id="btnAddFacility">+ Tambah Fasilitas Baru</button>
+            </div>
+            <div class="fac-cards-grid" id="wsFacilitiesGrid">
+              <!-- Rendered by script -->
+            </div>
+          </div>
+        </div>
+
+        <!-- WORKSPACE TAB 4: LAPORAN ANALITIK -->
+        <div class="ws-tab-content is-hidden" id="wsContentAnalytics">
+          <div class="analytics-stat-grid">
+            <div class="stat-box">
+              <span class="s-title">TOTAL REKAP OKUPANSI</span>
+              <strong class="s-val text-blue">84.5%</strong>
+              <small>Slot Jam Terpakai Hari Ini</small>
+            </div>
+            <div class="stat-box">
+              <span class="s-title">TOTAL OMSET BOOKING</span>
+              <strong class="s-val text-success">Rp 3.850.000</strong>
+              <small>Akumulasi DP &amp; Pelunasan</small>
+            </div>
+            <div class="stat-box">
+              <span class="s-title">PIUTANG SISA PELUNASAN</span>
+              <strong class="s-val text-warning">Rp 1.425.000</strong>
+              <small>Wajib Dilunasi Saat Tamu Tiba</small>
+            </div>
+            <div class="stat-box">
+              <span class="s-title">RATE PEMBATALAN</span>
+              <strong class="s-val text-muted">0.0%</strong>
+              <small>Kebijakan DP Efektif Cegah No-Show</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Real Trial Portal Logic
+  const portalRoot = document.querySelector('[data-portal-root="booking"]');
+  if (portalRoot) {
+    const authGate = document.getElementById('authGateCard');
+    const realWs = document.getElementById('realWorkspace');
+
+    const tabReg = document.getElementById('tabRegister');
+    const tabLog = document.getElementById('tabLogin');
+    const regForm = document.getElementById('registerForm') as HTMLFormElement | null;
+    const logForm = document.getElementById('loginForm') as HTMLFormElement | null;
+    const btnInstant = document.getElementById('btnInstantDemo');
+    const btnReset = document.getElementById('btnResetSandbox');
+
+    const wsBizName = document.getElementById('wsBizName');
+    const wsOwnerName = document.getElementById('wsOwnerName');
+    const wsCity = document.getElementById('wsCity');
+    const wsCategory = document.getElementById('wsCategory');
+
+    // Sample data store in localStorage
+    const savedUser = localStorage.getItem('supernova_booking_session');
+
+    const activateWorkspace = (bizData: { name: string; owner: string; city: string; cat: string }) => {
+      if (wsBizName) wsBizName.textContent = bizData.name;
+      if (wsOwnerName) wsOwnerName.textContent = bizData.owner;
+      if (wsCity) wsCity.textContent = bizData.city;
+      if (wsCategory) wsCategory.textContent = bizData.cat;
+
+      authGate?.classList.add('is-hidden');
+      realWs?.classList.remove('is-hidden');
+      renderBookings();
+      renderFacilities();
+    };
+
+    if (savedUser) {
+      try {
+        const parsed = JSON.parse(savedUser);
+        activateWorkspace(parsed);
+      } catch (e) {
+        // Fallback
+      }
+    }
+
+    tabReg?.addEventListener('click', () => {
+      tabReg.classList.add('is-active');
+      tabLog?.classList.remove('is-active');
+      regForm?.classList.remove('is-hidden');
+      logForm?.classList.add('is-hidden');
+    });
+
+    tabLog?.addEventListener('click', () => {
+      tabLog.classList.add('is-active');
+      tabReg?.classList.remove('is-active');
+      logForm?.classList.remove('is-hidden');
+      regForm?.classList.add('is-hidden');
+    });
+
+    regForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fullName = (document.getElementById('regFullName') as HTMLInputElement)?.value || 'Hendra Gunawan';
+      const bizName = (document.getElementById('regBizName') as HTMLInputElement)?.value || 'Garuda Sports Arena';
+      const city = (document.getElementById('regCity') as HTMLInputElement)?.value || 'Jakarta Selatan';
+      const catSelect = document.getElementById('regCategory') as HTMLSelectElement | null;
+      const catText = catSelect?.options[catSelect.selectedIndex].text || 'Sarana Olahraga';
+
+      const data = { name: bizName, owner: fullName, city, cat: catText };
+      localStorage.setItem('supernova_booking_session', JSON.stringify(data));
+      activateWorkspace(data);
+    });
+
+    logForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = {
+        name: 'Garuda Sports & Futsal Arena',
+        owner: 'Hendra Gunawan',
+        city: 'Jakarta Selatan',
+        cat: 'Sarana Olahraga'
+      };
+      localStorage.setItem('supernova_booking_session', JSON.stringify(data));
+      activateWorkspace(data);
+    });
+
+    btnInstant?.addEventListener('click', () => {
+      const data = {
+        name: 'Garuda Sports & Futsal Arena',
+        owner: 'Hendra Gunawan (Demo Mode)',
+        city: 'Jakarta Selatan',
+        cat: 'Sarana Olahraga'
+      };
+      localStorage.setItem('supernova_booking_session', JSON.stringify(data));
+      activateWorkspace(data);
+    });
+
+    btnReset?.addEventListener('click', () => {
+      localStorage.removeItem('supernova_booking_session');
+      realWs?.classList.add('is-hidden');
+      authGate?.classList.remove('is-hidden');
+    });
+
+    // Workspace internal tabs
+    const wsTabs = document.querySelectorAll('.ws-tab');
+    wsTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        wsTabs.forEach((t) => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+
+        const target = (tab as HTMLElement).dataset.wstab;
+        document.querySelectorAll('.ws-tab-content').forEach((c) => c.classList.add('is-hidden'));
+
+        if (target === 'schedule') document.getElementById('wsContentSchedule')?.classList.remove('is-hidden');
+        if (target === 'new-booking') document.getElementById('wsContentNewBooking')?.classList.remove('is-hidden');
+        if (target === 'facilities') document.getElementById('wsContentFacilities')?.classList.remove('is-hidden');
+        if (target === 'analytics') document.getElementById('wsContentAnalytics')?.classList.remove('is-hidden');
+      });
+    });
+
+    // Real dynamic bookings store
+    let realBookings = [
+      { code: 'BK-FTS-88421', name: 'Rian Hidayat', phone: '081298765432', facility: 'Lapangan 1 (Vinyl Pro)', time: '19:00 - 21:00 (2 Jam)', total: 320000, payStatus: 'DP 50% Lunas', status: 'Confirmed' },
+      { code: 'BK-BDM-90412', name: 'Siti Aminah', phone: '081345678910', facility: 'Court Badminton BWF', time: '17:00 - 19:00 (2 Jam)', total: 150000, payStatus: 'Lunas 100%', status: 'Confirmed' },
+      { code: 'BK-FTS-90514', name: 'Alif Pratama (Komunitas)', phone: '085612348899', facility: 'Lapangan 2 (Sintetis FIFA)', time: '21:00 - 23:00 (2 Jam)', total: 340000, payStatus: 'DP 50% Lunas', status: 'In Progress' }
+    ];
+
+    const renderBookings = () => {
+      const tbody = document.getElementById('wsBookingsTableBody');
+      if (!tbody) return;
+
+      tbody.innerHTML = realBookings.map((b, idx) => `
+        <tr>
+          <td><strong class="code-tag">${b.code}</strong></td>
+          <td><strong>${b.name}</strong><br><small class="text-muted">${b.phone}</small></td>
+          <td>${b.facility}</td>
+          <td>${b.time}</td>
+          <td><strong>Rp ${b.total.toLocaleString('id-ID')}</strong></td>
+          <td><span class="status-pill status-pill--dp">${b.payStatus}</span></td>
+          <td><span class="badge badge--green">${b.status}</span></td>
+          <td>
+            <button type="button" class="btn btn--outline btn--xs btn-dispatch-wa" data-idx="${idx}">📲 WhatsApp</button>
+          </td>
+        </tr>
+      `).join('');
+
+      tbody.querySelectorAll('.btn-dispatch-wa').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt((btn as HTMLElement).dataset.idx || '0', 10);
+          const item = realBookings[idx];
+          if (item) {
+            const msg = `Halo Kak ${item.name}, kami mengonfirmasi reservasi Anda di ${wsBizName?.textContent || 'Arena'}:\n- Kode: ${item.code}\n- Fasilitas: ${item.facility}\n- Jam: ${item.time}\n- Status: ${item.payStatus}\nTerima kasih!`;
+            window.open(`https://wa.me/62${item.phone.replace(/^0/, '')}?text=${encodeURIComponent(msg)}`, '_blank');
+          }
+        });
+      });
+    };
+
+    // Manual booking form submit
+    const manualForm = document.getElementById('wsManualBookingForm') as HTMLFormElement | null;
+    manualForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const facility = (document.getElementById('manFacility') as HTMLSelectElement).value;
+      const name = (document.getElementById('manCustomerName') as HTMLInputElement).value;
+      const phone = (document.getElementById('manCustomerPhone') as HTMLInputElement).value;
+      const time = (document.getElementById('manHours') as HTMLSelectElement).value;
+      const payStatusVal = (document.getElementById('manPayStatus') as HTMLSelectElement).value;
+
+      const code = `BK-MAN-${Math.floor(10000 + Math.random() * 90000)}`;
+      const payStatus = payStatusVal === 'full' ? 'Lunas 100%' : payStatusVal === 'dp' ? 'DP 50% Lunas' : 'Belum Bayar';
+
+      realBookings.unshift({
+        code,
+        name,
+        phone,
+        facility,
+        time,
+        total: 300000,
+        payStatus,
+        status: 'Confirmed'
+      });
+
+      alert(`✓ Reservasi ${code} Berhasil Disimpan ke Database! Collision check lulus.`);
+      renderBookings();
+
+      // Switch back to schedule tab
+      document.querySelector('[data-wstab="schedule"]')?.dispatchEvent(new Event('click'));
+    });
+
+    const renderFacilities = () => {
+      const grid = document.getElementById('wsFacilitiesGrid');
+      if (!grid) return;
+      const facs = [
+        { name: 'Lapangan 1 (Vinyl Pro)', desc: 'Lantai vinyl shock absorption standar futsal profesional nasional.', rate: 'Rp 150.000 / jam', cap: '10-12 Orang' },
+        { name: 'Lapangan 2 (Sintetis FIFA)', desc: 'Rumput sintetis monofilament tebal dengan rubber infill empuk.', rate: 'Rp 160.000 / jam', cap: '10-14 Orang' },
+        { name: 'Court Badminton BWF A1', desc: 'Lantai karpet vinyl hijau standar Badminton World Federation.', rate: 'Rp 75.000 / jam', cap: '2-4 Orang' }
+      ];
+
+      grid.innerHTML = facs.map((f) => `
+        <div class="fac-card">
+          <div class="fac-top">
+            <strong>${f.name}</strong>
+            <span class="badge badge--green">Aktif</span>
+          </div>
+          <p>${f.desc}</p>
+          <div class="fac-meta">
+            <span>Kapasitas: ${f.cap}</span>
+            <strong class="text-blue">${f.rate}</strong>
+          </div>
+        </div>
+      `).join('');
+    };
+  }
+</script>

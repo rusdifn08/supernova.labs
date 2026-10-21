@@ -1,0 +1,473 @@
+---
+import BaseLayout from '../../components/templates/BaseLayout.astro';
+import Icon from '../../components/atoms/Icon.astro';
+import Button from '../../components/atoms/Button.astro';
+---
+
+<BaseLayout title="Portal Uji Coba Real — Ordering In Table (QR Code) | Supernova Labs">
+  <div class="real-portal-page" data-portal-root="qr-resto">
+    <!-- Topbar -->
+    <div class="portal-topbar">
+      <div class="container portal-topbar__inner">
+        <div class="portal-breadcrumb">
+          <a href="/">Beranda</a>
+          <span class="sep">/</span>
+          <a href="/#demo">Uji Coba Layanan</a>
+          <span class="sep">/</span>
+          <strong>Ordering in Table with QR Code (Resto &amp; KDS Sandbox)</strong>
+        </div>
+        <div class="portal-env-badges">
+          <span class="badge badge--green">● REALTIME WEBSOCKET READY</span>
+          <span class="badge badge--dark">KDS MULTI-STATION</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container portal-main-container">
+      <div class="portal-intro">
+        <span class="portal-eyebrow">ENTERPRISE USECASE · REAL TRIAL ENVIRONMENT</span>
+        <h1>Portal Uji Coba Asli: Ordering In Table with QR Code</h1>
+        <p class="portal-desc">
+          Tingkatkan efisiensi layanan restoran Anda hingga 40%. Tamu memesan langsung dari meja via QR Code tanpa unduh aplikasi, varian makanan terkustomisasi, dan pesanan otomatis masuk ke Kitchen Display System (KDS) di dapur.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 1. REGISTRATION & LOGIN GATE (DATA DIRI LENGKAP BISNIS)      -->
+      <!-- ============================================================ -->
+      <div class="auth-gate-card" id="restoAuthGate">
+        <div class="auth-gate-header">
+          <div class="auth-toggle-tabs">
+            <button type="button" class="auth-tab is-active" id="tabRestoReg">
+              <span>1. Daftar Akun Uji Coba Resto (Gratis)</span>
+            </button>
+            <button type="button" class="auth-tab" id="tabRestoLog">
+              <span>2. Masuk Akun yang Sudah Ada</span>
+            </button>
+          </div>
+          <button type="button" class="btn btn--instant-demo" id="btnRestoInstant">
+            <span>⚡ Masuk Instan (Akun Sampel Resto &amp; Bistro)</span>
+          </button>
+        </div>
+
+        <form class="auth-form" id="restoRegForm">
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label for="restoFullName">Nama Pemilik / Restaurant General Manager: <span class="req">*</span></label>
+              <input type="text" id="restoFullName" class="sim-input" required placeholder="Contoh: Chef Aris Kurniawan" value="Chef Aris Kurniawan" />
+            </div>
+
+            <div class="form-group">
+              <label for="restoBizName">Nama Restoran / Rumah Makan / Kafe: <span class="req">*</span></label>
+              <input type="text" id="restoBizName" class="sim-input" required placeholder="Contoh: Nusantara Grill &amp; Bistro" value="Nusantara Grill &amp; Bistro" />
+            </div>
+
+            <div class="form-group">
+              <label for="restoWhatsApp">Nomor WhatsApp Aktif: <span class="req">*</span></label>
+              <input type="tel" id="restoWhatsApp" class="sim-input" required placeholder="0812-xxxx-xxxx" value="081283626217" />
+            </div>
+
+            <div class="form-group">
+              <label for="restoEmail">Email Restoran Resmi: <span class="req">*</span></label>
+              <input type="email" id="restoEmail" class="sim-input" required placeholder="manager@nusantaragrill.com" value="manager@nusantaragrill.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="restoCategory">Konsep Layanan Resto: <span class="req">*</span></label>
+              <select id="restoCategory" class="sim-select">
+                <option value="casual" selected>Casual Dining &amp; Family Restaurant</option>
+                <option value="cafe">Coffee Shop &amp; Roastery Bar</option>
+                <option value="fastcasual">Fast Casual &amp; Rice Bowl Station</option>
+                <option value="bar">Bar, Lounge &amp; Resto VIP</option>
+                <option value="foodcourt">Foodcourt &amp; Multi-Tenant Canteen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="restoCity">Kota / Area Lokasi: <span class="req">*</span></label>
+              <input type="text" id="restoCity" class="sim-input" required placeholder="Contoh: Bandung, Senopati Jakarta" value="Senopati, Jakarta Selatan" />
+            </div>
+          </div>
+
+          <div class="form-footer-action">
+            <button type="submit" class="btn btn--primary btn--md">
+              <span>🚀 Buka Manajemen Meja &amp; Layar KDS Dapur</span>
+              <Icon name="arrow" size={16} />
+            </button>
+            <span class="auth-privacy-note">🔒 Database uji coba dilengkapi sampel menu hidangan &amp; QR meja siap pakai.</span>
+          </div>
+        </form>
+
+        <form class="auth-form is-hidden" id="restoLogForm">
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label>Email Restoran / Nomor HP:</label>
+              <input type="text" class="sim-input" value="manager@nusantaragrill.com" />
+            </div>
+            <div class="form-group">
+              <label>PIN Akses Resto:</label>
+              <input type="password" class="sim-input" value="resto2026" />
+            </div>
+          </div>
+          <div class="form-footer-action">
+            <button type="submit" class="btn btn--primary btn--md">
+              <span>Masuk ke Dashboard Resto</span>
+              <Icon name="arrow" size={16} />
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 2. REAL RESTO & KDS WORKSPACE                                -->
+      <!-- ============================================================ -->
+      <div class="real-workspace-panel is-hidden" id="restoRealWs">
+        <div class="workspace-header-bar">
+          <div class="biz-identity">
+            <div class="biz-avatar">🍲</div>
+            <div>
+              <div class="biz-title-wrap">
+                <h3 id="wsRestoTitle">Nusantara Grill &amp; Bistro</h3>
+                <span class="badge badge--green">LIVE DINING ACTIVE</span>
+              </div>
+              <p class="biz-subtitle">
+                General Manager: <strong id="wsRestoOwner">Chef Aris Kurniawan</strong> · Wilayah: <span id="wsRestoCity">Senopati, Jakarta</span> · Kapasitas: <strong>16 Meja Aktif</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="ws-header-actions">
+            <button type="button" class="btn btn--outline btn--sm" id="btnRestoReset">Ganti Restoran</button>
+            <a class="btn btn--cta btn--sm" href="https://wa.me/6281283626217?text=Halo%20Supernova%20Labs,%20saya%20sudah%20mencoba%20portal%20real%20QR%20Resto%20KDS%20dan%20ingin%20pasang%20di%20resto%20saya" target="_blank" rel="noopener noreferrer">
+              <span>Pasang di Resto Saya (WA)</span>
+              <Icon name="whatsapp" size={14} />
+            </a>
+          </div>
+        </div>
+
+        <div class="workspace-nav-tabs">
+          <button type="button" class="ws-tab is-active" data-restotab="tables">🪑 Denah &amp; Manajemen QR Meja</button>
+          <button type="button" class="ws-tab" data-restotab="guest">📱 Simulasi Smartphone Tamu di Meja</button>
+          <button type="button" class="ws-tab" data-restotab="kds">🍳 Kitchen Display System (KDS Live)</button>
+          <button type="button" class="ws-tab" data-restotab="reports">📊 Laporan &amp; Turn-Over Meja</button>
+        </div>
+
+        <!-- TAB 1: DENAH MEJA RESTO -->
+        <div class="ws-tab-content is-active" id="restoContentTables">
+          <div class="tables-view-header">
+            <h4>Denah Meja Restoran &amp; QR Code Unik</h4>
+            <button type="button" class="btn btn--secondary btn--sm" id="btnDownloadQrStickers">🖨️ Unduh Stiker QR Meja (PDF Cetak)</button>
+          </div>
+          <div class="tables-grid" id="wsRestoTablesGrid">
+            <!-- Table cards rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- TAB 2: MOBILE ORDER GUEST VIEW -->
+        <div class="ws-tab-content is-hidden" id="restoContentGuest">
+          <div class="guest-simulation-wrapper">
+            <div class="sim-phone-screen">
+              <div class="phone-bar">
+                <span>14:35</span>
+                <span>Resto WiFi ● 100%</span>
+              </div>
+              <div class="phone-resto-header">
+                <strong>Nusantara Grill &amp; Bistro</strong>
+                <span class="badge badge--green">📍 Meja 01 (Indoor AC)</span>
+              </div>
+              <div class="phone-menu-list">
+                <div class="phone-dish-item">
+                  <div>
+                    <strong>Wagyu Beef Donburi</strong>
+                    <small>Daging Wagyu, tare, onsen egg</small>
+                    <span class="text-blue">Rp 88.000</span>
+                  </div>
+                  <button type="button" class="btn btn--primary btn--xs btn-add-guest-order" data-name="Wagyu Beef Donburi" data-price="88000">+ Tambah</button>
+                </div>
+                <div class="phone-dish-item">
+                  <div>
+                    <strong>Truffle Parmesan Fries</strong>
+                    <small>Kentang goreng, minyak truffle, keju</small>
+                    <span class="text-blue">Rp 36.000</span>
+                  </div>
+                  <button type="button" class="btn btn--primary btn--xs btn-add-guest-order" data-name="Truffle Parmesan Fries" data-price="36000">+ Tambah</button>
+                </div>
+                <div class="phone-dish-item">
+                  <div>
+                    <strong>Iced Peach Tea Yakult</strong>
+                    <small>Teh harum peach, Yakult probiotik</small>
+                    <span class="text-blue">Rp 28.000</span>
+                  </div>
+                  <button type="button" class="btn btn--primary btn--xs btn-add-guest-order" data-name="Iced Peach Tea Yakult" data-price="28000">+ Tambah</button>
+                </div>
+              </div>
+
+              <!-- Cart footer -->
+              <div class="phone-cart-footer">
+                <div class="p-cart-info">
+                  <span id="phoneCartItemsCount">1 Menu Terpilih</span>
+                  <strong class="highlight-price" id="phoneCartTotal">Rp 88.000</strong>
+                </div>
+                <button type="button" class="btn btn--primary btn--sm" id="btnPhoneSendKds">Kirim ke Dapur (KDS)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: KITCHEN DISPLAY SYSTEM LIVE -->
+        <div class="ws-tab-content is-hidden" id="restoContentKds">
+          <div class="kds-monitor-wrapper">
+            <div class="kds-monitor-bezel">
+              <div class="kds-topbar">
+                <div class="kds-station-badge"><span class="pulse-dot"></span> <span>KDS STATION // HOT KITCHEN &amp; BAR</span></div>
+                <div>AVG COOK TIME: <strong>9 MIN</strong></div>
+              </div>
+              <div class="kds-tickets-container" id="wsKdsTickets">
+                <!-- Dynamically rendered -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: REPORTS -->
+        <div class="ws-tab-content is-hidden" id="restoContentReports">
+          <div class="analytics-stat-grid">
+            <div class="stat-box">
+              <span class="s-title">RATA-RATA ORDER PER MEJA</span>
+              <strong class="s-val text-blue">Rp 215.000</strong>
+              <small>Average Guest Ticket Size</small>
+            </div>
+            <div class="stat-box">
+              <span class="s-title">TABLE TURN-OVER RATE</span>
+              <strong class="s-val text-success">38 Menit</strong>
+              <small>Tamu Pesan Lebih Cepat Tanpa Menunggu</small>
+            </div>
+            <div class="stat-box">
+              <span class="s-title">TOTAL PESANAN MEJA HARI INI</span>
+              <strong class="s-val text-blue">42 Pesanan</strong>
+              <small>100% Tercatat di KDS Dapur</small>
+            </div>
+            <div class="stat-box">
+              <span class="s-title">EFISIENSI WAKTU PELAYAN</span>
+              <strong class="s-val text-success">+45%</strong>
+              <small>Staf Fokus Mengantar &amp; Melayani</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Real Resto Portal Logic
+  const portalRoot = document.querySelector('[data-portal-root="qr-resto"]');
+  if (portalRoot) {
+    const authGate = document.getElementById('restoAuthGate');
+    const realWs = document.getElementById('restoRealWs');
+    const tabReg = document.getElementById('tabRestoReg');
+    const tabLog = document.getElementById('tabRestoLog');
+    const regForm = document.getElementById('restoRegForm') as HTMLFormElement | null;
+    const logForm = document.getElementById('restoLogForm') as HTMLFormElement | null;
+    const btnInstant = document.getElementById('btnRestoInstant');
+    const btnReset = document.getElementById('btnRestoReset');
+
+    const wsTitle = document.getElementById('wsRestoTitle');
+    const wsOwner = document.getElementById('wsRestoOwner');
+    const wsCity = document.getElementById('wsRestoCity');
+
+    const activateRestoWs = (biz: { name: string; owner: string; city: string }) => {
+      if (wsTitle) wsTitle.textContent = biz.name;
+      if (wsOwner) wsOwner.textContent = biz.owner;
+      if (wsCity) wsCity.textContent = biz.city;
+      authGate?.classList.add('is-hidden');
+      realWs?.classList.remove('is-hidden');
+      renderTables();
+      renderKds();
+    };
+
+    const saved = localStorage.getItem('supernova_resto_session');
+    if (saved) {
+      try { activateRestoWs(JSON.parse(saved)); } catch (e) {}
+    }
+
+    tabReg?.addEventListener('click', () => {
+      tabReg.classList.add('is-active');
+      tabLog?.classList.remove('is-active');
+      regForm?.classList.remove('is-hidden');
+      logForm?.classList.add('is-hidden');
+    });
+
+    tabLog?.addEventListener('click', () => {
+      tabLog.classList.add('is-active');
+      tabReg?.classList.remove('is-active');
+      logForm?.classList.remove('is-hidden');
+      regForm?.classList.add('is-hidden');
+    });
+
+    regForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const owner = (document.getElementById('restoFullName') as HTMLInputElement).value || 'Chef Aris';
+      const name = (document.getElementById('restoBizName') as HTMLInputElement).value || 'Nusantara Grill';
+      const city = (document.getElementById('restoCity') as HTMLInputElement).value || 'Jakarta Selatan';
+      const data = { name, owner, city };
+      localStorage.setItem('supernova_resto_session', JSON.stringify(data));
+      activateRestoWs(data);
+    });
+
+    logForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = { name: 'Nusantara Grill & Bistro', owner: 'Chef Aris Kurniawan', city: 'Senopati, Jakarta' };
+      localStorage.setItem('supernova_resto_session', JSON.stringify(data));
+      activateRestoWs(data);
+    });
+
+    btnInstant?.addEventListener('click', () => {
+      const data = { name: 'Nusantara Grill & Bistro', owner: 'Chef Aris Kurniawan (Demo Mode)', city: 'Senopati, Jakarta Selatan' };
+      localStorage.setItem('supernova_resto_session', JSON.stringify(data));
+      activateRestoWs(data);
+    });
+
+    btnReset?.addEventListener('click', () => {
+      localStorage.removeItem('supernova_resto_session');
+      realWs?.classList.add('is-hidden');
+      authGate?.classList.remove('is-hidden');
+    });
+
+    // Sub-tab navigation
+    const wsTabs = document.querySelectorAll('[data-restotab]');
+    wsTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        wsTabs.forEach((t) => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        const target = (tab as HTMLElement).dataset.restotab;
+        document.querySelectorAll('#restoRealWs .ws-tab-content').forEach((c) => c.classList.add('is-hidden'));
+        if (target === 'tables') document.getElementById('restoContentTables')?.classList.remove('is-hidden');
+        if (target === 'guest') document.getElementById('restoContentGuest')?.classList.remove('is-hidden');
+        if (target === 'kds') document.getElementById('restoContentKds')?.classList.remove('is-hidden');
+        if (target === 'reports') document.getElementById('restoContentReports')?.classList.remove('is-hidden');
+      });
+    });
+
+    // Table state
+    const tables = [
+      { num: '01', section: 'Indoor AC', cap: 4, status: 'Ordered', qrToken: 'tok_tbl_01_indoor' },
+      { num: '02', section: 'Indoor AC', cap: 2, status: 'Empty', qrToken: 'tok_tbl_02_indoor' },
+      { num: '05', section: 'Outdoor Terrace', cap: 4, status: 'Empty', qrToken: 'tok_tbl_05_terrace' },
+      { num: '08', section: 'VIP Lounge', cap: 8, status: 'Occupied', qrToken: 'tok_tbl_08_vip' },
+      { num: '10', section: 'Smoking Area', cap: 4, status: 'Calling Waiter', qrToken: 'tok_tbl_10_smoking' }
+    ];
+
+    const renderTables = () => {
+      const grid = document.getElementById('wsRestoTablesGrid');
+      if (!grid) return;
+      grid.innerHTML = tables.map((t) => {
+        const isCalling = t.status === 'Calling Waiter';
+        const badgeClass = isCalling ? 'badge--danger' : t.status === 'Ordered' ? 'badge--real' : t.status === 'Occupied' ? 'badge--dark' : 'badge--green';
+        return `
+          <div class="table-dash-card ${isCalling ? 'is-calling' : ''}">
+            <div class="t-top">
+              <strong>MEJA ${t.num}</strong>
+              <span class="badge ${badgeClass}">${t.status}</span>
+            </div>
+            <p>${t.section} · Kapasitas: ${t.cap} Orang</p>
+            <div class="t-qr-preview">
+              <div class="mini-qr-box">
+                <span class="qr-label">QR STIKER MEJA ${t.num}</span>
+                <small class="text-muted">${t.qrToken}</small>
+              </div>
+            </div>
+            <div class="t-actions">
+              <button type="button" class="btn btn--outline btn--xs btn-copy-qr" data-token="${t.qrToken}">Salin Link Meja</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('.btn-copy-qr').forEach((b) => {
+        b.addEventListener('click', () => {
+          const token = (b as HTMLElement).dataset.token;
+          navigator.clipboard?.writeText(`https://supernovalabs.studio/table/${token}`);
+          alert(`✓ Link QR Meja disalin: https://supernovalabs.studio/table/${token}`);
+        });
+      });
+    };
+
+    // KDS tickets
+    let kdsTickets = [
+      { id: 'T-101', table: '01 (Indoor)', time: '2m lalu', items: ['1x Wagyu Beef Donburi (Pedas Sedang, +Onsen Egg)', '1x Iced Peach Tea (Less Sugar)'], status: 'Cooking' },
+      { id: 'T-102', table: '08 (VIP)', time: '7m lalu', items: ['2x Truffle Fries (Extra Parmesan)', '2x Wagyu Beef Donburi (Medium Well)'], status: 'Ready' }
+    ];
+
+    const renderKds = () => {
+      const container = document.getElementById('wsKdsTickets');
+      if (!container) return;
+      container.innerHTML = kdsTickets.map((ticket, idx) => `
+        <div class="kds-ticket-card">
+          <div class="ticket-top">
+            <div class="tbl-flag">MEJA ${ticket.table}</div>
+            <div class="ticket-timer">${ticket.time}</div>
+          </div>
+          <div class="kds-items-list">
+            ${ticket.items.map((i) => `<div class="kds-food-row"><strong>•</strong> <span>${i}</span></div>`).join('')}
+          </div>
+          <div class="kds-workflow-footer">
+            <span class="badge ${ticket.status === 'Ready' ? 'badge--green' : 'badge--real'}">Status: ${ticket.status}</span>
+            <button type="button" class="btn btn--secondary btn--xs btn-kds-step" data-idx="${idx}">
+              ${ticket.status === 'Cooking' ? '✓ Siap Antar' : '✅ Selesai'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.btn-kds-step').forEach((b) => {
+        b.addEventListener('click', () => {
+          const idx = parseInt((b as HTMLElement).dataset.idx || '0', 10);
+          const t = kdsTickets[idx];
+          if (t) {
+            if (t.status === 'Cooking') t.status = 'Ready';
+            else kdsTickets.splice(idx, 1);
+            renderKds();
+          }
+        });
+      });
+    };
+
+    // Guest phone add
+    let guestCart = [{ name: 'Wagyu Beef Donburi', price: 88000 }];
+    document.querySelectorAll('.btn-add-guest-order').forEach((b) => {
+      b.addEventListener('click', () => {
+        const name = (b as HTMLElement).dataset.name || 'Menu';
+        const price = parseInt((b as HTMLElement).dataset.price || '0', 10);
+        guestCart.push({ name, price });
+        updateGuestCart();
+      });
+    });
+
+    const updateGuestCart = () => {
+      let sum = 0;
+      guestCart.forEach((i) => sum += i.price);
+      document.getElementById('phoneCartItemsCount')!.textContent = `${guestCart.length} Menu Terpilih`;
+      document.getElementById('phoneCartTotal')!.textContent = `Rp ${sum.toLocaleString('id-ID')}`;
+    };
+
+    document.getElementById('btnPhoneSendKds')?.addEventListener('click', () => {
+      if (guestCart.length === 0) return;
+      kdsTickets.unshift({
+        id: `T-${Math.floor(100 + Math.random() * 900)}`,
+        table: '01 (Indoor)',
+        time: 'Baru Saja',
+        items: guestCart.map((i) => `1x ${i.name}`),
+        status: 'Cooking'
+      });
+      alert('✓ Pesanan Meja 01 Berhasil Dikirim ke Layar Dapur (KDS)!');
+      guestCart = [];
+      updateGuestCart();
+      renderKds();
+    });
+
+    document.getElementById('btnDownloadQrStickers')?.addEventListener('click', () => {
+      alert('🖨️ Mengunduh File PDF Lembar Stiker QR Meja Resto...');
+    });
+  }
+</script>

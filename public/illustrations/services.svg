@@ -6,89 +6,87 @@
       <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
     <filter id="srvShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.10"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
     </filter>
   </defs>
 
   <!-- Technical Background Grid -->
-  <g opacity="0.3" stroke="#94a3b8" stroke-width="0.8">
-    <circle cx="280" cy="180" r="140" fill="none" stroke="#3b82f6" stroke-dasharray="4 6"/>
-    <circle cx="280" cy="180" r="70" fill="none" stroke="#06b6d4" stroke-dasharray="4 4"/>
+  <g opacity="0.35" stroke="#60a5fa" stroke-width="0.8">
+    <circle cx="280" cy="180" r="140" fill="none" stroke="#60a5fa" stroke-dasharray="4 6"/>
+    <circle cx="280" cy="180" r="70" fill="none" stroke="#38bdf8" stroke-dasharray="4 4"/>
   </g>
 
   <!-- Central Sync Hub -->
-  <circle cx="280" cy="180" r="32" fill="#0f172a" stroke="#38bdf8" stroke-width="2" filter="url(#srvShadow)"/>
-  <circle cx="280" cy="180" r="12" fill="#2563eb" opacity="0.4"/>
+  <circle cx="280" cy="180" r="32" fill="#090d16" stroke="#38bdf8" stroke-width="2" filter="url(#srvShadow)"/>
+  <circle cx="280" cy="180" r="12" fill="#2563eb" opacity="0.6"/>
   <circle cx="280" cy="180" r="6" fill="#38bdf8"/>
 
   <!-- Orbital Connection Lines -->
-  <path d="M 120 100 Q 200 120 280 180" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="4 4"/>
-  <path d="M 440 100 Q 360 120 280 180" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4 4"/>
-  <path d="M 280 290 L 280 180" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 120 100 Q 200 120 280 180" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 440 100 Q 360 120 280 180" fill="none" stroke="#c084fc" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 280 290 L 280 180" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="4 4"/>
 
   <!-- 1. Web Portal Node (Top Left) -->
   <g transform="translate(30, 40)" filter="url(#srvShadow)">
-    <rect width="180" height="110" rx="12" fill="#ffffff" stroke="#93c5fd" stroke-width="1.6"/>
-    <rect width="180" height="22" rx="12" fill="#0f172a"/>
-    <rect y="10" width="180" height="12" fill="#0f172a"/>
-    <circle cx="12" cy="11" r="3" fill="#ef4444"/>
-    <circle cx="20" cy="11" r="3" fill="#f59e0b"/>
-    <circle cx="28" cy="11" r="3" fill="#10b981"/>
-    <text x="40" y="14" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">web.supernova.app</text>
+    <rect width="180" height="110" rx="12" fill="#090d16" stroke="#38bdf8" stroke-width="1.6"/>
+    <rect width="180" height="24" rx="12" fill="#1e293b"/>
+    <rect y="12" width="180" height="12" fill="#1e293b"/>
+    <circle cx="14" cy="12" r="3" fill="#ef4444"/>
+    <circle cx="23" cy="12" r="3" fill="#f59e0b"/>
+    <circle cx="32" cy="12" r="3" fill="#10b981"/>
+    <text x="44" y="15" font-family="ui-monospace, monospace" font-size="7.5" fill="#94a3b8">web.supernova.app</text>
     
-    <g transform="translate(12, 32)">
-      <rect width="70" height="16" rx="4" fill="#eff6ff"/>
-      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#1d4ed8">WEB ECOSYSTEM</text>
-      <rect y="22" width="156" height="4" rx="2" fill="#e2e8f0"/>
-      <rect y="30" width="120" height="4" rx="2" fill="#bae6fd"/>
-      <rect y="38" width="90" height="4" rx="2" fill="#e2e8f0"/>
+    <g transform="translate(12, 34)">
+      <rect width="76" height="16" rx="4" fill="#1e3a8a"/>
+      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="7.5" font-weight="bold" fill="#60a5fa">WEB ECOSYSTEM</text>
+      <rect y="22" width="156" height="4" rx="2" fill="#334155"/>
+      <rect y="30" width="120" height="4" rx="2" fill="#0284c7"/>
+      <rect y="38" width="90" height="4" rx="2" fill="#334155"/>
       
-      <rect y="50" width="156" height="18" rx="4" fill="#f0f9ff" stroke="#bae6fd"/>
-      <text x="8" y="62" font-family="ui-monospace, monospace" font-size="7.5" fill="#0284c7">SSR · SaaS · PWA · Edge</text>
+      <rect y="48" width="156" height="18" rx="4" fill="#0f172a" stroke="#1e3a8a"/>
+      <text x="8" y="60" font-family="ui-monospace, monospace" font-size="7.5" fill="#38bdf8">SSR · SaaS · PWA · Edge</text>
     </g>
   </g>
 
   <!-- 2. Desktop System Node (Top Right) -->
   <g transform="translate(350, 40)" filter="url(#srvShadow)">
-    <rect width="180" height="110" rx="12" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.6"/>
-    <rect width="180" height="22" rx="12" fill="#0f172a"/>
-    <rect y="10" width="180" height="12" fill="#0f172a"/>
-    <circle cx="12" cy="11" r="3" fill="#ef4444"/>
-    <circle cx="20" cy="11" r="3" fill="#f59e0b"/>
-    <circle cx="28" cy="11" r="3" fill="#10b981"/>
-    <text x="40" y="14" font-family="ui-monospace, monospace" font-size="7.5" fill="#c4b5fd">tauri.system.local</text>
+    <rect width="180" height="110" rx="12" fill="#090d16" stroke="#c084fc" stroke-width="1.6"/>
+    <rect width="180" height="24" rx="12" fill="#1e293b"/>
+    <rect y="12" width="180" height="12" fill="#1e293b"/>
+    <circle cx="14" cy="12" r="3" fill="#ef4444"/>
+    <circle cx="23" cy="12" r="3" fill="#f59e0b"/>
+    <circle cx="32" cy="12" r="3" fill="#10b981"/>
+    <text x="44" y="15" font-family="ui-monospace, monospace" font-size="7.5" fill="#c084fc">tauri.system.local</text>
     
-    <g transform="translate(12, 32)">
-      <rect width="80" height="16" rx="4" fill="#faf5ff"/>
-      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#6b21a8">DESKTOP SYSTEM</text>
-      <rect y="22" width="156" height="4" rx="2" fill="#e2e8f0"/>
-      <rect y="30" width="110" height="4" rx="2" fill="#ddd6fe"/>
-      <rect y="38" width="140" height="4" rx="2" fill="#e2e8f0"/>
-
-      <rect y="50" width="156" height="18" rx="4" fill="#faf5ff" stroke="#ddd6fe"/>
-      <text x="8" y="62" font-family="ui-monospace, monospace" font-size="7.5" fill="#7c3aed">POS · Internal ERP · Offline</text>
-    </g>
-  </g>
-
-  <!-- 3. Mobile Product Node (Bottom Center) -->
-  <g transform="translate(190, 220)" filter="url(#srvShadow)">
-    <rect width="180" height="120" rx="16" fill="#ffffff" stroke="#67e8f9" stroke-width="1.6"/>
-    <rect x="0" y="0" width="180" height="18" rx="16" fill="#0f172a"/>
-    <rect x="0" y="10" width="180" height="8" fill="#0f172a"/>
-    <circle cx="90" cy="9" r="2.5" fill="#38bdf8"/>
-
-    <g transform="translate(12, 26)">
-      <rect width="80" height="16" rx="4" fill="#ecfeff"/>
-      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#0e7490">MOBILE APPS</text>
+    <g transform="translate(12, 34)">
+      <rect width="78" height="16" rx="4" fill="#581c87"/>
+      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="7.5" font-weight="bold" fill="#d8b4fe">DESKTOP SYSTEM</text>
+      <rect y="22" width="156" height="4" rx="2" fill="#334155"/>
+      <rect y="30" width="130" height="4" rx="2" fill="#7c3aed"/>
+      <rect y="38" width="100" height="4" rx="2" fill="#334155"/>
       
-      <rect y="22" width="156" height="34" rx="6" fill="#0f172a"/>
-      <circle cx="16" cy="39" r="6" fill="#06b6d4"/>
-      <text x="30" y="36" font-family="system-ui, sans-serif" font-size="8" font-weight="bold" fill="#ffffff">iOS &amp; Android Native</text>
-      <text x="30" y="47" font-family="ui-monospace, monospace" font-size="6.5" fill="#94a3b8">Flutter · React Native</text>
-
-      <rect y="64" width="156" height="18" rx="4" fill="#ecfeff" stroke="#a5f3fc"/>
-      <text x="8" y="76" font-family="ui-monospace, monospace" font-size="7.5" fill="#0891b2">Zero Fragmentation</text>
+      <rect y="48" width="156" height="18" rx="4" fill="#0f172a" stroke="#581c87"/>
+      <text x="8" y="60" font-family="ui-monospace, monospace" font-size="7.5" fill="#c084fc">POS · Industrial ERP · Offline</text>
     </g>
   </g>
 
+  <!-- 3. Mobile Apps Node (Bottom Center) -->
+  <g transform="translate(190, 210)" filter="url(#srvShadow)">
+    <rect width="180" height="120" rx="16" fill="#090d16" stroke="#34d399" stroke-width="1.6"/>
+    <rect width="180" height="24" rx="16" fill="#1e293b"/>
+    <rect y="12" width="180" height="12" fill="#1e293b"/>
+    <rect x="74" y="7" width="32" height="4" rx="2" fill="#475569"/>
+    <circle cx="160" cy="9" r="3" fill="#34d399"/>
+    
+    <g transform="translate(14, 34)">
+      <rect width="72" height="16" rx="4" fill="#064e3b"/>
+      <text x="6" y="11" font-family="system-ui, sans-serif" font-size="7.5" font-weight="bold" fill="#6ee7b7">MOBILE APPS</text>
+      <rect y="22" width="152" height="4" rx="2" fill="#334155"/>
+      <rect y="30" width="110" height="4" rx="2" fill="#059669"/>
+      
+      <rect y="42" width="152" height="34" rx="6" fill="#0f172a" stroke="#064e3b"/>
+      <text x="8" y="55" font-family="ui-monospace, monospace" font-size="7.5" font-weight="bold" fill="#ffffff">iOS &amp; Android Native</text>
+      <text x="8" y="67" font-family="ui-monospace, monospace" font-size="6.5" fill="#94a3b8">Flutter · Push · Offline Sync</text>
+    </g>
+  </g>
 </svg>

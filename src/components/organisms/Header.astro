@@ -38,11 +38,42 @@ const wa = getWhatsAppUrl('Halo Tim Supernova Labs, saya ingin konsultasi arsite
       </span>
     </a>
 
+    <!-- Compact Desktop Nav (4 items only with Dropdown) -->
     <nav class="desktop-nav" aria-label="Navigasi Utama">
       {navigation.map((item) => (
-        <a href={item.href} class="nav-link">
-          <span>{item.label}</span>
-        </a>
+        item.children ? (
+          <div class="nav-dropdown-wrapper" data-nav-dropdown>
+            <a href={item.href} class="nav-link nav-link--has-dropdown" aria-haspopup="true" aria-expanded="false">
+              <span>{item.label}</span>
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu" role="menu">
+              <div class="nav-dropdown-header">
+                <span>PORTAL UJI COBA REAL (USECASE ASLI)</span>
+              </div>
+              <div class="nav-dropdown-list">
+                {item.children.map((sub) => (
+                  <a href={sub.href} class="nav-dropdown-item" role="menuitem">
+                    <div class="dropdown-item-meta">
+                      <div class="dropdown-item-title-row">
+                        <strong>{sub.title}</strong>
+                        {sub.badge && <span class={`dropdown-badge ${sub.badge === 'Real Trial' ? 'badge--real' : ''}`}>{sub.badge}</span>}
+                      </div>
+                      <small>{sub.desc}</small>
+                    </div>
+                    <Icon name="arrow" size={14} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <a href={item.href} class="nav-link">
+            <span>{item.label}</span>
+          </a>
+        )
       ))}
     </nav>
 
@@ -77,10 +108,30 @@ const wa = getWhatsAppUrl('Halo Tim Supernova Labs, saya ingin konsultasi arsite
     </div>
     <div class="mobile-nav__links">
       {navigation.map((item) => (
-        <a href={item.href} class="mobile-nav__item">
-          <span>{item.label}</span>
-          <Icon name="arrow" size={16} />
-        </a>
+        item.children ? (
+          <div class="mobile-nav__group">
+            <div class="mobile-nav__item mobile-nav__item--header">
+              <span>{item.label}</span>
+              <span class="badge badge--real">Live Uji Coba</span>
+            </div>
+            <div class="mobile-subnav">
+              {item.children.map((sub) => (
+                <a href={sub.href} class="mobile-subnav__item">
+                  <div class="subnav-meta">
+                    <strong>{sub.title}</strong>
+                    <small>{sub.desc}</small>
+                  </div>
+                  <Icon name="arrow" size={14} />
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a href={item.href} class="mobile-nav__item">
+            <span>{item.label}</span>
+            <Icon name="arrow" size={16} />
+          </a>
+        )
       ))}
     </div>
     <div class="mobile-nav__footer">
