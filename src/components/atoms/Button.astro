@@ -7,6 +7,7 @@ interface Props {
   icon?: 'arrow' | 'whatsapp';
   target?: string;
   rel?: string;
+  class?: string;
 }
 const {
   href,
@@ -14,11 +15,14 @@ const {
   size = 'md',
   icon,
   target = href.startsWith('http') ? '_blank' : undefined,
-  rel = href.startsWith('http') ? 'noopener noreferrer' : undefined
+  rel = href.startsWith('http') ? 'noopener noreferrer' : undefined,
+  class: className = ''
 } = Astro.props;
+
+const isWhatsApp = icon === 'whatsapp' || href.includes('wa.me') || href.includes('whatsapp') || variant === 'cta';
 ---
 <a
-  class={`btn btn--${variant} btn--${size}`}
+  class={`btn btn--${variant} btn--${size} ${isWhatsApp ? 'btn--whatsapp' : ''} ${className}`.trim()}
   href={href}
   target={target}
   rel={rel}

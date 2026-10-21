@@ -1427,4 +1427,36 @@ body.app-mode {
   }
 }
 
+/* WhatsApp Action Buttons */
+.pub-btn-wa-ticket,
+.btn--whatsapp,
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25d366 !important;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.pub-btn-wa-ticket:hover,
+.btn--whatsapp:hover,
+.btn-whatsapp:hover {
+  background: #1ebd5b !important;
+  background: linear-gradient(135deg, #2ae06e 0%, #0f766e 100%) !important;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+  transform: translateY(-1px);
+}
+
+
 

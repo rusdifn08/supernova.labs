@@ -634,6 +634,18 @@ body.public-booking-mode {
   transform: translateY(-1px);
 }
 
+.pub-btn-confirm--wa {
+  background: #25d366 !important;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4) !important;
+}
+
+.pub-btn-confirm--wa:hover {
+  background: #1ebd5b !important;
+  background: linear-gradient(135deg, #2ae06e 0%, #0f766e 100%) !important;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.55) !important;
+}
+
 .pub-btn-confirm:disabled {
   background: #94a3b8;
   cursor: not-allowed;
