@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="meshGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0b0f19" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cyberBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="neonEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="bodySuit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glowDrop" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow Backdrop -->
+  <circle cx="350" cy="300" r="280" fill="url(#meshGlow)"/>
+
+  <!-- Perspective Isometric Grid Lines -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.6">
+    <line x1="80" y1="460" x2="620" y2="460"/>
+    <line x1="120" y1="500" x2="580" y2="500"/>
+    <line x1="160" y1="540" x2="540" y2="540"/>
+    <line x1="180" y1="420" x2="120" y2="560"/>
+    <line x1="280" y1="420" x2="260" y2="560"/>
+    <line x1="350" y1="420" x2="350" y2="560"/>
+    <line x1="420" y1="420" x2="440" y2="560"/>
+    <line x1="520" y1="420" x2="580" y2="560"/>
+  </g>
+
+  <!-- Central Cloud Node Platform -->
+  <ellipse cx="350" cy="460" rx="190" ry="46" fill="#111827" stroke="url(#cyberBlue)" stroke-width="2"/>
+  <ellipse cx="350" cy="460" rx="140" ry="32" fill="#0b0f19" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- Left Floating Server Database Stack -->
+  <g transform="translate(130, 260)">
+    <rect x="0" y="0" width="110" height="150" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="12" y="16" width="86" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <circle cx="26" cy="29" r="4" fill="#10b981"/>
+    <circle cx="38" cy="29" r="4" fill="#3b82f6"/>
+    <line x1="54" y1="29" x2="88" y2="29" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+    
+    <rect x="12" y="52" width="86" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <circle cx="26" cy="65" r="4" fill="#10b981"/>
+    <circle cx="38" cy="65" r="4" fill="#06b6d4"/>
+    <line x1="54" y1="65" x2="84" y2="65" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+
+    <rect x="12" y="88" width="86" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <circle cx="26" cy="101" r="4" fill="#10b981"/>
+    <circle cx="38" cy="101" r="4" fill="#f59e0b"/>
+    <line x1="54" y1="101" x2="80" y2="101" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+
+    <path d="M55 124 L55 142" stroke="url(#cyberBlue)" stroke-width="2" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Right Holographic Booking Calendar Card -->
+  <g transform="translate(470, 220)" filter="url(#glowDrop)">
+    <rect x="0" y="0" width="160" height="180" rx="14" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.8"/>
+    <rect x="14" y="14" width="132" height="28" rx="8" fill="#1e3a8a" opacity="0.6"/>
+    <text x="24" y="32" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">SLOT SCHEDULE</text>
+    <circle cx="132" cy="28" r="4" fill="#10b981"/>
+
+    <!-- Mini Calendar Matrix -->
+    <rect x="14" y="52" width="60" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+    <text x="20" y="66" fill="#a7f3d0" font-family="monospace" font-size="9" font-weight="700">19:00 - 21:00</text>
+    <text x="20" y="79" fill="#34d399" font-family="sans-serif" font-size="8">BOOKED ✓</text>
+
+    <rect x="84" y="52" width="62" height="34" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="90" y="66" fill="#94a3b8" font-family="monospace" font-size="9">21:00 - 23:00</text>
+    <text x="90" y="79" fill="#38bdf8" font-family="sans-serif" font-size="8">AVAILABLE</text>
+
+    <rect x="14" y="94" width="132" height="30" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <text x="22" y="112" fill="#cbd5e1" font-family="sans-serif" font-size="9">E-Ticket #BKG-8842</text>
+    <circle cx="132" cy="109" r="5" fill="#3b82f6"/>
+
+    <rect x="14" y="132" width="132" height="32" rx="8" fill="url(#cyberBlue)"/>
+    <text x="44" y="152" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="700">CONFIRMED</text>
+  </g>
+
+  <!-- Central 3D Technology Character (Engineer Architect) -->
+  <g transform="translate(350, 320)">
+    <!-- Shadow beneath character -->
+    <ellipse cx="0" cy="115" rx="55" ry="14" fill="#030712" opacity="0.6"/>
+
+    <!-- Legs & Cyber Lower Body -->
+    <path d="M-22 65 L-26 112 L-10 114 L-6 72 Z" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+    <path d="M6 72 L10 114 L26 112 L22 65 Z" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+    <!-- Cyber boots with glowing accents -->
+    <path d="M-30 110 L-6 110 L-6 118 L-34 118 Z" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M6 110 L30 110 L34 118 L6 118 Z" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5"/>
+    <line x1="-24" y1="116" x2="-12" y2="116" stroke="#06b6d4" stroke-width="2"/>
+    <line x1="12" y1="116" x2="24" y2="116" stroke="#06b6d4" stroke-width="2"/>
+
+    <!-- Torso & High-Tech Jacket -->
+    <path d="M-34 -10 L34 -10 L26 70 L-26 70 Z" fill="url(#bodySuit)" stroke="#475569" stroke-width="1.5"/>
+    <!-- Cyber Vest Center Plate -->
+    <path d="M-14 -10 L14 -10 L10 50 L-10 50 Z" fill="#0f172a" stroke="#3b82f6" stroke-width="1.2"/>
+    <circle cx="0" cy="18" r="7" fill="#0b0f19" stroke="#06b6d4" stroke-width="1.8"/>
+    <circle cx="0" cy="18" r="3" fill="#38bdf8"/>
+
+    <!-- Left Arm & Interface Controller -->
+    <path d="M-34 -6 L-62 24 L-54 36 L-30 12 Z" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+    <path d="M-62 24 L-75 42 L-66 50 L-54 36 Z" fill="#334155" stroke="#3b82f6" stroke-width="1.2"/>
+    <!-- Left Hand manipulating hologram -->
+    <circle cx="-76" cy="48" r="6" fill="#cbd5e1"/>
+    <!-- Holographic projection ray -->
+    <line x1="-76" y1="48" x2="-100" y2="0" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.8"/>
+    <line x1="-76" y1="48" x2="-60" y2="-20" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.8"/>
+
+    <!-- Right Arm holding Cyber Tablet -->
+    <path d="M34 -6 L62 20 L54 32 L30 12 Z" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+    <path d="M62 20 L76 38 L67 46 L54 32 Z" fill="#334155" stroke="#3b82f6" stroke-width="1.2"/>
+    <circle cx="76" cy="44" r="6" fill="#cbd5e1"/>
+
+    <!-- Futuristic Tablet Device -->
+    <rect x="66" y="24" width="44" height="60" rx="6" fill="#0f172a" stroke="url(#cyberBlue)" stroke-width="1.8" transform="rotate(-15, 88, 54)"/>
+    <line x1="74" y1="40" x2="98" y2="34" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="76" y1="48" x2="94" y2="44" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="92" cy="62" r="3" fill="#06b6d4"/>
+
+    <!-- Head & Cyber Visor -->
+    <!-- Neck -->
+    <rect x="-8" y="-22" width="16" height="14" fill="#64748b"/>
+    <!-- Head Base -->
+    <path d="M-18 -54 C-18 -68, 18 -68, 18 -54 C18 -38, 12 -22, 0 -22 C-12 -22, -18 -38, -18 -54 Z" fill="#cbd5e1"/>
+    <!-- Stylized Modern Tech Hair / Headset -->
+    <path d="M-20 -52 C-20 -72, 20 -72, 20 -52 C20 -44, 18 -38, 18 -38 L-18 -38 Z" fill="#0f172a"/>
+    <!-- Glowing AR Visor Glass -->
+    <rect x="-16" y="-48" width="32" height="12" rx="4" fill="url(#cyberBlue)" filter="url(#glowDrop)"/>
+    <line x1="-12" y1="-42" x2="12" y2="-42" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- Tech Headset Microphone -->
+    <path d="M-18 -42 L-22 -42 L-22 -30 L-14 -28" stroke="#38bdf8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <circle cx="-14" cy="-28" r="2" fill="#06b6d4"/>
+  </g>
+
+  <!-- Glowing Floating Connection Beams -->
+  <path d="M240 330 Q290 280 340 310" stroke="url(#cyberBlue)" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <path d="M460 300 Q420 260 370 290" stroke="url(#neonEmerald)" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+
+  <!-- Floating Digital Badges -->
+  <g transform="translate(220, 160)">
+    <rect x="0" y="0" width="124" height="34" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="16" cy="17" r="5" fill="#10b981"/>
+    <text x="28" y="21" fill="#ecfdf5" font-family="system-ui, sans-serif" font-size="10" font-weight="700">COLLISION FREE</text>
+  </g>
+
+  <g transform="translate(370, 120)">
+    <rect x="0" y="0" width="134" height="34" rx="8" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5"/>
+    <circle cx="16" cy="17" r="5" fill="#06b6d4"/>
+    <text x="28" y="21" fill="#cffafe" font-family="system-ui, sans-serif" font-size="10" font-weight="700">MULTI-TENANT DB</text>
+  </g>
+</svg>

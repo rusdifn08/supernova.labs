@@ -1,0 +1,815 @@
+/* ==========================================================================
+   SUPERNOVA BOOKING OS — DEDICATED SAAS APPLICATION STYLESHEET
+   Clean, Industry-Standard Enterprise Software Interface
+   ========================================================================== */
+
+:root {
+  --app-bg: #0b0f19;
+  --app-surface: #111827;
+  --app-card: #1f2937;
+  --app-card-light: #ffffff;
+  --app-border: #374151;
+  --app-border-light: #e2e8f0;
+  --app-primary: #2563eb;
+  --app-primary-hover: #1d4ed8;
+  --app-cyan: #06b6d4;
+  --app-emerald: #10b981;
+  --app-danger: #ef4444;
+  --app-text: #f8fafc;
+  --app-text-muted: #94a3b8;
+  --app-text-dark: #0f172a;
+}
+
+body.app-mode {
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   1. SPLIT-SCREEN AUTHENTICATION (LOGIN & REGISTER)
+   ========================================================================== */
+
+.auth-split-screen {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  background: #ffffff;
+}
+
+/* Left Brand & Tech Visual Panel */
+.auth-panel-visual {
+  background: radial-gradient(circle at 20% 30%, #1e3a8a 0%, #0b0f19 75%);
+  color: #ffffff;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid #1e293b;
+}
+
+.auth-visual-top {
+  position: relative;
+  z-index: 2;
+}
+
+.app-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.app-brand-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+.app-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.brand-tag {
+  font: 700 9.5px ui-monospace, Consolas, monospace;
+  color: #38bdf8;
+  letter-spacing: 0.12em;
+}
+
+.auth-visual-center {
+  margin: auto 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 20px 0;
+}
+
+.auth-hero-svg-wrap {
+  max-width: 520px;
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
+.auth-hero-svg-wrap img,
+.auth-hero-svg-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.auth-visual-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+  background: linear-gradient(120deg, #ffffff 30%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-visual-subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.auth-visual-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+  font-size: 12px;
+  color: #64748b;
+  position: relative;
+  z-index: 2;
+}
+
+.tech-badges-row {
+  display: flex;
+  gap: 8px;
+}
+
+.tech-badge-pill {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font: 600 10.5px ui-monospace, monospace;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* Right Form Panel */
+.auth-panel-form {
+  background: #ffffff;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  max-width: 540px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-form-top-nav {
+  position: absolute;
+  top: 36px;
+  right: 48px;
+}
+
+.back-website-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.back-website-link:hover {
+  color: #2563eb;
+}
+
+.auth-form-header {
+  margin-bottom: 28px;
+}
+
+.auth-form-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+}
+
+.auth-form-desc {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.saas-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.saas-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.saas-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.saas-form-group label .req {
+  color: #ef4444;
+}
+
+.saas-input-wrap {
+  position: relative;
+}
+
+.saas-input,
+.saas-select {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #0f172a;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.saas-input:focus,
+.saas-select:focus {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.btn-app-primary {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 20px;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-app-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-app-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-instant-pill {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-instant-pill:hover {
+  background: #dbeafe;
+}
+
+.auth-bottom-switch {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #475569;
+}
+
+.auth-bottom-switch a,
+.auth-bottom-switch button.link-btn {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.auth-bottom-switch a:hover,
+.auth-bottom-switch button.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   2. DEDICATED APP DASHBOARD (TOPBAR & NAVIGATION)
+   ========================================================================== */
+
+.app-dashboard-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f1f5f9;
+}
+
+/* SaaS App Header (Distinct from Landing Page) */
+.app-header {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0 28px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.app-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.header-divider-v {
+  width: 1px;
+  height: 28px;
+  background: #334155;
+}
+
+/* Dynamic Account Unique Code Badge */
+.tenant-unique-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.tenant-unique-badge .badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.tenant-label {
+  font: 700 9.5px ui-monospace, Consolas, monospace;
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+}
+
+.tenant-code-val {
+  font: 700 12.5px ui-monospace, Consolas, monospace;
+  color: #38bdf8;
+  letter-spacing: 0.05em;
+}
+
+.app-header-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-biz-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.header-biz-info .biz-city {
+  color: #94a3b8;
+  font-weight: 400;
+  font-size: 12.5px;
+}
+
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.db-live-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 600 11px ui-monospace, monospace;
+  color: #a7f3d0;
+  background: rgba(6, 78, 59, 0.7);
+  border: 1px solid #059669;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.btn-header-cta {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.btn-header-cta:hover {
+  background: #1d4ed8;
+}
+
+.btn-header-logout {
+  background: transparent;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-header-logout:hover {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #64748b;
+}
+
+/* App Sub-Navigation Bar */
+.app-subnav-bar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-nav-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.app-tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 16px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.app-tab-btn:hover {
+  color: #0f172a;
+}
+
+.app-tab-btn.is-active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+  font-weight: 700;
+}
+
+.app-subnav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Dashboard Main Content Canvas */
+.app-main-canvas {
+  padding: 24px 28px 48px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Metric Cards Strip */
+.app-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.app-metric-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.m-label {
+  font: 700 11px ui-monospace, Consolas, monospace;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.m-badge {
+  font: 600 10.5px ui-monospace, monospace;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.m-badge--green {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.m-badge--blue {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.m-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+}
+
+.m-value--blue {
+  color: #2563eb;
+}
+
+.m-value--green {
+  color: #10b981;
+}
+
+.m-sub {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Content Panels */
+.app-panel-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.panel-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.panel-card-title h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.panel-card-title p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Toolbar Filters */
+.app-table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* High-Density Data Table */
+.app-table-container {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.app-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.app-data-table th {
+  background: #f8fafc;
+  padding: 12px 14px;
+  font: 700 11px ui-monospace, Consolas, monospace;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+  letter-spacing: 0.04em;
+}
+
+.app-data-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  vertical-align: middle;
+}
+
+.app-data-table tr:hover td {
+  background: #f8fafc;
+}
+
+.code-pill {
+  font: 700 11.5px ui-monospace, Consolas, monospace;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 3px 7px;
+  border-radius: 5px;
+  border: 1px solid #dbeafe;
+}
+
+/* Slot Matrix View */
+.slot-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.slot-matrix-cell {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.slot-matrix-cell.is-available:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.slot-matrix-cell.is-booked {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.slot-time {
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+}
+
+.slot-status-text {
+  font-size: 11px;
+  margin-top: 3px;
+  display: block;
+}
+
+/* Facilities Cards */
+.fac-cards-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.fac-dash-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.fac-dash-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fac-dash-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.fac-dash-price {
+  font-size: 15px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .auth-split-screen {
+    grid-template-columns: 1fr;
+  }
+  .auth-panel-visual {
+    display: none;
+  }
+  .auth-panel-form {
+    padding: 40px 24px;
+    max-width: 480px;
+  }
+  .app-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    height: auto;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .app-subnav-bar {
+    padding: 0 16px;
+    overflow-x: auto;
+  }
+  .app-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-row-2col {
+    grid-template-columns: 1fr;
+  }
+}
