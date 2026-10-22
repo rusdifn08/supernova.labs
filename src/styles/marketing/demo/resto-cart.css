@@ -1,0 +1,153 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — RESTO TABLE CART & SPLIT BILL
+   ========================================================================== */
+
+/* Variant Customizer Drawer */
+.variant-drawer {
+  background: #f1f5f9;
+  border-top: 2px solid var(--bright, #2563eb);
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn-close-drawer {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.variant-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.v-chip {
+  padding: 4px 8px;
+  background: #ffffff;
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.v-chip.is-active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+/* Table Cart & Split Bill */
+.mobile-cart-summary {
+  background: #f8fafc;
+  border-top: 1.5px solid var(--line, #e2e8f0);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-summary-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.table-cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.table-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.item-desc strong {
+  display: block;
+  font-size: 12px;
+}
+
+.variant-notes {
+  font-size: 10px;
+  color: #d97706;
+}
+
+.price-val {
+  font-size: 12px;
+  font-weight: 700;
+  color: #047857;
+}
+
+.split-bill-card {
+  background: #eff6ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.split-header {
+  font: 700 10px ui-monospace, Consolas, monospace;
+  color: var(--bright, #2563eb);
+  margin-bottom: 6px;
+}
+
+.split-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.person-chips {
+  display: flex;
+  gap: 4px;
+}
+
+.p-chip {
+  padding: 3px 6px;
+  background: #ffffff;
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.p-chip.is-active {
+  background: var(--bright, #2563eb);
+  color: #ffffff;
+  border-color: var(--bright, #2563eb);
+}
+
+.split-result {
+  text-align: right;
+}
+
+.split-result span {
+  font-size: 10px;
+  color: var(--muted, #475569);
+  display: block;
+}

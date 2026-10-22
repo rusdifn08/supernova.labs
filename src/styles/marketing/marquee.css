@@ -1,0 +1,59 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — MARQUEE TICKER
+   ========================================================================== */
+
+.marquee {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 18px 0;
+  overflow: hidden;
+  border-top: 1px solid #1e293b;
+  border-bottom: 1px solid #1e293b;
+  user-select: none;
+}
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__item {
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.marquee__name {
+  font: 700 13px ui-monospace, Consolas, monospace;
+  letter-spacing: 0.12em;
+  color: #f8fafc;
+}
+
+.marquee__badge {
+  font: 600 10px ui-monospace, Consolas, monospace;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 8px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.marquee__dot {
+  width: 5px;
+  height: 5px;
+  background: var(--bright, #2563eb);
+  border-radius: 50%;
+  margin-left: 12px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

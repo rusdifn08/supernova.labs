@@ -1,0 +1,82 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — MINI-ERP DASHBOARD PREVIEW
+   ========================================================================== */
+
+.mini-erp-container {
+  padding: 18px;
+}
+
+.is-hidden { display: none !important; }
+
+.erp-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.erp-stat-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-title {
+  font: 700 8.5px ui-monospace, Consolas, monospace;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.stat-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.stat-sub {
+  font-size: 9.5px;
+  color: #cbd5e1;
+}
+
+.erp-log-section {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.erp-log-header {
+  font: 700 10px ui-monospace, Consolas, monospace;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.erp-log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 130px;
+  overflow-y: auto;
+}
+
+.log-entry {
+  font-size: 11px;
+  color: #cbd5e1;
+  display: flex;
+  gap: 8px;
+}
+
+.log-time {
+  font: 700 10px ui-monospace, Consolas, monospace;
+  color: #38bdf8;
+}
+
+@media (max-width: 640px) {
+  .erp-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}

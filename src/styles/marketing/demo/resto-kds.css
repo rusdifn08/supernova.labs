@@ -1,0 +1,122 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — RESTO KDS KITCHEN MONITOR
+   ========================================================================== */
+
+.kds-monitor-wrapper {
+  background: #020617;
+  border: 2px solid #334155;
+  border-radius: var(--radius-lg, 20px);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.kds-monitor-bezel {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kds-topbar {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 700 10.5px ui-monospace, Consolas, monospace;
+}
+
+.kds-station-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #38bdf8;
+}
+
+.kds-meta-clock {
+  color: #94a3b8;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.kds-meta-clock strong {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.kds-tickets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.kds-ticket-card {
+  background: #0f172a;
+  border: 1.5px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tbl-flag {
+  font: 800 11px ui-monospace, Consolas, monospace;
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.ticket-timer {
+  font: 600 10px ui-monospace, Consolas, monospace;
+  color: #f59e0b;
+}
+
+.kds-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #1e293b;
+  border-bottom: 1px solid #1e293b;
+  padding: 6px 0;
+}
+
+.kds-food-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.kds-food-row .qty {
+  font: 800 12px ui-monospace, Consolas, monospace;
+  color: #38bdf8;
+  min-width: 18px;
+}
+
+.food-details .food-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.food-details .food-mod {
+  font-size: 10.5px;
+  color: #fbbf24;
+}
+
+.btn-kds-advance {
+  padding: 5px 12px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font: 700 10.5px ui-monospace, Consolas, monospace;
+  cursor: pointer;
+  transition: all var(--dur, 0.35s);
+}

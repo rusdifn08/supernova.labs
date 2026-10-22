@@ -1,0 +1,28 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — BADGES
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid var(--line-2, #cbd5e1);
+  border-radius: var(--radius-full, 9999px);
+  font: 600 11px ui-monospace, Consolas, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted, #475569);
+  background: var(--surface, #ffffff);
+}
+
+.badge--blue {
+  border-color: #bfdbfe;
+  color: var(--bright, #2563eb);
+  background: var(--blue-light, #eff6ff);
+}
+
+.badge--light {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #93c5fd;
+  background: rgba(255, 255, 255, 0.06);
+}

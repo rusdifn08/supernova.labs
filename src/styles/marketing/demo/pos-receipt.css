@@ -1,0 +1,109 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — POS THERMAL RECEIPT VISUAL
+   ========================================================================== */
+
+.pos-output-wrapper {
+  background: #0f172a;
+  border: 1.5px solid var(--line, #e2e8f0);
+  border-radius: var(--radius-lg, 20px);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg, 0 20px 45px -15px rgba(15, 23, 42, 0.12));
+}
+
+.output-tab-toggles {
+  display: flex;
+  gap: 6px;
+}
+
+.out-toggle {
+  background: transparent;
+  border: none;
+  font: 700 10px ui-monospace, Consolas, monospace;
+  color: #94a3b8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.out-toggle.is-active {
+  background: #1e293b;
+  color: #38bdf8;
+}
+
+.thermal-receipt-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.receipt-paper {
+  background: #ffffff;
+  width: 100%;
+  max-width: 300px;
+  padding: 18px 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  font-family: ui-monospace, Consolas, monospace;
+  color: #1e293b;
+  border-radius: 4px;
+}
+
+.receipt-header {
+  text-align: center;
+}
+
+.receipt-header h4 {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.receipt-header p {
+  font-size: 10px;
+  color: var(--muted, #475569);
+}
+
+.receipt-divider {
+  font-size: 10px;
+  color: #cbd5e1;
+  margin: 4px 0;
+  text-align: center;
+}
+
+.receipt-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted, #475569);
+}
+
+.receipt-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.receipt-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+}
+
+.receipt-totals-table {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 10.5px;
+}
+
+.r-total-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.r-total-row--grand {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0f172a;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 3px;
+}

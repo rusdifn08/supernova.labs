@@ -1,0 +1,125 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — FOOTER
+   ========================================================================== */
+
+.site-footer {
+  background: #070c18;
+  border-top: 1px solid #1e293b;
+  color: #94a3b8;
+  padding: 72px 0 36px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+  gap: 56px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.wordmark--footer {
+  color: #ffffff;
+}
+
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #94a3b8;
+  max-width: 380px;
+  margin: 18px 0 20px;
+}
+
+.footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-badge {
+  font: 600 10.5px ui-monospace, Consolas, monospace;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 4px 10px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col__title {
+  font: 700 11px ui-monospace, Consolas, monospace;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.footer-col a {
+  font-size: 13.5px;
+  color: #94a3b8;
+  transition: color var(--dur, 0.35s);
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-col span {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #25d366 !important;
+  transition: all 0.2s ease;
+}
+
+.footer-contact-link:hover {
+  color: #1ebd5b !important;
+  text-decoration: underline;
+}
+
+.footer-status-pill {
+  color: #10b981 !important;
+  font: 600 11px ui-monospace, Consolas, monospace;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  font: 500 11.5px ui-monospace, Consolas, monospace;
+  color: #64748b;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

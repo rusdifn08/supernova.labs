@@ -1,0 +1,119 @@
+<div
+  class="demo-panel"
+  id="panel-qr"
+  role="tabpanel"
+  aria-labelledby="tab-qr"
+  data-demo-panel="qr"
+>
+  <div class="demo-panel__grid demo-panel__grid--compact">
+    <!-- Left Column: Compact Guest Mobile Ordering -->
+    <div class="demo-panel__info">
+      <div class="sim-panel-header">
+        <span class="panel-eyebrow">SIMULASI CEPAT · MEJA TAMU RESTO</span>
+        <span class="sim-badge-mode">Dine-in QRIS</span>
+      </div>
+
+      <!-- Table switcher chips -->
+      <div class="table-badges" id="qrTableSelector">
+        <button type="button" class="tbl-btn is-active" data-tbl="01" data-section="Indoor AC" data-cap="4">Meja 01 (Indoor)</button>
+        <button type="button" class="tbl-btn" data-tbl="05" data-section="Outdoor Terrace" data-cap="4">Meja 05 (Outdoor)</button>
+        <button type="button" class="tbl-btn" data-tbl="08" data-section="VIP Room" data-cap="8">Meja 08 (VIP)</button>
+      </div>
+
+      <div class="sim-compact-card">
+        <!-- Action buttons -->
+        <div class="mobile-app-header mobile-app-header--compact">
+          <span class="table-status-pill" id="mobileTablePill">📍 Meja 01 (Indoor)</span>
+          <div class="mobile-quick-actions">
+            <button type="button" class="btn-waiter-call" id="btnCallWaiter">🔔 Panggil Waiter</button>
+            <button type="button" class="btn-bill-request" id="btnRequestBill">🧾 Minta Bill</button>
+          </div>
+        </div>
+
+        <div class="waiter-alert-toast is-hidden" id="waiterAlertToast"></div>
+
+        <!-- Compact Resto Menu List -->
+        <div class="resto-cards-grid resto-cards-grid--compact" id="restoCardsGrid">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Split Bill & Total Bar -->
+        <div class="split-bill-card split-bill-card--compact">
+          <div class="split-controls">
+            <div class="split-selector">
+              <span>Bagi Tagihan (Split Bill):</span>
+              <div class="person-chips" id="splitPersonChips">
+                <button type="button" class="p-chip" data-person="2">2 Org</button>
+                <button type="button" class="p-chip is-active" data-person="3">3 Org</button>
+                <button type="button" class="p-chip" data-person="4">4 Org</button>
+              </div>
+            </div>
+            <div class="split-result">
+              <strong class="text-blue" id="splitPriceDisplay">Rp 38.500 / org</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-bar-compact">
+          <div>
+            <span class="calc-label">Total Meja (PB1 10%):</span>
+            <strong class="highlight-price" id="tableGrandTotal">Rp 115.500</strong>
+          </div>
+          <button type="button" class="btn btn--primary btn--sm" id="btnSendOrderKitchen">
+            <span>🍳 Kirim ke Dapur</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Link to Dedicated Real Service Dashboard -->
+      <div class="real-trial-callout">
+        <div class="callout-text">
+          <strong>🍲 Butuh sistem QR Meja &amp; KDS untuk resto Anda?</strong>
+          <span>Atur menu foto HD, stiker QR meja kustom, &amp; layar dapur live.</span>
+        </div>
+        <a class="btn btn--outline btn--sm" href="/layanan/qr-resto">Buka Layanan QR Resto (Aktif 1 Bulan) →</a>
+      </div>
+    </div>
+
+    <!-- Right Column: Compact Kitchen Display System (KDS) -->
+    <div class="demo-panel__visual">
+      <div class="kds-monitor-wrapper kds-monitor-wrapper--compact">
+        <div class="kds-monitor-bezel">
+          <div class="kds-topbar">
+            <div class="kds-station-badge">
+              <span class="pulse-dot"></span>
+              <span>KDS MONITOR // DAPUR UTAMA</span>
+            </div>
+            <strong id="kdsClock">14:22:05</strong>
+          </div>
+
+          <div class="kds-tickets-container kds-tickets-container--compact">
+            <div class="kds-ticket-card is-new" id="kdsTicket01">
+              <div class="ticket-top">
+                <div class="tbl-flag">MEJA 01 (INDOOR)</div>
+                <div class="ticket-timer" id="kdsTimer01">⏱️ Baru Saja</div>
+              </div>
+
+              <div class="kds-items-list" id="kdsItemsList01">
+                <!-- Populated by script -->
+              </div>
+
+              <div class="kds-workflow-footer">
+                <div class="workflow-status-label">
+                  Status: <strong class="text-warning" id="kdsWorkflowState01">1. TIKET DITERIMA</strong>
+                </div>
+                <button type="button" class="btn-kds-advance btn-kds-advance--sm" id="btnAdvanceKds01">
+                  ▶ Mulai Masak (Chef)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="kds-alert-banner" id="kdsAlertBanner">
+            <span id="kdsAlertMessage">Dapur berjalan normal. Siap menerima pesanan meja.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

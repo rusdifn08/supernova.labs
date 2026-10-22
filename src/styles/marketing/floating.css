@@ -1,0 +1,132 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — FLOATING ACTION WIDGETS
+   ========================================================================== */
+
+.floating-widgets {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.floating-widgets > * {
+  pointer-events: auto;
+}
+
+/* WhatsApp Floating Button */
+.wa-floating-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px 10px 14px;
+  background: #128c7e;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #ffffff;
+  border-radius: var(--radius-full, 9999px);
+  box-shadow: 0 8px 24px rgba(18, 140, 126, 0.4);
+  transition: transform var(--dur, 0.35s) var(--ease, cubic-bezier(0.16, 1, 0.3, 1)), box-shadow var(--dur, 0.35s);
+  position: relative;
+  text-decoration: none;
+}
+
+.wa-floating-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(18, 140, 126, 0.55);
+}
+
+.wa-status-indicator {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.wa-status-dot {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.wa-status-ping {
+  position: absolute;
+  inset: -3px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: pulseDot 1.8s ease-out infinite;
+}
+
+.wa-icon-wrap {
+  display: grid;
+  place-items: center;
+}
+
+.wa-text-wrap {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.wa-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.wa-sub {
+  font-size: 10px;
+  font-family: ui-monospace, Consolas, monospace;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1.5px solid var(--line, #e2e8f0);
+  color: var(--ink, #0a1120);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-md, 0 10px 30px -10px rgba(15, 23, 42, 0.08));
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--dur, 0.35s) var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+              transform var(--dur, 0.35s) var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+              visibility var(--dur, 0.35s),
+              background var(--dur, 0.35s);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--blue-light, #eff6ff);
+  border-color: #bfdbfe;
+  color: var(--bright, #2563eb);
+}
+
+@media (max-width: 480px) {
+  .floating-widgets {
+    bottom: 16px;
+    right: 16px;
+  }
+  .wa-floating-btn {
+    padding: 10px 14px;
+  }
+  .wa-sub {
+    display: none;
+  }
+}

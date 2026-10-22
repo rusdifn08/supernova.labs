@@ -1,0 +1,131 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — TYPOGRAPHY & SECTION HEADINGS
+   ========================================================================== */
+
+/* Eyebrows & Status */
+.eyebrow {
+  font: 700 11px ui-monospace, Consolas, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bright, #2563eb);
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow__line {
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.eyebrow--light {
+  color: #67e8f9;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulseDot 2s ease infinite;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-full, 9999px);
+  font: 700 10.5px ui-monospace, Consolas, monospace;
+  letter-spacing: 0.08em;
+  color: var(--ink-2, #1e293b);
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(15, 23, 42, 0.05));
+}
+
+/* Section Headings */
+.section-heading {
+  max-width: 740px;
+  margin-bottom: 24px;
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading--center .eyebrow {
+  justify-content: center;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  line-height: 1.15;
+}
+
+.section-heading__desc {
+  color: var(--muted, #475569);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin-top: 10px;
+}
+
+.section-heading--center .section-heading__desc {
+  margin-inline: auto;
+}
+
+.section--blue .section-heading__desc {
+  color: #bfdbfe;
+}
+
+.section-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.section-intro .section-heading {
+  margin-bottom: 0;
+}
+
+.section-art {
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  border-radius: var(--radius, 14px);
+  overflow: visible;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  transition: transform var(--dur, 0.35s) var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.section-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.12));
+}
+
+.section-art:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+  .section-intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .section-art {
+    margin: 0 auto;
+    max-width: 360px;
+  }
+}

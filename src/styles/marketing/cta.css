@@ -1,0 +1,146 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — FINAL GRAND CTA
+   ========================================================================== */
+
+.final-cta {
+  background: #0a1120;
+  color: #ffffff;
+  padding: 128px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bright, #2563eb), #06b6d4, transparent);
+}
+
+.final-cta__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.final-cta h2 {
+  color: #ffffff;
+  font-size: clamp(2.3rem, 4.8vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.final-cta__content > p {
+  color: #94a3b8;
+  font-size: 16.5px;
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.final-cta__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 32px;
+  font: 600 12px ui-monospace, Consolas, monospace;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.final-cta__trust span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.final-cta__trust svg {
+  color: #10b981;
+}
+
+.cta-art-box {
+  margin-bottom: 20px;
+}
+
+.cta-art-box .section-art {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.cta-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg, 20px);
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.cta-card__label {
+  font: 700 10.5px ui-monospace, Consolas, monospace;
+  letter-spacing: 0.14em;
+  color: #38bdf8;
+  display: block;
+  margin-bottom: 22px;
+}
+
+.cta-card__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cta-card__icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.15);
+  color: #38bdf8;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.cta-card__row div {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-card__row span {
+  font: 600 10.5px ui-monospace, Consolas, monospace;
+  color: #94a3b8;
+  letter-spacing: 0.06em;
+}
+
+.cta-card__row strong {
+  font-size: 14.5px;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.cta-card__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 16px 0;
+}
+
+@media (max-width: 900px) {
+  .final-cta {
+    padding: 72px 0;
+  }
+  .final-cta__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

@@ -1,0 +1,6 @@
+/demo/booking /layanan/booking 301!
+/demo/booking/* /layanan/booking/:splat 301!
+/demo/pos-erp /layanan/pos-erp 301!
+/demo/pos-erp/* /layanan/pos-erp/:splat 301!
+/demo/qr-resto /layanan/qr-resto 301!
+/demo/qr-resto/* /layanan/qr-resto/:splat 301!

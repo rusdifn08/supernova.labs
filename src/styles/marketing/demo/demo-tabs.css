@@ -1,0 +1,168 @@
+/* ==========================================================================
+   SUPERNOVA MARKETING — DEMO TABS & SHELL
+   ========================================================================== */
+
+.section--demo {
+  background: #f8fafc;
+  border-top: 1px solid var(--line, #e2e8f0);
+  border-bottom: 1px solid var(--line, #e2e8f0);
+}
+
+.demo-intro-compact {
+  margin-bottom: 24px;
+}
+
+.demo-intro-cta {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.demo-badge-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: var(--radius-full, 9999px);
+  font: 700 10.5px ui-monospace, Consolas, monospace;
+  color: var(--bright, #2563eb);
+  letter-spacing: 0.08em;
+}
+
+.demo-experience {
+  background: var(--surface, #ffffff);
+  border: 1.5px solid var(--line, #e2e8f0);
+  border-radius: var(--radius-lg, 20px);
+  box-shadow: var(--shadow-md, 0 10px 30px -10px rgba(15, 23, 42, 0.08));
+  overflow: hidden;
+}
+
+/* Tabs Bar */
+.demo-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--line, #e2e8f0);
+  padding: 6px;
+  gap: 6px;
+}
+
+.demo-tab {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius, 14px);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--dur, 0.35s) var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.demo-tab:hover {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(226, 232, 240, 0.8);
+}
+
+.demo-tab.is-active {
+  background: #ffffff;
+  border-color: var(--line, #e2e8f0);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.demo-tab__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: var(--bright, #2563eb);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all var(--dur, 0.35s);
+}
+
+.demo-tab.is-active .demo-tab__icon {
+  background: var(--bright, #2563eb);
+  color: #ffffff;
+}
+
+.demo-tab__label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.demo-tab__label strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink, #0a1120);
+  line-height: 1.25;
+}
+
+.demo-tab__label small {
+  font-size: 11px;
+  color: var(--muted, #475569);
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+/* Panel Content */
+.demo-panels {
+  padding: 32px;
+}
+
+.demo-panel {
+  display: none;
+}
+
+.demo-panel.is-active {
+  display: block;
+  animation: fadeIn 0.4s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
+}
+
+.demo-panel__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.panel-eyebrow {
+  font: 700 11px ui-monospace, Consolas, monospace;
+  color: var(--bright, #2563eb);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sim-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sim-badge-mode {
+  font: 700 9.5px ui-monospace, Consolas, monospace;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: var(--radius-full, 9999px);
+  background: #eff6ff;
+  color: var(--bright, #2563eb);
+  border: 1px solid #bfdbfe;
+}
+
+@media (max-width: 900px) {
+  .demo-tabs {
+    grid-template-columns: 1fr;
+  }
+  .demo-panels {
+    padding: 20px;
+  }
+  .demo-panel__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,167 @@
+---
+import Icon from '../../atoms/Icon.astro';
+---
+
+<div
+  class="demo-panel is-active"
+  id="panel-booking"
+  role="tabpanel"
+  aria-labelledby="tab-booking"
+  data-demo-panel="booking"
+>
+  <div class="demo-panel__grid demo-panel__grid--compact">
+    <!-- Left Column: Compact Simulator Controls -->
+    <div class="demo-panel__info">
+      <div class="sim-panel-header">
+        <span class="panel-eyebrow">SIMULASI CEPAT · BOOKING ENGINE</span>
+        <span class="sim-badge-mode">Mode Preview</span>
+      </div>
+
+      <!-- Quick Business Switcher Chips -->
+      <div class="biz-chips biz-chips--compact" id="bookingBizChips">
+        <button type="button" class="biz-chip is-active" data-biz="futsal">⚽ Futsal / Olahraga</button>
+        <button type="button" class="biz-chip" data-biz="studio">📸 Studio Photo</button>
+        <button type="button" class="biz-chip" data-biz="barber">✂️ Barbershop</button>
+        <button type="button" class="biz-chip" data-biz="ps">🎮 Rental PS5</button>
+        <button type="button" class="biz-chip" data-biz="warnet">🖥️ Warnet Esports</button>
+      </div>
+
+      <div class="sim-compact-card">
+        <div class="sim-field-compact">
+          <label for="bookingResourceSelect">Fasilitas / Ruangan:</label>
+          <select class="sim-select sim-select--sm" id="bookingResourceSelect">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div class="sim-row-compact">
+          <div class="sim-field-compact">
+            <label>Pilih Slot Waktu:</label>
+            <div class="booking-slot-grid booking-slot-grid--compact" id="bookingSlotGrid">
+              <!-- Slots dynamically injected -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Addon inline chips -->
+        <div class="sim-field-compact">
+          <label>Add-on / Sewa Perlengkapan Tambahan:</label>
+          <div class="addon-checklist addon-checklist--row" id="bookingAddonList">
+            <!-- Dynamic addons -->
+          </div>
+        </div>
+
+        <!-- Payment Scheme & Customer -->
+        <div class="sim-row-compact sim-row-compact--2col">
+          <div class="sim-field-compact">
+            <label for="bookingCustomerName">Nama Pemesan:</label>
+            <input type="text" class="sim-input sim-input--sm" id="bookingCustomerName" value="Rian Hidayat" />
+          </div>
+          <div class="sim-field-compact">
+            <label>Skema Pembayaran:</label>
+            <div class="payment-scheme-radios payment-scheme-radios--inline">
+              <label class="radio-label"><input type="radio" name="paymentScheme" value="dp" checked /> <span>DP 50%</span></label>
+              <label class="radio-label"><input type="radio" name="paymentScheme" value="full" /> <span>Lunas 100%</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary bar -->
+        <div class="calc-bar-compact">
+          <div>
+            <span class="calc-label">Total Booking:</span>
+            <strong class="calc-price" id="calcGrandTotal">Rp 300.000</strong>
+          </div>
+          <div>
+            <span class="calc-label">Wajib Bayar Sekarang:</span>
+            <strong class="text-success" id="calcDueAmount">Rp 150.000 (DP 50%)</strong>
+          </div>
+          <button type="button" class="btn btn--primary btn--sm" id="btnConfirmBooking">
+            <Icon name="check" size={14} />
+            <span>Terbitkan E-Ticket Demo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Link to Dedicated Real Service Dashboard -->
+      <div class="real-trial-callout">
+        <div class="callout-text">
+          <strong>🚀 Butuh gunakan untuk bisnis riil Anda?</strong>
+          <span>Kustomisasi tarif jam, jadwal otomatis, &amp; data pelanggan di portal asli.</span>
+        </div>
+        <a class="btn btn--outline btn--sm" href="/layanan/booking">Buka Layanan Booking (Aktif 1 Bulan) →</a>
+      </div>
+    </div>
+
+    <!-- Right Column: Compact Live Digital Boarding Pass -->
+    <div class="demo-panel__visual">
+      <div class="ticket-mockup-wrapper ticket-mockup-wrapper--compact">
+        <div class="art-card-topbar">
+          <span>LIVE PASS // E-TICKET PREVIEW</span>
+          <span class="status-live">● VERIFIED PASS</span>
+        </div>
+
+        <div class="digital-ticket-card digital-ticket-card--compact" id="digitalTicketCard">
+          <div class="ticket-header">
+            <div class="ticket-brand">
+              <span class="brand-badge">SUPERNOVA BOOKING</span>
+              <span class="ticket-code" id="ticketCodeDisplay">BK-FTS-88421</span>
+            </div>
+            <div class="ticket-qr-box">
+              <svg viewBox="0 0 100 100" width="48" height="48" fill="none">
+                <rect width="100" height="100" fill="#ffffff" rx="4"/>
+                <path d="M10 10h28v28H10zM16 16h16v16H16zM62 10h28v28H62zM68 16h16v16H68zM10 62h28v28H10zM16 68h16v16H16zM46 10h8v8h-8zM46 26h8v16h-8zM26 46h16v8H26zM50 50h8v8h-8zM62 46h12v8H62zM80 46h10v16H80zM46 68h8v12h-8zM62 68h16v8H62zM84 68h6v22h-6zM62 82h12v8H62zM46 88h8v6h-8z" fill="#0f172a"/>
+              </svg>
+              <small>Scan QR Lokasi</small>
+            </div>
+          </div>
+
+          <div class="ticket-perforated-line">
+            <span class="notch notch--left"></span>
+            <span class="notch notch--right"></span>
+          </div>
+
+          <div class="ticket-body ticket-body--compact">
+            <div class="ticket-data-row">
+              <div class="ticket-data-col">
+                <span class="t-label">NAMA PEMESAN</span>
+                <strong class="t-value" id="ticketGuestName">Rian Hidayat</strong>
+              </div>
+              <div class="ticket-data-col">
+                <span class="t-label">TANGGAL &amp; JAM</span>
+                <strong class="t-value" id="ticketHours">Hari Ini · 19:00 - 21:00</strong>
+              </div>
+            </div>
+
+            <div class="ticket-data-row">
+              <div class="ticket-data-col">
+                <span class="t-label">FASILITAS</span>
+                <strong class="t-value text-blue" id="ticketResourceName">Lapangan 1 (Vinyl Pro)</strong>
+              </div>
+              <div class="ticket-data-col">
+                <span class="t-label">ADD-ON</span>
+                <strong class="t-value" id="ticketAddons">Sewa Rompi (+20k)</strong>
+              </div>
+            </div>
+
+            <div class="ticket-status-strip">
+              <div>
+                <span class="t-label">STATUS</span>
+                <span class="status-pill status-pill--dp" id="ticketPaymentBadge">DP 50% LUNAS</span>
+              </div>
+              <div class="text-right">
+                <span class="t-label">TOTAL</span>
+                <strong class="t-amount" id="ticketTotalAmount">Rp 320.000</strong>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn--whatsapp-share btn--sm w-full" id="btnShareTicketWA">
+              <Icon name="whatsapp" size={14} />
+              <span>Simulasikan Kirim WhatsApp ke Klien</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

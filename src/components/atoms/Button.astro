@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 interface Props {
   href: string;
-  variant?: 'primary' | 'outline' | 'dark' | 'ghost' | 'cta';
+  variant?: 'primary' | 'outline' | 'dark' | 'ghost' | 'cta' | 'whatsapp';
   size?: 'sm' | 'md' | 'lg';
   icon?: 'arrow' | 'whatsapp';
   target?: string;
@@ -19,7 +19,7 @@ const {
   class: className = ''
 } = Astro.props;
 
-const isWhatsApp = icon === 'whatsapp' || href.includes('wa.me') || href.includes('whatsapp') || variant === 'cta';
+const isWhatsApp = variant === 'whatsapp' || icon === 'whatsapp' || href.includes('wa.me') || href.includes('whatsapp.com');
 ---
 <a
   class={`btn btn--${variant} btn--${size} ${isWhatsApp ? 'btn--whatsapp' : ''} ${className}`.trim()}
