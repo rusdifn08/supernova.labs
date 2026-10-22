@@ -7,37 +7,16 @@ import { QrOrderSim } from './QrOrderSim';
 export function ProductSimulations() {
   const [activeTab, setActiveTab] = useState(0);
 
-  const tabDetails = [
-    {
-      id: 'booking',
-      label: 'Booking System',
-      icon: Clock,
-      category: 'Studio & Rental',
-      tagline: 'Multiplatform booking anti double-booking & auto sync slot 3 platform.',
-      badge: 'LIVE SIMULASI',
-    },
-    {
-      id: 'pos',
-      label: 'Cashier & Inventory',
-      icon: ScanLine,
-      category: 'Retail & Stock',
-      tagline: 'POS kilat terintegrasi stock opname otomatis & scanner barcode.',
-      badge: 'LIVE SIMULASI',
-    },
-    {
-      id: 'qr',
-      label: 'QR Table Ordering',
-      icon: Smartphone,
-      category: 'Resto & Cafe F&B',
-      tagline: 'Self-order scan meja tamu, tersinkron ke dapur KDS & monitor kasir.',
-      badge: 'LIVE SIMULASI',
-    },
+  const tabs = [
+    { id: 'booking', label: 'Booking System', icon: Clock },
+    { id: 'pos', label: 'Cashier & Inventory', icon: ScanLine },
+    { id: 'qr', label: 'QR Table Ordering', icon: Smartphone },
   ];
 
   return (
     <div className="sim-root relative mx-auto max-w-6xl">
       {/* Section Header with Supernova Vibrant Shimmer */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-8 sm:mb-10">
         <span className="mb-3 inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#06B6D4] bg-[#ECFEFF] px-3.5 py-1.5 rounded-full border border-[#CFFAFE]">
           <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4] animate-ping" />
           Lihat Langsung
@@ -48,48 +27,30 @@ export function ProductSimulations() {
             Real-Time
           </span>
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-[#64748B] text-sm sm:text-base leading-relaxed">
+        <p className="mx-auto mt-3 max-w-xl text-[#64748B] text-sm sm:text-base leading-relaxed px-4">
           Bukan mockup statis. Ini simulasi fungsional dari arsitektur sistem yang akan Anda miliki — klik, uji alur, dan rasakan alurnya.
         </p>
       </div>
 
-      {/* 3-Card Professional Switcher Grid */}
-      <div className="sim-switcher-grid">
-        {tabDetails.map((tab, i) => {
-          const isActive = activeTab === i;
-          const IconComponent = tab.icon;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActiveTab(i)}
-              className={`sim-switcher-card ${isActive ? 'is-active' : ''}`}
-            >
-              <div className="sim-switcher-top">
-                <div className="sim-switcher-icon">
-                  <IconComponent className="h-5 w-5" />
-                </div>
-                <span className="sim-switcher-badge">
-                  {isActive ? (
-                    <>
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4] animate-pulse" />
-                      {tab.badge}
-                    </>
-                  ) : (
-                    tab.category
-                  )}
-                </span>
-              </div>
-
-              <h3 className="sim-switcher-title">{tab.label}</h3>
-              <p className="sim-switcher-sub">{tab.tagline}</p>
-
-              <div className="sim-switcher-indicator">
-                <span>{isActive ? '● Mode Uji Coba Aktif' : 'Coba Simulasi Ini →'}</span>
-              </div>
-            </button>
-          );
-        })}
+      {/* Minimalist, Clean 3-Button Switcher with Generous Horizontal Margins */}
+      <div className="sim-tabs-minimal-wrapper">
+        <div className="sim-tabs-minimal-grid">
+          {tabs.map((tab, i) => {
+            const isActive = activeTab === i;
+            const IconComponent = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(i)}
+                className={`sim-btn-minimal ${isActive ? 'is-active' : ''}`}
+              >
+                <IconComponent className="sim-icon" />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Active Simulation Viewport */}

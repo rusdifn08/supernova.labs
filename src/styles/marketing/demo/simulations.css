@@ -45,138 +45,76 @@
   background: linear-gradient(90deg, #2563eb 0%, #06b6d4 50%, #7c3aed 100%);
 }
 
-/* 3-Card Professional Tab Switcher Grid */
-.sim-switcher-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  max-width: 1040px;
+/* Minimalist, Clean Tab Switcher (Without Bloatware Descriptions) */
+.sim-tabs-minimal-wrapper {
+  max-width: 840px;
   margin: 0 auto 36px auto;
+  padding: 0 24px;
 }
 
-@media (min-width: 768px) {
-  .sim-switcher-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+@media (min-width: 640px) {
+  .sim-tabs-minimal-wrapper {
+    padding: 0 36px;
   }
 }
 
-.sim-switcher-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  padding: 22px 20px;
-  border-radius: 20px;
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
+.sim-tabs-minimal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-.sim-switcher-card:hover {
-  transform: translateY(-4px);
-  border-color: #2563eb;
-  box-shadow: 0 16px 36px -10px rgba(37, 99, 235, 0.18);
+@media (min-width: 640px) {
+  .sim-tabs-minimal-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
 }
 
-.sim-switcher-card.is-active {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border: 2px solid #06b6d4;
-  box-shadow: 0 20px 45px -10px rgba(6, 182, 212, 0.3), 0 0 0 1px #06b6d4;
-  transform: translateY(-4px) scale(1.02);
-}
-
-.sim-switcher-top {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-
-.sim-switcher-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background: #eff6ff;
-  color: #2563eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #dbeafe;
-  transition: all 0.3s;
-}
-
-.sim-switcher-card.is-active .sim-switcher-icon {
-  background: rgba(6, 182, 212, 0.15);
-  color: #06b6d4;
-  border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 0 16px rgba(6, 182, 212, 0.3);
-}
-
-.sim-switcher-badge {
-  font-size: 10.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 4px 10px;
-  border-radius: 9999px;
+.sim-btn-minimal {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: #f1f5f9;
-  color: #64748b;
-  border: 1px solid #e2e8f0;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #475569;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  width: 100%;
 }
 
-.sim-switcher-card.is-active .sim-switcher-badge {
-  background: rgba(6, 182, 212, 0.2);
-  color: #38bdf8;
-  border-color: rgba(6, 182, 212, 0.4);
-}
-
-.sim-switcher-title {
-  font-size: 16.5px;
-  font-weight: 800;
+.sim-btn-minimal:hover {
+  border-color: #2563eb;
   color: #0f172a;
-  margin-bottom: 4px;
-  line-height: 1.3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
 }
 
-.sim-switcher-card.is-active .sim-switcher-title {
+.sim-btn-minimal.is-active {
+  background: #0f172a;
   color: #ffffff;
-}
-
-.sim-switcher-sub {
-  font-size: 12px;
-  color: #64748b;
-  line-height: 1.45;
-}
-
-.sim-switcher-card.is-active .sim-switcher-sub {
-  color: #94a3b8;
-}
-
-.sim-switcher-indicator {
-  margin-top: 14px;
-  font-size: 11.5px;
   font-weight: 700;
+  border: 1.5px solid #06b6d4;
+  box-shadow: 0 8px 24px -4px rgba(6, 182, 212, 0.35);
+  transform: translateY(-2px);
+}
+
+.sim-btn-minimal .sim-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
   color: #2563eb;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: transform 0.2s;
+  transition: color 0.2s;
 }
 
-.sim-switcher-card:hover .sim-switcher-indicator {
-  transform: translateX(4px);
-}
-
-.sim-switcher-card.is-active .sim-switcher-indicator {
+.sim-btn-minimal.is-active .sim-icon {
   color: #06b6d4;
 }
 
