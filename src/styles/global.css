@@ -43,6 +43,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design system container enforcement */
+.container {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
 @keyframes scanLaserMove {
   0% { transform: translateY(-50px); opacity: 0.2; }
   50% { transform: translateY(0px); opacity: 1; }
