@@ -1,206 +1,211 @@
 /* ==========================================================================
-   SUPERNOVA MARKETING — BOOKING SIMULATION COMPONENT
+   SUPERNOVA DESIGN SYSTEM — BOOKING SIMULATION STYLES
+   Payment modal, multi-platform synchronized state & tickets
    ========================================================================== */
 
-.sim-category-bar {
-  margin-bottom: 18px;
-}
-
-.sim-label-inline {
-  display: block;
-  font: 700 11px ui-monospace, Consolas, monospace;
-  color: var(--muted, #475569);
-  margin-bottom: 8px;
-  letter-spacing: 0.04em;
-}
-
-.biz-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.biz-chip {
-  padding: 7px 14px;
+/* Payment Checkout Modal */
+.sim-checkout-modal {
+  position: relative;
   background: #ffffff;
-  border: 1.5px solid var(--line, #e2e8f0);
-  border-radius: var(--radius-full, 9999px);
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--ink-2, #1e293b);
-  cursor: pointer;
-  transition: all var(--dur, 0.35s) var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+  border: 1.5px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+  padding: 24px;
+  max-width: 440px;
+  margin: 0 auto;
 }
 
-.biz-chip:hover {
-  border-color: var(--bright, #2563eb);
-  color: var(--bright, #2563eb);
+@media (min-width: 640px) {
+  .sim-checkout-modal {
+    padding: 30px;
+  }
 }
 
-.biz-chip.is-active {
-  background: #1e293b;
-  color: #ffffff;
-  border-color: #1e293b;
-  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.2);
-}
-
-.interactive-simulator-card,
-.sim-compact-card {
-  background: #ffffff;
-  border: 1.5px solid #cbd5e1;
-  border-radius: var(--radius, 14px);
-  padding: 18px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+.sim-checkout-header {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.sim-field-compact label,
-.sim-field label {
-  display: block;
-  font: 600 11.5px ui-monospace, Consolas, monospace;
-  color: var(--muted, #475569);
-  margin-bottom: 6px;
+.sim-badge-secure {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9999px;
 }
 
-.sim-select,
-.sim-input {
-  width: 100%;
-  padding: 9px 12px;
+.sim-summary-box {
   background: #f8fafc;
-  border: 1.5px solid var(--line, #e2e8f0);
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink, #0a1120);
-  outline: none;
-  transition: border-color var(--dur, 0.35s);
-}
-
-.sim-select:focus,
-.sim-input:focus {
-  border-color: var(--bright, #2563eb);
-  background: #ffffff;
-}
-
-.sim-row-compact {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.sim-row-compact--2col {
+.sim-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.sim-summary-row span:first-child {
+  color: #64748b;
+}
+
+.sim-summary-row span:last-child {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.sim-summary-total {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+.sim-summary-total span:last-child {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Payment Method Selectors */
+.sim-pay-method-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.sim-pay-method-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-pay-method-btn:hover {
+  border-color: #7c3aed;
+  background: #faf5ff;
+}
+
+.sim-pay-method-btn.is-active {
+  border-color: #7c3aed;
+  background: #f5f3ff;
+  color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+}
+
+.sim-btn-pay {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-btn-pay:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.45);
+}
+
+.sim-btn-pay:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* 3-Platform Synchronization Cards (Step 3) */
+.sim-sync-banner {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
 
-/* Time Slot Grid */
-.booking-slot-grid {
+.sim-sync-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
-  gap: 6px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.slot-btn {
-  padding: 8px 6px;
+@media (min-width: 640px) {
+  .sim-sync-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sim-sync-card {
   background: #ffffff;
-  border: 1.5px solid var(--line, #e2e8f0);
-  border-radius: 6px;
-  font: 600 11.5px ui-monospace, Consolas, monospace;
-  cursor: pointer;
-  color: var(--ink, #0a1120);
-  text-align: center;
-  transition: all var(--dur, 0.35s);
-}
-
-.slot-btn:hover:not([disabled]) {
-  border-color: var(--bright, #2563eb);
-  color: var(--bright, #2563eb);
-}
-
-.slot-btn--peak {
-  border-color: #fde68a;
-  background: #fffbeb;
-  color: #b45309;
-}
-
-.slot-btn.is-selected {
-  background: var(--bright, #2563eb);
-  border-color: var(--bright, #2563eb);
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
-}
-
-.slot-btn[disabled] {
-  background: #f1f5f9;
-  color: #94a3b8;
-  border-color: var(--line, #e2e8f0);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Addon Checklist */
-.addon-checklist {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.addon-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  background: #f8fafc;
-  border: 1px solid var(--line, #e2e8f0);
-  border-radius: 6px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background var(--dur, 0.35s);
-}
-
-.addon-chip:hover {
-  background: #eff6ff;
-}
-
-/* Booking Calc Summary */
-.booking-calc-summary {
-  background: #f8fafc;
-  border: 1.5px solid var(--line, #e2e8f0);
-  border-radius: 10px;
-  padding: 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
 }
 
-.calc-row {
+.sim-sync-card-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 12.5px;
-  color: var(--muted, #475569);
+  gap: 10px;
 }
 
-.calc-row--total {
-  border-top: 1px dashed var(--line, #e2e8f0);
-  padding-top: 8px;
-  margin-top: 4px;
-  font-size: 13.5px;
+.sim-sync-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.highlight-price {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--ink, #0a1120);
-}
-
-@media (max-width: 640px) {
-  .sim-row-compact--2col {
-    grid-template-columns: 1fr;
-  }
+.sim-sync-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  width: fit-content;
 }

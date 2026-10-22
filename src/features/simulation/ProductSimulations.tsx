@@ -15,45 +15,42 @@ export function ProductSimulations() {
   };
 
   return (
-    <div className="relative mx-auto max-w-6xl">
-      {/* Section Header — Exactly mirrored from reference */}
+    <div className="sim-root relative mx-auto max-w-6xl">
+      {/* Section Header with Supernova Vibrant Shimmer */}
       <div className="text-center mb-10">
-        <span className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-electric-cyan">
+        <span className="mb-3 inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#06B6D4] bg-[#ECFEFF] px-3 py-1 rounded-full border border-[#CFFAFE]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4] animate-ping" />
           Lihat Langsung
         </span>
-        <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl md:text-5xl">
+        <h2 className="text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl">
           Simulasi Produk{' '}
-          <span className="bg-clip-text text-transparent bg-[linear-gradient(110deg,#0F172A_35%,#06B6D4_50%,#0F172A_65%)] bg-[length:250%_100%] animate-shimmer">
+          <span className="sim-text-shimmer">
             Real-Time
           </span>
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-slate-soft text-sm sm:text-base">
+        <p className="mx-auto mt-4 max-w-xl text-[#64748B] text-sm sm:text-base leading-relaxed">
           Bukan mockup. Ini simulasi fungsional dari sistem yang akan Anda miliki — klik, scan, dan rasakan alurnya.
         </p>
       </div>
 
-      {/* Tab Switcher */}
-      <div className="mb-10 flex flex-wrap justify-center gap-2">
-        {PRODUCT_TABS.map((tab, i) => {
-          const isActive = activeTab === i;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActiveTab(i)}
-              className={`group relative rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 cursor-pointer ${
-                isActive
-                  ? 'bg-navy text-white shadow-lg shadow-navy/20 scale-105'
-                  : 'text-slate-soft hover:text-navy hover:bg-slate-100/80'
-              }`}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                {getTabIcon(tab.icon)}
-                {tab.label}
-              </span>
-            </button>
-          );
-        })}
+      {/* Tab Switcher Pills Container */}
+      <div className="mb-10 flex justify-center">
+        <div className="sim-tabs-container">
+          {PRODUCT_TABS.map((tab, i) => {
+            const isActive = activeTab === i;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(i)}
+                className={`sim-tab-btn ${isActive ? 'is-active' : ''}`}
+              >
+                <span className="sim-tab-icon">{getTabIcon(tab.icon)}</span>
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Active Simulation Viewport */}
@@ -64,7 +61,7 @@ export function ProductSimulations() {
       </div>
 
       {/* Footer Direct CTA to Full App */}
-      <div className="mt-8 text-center flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-slate-500">
+      <div className="mt-10 text-center flex flex-col sm:flex-row items-center justify-center gap-3 text-xs sm:text-sm text-[#64748B]">
         <span>Ingin menggunakan database &amp; branding nama bisnis Anda sendiri?</span>
         <a
           href={
@@ -74,7 +71,7 @@ export function ProductSimulations() {
               ? '/layanan/pos-erp'
               : '/layanan/qr-resto'
           }
-          className="inline-flex items-center gap-1.5 font-bold text-electric-cyan hover:underline hover:text-navy transition-colors"
+          className="inline-flex items-center gap-1.5 font-bold text-[#2563EB] hover:text-[#06B6D4] transition-colors bg-[#EFF6FF] px-3.5 py-1.5 rounded-full border border-[#DBEAFE] hover:border-[#93C5FD]"
         >
           <span>🚀 Buka Layanan Sistem (Aktif 30 Hari Penuh)</span>
           <span>→</span>

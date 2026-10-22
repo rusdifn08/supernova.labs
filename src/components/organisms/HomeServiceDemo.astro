@@ -2,8 +2,12 @@
 import { ProductSimulations } from '../../features/simulation/ProductSimulations';
 ---
 
-<section class="section section--paper section--demo py-20 relative overflow-hidden" id="demo">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<section class="section section--demo relative overflow-hidden py-24 bg-gradient-to-b from-[#F8FAFC] via-[#F5F3FF] to-[#F8FAFC]" id="demo">
+  {/* Subtle ambient brand glows matching Supernova Labs design system */}
+  <div class="absolute -top-24 right-[8%] w-96 h-96 rounded-full bg-[#06B6D4]/15 blur-3xl pointer-events-none" aria-hidden="true" />
+  <div class="absolute -bottom-24 left-[8%] w-96 h-96 rounded-full bg-[#7C3AED]/15 blur-3xl pointer-events-none" aria-hidden="true" />
+
+  <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <ProductSimulations client:load />
   </div>
 </section>

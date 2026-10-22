@@ -1,517 +1,327 @@
 /* ==========================================================================
-   SUPERNOVA MARKETING — COMPACT ANIMATED SERVICE SIMULATION STAGE
-   Senior-level interactive workflow simulator for 3 digital solutions
+   SUPERNOVA DESIGN SYSTEM — REAL-TIME PRODUCT SIMULATION STAGE
+   Strict adherence to brand color palette & senior UI/UX design tokens
    ========================================================================== */
 
-.demo-experience--compact {
-  background: var(--surface, #ffffff);
-  border: 1px solid var(--line, #e2e8f0);
-  border-radius: 18px;
-  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.06);
-  overflow: hidden;
-}
-
-/* Tab bar header */
-.demo-tabs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: #f1f5f9;
-  border-bottom: 1px solid var(--line, #e2e8f0);
-  padding: 6px;
-  gap: 6px;
-}
-
-.demo-tab {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 12px;
+/* Base Reset within simulation viewport */
+.sim-root button {
+  appearance: none;
+  -webkit-appearance: none;
+  border-style: solid;
+  border-width: 0;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
   cursor: pointer;
-  text-align: left;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.demo-tab:hover {
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.demo-tab.is-active {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
-}
-
-.demo-tab__icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: #eff6ff;
-  color: var(--bright, #2563eb);
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  transition: all 0.25s;
-}
-
-.demo-tab.is-active .demo-tab__icon {
-  background: var(--bright, #2563eb);
-  color: #ffffff;
-}
-
-.demo-tab__label {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.demo-tab__label strong {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink, #0a1120);
-  line-height: 1.2;
-}
-
-.demo-tab__label small {
-  font-size: 11px;
-  color: var(--muted, #475569);
-  white-space: nowrap;
+/* Outer Glass Card Container */
+.sim-glass-card {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1.5px solid rgba(226, 232, 240, 0.9);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.03);
   overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Panel Body */
-.sim-panel {
-  display: none;
   padding: 24px;
 }
 
-.sim-panel.is-active {
-  display: block;
-  animation: simFade 0.3s ease forwards;
+@media (min-width: 640px) {
+  .sim-glass-card {
+    padding: 32px;
+  }
 }
 
-@keyframes simFade {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Top decorative brand gradient accent bar */
+.sim-card-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb 0%, #06b6d4 50%, #7c3aed 100%);
 }
 
-/* Simulator Sub-header */
-.sim-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 14px;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
-  flex-wrap: wrap;
-}
-
-.sim-title-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sim-eyebrow {
-  font: 700 10.5px ui-monospace, Consolas, monospace;
-  color: var(--bright, #2563eb);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.sim-live-badge {
+/* Tab Switcher Pills Container */
+.sim-tabs-container {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 5px;
-  font: 600 10px ui-monospace, Consolas, monospace;
-  color: #059669;
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  padding: 2px 8px;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
   border-radius: 9999px;
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
 }
 
-.sim-live-pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #10b981;
-  animation: pulseDot 1.5s infinite;
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.3); }
-}
-
-/* Step Navigation Pills */
-.sim-step-pills {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #f8fafc;
-  padding: 3px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-}
-
-.sim-step-pill {
-  padding: 4px 10px;
-  border-radius: 7px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #64748b;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.sim-step-pill.is-active {
-  background: #ffffff;
-  color: var(--bright, #2563eb);
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
-}
-
-.sim-step-pill__num {
-  font-family: ui-monospace, Consolas, monospace;
-  font-size: 10px;
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  background: #e2e8f0;
-  color: #475569;
-  display: inline-grid;
-  place-items: center;
-}
-
-.sim-step-pill.is-active .sim-step-pill__num {
-  background: var(--bright, #2563eb);
-  color: #ffffff;
-}
-
-/* 2-Column Grid */
-.sim-grid {
-  display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.25fr);
-  gap: 20px;
-  align-items: stretch;
-}
-
-/* Left column: Context, switcher chips, metrics, CTA */
-.sim-sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.sim-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.sim-chip {
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  background: #f1f5f9;
-  color: #475569;
-  border: 1px solid #e2e8f0;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.sim-chip:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-}
-
-.sim-chip.is-active {
-  background: #eff6ff;
-  color: var(--bright, #2563eb);
-  border-color: #bfdbfe;
-}
-
-/* Workflow explanation box */
-.sim-workflow-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.sim-step-info-title {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #0f172a;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.sim-step-info-desc {
-  font-size: 11.5px;
-  color: #475569;
-  line-height: 1.45;
-}
-
-/* Key Metrics Rows */
-.sim-metrics-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.sim-metric-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
-}
-
-.sim-metric-label {
-  color: #64748b;
-}
-
-.sim-metric-val {
-  font-family: ui-monospace, Consolas, monospace;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-/* CTA link */
-.sim-cta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding-top: 4px;
-}
-
-.sim-cta-link {
+.sim-tab-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748b;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.sim-tab-btn:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+.sim-tab-btn.is-active {
+  background: #0f172a;
+  color: #ffffff;
   font-weight: 700;
-  color: var(--bright, #2563eb);
-  transition: all 0.2s;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+  transform: scale(1.02);
 }
 
-.sim-cta-link:hover {
-  text-decoration: underline;
-  transform: translateX(2px);
+.sim-tab-btn.is-active .sim-tab-icon {
+  color: #06b6d4;
 }
 
-/* Right Column: Visual Stage (Compact & Animated) */
-.sim-stage {
-  position: relative;
-  min-height: 290px;
-  max-height: 330px;
-  height: 100%;
-  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 14px;
-  border: 1px solid #334155;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 8px 20px -6px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+/* Stepper Header */
+.sim-stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sim-stepper-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #94a3b8;
+  border: 1.5px solid #e2e8f0;
+  transition: all 0.3s;
 }
 
-/* Subtle background grid pattern on stage */
-.sim-stage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 16px 16px;
-  pointer-events: none;
+.sim-stepper-circle.is-active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.25), 0 4px 12px rgba(15, 23, 42, 0.2);
 }
 
-/* Scene Frames */
-.sim-scene {
+.sim-stepper-circle.is-completed {
+  background: #0f172a;
+  color: #06b6d4;
+  border-color: #0f172a;
+}
+
+.sim-stepper-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.02em;
+}
+
+.sim-stepper-label.is-active {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.sim-stepper-line {
+  position: relative;
+  height: 3px;
+  flex: 1;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  margin: 0 8px;
+  overflow: hidden;
+}
+
+.sim-stepper-line-fill {
   position: absolute;
-  inset: 14px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #06b6d4, #2563eb);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+/* Studio Selection Cards (Step 0) */
+.sim-studio-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.97) translateY(8px);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
 }
 
-.sim-scene.is-active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1) translateY(0);
+.sim-studio-card:hover {
+  transform: translateY(-6px);
+  border-color: #06b6d4;
+  box-shadow: 0 16px 36px -10px rgba(6, 182, 212, 0.25), 0 4px 12px rgba(15, 23, 42, 0.04);
 }
 
-/* Stage Header Bar */
-.stage-bar {
+.sim-studio-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 8px;
-  font-size: 10px;
-  font-family: ui-monospace, Consolas, monospace;
-  color: #94a3b8;
-  letter-spacing: 0.06em;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.2);
+  transition: transform 0.25s;
 }
 
-.stage-badge-neon {
-  background: rgba(37, 99, 235, 0.25);
-  border: 1px solid rgba(96, 165, 250, 0.4);
-  color: #93c5fd;
-  padding: 2px 7px;
-  border-radius: 4px;
+.sim-studio-card:hover .sim-studio-icon-box {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%);
+}
+
+.sim-price-badge {
+  display: inline-block;
+  background: #ecfeff;
+  color: #0891b2;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid #cffafe;
+}
+
+/* Time Slot Buttons */
+.sim-time-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
   font-weight: 600;
+  font-size: 13.5px;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
-/* Stage Inner Content Card */
-.stage-card {
-  background: rgba(255, 255, 255, 0.98);
-  border-radius: 10px;
-  padding: 12px 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.sim-time-slot:hover {
+  border-color: #06b6d4;
+  background: #f0fdfa;
+}
+
+.sim-time-slot.is-selected {
+  background: #06b6d4;
+  color: #ffffff;
+  border-color: #06b6d4;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(6, 182, 212, 0.35);
+}
+
+/* Package Cards */
+.sim-package-card {
+  border-radius: 18px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-package-card:hover {
+  border-color: #0f172a;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.sim-package-card.is-selected {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+}
+
+.sim-package-card.is-selected .sim-package-dur {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sim-package-card.is-selected .sim-package-price {
+  color: #06b6d4;
+}
+
+/* Primary Dark Action Button */
+.sim-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid #334155;
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.35);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.45);
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* Secondary Ghost Action Button */
+.sim-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 12.5px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.sim-btn-secondary:hover {
   color: #0f172a;
 }
 
-/* Interactive elements inside stage */
-.stage-slot-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  margin-top: 8px;
+/* Shimmer Text */
+.sim-text-shimmer {
+  background: linear-gradient(110deg, #0f172a 35%, #06b6d4 50%, #7c3aed 65%, #0f172a 85%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: simShimmer 4s linear infinite;
 }
 
-.stage-slot {
-  display: flex;
-  flex-direction: column;
-  padding: 6px 8px;
-  border-radius: 6px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  font-size: 10.5px;
-  transition: all 0.2s;
-}
-
-.stage-slot.is-selected {
-  background: #eff6ff;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 1.5px #2563eb;
-  animation: slotPulse 1.8s infinite;
-}
-
-@keyframes slotPulse {
-  0%, 100% { box-shadow: 0 0 0 1.5px #2563eb; }
-  50% { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35); }
-}
-
-.stage-slot.is-booked {
-  background: #f1f5f9;
-  border-color: #e2e8f0;
-  color: #94a3b8;
-  opacity: 0.6;
-}
-
-/* Verified Badge in Stage */
-.stage-verified-pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #ecfdf5;
-  border: 1px solid #6ee7b7;
-  color: #047857;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-/* WhatsApp notification pop-in */
-.stage-wa-toast {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #ffffff;
-  border: 1px solid #25d366;
-  border-left: 4px solid #25d366;
-  padding: 8px 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  animation: toastDrop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes toastDrop {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.stage-wa-text {
-  font-size: 10.5px;
-  line-height: 1.35;
-  color: #1e293b;
-}
-
-/* POS & Resto Stage Elements */
-.pos-sim-products {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-}
-
-.pos-sim-prod {
-  padding: 6px 8px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  font-size: 10.5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.2s;
-}
-
-.pos-sim-prod.is-tapped {
-  background: #eff6ff;
-  border-color: #2563eb;
-  transform: scale(0.98);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .demo-tabs {
-    grid-template-columns: 1fr;
-  }
-  .sim-panel {
-    padding: 16px;
-  }
-  .sim-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .sim-stage {
-    min-height: 270px;
-  }
+@keyframes simShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
