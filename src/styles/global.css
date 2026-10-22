@@ -29,6 +29,7 @@
 
 /* Interactive Service Simulations */
 @import './marketing/demo/demo-tabs.css';
+@import './marketing/demo/simulations.css';
 @import './marketing/demo/booking-sim.css';
 @import './marketing/demo/booking-ticket.css';
 @import './marketing/demo/pos-sim.css';

@@ -1,239 +1,104 @@
+/**
+ * SUPERNOVA MARKETING — RESTO & KDS ANIMATED SIMULATOR
+ * Clean, lightweight, senior-level interactive workflow simulator
+ */
+
+interface TableConfig {
+  name: string;
+}
+
+const TABLE_DATA: Record<string, TableConfig> = {
+  '02': { name: 'MEJA 02 (INDOOR)' },
+  '04': { name: 'MEJA 04 (TERRACE)' },
+  '08': { name: 'MEJA 08 (VIP)' },
+};
+
+const STEP_DATA = [
+  {
+    title: '1. Pesan Mandiri dari Meja Makan',
+    desc: 'Tamu cukup men-scan stiker QR di atas meja. Menu digital berfoto HD langsung tampil tanpa instal aplikasi, pesanan langsung masuk sistem.',
+    metric: 'Menu Dipilih (2 Item)',
+  },
+  {
+    title: '2. Kalkulasi Split Bill Meja Otomatis',
+    desc: 'Tak perlu pelayan menghitung tagihan dengan kalkulator. Tamu dapat membagi rata tagihan dan membayar via QRIS mandiri.',
+    metric: 'Bagi Rata: Rp 34.833/org',
+  },
+  {
+    title: '3. Transmisi Instan ke Layar Dapur KDS',
+    desc: 'Pesanan terkirim ke monitor juru masak secara realtime dengan status otomatis (Sedang Dimasak ➔ Siap Antar).',
+    metric: 'Layar Dapur Terupdate',
+  },
+];
+
 export function initRestoSimulation(root: HTMLElement) {
-  interface RestoMenuItem {
-    id: string;
-    name: string;
-    category: 'main' | 'beverage' | 'appetizer';
-    price: number;
-    desc: string;
-  }
+  const panel = root.querySelector<HTMLElement>('#panel-qr');
+  if (!panel) return;
 
-  const restoCatalog: RestoMenuItem[] = [
-    { id: 'm1', name: 'Wagyu Beef Donburi Rice Bowl', category: 'main', price: 88000, desc: 'Daging Wagyu Meltique empuk, tare sauce gurih, onsen egg & daun bawang Jepang.' },
-    { id: 'm2', name: 'Crispy Chicken Nanban', category: 'main', price: 54000, desc: 'Ayam krispi juicy dibalut saus nanban asam manis dan tartar telur lezat.' },
-    { id: 'm3', name: 'Iced Peach Tea Yakult', category: 'beverage', price: 28000, desc: 'Teh harum berpadu Yakult dingin dan popping boba peach kenyal.' },
-    { id: 'm4', name: 'Truffle Parmesan Fries', category: 'appetizer', price: 36000, desc: 'Kentang goreng renyah bumbu truffle putih dan parmesan segar parut.' },
-  ];
+  const stepPills = panel.querySelectorAll<HTMLButtonElement>('[data-sim-stepper="resto"] button');
+  const scenes = panel.querySelectorAll<HTMLElement>('[data-sim-scene^="resto-"]');
+  const tableChips = panel.querySelectorAll<HTMLButtonElement>('#restoTableChips button');
 
-  interface RestoCartItem {
-    menu: RestoMenuItem;
-    quantity: number;
-    extraCost: number;
-  }
+  const titleEl = panel.querySelector<HTMLElement>('#restoStepTitle span');
+  const descEl = panel.querySelector<HTMLElement>('#restoStepDesc');
 
-  let tableCart: RestoCartItem[] = [
-    { menu: restoCatalog[0], quantity: 1, extraCost: 6000 },
-    { menu: restoCatalog[2], quantity: 1, extraCost: 0 },
-  ];
+  const tableBadgeEl = panel.querySelector<HTMLElement>('#restoStageTableBadge');
 
-  let currentRestoTable = '01';
-  let splitPersons = 3;
+  let currentStep = 1;
+  let autoTimer: number | null = null;
+  let isUserInteracted = false;
 
-  const formatIDR = (val: number) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      maximumFractionDigits: 0,
-    }).format(val);
+  const setStep = (step: number) => {
+    currentStep = step;
+
+    stepPills.forEach((btn) => {
+      const s = Number(btn.dataset.step);
+      btn.classList.toggle('is-active', s === step);
+    });
+
+    scenes.forEach((scene) => {
+      const s = Number(scene.dataset.simScene?.replace('resto-', ''));
+      scene.classList.toggle('is-active', s === step);
+    });
+
+    const info = STEP_DATA[step - 1];
+    if (info) {
+      if (titleEl) titleEl.textContent = info.title;
+      if (descEl) descEl.textContent = info.desc;
+    }
   };
 
-  const tableSelectorBtns = root.querySelectorAll<HTMLButtonElement>('#qrTableSelector .tbl-btn');
-  const restoMenuGrid = root.querySelector<HTMLElement>('#restoCardsGrid');
-  const tableCartContainer = root.querySelector<HTMLElement>('#tableCartItems');
-  const tableGrandTotalEl = root.querySelector<HTMLElement>('#tableGrandTotal');
-  const splitPriceDisplay = root.querySelector<HTMLElement>('#splitPriceDisplay');
-  const splitChips = root.querySelectorAll<HTMLButtonElement>('#splitPersonChips .p-chip');
+  const applyTableData = (tblKey: string) => {
+    const data = TABLE_DATA[tblKey] || TABLE_DATA['02'];
+    if (tableBadgeEl) tableBadgeEl.textContent = data.name;
+  };
 
-  const btnCallWaiter = root.querySelector<HTMLButtonElement>('#btnCallWaiter');
-  const btnRequestBill = root.querySelector<HTMLButtonElement>('#btnRequestBill');
-  const waiterAlertToast = root.querySelector<HTMLElement>('#waiterAlertToast');
-  const btnSendKitchen = root.querySelector<HTMLButtonElement>('#btnSendOrderKitchen');
-  const kdsItemsList01 = root.querySelector<HTMLElement>('#kdsItemsList01');
-  const kdsWorkflowState01 = root.querySelector<HTMLElement>('#kdsWorkflowState01');
-  const btnAdvanceKds01 = root.querySelector<HTMLButtonElement>('#btnAdvanceKds01');
-
-  tableSelectorBtns.forEach((btn) => {
+  stepPills.forEach((btn) => {
     btn.addEventListener('click', () => {
-      tableSelectorBtns.forEach((b) => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      currentRestoTable = btn.dataset.tbl || '01';
+      isUserInteracted = true;
+      const step = Number(btn.dataset.step) || 1;
+      setStep(step);
     });
   });
 
-  const renderRestoMenu = () => {
-    if (!restoMenuGrid) return;
-    restoMenuGrid.innerHTML = restoCatalog
-      .map(
-        (m) => `
-        <div class="resto-food-card">
-          <div class="food-meta">
-            <strong>${m.name}</strong>
-            <p>${m.desc}</p>
-            <span class="food-price">${formatIDR(m.price)}</span>
-          </div>
-          <button type="button" class="btn-order-food" data-id="${m.id}">
-            + Tambah
-          </button>
-        </div>
-      `
-      )
-      .join('');
-
-    restoMenuGrid.querySelectorAll<HTMLButtonElement>('.btn-order-food').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        const item = restoCatalog.find((m) => m.id === id);
-        if (item) {
-          tableCart.push({ menu: item, quantity: 1, extraCost: 0 });
-          renderTableCart();
-        }
-      });
-    });
-  };
-
-  const calculateTableTotals = () => {
-    let subtotal = 0;
-    tableCart.forEach((item) => {
-      subtotal += (item.menu.price + item.extraCost) * item.quantity;
-    });
-
-    const tax = Math.round(subtotal * 0.1);
-    const grandTotal = subtotal + tax;
-
-    if (tableGrandTotalEl) tableGrandTotalEl.textContent = formatIDR(grandTotal);
-
-    const perPerson = Math.round(grandTotal / splitPersons);
-    if (splitPriceDisplay) {
-      splitPriceDisplay.textContent = `${formatIDR(perPerson)} / orang (${splitPersons} Orang)`;
-    }
-  };
-
-  const renderTableCart = () => {
-    if (!tableCartContainer) return;
-    if (tableCart.length === 0) {
-      tableCartContainer.innerHTML = `<div class="cart-empty-text">Belum ada makanan dipilih di meja ini.</div>`;
-    } else {
-      tableCartContainer.innerHTML = tableCart
-        .map((item, idx) => {
-          const lineTotal = (item.menu.price + item.extraCost) * item.quantity;
-          return `
-          <div class="table-cart-item">
-            <div class="item-desc">
-              <strong>${item.quantity}x ${item.menu.name}</strong>
-            </div>
-            <div class="item-act">
-              <span class="price-val">${formatIDR(lineTotal)}</span>
-              <button type="button" class="btn-del-table-item" data-idx="${idx}">✕</button>
-            </div>
-          </div>
-        `;
-        })
-        .join('');
-
-      tableCartContainer.querySelectorAll<HTMLButtonElement>('.btn-del-table-item').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const idx = parseInt(btn.dataset.idx || '0', 10);
-          tableCart.splice(idx, 1);
-          renderTableCart();
-        });
-      });
-    }
-
-    calculateTableTotals();
-  };
-
-  splitChips.forEach((chip) => {
+  tableChips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      splitChips.forEach((c) => c.classList.remove('is-active'));
+      tableChips.forEach((c) => c.classList.remove('is-active'));
       chip.classList.add('is-active');
-      splitPersons = parseInt(chip.dataset.person || '3', 10);
-      calculateTableTotals();
+      const tblKey = chip.dataset.tbl || '02';
+      applyTableData(tblKey);
     });
   });
 
-  btnCallWaiter?.addEventListener('click', () => {
-    if (waiterAlertToast) {
-      waiterAlertToast.innerHTML = `🔔 <strong>Pelayan Meja ${currentRestoTable} Diberitahu!</strong> Waiter sedang menuju ke meja Anda.`;
-      waiterAlertToast.classList.remove('is-hidden');
-      setTimeout(() => waiterAlertToast.classList.add('is-hidden'), 4000);
-    }
-  });
-
-  btnRequestBill?.addEventListener('click', () => {
-    if (waiterAlertToast) {
-      waiterAlertToast.innerHTML = `🧾 <strong>Permintaan Bill Dikirim!</strong> Kasir sedang menyiapkan struk Meja ${currentRestoTable}.`;
-      waiterAlertToast.classList.remove('is-hidden');
-      setTimeout(() => waiterAlertToast.classList.add('is-hidden'), 4000);
-    }
-  });
-
-  btnSendKitchen?.addEventListener('click', () => {
-    if (tableCart.length === 0) {
-      alert('Pilih menu makanan terlebih dahulu sebelum mengirim ke dapur.');
-      return;
-    }
-
-    if (kdsItemsList01) {
-      kdsItemsList01.innerHTML = tableCart
-        .map(
-          (item) => `
-          <div class="kds-food-row">
-            <strong class="qty">${item.quantity}x</strong>
-            <div class="food-details">
-              <span class="food-name">${item.menu.name}</span>
-            </div>
-          </div>
-        `
-        )
-        .join('');
-    }
-
-    if (kdsWorkflowState01) {
-      kdsWorkflowState01.textContent = '1. TIKET DITERIMA (BARU)';
-      kdsWorkflowState01.className = 'text-warning';
-    }
-
-    if (btnAdvanceKds01) {
-      btnAdvanceKds01.textContent = '▶ Mulai Memasak (Chef)';
-      btnAdvanceKds01.style.background = '#2563eb';
-    }
-
-    alert(`✓ Pesanan Meja ${currentRestoTable} Berhasil Terkirim ke Dapur!`);
-  });
-
-  let kdsStep = 1;
-  btnAdvanceKds01?.addEventListener('click', () => {
-    kdsStep++;
-    if (kdsStep === 2) {
-      if (kdsWorkflowState01) {
-        kdsWorkflowState01.textContent = '2. SEDANG DIMASAK (COOKING)';
-        kdsWorkflowState01.className = 'text-blue';
+  const startCycle = () => {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = window.setInterval(() => {
+      if (panel.classList.contains('is-active') && !isUserInteracted) {
+        const next = currentStep >= 3 ? 1 : currentStep + 1;
+        setStep(next);
       }
-      if (btnAdvanceKds01) {
-        btnAdvanceKds01.textContent = '✓ Makanan Matang (Siap Saji)';
-        btnAdvanceKds01.style.background = '#059669';
-      }
-    } else if (kdsStep === 3) {
-      if (kdsWorkflowState01) {
-        kdsWorkflowState01.textContent = '3. SIAP DISAJIKAN KE MEJA';
-        kdsWorkflowState01.className = 'text-success';
-      }
-      if (btnAdvanceKds01) {
-        btnAdvanceKds01.textContent = '✅ Selesai Diantar ke Tamu';
-        btnAdvanceKds01.style.background = '#475569';
-      }
-    } else {
-      kdsStep = 1;
-      if (kdsWorkflowState01) {
-        kdsWorkflowState01.textContent = 'TIKET SELESAI (ARCHIVED)';
-        kdsWorkflowState01.className = 'text-muted';
-      }
-      if (btnAdvanceKds01) {
-        btnAdvanceKds01.textContent = '↺ Reset Tiket Demo';
-        btnAdvanceKds01.style.background = '#1e293b';
-      }
-    }
-  });
+    }, 3500);
+  };
 
-  renderRestoMenu();
-  renderTableCart();
+  startCycle();
 }

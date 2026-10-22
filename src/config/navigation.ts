@@ -35,12 +35,6 @@ export const navigation: NavItem[] = [
         desc: 'Dine-In Resto, Split Bill & Kitchen KDS Realtime (Aktif 1 Bulan)',
         href: '/layanan/qr-resto',
         badge: '30 Hari Aktif'
-      },
-      {
-        title: 'Simulasi Cepat (Landing Page)',
-        desc: 'Preview kalkulasi & alur interaktif langsung di halaman utama',
-        href: '/#demo',
-        badge: 'Preview'
       }
     ]
   },

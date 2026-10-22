@@ -1,116 +1,179 @@
+---
+import Icon from '../../atoms/Icon.astro';
+---
+
 <div
-  class="demo-panel"
+  class="sim-panel"
   id="panel-qr"
   role="tabpanel"
   aria-labelledby="tab-qr"
   data-demo-panel="qr"
 >
-  <div class="demo-panel__grid demo-panel__grid--compact">
-    <!-- Left Column: Compact Guest Mobile Ordering -->
-    <div class="demo-panel__info">
-      <div class="sim-panel-header">
-        <span class="panel-eyebrow">SIMULASI CEPAT · MEJA TAMU RESTO</span>
-        <span class="sim-badge-mode">Dine-in QRIS</span>
+  <!-- Simulation Header Bar -->
+  <div class="sim-topbar">
+    <div class="sim-title-group">
+      <span class="sim-eyebrow">Simulasi Alur · Ordering In Table &amp; KDS</span>
+      <span class="sim-live-badge"><span class="sim-live-pulse"></span> Auto Simulasi</span>
+    </div>
+
+    <!-- Interactive Step Buttons -->
+    <div class="sim-step-pills" data-sim-stepper="resto">
+      <button type="button" class="sim-step-pill is-active" data-step="1">
+        <span class="sim-step-pill__num">1</span>
+        <span>Scan QR Meja</span>
+      </button>
+      <button type="button" class="sim-step-pill" data-step="2">
+        <span class="sim-step-pill__num">2</span>
+        <span>Split Bill Meja</span>
+      </button>
+      <button type="button" class="sim-step-pill" data-step="3">
+        <span class="sim-step-pill__num">3</span>
+        <span>Layar Dapur KDS</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2-Column Compact Sandbox -->
+  <div class="sim-grid">
+    <!-- Left Column: Context & Metrics -->
+    <div class="sim-sidebar">
+      <!-- Table Chips -->
+      <div class="sim-chips" id="restoTableChips">
+        <button type="button" class="sim-chip is-active" data-tbl="02">📍 Meja 02 (Indoor)</button>
+        <button type="button" class="sim-chip" data-tbl="04">📍 Meja 04 (Terrace)</button>
+        <button type="button" class="sim-chip" data-tbl="08">📍 Meja 08 (VIP)</button>
       </div>
 
-      <!-- Table switcher chips -->
-      <div class="table-badges" id="qrTableSelector">
-        <button type="button" class="tbl-btn is-active" data-tbl="01" data-section="Indoor AC" data-cap="4">Meja 01 (Indoor)</button>
-        <button type="button" class="tbl-btn" data-tbl="05" data-section="Outdoor Terrace" data-cap="4">Meja 05 (Outdoor)</button>
-        <button type="button" class="tbl-btn" data-tbl="08" data-section="VIP Room" data-cap="8">Meja 08 (VIP)</button>
+      <!-- Active Step Info Card -->
+      <div class="sim-workflow-card">
+        <div class="sim-step-info-title" id="restoStepTitle">
+          <Icon name="check" size={14} />
+          <span>1. Pesan Mandiri dari Meja Makan</span>
+        </div>
+        <p class="sim-step-info-desc" id="restoStepDesc">
+          Tamu cukup men-scan stiker QR di atas meja. Menu digital berfoto HD langsung tampil tanpa instal aplikasi, pesanan langsung masuk sistem.
+        </p>
       </div>
 
-      <div class="sim-compact-card">
-        <!-- Action buttons -->
-        <div class="mobile-app-header mobile-app-header--compact">
-          <span class="table-status-pill" id="mobileTablePill">📍 Meja 01 (Indoor)</span>
-          <div class="mobile-quick-actions">
-            <button type="button" class="btn-waiter-call" id="btnCallWaiter">🔔 Panggil Waiter</button>
-            <button type="button" class="btn-bill-request" id="btnRequestBill">🧾 Minta Bill</button>
-          </div>
+      <!-- Realtime Metrics -->
+      <div class="sim-metrics-box">
+        <div class="sim-metric-row">
+          <span class="sim-metric-label">Beban Waiter / Kasir</span>
+          <span class="sim-metric-val text-blue">Turun 70%</span>
         </div>
-
-        <div class="waiter-alert-toast is-hidden" id="waiterAlertToast"></div>
-
-        <!-- Compact Resto Menu List -->
-        <div class="resto-cards-grid resto-cards-grid--compact" id="restoCardsGrid">
-          <!-- Dynamically populated -->
+        <div class="sim-metric-row">
+          <span class="sim-metric-label">Fitur Split Bill</span>
+          <span class="sim-metric-val text-success">Hitung Rata Otomatis</span>
         </div>
-
-        <!-- Split Bill & Total Bar -->
-        <div class="split-bill-card split-bill-card--compact">
-          <div class="split-controls">
-            <div class="split-selector">
-              <span>Bagi Tagihan (Split Bill):</span>
-              <div class="person-chips" id="splitPersonChips">
-                <button type="button" class="p-chip" data-person="2">2 Org</button>
-                <button type="button" class="p-chip is-active" data-person="3">3 Org</button>
-                <button type="button" class="p-chip" data-person="4">4 Org</button>
-              </div>
-            </div>
-            <div class="split-result">
-              <strong class="text-blue" id="splitPriceDisplay">Rp 38.500 / org</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="calc-bar-compact">
-          <div>
-            <span class="calc-label">Total Meja (PB1 10%):</span>
-            <strong class="highlight-price" id="tableGrandTotal">Rp 115.500</strong>
-          </div>
-          <button type="button" class="btn btn--primary btn--sm" id="btnSendOrderKitchen">
-            <span>🍳 Kirim ke Dapur</span>
-          </button>
+        <div class="sim-metric-row">
+          <span class="sim-metric-label">Transmisi ke KDS</span>
+          <span class="sim-metric-val">Realtime (&lt; 1 Detik)</span>
         </div>
       </div>
 
-      <!-- Link to Dedicated Real Service Dashboard -->
-      <div class="real-trial-callout">
-        <div class="callout-text">
-          <strong>🍲 Butuh sistem QR Meja &amp; KDS untuk resto Anda?</strong>
-          <span>Atur menu foto HD, stiker QR meja kustom, &amp; layar dapur live.</span>
-        </div>
-        <a class="btn btn--outline btn--sm" href="/layanan/qr-resto">Buka Layanan QR Resto (Aktif 1 Bulan) →</a>
+      <!-- Link to real system -->
+      <div class="sim-cta-row">
+        <span class="text-xs text-slate-500">Butuh untuk resto riil Anda?</span>
+        <a href="/layanan/qr-resto" class="sim-cta-link">
+          <span>Buka Aplikasi Penuh (30 Hari Aktif)</span>
+          <Icon name="arrow" size={12} />
+        </a>
       </div>
     </div>
 
-    <!-- Right Column: Compact Kitchen Display System (KDS) -->
-    <div class="demo-panel__visual">
-      <div class="kds-monitor-wrapper kds-monitor-wrapper--compact">
-        <div class="kds-monitor-bezel">
-          <div class="kds-topbar">
-            <div class="kds-station-badge">
-              <span class="pulse-dot"></span>
-              <span>KDS MONITOR // DAPUR UTAMA</span>
-            </div>
-            <strong id="kdsClock">14:22:05</strong>
+    <!-- Right Column: Animated Simulation Stage -->
+    <div class="sim-stage" id="restoSimStage">
+      <!-- Stage Top Bar -->
+      <div class="stage-bar" style="position: absolute; top: 12px; left: 14px; right: 14px;">
+        <span>DINE-IN QR // REALTIME KITCHEN DISPLAY</span>
+        <span class="stage-badge-neon" id="restoStageTableBadge">MEJA 02 (INDOOR)</span>
+      </div>
+
+      <!-- SCENE 1: Guest Mobile View & Menu Selection -->
+      <div class="sim-scene is-active" data-sim-scene="resto-1" style="padding-top: 32px;">
+        <div class="stage-card">
+          <div class="flex items-center justify-between text-xs font-semibold text-slate-700 mb-2">
+            <span>Tampilan Smartphone Tamu</span>
+            <span class="text-[10px] text-emerald-600 font-mono">Status: Memilih Menu</span>
           </div>
-
-          <div class="kds-tickets-container kds-tickets-container--compact">
-            <div class="kds-ticket-card is-new" id="kdsTicket01">
-              <div class="ticket-top">
-                <div class="tbl-flag">MEJA 01 (INDOOR)</div>
-                <div class="ticket-timer" id="kdsTimer01">⏱️ Baru Saja</div>
-              </div>
-
-              <div class="kds-items-list" id="kdsItemsList01">
-                <!-- Populated by script -->
-              </div>
-
-              <div class="kds-workflow-footer">
-                <div class="workflow-status-label">
-                  Status: <strong class="text-warning" id="kdsWorkflowState01">1. TIKET DITERIMA</strong>
-                </div>
-                <button type="button" class="btn-kds-advance btn-kds-advance--sm" id="btnAdvanceKds01">
-                  ▶ Mulai Masak (Chef)
-                </button>
-              </div>
+          <div class="pos-sim-products">
+            <div class="pos-sim-prod is-tapped">
+              <span>🍛 Wagyu Rice Bowl</span>
+              <strong class="text-blue font-mono">Rp 65k</strong>
+            </div>
+            <div class="pos-sim-prod is-tapped">
+              <span>🍵 Matcha Ice Latte</span>
+              <strong class="text-blue font-mono">Rp 30k</strong>
             </div>
           </div>
+          <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Pesanan Masuk (2 Porsi):</span>
+            <strong class="text-slate-900 text-sm font-mono">Rp 95.000</strong>
+          </div>
+        </div>
 
-          <div class="kds-alert-banner" id="kdsAlertBanner">
-            <span id="kdsAlertMessage">Dapur berjalan normal. Siap menerima pesanan meja.</span>
+        <div class="stage-verified-pill mt-3">
+          <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          <span class="text-xs">QR Meja terverifikasi. Tamu tidak perlu memanggil pelayan untuk memesan.</span>
+        </div>
+      </div>
+
+      <!-- SCENE 2: Instant Split Bill Breakdown -->
+      <div class="sim-scene" data-sim-scene="resto-2" style="padding-top: 32px;">
+        <div class="stage-card">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100 text-xs">
+            <span class="font-semibold text-slate-700">Kalkulasi Split Bill Otomatis</span>
+            <span class="text-[10px] bg-blue-50 text-blue px-2 py-0.5 rounded font-mono">3 Orang</span>
+          </div>
+          <div class="py-2 grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2 rounded bg-slate-50">
+              <span class="text-[10px] text-slate-500 block">Total Meja (+PB1 10%)</span>
+              <strong class="text-slate-800 text-sm font-mono">Rp 104.500</strong>
+            </div>
+            <div class="p-2 rounded bg-emerald-50 border border-emerald-100">
+              <span class="text-[10px] text-emerald-700 block">Bayar per Orang</span>
+              <strong class="text-emerald-700 text-sm font-mono">Rp 34.833</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage-verified-pill mt-3">
+          <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-xs">Tagihan terbagi rapi. Tamu dapat membayar via QRIS masing-masing.</span>
+        </div>
+      </div>
+
+      <!-- SCENE 3: Kitchen Display System (KDS) Dispatch -->
+      <div class="sim-scene" data-sim-scene="resto-3" style="padding-top: 32px;">
+        <div class="stage-card">
+          <div class="flex items-center justify-between text-xs pb-1 border-b border-slate-100">
+            <span class="font-mono text-slate-500">LAYAR DAPUR KDS // TIKET MEJA 02</span>
+            <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded text-[10px] animate-pulse">🍳 SEDANG DIMASAK</span>
+          </div>
+          <div class="py-1 text-[11px] text-slate-700">
+            <div>1x Wagyu Rice Bowl <span class="text-slate-400">(Tingkat: Medium)</span></div>
+            <div>1x Matcha Ice Latte <span class="text-slate-400">(Less Sugar)</span></div>
+          </div>
+          <div class="mt-1 pt-1 border-t border-slate-100 text-[10px] text-slate-500 flex justify-between">
+            <span>Estimasi Saji: 8 Menit</span>
+            <span class="text-emerald-600 font-semibold">Chef Station: Ready ✓</span>
+          </div>
+        </div>
+
+        <!-- Kitchen Alert Toast -->
+        <div class="stage-wa-toast mt-2">
+          <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </div>
+          <div class="stage-wa-text">
+            <strong class="text-slate-900 font-semibold block text-[11px]">Transmisi Dapur Seketika:</strong>
+            <span class="text-slate-600">Pesanan meja langsung muncul di monitor dapur tanpa kertas nota terbuang.</span>
           </div>
         </div>
       </div>

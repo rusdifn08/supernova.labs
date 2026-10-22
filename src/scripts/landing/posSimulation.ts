@@ -1,278 +1,122 @@
+/**
+ * SUPERNOVA MARKETING — POS & ERP ANIMATED SIMULATOR
+ * Clean, lightweight, senior-level interactive workflow simulator
+ */
+
+interface LocationConfig {
+  name: string;
+  subtotal: string;
+  syncNote: string;
+}
+
+const LOCATION_DATA: Record<string, LocationConfig> = {
+  scbd: {
+    name: 'OUTLET SCBD',
+    subtotal: 'Rp 60.000',
+    syncNote: 'Gudang SCBD (-2)',
+  },
+  bandung: {
+    name: 'OUTLET BANDUNG',
+    subtotal: 'Rp 54.000',
+    syncNote: 'Gudang Dago (-2)',
+  },
+  surabaya: {
+    name: 'OUTLET SURABAYA',
+    subtotal: 'Rp 58.000',
+    syncNote: 'Gudang Gubeng (-2)',
+  },
+};
+
+const STEP_DATA = [
+  {
+    title: '1. Input Kasir Super Cepat',
+    desc: 'Kasir men-tap produk menu atau scan barcode fisik. Item langsung terhitung di keranjang belanja dengan kalkulasi promo otomatis.',
+    sync: 'Siap Bayar (2 Item)',
+  },
+  {
+    title: '2. Verifikasi Pembayaran Instan (QRIS / Cash)',
+    desc: 'Tamu membayar via QRIS dinamis atau tunai. Sistem mendeteksi dana masuk secara seketika tanpa perlu cek mutasi manual.',
+    sync: 'Pembayaran Lunas (1 Detik)',
+  },
+  {
+    title: '3. Cetak Struk & Potong Stok Multi-Gudang ERP',
+    desc: 'Struk thermal terbit & terkirim ke WhatsApp, sementara database ERP seketika memotong stok bahan baku dan mencatat margin laba.',
+    sync: 'Stok Gudang Terupdate',
+  },
+];
+
 export function initPosSimulation(root: HTMLElement) {
-  interface PosProduct {
-    id: string;
-    sku: string;
-    name: string;
-    category: 'beverage' | 'food' | 'retail';
-    price: number;
-    buyPrice: number;
-    stock: number;
-    unit: string;
-  }
+  const panel = root.querySelector<HTMLElement>('#panel-pos');
+  if (!panel) return;
 
-  interface CartItem {
-    product: PosProduct;
-    quantity: number;
-    notes?: string;
-  }
+  const stepPills = panel.querySelectorAll<HTMLButtonElement>('[data-sim-stepper="pos"] button');
+  const scenes = panel.querySelectorAll<HTMLElement>('[data-sim-scene^="pos-"]');
+  const locChips = panel.querySelectorAll<HTMLButtonElement>('#posLocationChips button');
 
-  const formatIDR = (val: number) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      maximumFractionDigits: 0,
-    }).format(val);
-  };
+  const titleEl = panel.querySelector<HTMLElement>('#posStepTitle span');
+  const descEl = panel.querySelector<HTMLElement>('#posStepDesc');
+  const metricSyncEl = panel.querySelector<HTMLElement>('#posMetricSync');
 
-  const initialProducts: PosProduct[] = [
-    { id: 'p1', sku: 'SKU-COF-01', name: 'Biji Kopi Signature 250g', category: 'retail', price: 75000, buyPrice: 35000, stock: 48, unit: 'bag' },
-    { id: 'p2', sku: 'SKU-BEV-01', name: 'Caramel Macchiato Latte', category: 'beverage', price: 35000, buyPrice: 12000, stock: 92, unit: 'cup' },
-    { id: 'p3', sku: 'SKU-FOD-01', name: 'Croissant Butter Almond', category: 'food', price: 28000, buyPrice: 11000, stock: 14, unit: 'pcs' },
-    { id: 'p4', sku: 'SKU-BEV-02', name: 'Matcha Oatmilk Iced', category: 'beverage', price: 32000, buyPrice: 10000, stock: 65, unit: 'cup' },
-    { id: 'p5', sku: 'SKU-FOD-02', name: 'Truffle Fries Gourmet', category: 'food', price: 36000, buyPrice: 13000, stock: 22, unit: 'portion' },
-    { id: 'p6', sku: 'SKU-RET-01', name: 'Tumbler Stainless Supernova', category: 'retail', price: 120000, buyPrice: 65000, stock: 4, unit: 'pcs' },
-  ];
+  const locBadgeEl = panel.querySelector<HTMLElement>('#posStageLocBadge');
+  const subtotalEl = panel.querySelector<HTMLElement>('#posSimSubtotal');
 
-  let cart: CartItem[] = [
-    { product: initialProducts[1], quantity: 1, notes: 'Normal Sugar' },
-    { product: initialProducts[0], quantity: 1, notes: 'Medium Roast' },
-  ];
+  let currentStep = 1;
+  let autoTimer: number | null = null;
+  let isUserInteracted = false;
 
-  let appliedVoucherDiscount = 0;
-  let useMemberPointsDiscount = 0;
-  let dayOmset = 2850000;
-  let dayHpp = 1140000;
-  let cashSalesTotal = 1450000;
+  const setStep = (step: number) => {
+    currentStep = step;
 
-  const productGrid = root.querySelector<HTMLElement>('#posProductGrid');
-  const cartContainer = root.querySelector<HTMLElement>('#cartItemsContainer');
-  const posSearch = root.querySelector<HTMLInputElement>('#posSearchInput');
-  const catPills = root.querySelectorAll<HTMLButtonElement>('#posCategoryPills .p-cat-btn');
-
-  const elSubtotal = root.querySelector<HTMLElement>('#posSubtotal');
-  const elDiscount = root.querySelector<HTMLElement>('#posDiscount');
-  const elTax = root.querySelector<HTMLElement>('#posTax');
-  const elGrand = root.querySelector<HTMLElement>('#posGrandTotal');
-
-  const voucherInput = root.querySelector<HTMLInputElement>('#posVoucherInput');
-  const btnApplyVoucher = root.querySelector<HTMLButtonElement>('#btnApplyVoucher');
-  const voucherFeedback = root.querySelector<HTMLElement>('#voucherFeedback');
-
-  const cashInput = root.querySelector<HTMLInputElement>('#cashReceivedInput');
-  const cashChangeDisplay = root.querySelector<HTMLElement>('#cashChangeDisplay');
-  const cashChips = root.querySelectorAll<HTMLButtonElement>('.cash-chip');
-  const btnCheckout = root.querySelector<HTMLButtonElement>('#btnPosCheckout');
-
-  let activeCategory = 'all';
-  let searchQuery = '';
-
-  const calculatePosTotals = () => {
-    let subtotal = 0;
-    cart.forEach((item) => {
-      subtotal += item.product.price * item.quantity;
+    stepPills.forEach((btn) => {
+      const s = Number(btn.dataset.step);
+      btn.classList.toggle('is-active', s === step);
     });
 
-    const totalDiscount = Math.min(subtotal, appliedVoucherDiscount + useMemberPointsDiscount);
-    const taxableAmount = Math.max(0, subtotal - totalDiscount);
-    const tax = Math.round(taxableAmount * 0.1);
-    const grandTotal = taxableAmount + tax;
+    scenes.forEach((scene) => {
+      const s = Number(scene.dataset.simScene?.replace('pos-', ''));
+      scene.classList.toggle('is-active', s === step);
+    });
 
-    if (elSubtotal) elSubtotal.textContent = formatIDR(subtotal);
-    if (elDiscount) elDiscount.textContent = `-${formatIDR(totalDiscount)}`;
-    if (elTax) elTax.textContent = formatIDR(tax);
-    if (elGrand) elGrand.textContent = formatIDR(grandTotal);
-
-    const cashVal = parseFloat(cashInput?.value || '0');
-    const change = Math.max(0, cashVal - grandTotal);
-    if (cashChangeDisplay) {
-      cashChangeDisplay.textContent = formatIDR(change);
+    const info = STEP_DATA[step - 1];
+    if (info) {
+      if (titleEl) titleEl.textContent = info.title;
+      if (descEl) descEl.textContent = info.desc;
+      if (metricSyncEl) metricSyncEl.textContent = info.sync;
     }
   };
 
-  const renderProducts = () => {
-    if (!productGrid) return;
-    const filtered = initialProducts.filter((p) => {
-      const matchCat = activeCategory === 'all' || p.category === activeCategory;
-      const matchSearch =
-        searchQuery === '' ||
-        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.sku.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCat && matchSearch;
-    });
-
-    productGrid.innerHTML = filtered
-      .map((p) => {
-        const isLowStock = p.stock <= 5;
-        const stockBadge = isLowStock
-          ? `<span class="stock-badge stock-badge--danger">⚠️ Sisa ${p.stock} ${p.unit}</span>`
-          : `<span class="stock-badge stock-badge--ok">Stok: ${p.stock} ${p.unit}</span>`;
-
-        return `
-          <div class="pos-prod-card" data-id="${p.id}">
-            <div class="prod-top">
-              <span class="prod-sku">${p.sku}</span>
-              ${stockBadge}
-            </div>
-            <strong class="prod-name">${p.name}</strong>
-            <div class="prod-bottom">
-              <span class="prod-price">${formatIDR(p.price)}</span>
-              <button type="button" class="btn-add-cart" data-id="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>
-                + Tambah
-              </button>
-            </div>
-          </div>
-        `;
-      })
-      .join('');
-
-    productGrid.querySelectorAll<HTMLButtonElement>('.btn-add-cart').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        const prod = initialProducts.find((p) => p.id === id);
-        if (!prod || prod.stock <= 0) return;
-
-        const cartItem = cart.find((item) => item.product.id === id);
-        if (cartItem) {
-          cartItem.quantity++;
-        } else {
-          cart.push({ product: prod, quantity: 1 });
-        }
-        prod.stock--;
-        renderProducts();
-        renderCart();
-      });
-    });
+  const applyLocationData = (locKey: string) => {
+    const data = LOCATION_DATA[locKey] || LOCATION_DATA.scbd;
+    if (locBadgeEl) locBadgeEl.textContent = data.name;
+    if (subtotalEl) subtotalEl.textContent = data.subtotal;
   };
 
-  const renderCart = () => {
-    if (!cartContainer) return;
-    if (cart.length === 0) {
-      cartContainer.innerHTML = `<div class="cart-empty-text">Keranjang kasir masih kosong. Klik "+ Tambah" pada katalog di atas.</div>`;
-    } else {
-      cartContainer.innerHTML = cart
-        .map(
-          (item, idx) => `
-          <div class="cart-line-item">
-            <div class="item-info">
-              <strong>${item.product.name}</strong>
-              <small class="item-sub">${formatIDR(item.product.price)} x ${item.quantity} = ${formatIDR(item.product.price * item.quantity)}</small>
-            </div>
-            <div class="item-controls">
-              <button type="button" class="btn-qty-op" data-action="dec" data-idx="${idx}">-</button>
-              <span class="qty-num">${item.quantity}</span>
-              <button type="button" class="btn-qty-op" data-action="inc" data-idx="${idx}">+</button>
-            </div>
-          </div>
-        `
-        )
-        .join('');
-
-      cartContainer.querySelectorAll<HTMLButtonElement>('.btn-qty-op').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const idx = parseInt(btn.dataset.idx || '0', 10);
-          const action = btn.dataset.action;
-          const item = cart[idx];
-          if (!item) return;
-
-          if (action === 'inc') {
-            if (item.product.stock > 0) {
-              item.quantity++;
-              item.product.stock--;
-            }
-          } else if (action === 'dec') {
-            item.quantity--;
-            item.product.stock++;
-            if (item.quantity <= 0) {
-              cart.splice(idx, 1);
-            }
-          }
-          renderProducts();
-          renderCart();
-        });
-      });
-    }
-
-    calculatePosTotals();
-  };
-
-  posSearch?.addEventListener('input', () => {
-    searchQuery = posSearch.value.trim();
-    renderProducts();
-  });
-
-  catPills.forEach((pill) => {
-    pill.addEventListener('click', () => {
-      catPills.forEach((p) => p.classList.remove('is-active'));
-      pill.classList.add('is-active');
-      activeCategory = pill.dataset.cat || 'all';
-      renderProducts();
+  stepPills.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      isUserInteracted = true;
+      const step = Number(btn.dataset.step) || 1;
+      setStep(step);
     });
   });
 
-  btnApplyVoucher?.addEventListener('click', () => {
-    const code = voucherInput?.value.trim().toUpperCase() || '';
-    if (!voucherFeedback) return;
-    if (code === 'SUPERNOVA10') {
-      appliedVoucherDiscount = 15000;
-      voucherFeedback.innerHTML = `<span class="text-success">✓ Voucher SUPERNOVA10 aktif: Diskon Rp 15.000!</span>`;
-    } else {
-      appliedVoucherDiscount = 0;
-      voucherFeedback.innerHTML = `<span class="text-danger">Kode promo tidak valid.</span>`;
-    }
-    calculatePosTotals();
-  });
-
-  cashChips.forEach((chip) => {
+  locChips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      const nominal = chip.dataset.nominal;
-      let grandTotal = 0;
-      cart.forEach((i) => (grandTotal += i.product.price * i.quantity));
-      grandTotal = Math.round((grandTotal - appliedVoucherDiscount) * 1.1);
+      locChips.forEach((c) => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const locKey = chip.dataset.loc || 'scbd';
+      applyLocationData(locKey);
+    });
+  });
 
-      if (nominal === 'exact') {
-        if (cashInput) cashInput.value = grandTotal.toString();
-      } else if (nominal) {
-        if (cashInput) cashInput.value = nominal;
+  const startCycle = () => {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = window.setInterval(() => {
+      if (panel.classList.contains('is-active') && !isUserInteracted) {
+        const next = currentStep >= 3 ? 1 : currentStep + 1;
+        setStep(next);
       }
-      calculatePosTotals();
-    });
-  });
+    }, 3500);
+  };
 
-  cashInput?.addEventListener('input', calculatePosTotals);
-
-  btnCheckout?.addEventListener('click', () => {
-    if (cart.length === 0) {
-      alert('Keranjang kasir masih kosong!');
-      return;
-    }
-
-    let subtotal = 0;
-    let cogsTotal = 0;
-    cart.forEach((i) => {
-      subtotal += i.product.price * i.quantity;
-      cogsTotal += i.product.buyPrice * i.quantity;
-    });
-
-    const tax = Math.round((subtotal - appliedVoucherDiscount) * 0.1);
-    const grandTotal = subtotal - appliedVoucherDiscount + tax;
-    const invNumber = `INV/POS-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${Math.floor(100 + Math.random() * 900)}`;
-
-    dayOmset += grandTotal;
-    dayHpp += cogsTotal;
-    cashSalesTotal += grandTotal;
-
-    const erpOmsetEl = root.querySelector<HTMLElement>('#erpOmset');
-    const erpHppEl = root.querySelector<HTMLElement>('#erpHpp');
-    const erpProfitEl = root.querySelector<HTMLElement>('#erpProfit');
-    if (erpOmsetEl) erpOmsetEl.textContent = formatIDR(dayOmset);
-    if (erpHppEl) erpHppEl.textContent = formatIDR(dayHpp);
-    if (erpProfitEl) erpProfitEl.textContent = formatIDR(dayOmset - dayHpp);
-
-    alert(`✓ TRANSAKSI SUKSES!\nNo Faktur: ${invNumber}\nTotal: ${formatIDR(grandTotal)}\nStok gudang & jurnal keuangan telah diperbarui.`);
-    cart = [];
-    renderCart();
-  });
-
-  renderProducts();
-  renderCart();
+  startCycle();
 }
