@@ -106,10 +106,10 @@ export function QrDisplayScreens({
             <button
               type="button"
               onClick={onAckCashier}
-              className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border ${
                 cashierAck
-                  ? 'bg-emerald-100 text-emerald-800'
-                  : 'bg-[#0F172A] text-white hover:bg-[#2563EB]'
+                  ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                  : 'bg-[#0F172A] text-white border-transparent hover:bg-[#2563EB] shadow-xs'
               }`}
             >
               <Check className="h-3.5 w-3.5" />

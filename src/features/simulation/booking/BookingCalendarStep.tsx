@@ -48,11 +48,11 @@ export function BookingCalendarStep({
       </div>
 
       {/* Time Slot Picker */}
-      <div className="mb-6">
-        <label className="mb-2.5 block text-xs font-bold uppercase tracking-wider text-[#0F172A]">
+      <div className="mb-7">
+        <label className="mb-3 block text-xs font-bold uppercase tracking-wider text-[#0F172A]">
           Pilih Jam Sesi
         </label>
-        <div className="grid grid-cols-4 gap-2.5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
           {BOOKING_TIMES.map((t) => (
             <button
               key={t}
@@ -60,7 +60,7 @@ export function BookingCalendarStep({
               onClick={() => onSetSlot(t)}
               className={`sim-time-slot ${slot === t ? 'is-selected' : ''}`}
             >
-              <Clock className="mb-1 h-3.5 w-3.5" />
+              <Clock className="mb-1 h-4 w-4" />
               <span>{t} WIB</span>
             </button>
           ))}
@@ -68,11 +68,11 @@ export function BookingCalendarStep({
       </div>
 
       {/* Package Picker */}
-      <div className="mb-6">
-        <label className="mb-2.5 block text-xs font-bold uppercase tracking-wider text-[#0F172A]">
+      <div className="mb-7">
+        <label className="mb-3 block text-xs font-bold uppercase tracking-wider text-[#0F172A]">
           Pilih Paket Tambahan
         </label>
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-3">
           {BOOKING_PACKAGES.map((p) => {
             const isSelected = pkg?.id === p.id;
             return (
@@ -82,9 +82,11 @@ export function BookingCalendarStep({
                 onClick={() => onSetPkg(p)}
                 className={`sim-package-card ${isSelected ? 'is-selected' : ''}`}
               >
-                <span className="block text-sm font-bold">{p.name}</span>
-                <span className="sim-package-dur block text-xs text-[#64748B] mt-0.5">{p.dur}</span>
-                <span className="sim-package-price mt-2 block text-xs font-extrabold text-[#0891b2]">
+                <div>
+                  <span className="block text-sm font-bold">{p.name}</span>
+                  <span className="sim-package-dur block text-xs text-[#64748B] mt-1">{p.dur}</span>
+                </div>
+                <span className="sim-package-price mt-3 block text-xs font-extrabold text-[#0891b2]">
                   {p.add === 0 ? 'Termasuk Sesi' : `+ ${formatRupiah(p.add)}`}
                 </span>
               </button>
@@ -94,7 +96,7 @@ export function BookingCalendarStep({
       </div>
 
       {/* Actions */}
-      <div className="flex items-center justify-between border-t border-slate-200/80 pt-4">
+      <div className="flex items-center justify-between border-t border-slate-200/80 pt-5">
         <button
           type="button"
           onClick={onBack}
