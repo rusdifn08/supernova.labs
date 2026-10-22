@@ -53,10 +53,10 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
   };
 
   return (
-    <div className="bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-6 sm:p-8 shadow-sm">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-900/5">
       <div className="mb-6">
-        <h3 className="text-xl font-bold tracking-tight text-[var(--ink)]">Masuk ke Sistem</h3>
-        <p className="text-xs text-[var(--muted)] mt-1">
+        <h3 className="text-xl font-bold tracking-tight text-slate-900">Masuk ke Sistem</h3>
+        <p className="text-xs text-slate-500 mt-1">
           Akses dashboard manajemen operasional bisnis Anda
         </p>
       </div>
@@ -102,7 +102,7 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
         </div>
 
         {/* User Required Text: Belum punya akun? Daftar Disini */}
-        <div className="text-center text-xs text-[var(--muted)] mt-2">
+        <div className="text-center text-xs text-slate-600 mt-2">
           Belum punya akun?{' '}
           <a
             href="#"
@@ -110,7 +110,7 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
               e.preventDefault();
               onSwitchToRegister();
             }}
-            className="text-blue font-bold text-[var(--bright)] hover:underline"
+            className="text-blue font-bold hover:underline"
           >
             Daftar Disini
           </a>
@@ -119,10 +119,10 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
         {/* Demo Fast Access */}
         <div className="relative my-2">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-[var(--line)]" />
+            <div className="w-full border-t border-slate-200" />
           </div>
           <div className="relative flex justify-center text-[11px] uppercase">
-            <span className="bg-[var(--surface)] px-2 text-[var(--muted-2)] font-medium">
+            <span className="bg-white px-3 text-slate-400 font-semibold tracking-wider">
               Uji Coba Langsung
             </span>
           </div>

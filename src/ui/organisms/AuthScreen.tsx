@@ -41,11 +41,15 @@ export function AuthScreen({
 
         {/* Center illustration & copy */}
         <div className="my-auto py-8 z-10 flex flex-col items-center text-center">
-          <div className="w-full max-w-[280px] sm:max-w-[320px] aspect-square flex items-center justify-center mb-6 drop-shadow-xl">
+          <div
+            className="w-full max-w-[280px] sm:max-w-[320px] aspect-square flex items-center justify-center mb-6 drop-shadow-xl"
+            style={{ maxWidth: '280px', maxHeight: '280px', width: '100%' }}
+          >
             <img
               src={illustrationSrc}
               alt={`${productTitle} Character`}
               className="w-full h-full object-contain"
+              style={{ maxHeight: '280px', maxWidth: '280px', width: '100%', height: 'auto', objectFit: 'contain' }}
               loading="eager"
             />
           </div>

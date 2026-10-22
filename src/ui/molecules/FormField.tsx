@@ -19,15 +19,15 @@ export function FormField({
 }: FormFieldProps) {
   return (
     <div className={`flex flex-col gap-1.5 w-full ${className}`}>
-      <label className="text-xs font-semibold text-[var(--ink-2)] flex items-center justify-between">
+      <label className="text-xs font-semibold text-slate-700 flex items-center justify-between">
         <span>
           {label}
-          {required && <span className="text-[var(--danger)] ml-1">*</span>}
+          {required && <span className="text-red-500 ml-1 font-bold">*</span>}
         </span>
-        {hint && <span className="text-[11px] font-normal text-[var(--muted-2)]">{hint}</span>}
+        {hint && <span className="text-[11px] font-normal text-slate-400">{hint}</span>}
       </label>
       {children}
-      {error && <p className="text-xs text-[var(--danger)] mt-0.5">{error}</p>}
+      {error && <p className="text-xs text-red-500 font-medium mt-0.5">{error}</p>}
     </div>
   );
 }

@@ -66,10 +66,10 @@ export function RegisterForm({ product, onSwitchToLogin }: RegisterFormProps) {
   };
 
   return (
-    <div className="bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-6 sm:p-8 shadow-sm">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-900/5">
       <div className="mb-5">
-        <h3 className="text-xl font-bold tracking-tight text-[var(--ink)]">Daftar Akun Baru</h3>
-        <p className="text-xs text-[var(--muted)] mt-1">
+        <h3 className="text-xl font-bold tracking-tight text-slate-900">Daftar Akun Baru</h3>
+        <p className="text-xs text-slate-500 mt-1">
           Aktifkan sistem operasional penuh untuk bisnis Anda (Bebas Biaya 30 Hari)
         </p>
       </div>

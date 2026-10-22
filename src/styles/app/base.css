@@ -1,5 +1,9 @@
 @import '../tokens.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -9,8 +13,8 @@
 html, body {
   height: 100%;
   width: 100%;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--paper, #f8fafc);
+  color: var(--ink, #0a1120);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,7 +22,7 @@ html, body {
 
 /* User required specific classes */
 .text-blue {
-  color: var(--bright) !important;
+  color: var(--bright, #2563eb) !important;
 }
 
 .font-bold {
@@ -34,9 +38,9 @@ html, body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--line-2);
+  background: var(--line-2, #cbd5e1);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-2);
+  background: var(--muted-2, #94a3b8);
 }

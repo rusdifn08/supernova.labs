@@ -21,20 +21,20 @@ export function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all rounded-lg focus:outline-none focus:ring-2 select-none';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all rounded-xl focus:outline-none focus:ring-2 select-none';
   
   const sizeClasses = {
-    sm: 'text-xs px-2.5 py-1.5 gap-1.5',
-    md: 'text-sm px-4 py-2 gap-2',
-    lg: 'text-base px-5 py-2.5 gap-2.5',
+    sm: 'text-xs px-3 py-2 min-h-[36px] gap-1.5',
+    md: 'text-sm px-4 py-2.5 min-h-[44px] gap-2',
+    lg: 'text-base px-6 py-3 min-h-[50px] gap-2.5',
   }[size];
 
   const variantClasses = {
-    primary: 'bg-[var(--bright)] hover:bg-[var(--bright-hover)] text-white shadow-sm focus:ring-[var(--color-focus)]',
-    secondary: 'bg-[var(--surface)] hover:bg-[var(--color-surface-muted)] text-[var(--ink-2)] border border-[var(--line)] shadow-sm focus:ring-[var(--line-2)]',
-    ghost: 'bg-transparent hover:bg-[var(--color-surface-muted)] text-[var(--muted)] hover:text-[var(--ink)] focus:ring-[var(--line-2)]',
-    danger: 'bg-[var(--danger)] hover:opacity-90 text-white shadow-sm focus:ring-red-300',
-    whatsapp: 'bg-[var(--wa)] hover:bg-[var(--wa-hover)] text-white shadow-sm focus:ring-emerald-300 font-semibold',
+    primary: 'bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-md focus:ring-blue-300',
+    secondary: 'bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-sm focus:ring-slate-300',
+    ghost: 'bg-transparent hover:bg-slate-100 text-slate-600 hover:text-slate-900 focus:ring-slate-200',
+    danger: 'bg-red-600 hover:bg-red-700 text-white shadow-sm focus:ring-red-200',
+    whatsapp: 'bg-[#25D366] hover:bg-[#1EBE5D] text-white shadow-md focus:ring-emerald-300 font-bold',
   }[variant];
 
   const widthClass = fullWidth ? 'w-full' : '';
