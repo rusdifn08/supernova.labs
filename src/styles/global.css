@@ -38,3 +38,13 @@
 @import './marketing/demo/resto-sim.css';
 @import './marketing/demo/resto-cart.css';
 @import './marketing/demo/resto-kds.css';
+
+/* Tailwind Component & Utility classes */
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scanLaserMove {
+  0% { transform: translateY(-50px); opacity: 0.2; }
+  50% { transform: translateY(0px); opacity: 1; }
+  100% { transform: translateY(50px); opacity: 0.2; }
+}
